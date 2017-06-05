@@ -1,0 +1,19 @@
+@charset "UTF-8";
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body {
+    background-color: #feeded;
+}
+
+a {
+    text-decoration: none;
+    color: #fff
+}
+
+a:hover {
+    color:#f1fbfb;
+}
