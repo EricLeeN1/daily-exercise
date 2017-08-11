@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文本动画</title>
+    <script src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="musicControl">开</div>
+    <audio hidden="true" autoplay src="music/麦振鸿 - 长卿—众生平等.mp3" controls></audio>
+    <div id="div1" hidden="true"></div>
+    <ul id="text"></ul>
+    <div class="news">
+        <ul id="news-list">
+            <li class="news-item">消息001---这是第001条消息--去领取</li>
+            <li class="news-item">消息002---这是第002条消息--去领取</li>
+            <li class="news-item">消息003---这是第003条消息--去领取</li>
+            <li class="news-item">消息004---这是第004条消息--去领取</li>
+            <li class="news-item">消息005---这是第005条消息--去领取</li>
+            <li class="news-item">消息006---这是第006条消息--去领取</li>
+            <li class="news-item">消息007---这是第007条消息--去领取</li>
+            <li class="news-item">消息008---这是第008条消息--去领取</li>
+            <li class="news-item">消息009---这是第009条消息--去领取</li>
+            <li class="news-item">消息010---这是第010条消息--去领取</li>
+            <li class="news-item">消息011---这是第011条消息--去领取</li>
+            <li class="news-item">消息012---这是第012条消息--去领取</li>
+            <li class="news-item">消息013---这是第013条消息--去领取</li>
+            <li class="news-item">消息014---这是第014条消息--去领取</li>
+            <li class="news-item">消息015---这是第015条消息--去领取</li>
+            <li class="news-item">消息016---这是第016条消息--去领取</li>
+            <li class="news-item">消息017---这是第017条消息--去领取</li>
+            <li class="news-item">消息018---这是第018条消息--去领取</li>
+            <li class="news-item">消息019---这是第019条消息--去领取</li>
+            <li class="news-item">消息020---这是第020条消息--去领取</li>
+            <li class="news-item">消息021---这是第021条消息--去领取</li>
+            <li class="news-item">消息022---这是第022条消息--去领取</li>
+            <li class="news-item">消息023---这是第023条消息--去领取</li>
+            <li class="news-item">消息024---这是第024条消息--去领取</li>
+            <li class="news-item">消息025---这是第025条消息--去领取</li>
+            <li class="news-item">消息026---这是第026条消息--去领取</li>
+            <li class="news-item">消息027---这是第027条消息--去领取</li>
+            <li class="news-item">消息028---这是第028条消息--去领取</li>
+            <li class="news-item">消息029---这是第029条消息--去领取</li>
+            <li class="news-item">消息030---这是第030条消息--去领取</li>
+            <li class="news-item">消息031---这是第031条消息--去领取</li>
+            <li class="news-item">消息032---这是第032条消息--去领取</li>
+            <li class="news-item">消息033---这是第033条消息--去领取</li>
+            <li class="news-item">消息034---这是第034条消息--去领取</li>
+            <li class="news-item">消息035---这是第035条消息--去领取</li>
+            <li class="news-item">消息036---这是第036条消息--去领取</li>
+            <li class="news-item">消息037---这是第037条消息--去领取</li>
+            <li class="news-item">消息038---这是第038条消息--去领取</li>
+            <li class="news-item">消息039---这是第039条消息--去领取</li>
+            <li class="news-item">消息040---这是第040条消息--去领取</li>
+            <li class="news-item">消息041---这是第041条消息--去领取</li>
+            <li class="news-item">消息042---这是第042条消息--去领取</li>
+            <li class="news-item">消息043---这是第043条消息--去领取</li>
+            <li class="news-item">消息044---这是第044条消息--去领取</li>
+            <li class="news-item">消息045---这是第045条消息--去领取</li>
+            <li class="news-item">消息046---这是第046条消息--去领取</li>
+            <li class="news-item">消息047---这是第047条消息--去领取</li>
+            <li class="news-item">消息048---这是第048条消息--去领取</li>
+            <li class="news-item">消息049---这是第049条消息--去领取</li>
+            <li class="news-item">消息050---这是第050条消息--去领取</li>
+        </ul>
+    </div>
+    <div class="reply">
+        <ul id="reply-list">
+            <li class="reply-item" data-index="001">
+                <div class="replyer-name">游客001:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第001个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="002">
+                <div class="replyer-name">游客002:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第002个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="003">
+                <div class="replyer-name">游客003:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第003个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="004">
+                <div class="replyer-name">游客004:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第004个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="005">
+                <div class="replyer-name">游客005:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第005个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="006">
+                <div class="replyer-name">游客006:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第006个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="007">
+                <div class="replyer-name">游客007:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第007个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="008">
+                <div class="replyer-name">游客008:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第008个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="009">
+                <div class="replyer-name">游客009:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第009个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="010">
+                <div class="replyer-name">游客010:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第010个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="011">
+                <div class="replyer-name">游客011:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第011个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="012">
+                <div class="replyer-name">游客012:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第012个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="013">
+                <div class="replyer-name">游客013:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第013个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="014">
+                <div class="replyer-name">游客014:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第014个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="015">
+                <div class="replyer-name">游客015:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第015个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="016">
+                <div class="replyer-name">游客016:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第016个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="017">
+                <div class="replyer-name">游客017:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第017个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="018">
+                <div class="replyer-name">游客018:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第018个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="019">
+                <div class="replyer-name">游客019:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第019个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+            <li class="reply-item" data-index="020">
+                <div class="replyer-name">游客020:</div>
+                <div class="replyer-content-area">
+                    <div class="replyer-content">这是第020个评论!</div>
+                    <div class="btn">回复</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="js/animation.js"></script>
+</body>
+
+</html>
