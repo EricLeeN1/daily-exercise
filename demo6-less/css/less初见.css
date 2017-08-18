@@ -1,0 +1,16 @@
+@charset "UTF-8";
+.container ul {
+  list-style: none;
+  color: red;
+}
+.container ul li {
+  height: 25px;
+  line-height: 25px;
+  padding-left: 15px;
+  background: url("../img/add.png") no-repeat center left;
+}
+.container ul li a {
+  text-decoration: none;
+  color: red;
+  font-family: "Microsoft Tai Le";
+}

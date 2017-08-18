@@ -1,0 +1,16 @@
+@charset "UTF-8";
+header {
+  background-color: green;
+}
+header h1 {
+  color: #ffffff;
+}
+.width {
+  width: 150px;
+  height: 160px;
+}
+.img {
+  height: 200px;
+  width: 200px;
+  background: url("../img/add.png") no-repeat center;
+}
