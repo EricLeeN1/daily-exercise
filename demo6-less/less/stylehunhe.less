@@ -1,0 +1,91 @@
+@charset "UTF-8";
+.font_hn(){
+  color: red;
+  font-family: Arial;
+  &:hover{
+    .borders(1px;dashed;blue);
+  }
+}
+//加括号表示不会再样式表中输出
+h1 {
+  font-size: 18px;
+  .font_hn;
+  .borders(5px;solid;red);
+}
+h2{
+  font-size: 16px;
+  .font_hn;
+  .borders(5px;dotted);
+}
+
+//带参数的混合
+.borders(@width;@type;@color:orange){
+  border:@width @type @color;
+}
+//带多个参数的混合
+.mixin(@color;@padding:12;@margin:2,2,2,2){
+  color:@color;
+  padding-top: @padding;
+  margin: @margin @margin @margin @margin;
+}
+.hehe{
+  .mixin(green;16px;10px);
+}
+//如果传参的（）里面全部都是以逗号分隔,那么会依次传给各个参数值；
+//如果传参的（）里面既有逗号又有分号，那么会把分号前面的看做一个整体传给一个参数值；
+
+.mixin1(@width:2px;@type:solid;@color:red){
+  border: @arguments;
+}
+.hehe1{
+  .mixin1();
+}
+.border(all,@w:5px){
+  border-radius: @w;
+}
+.border(t_l,@w:5px){
+  border-top-left-radius: @w;
+}
+.border(t_r,@w:5px){
+  border-top-right-radius: @w;
+}
+.border(b_l,@w:5px){
+  border-bottom-left-radius: @w;
+}
+.border(b_r,@w:5px){
+  border-bottom-right-radius: @w;
+}
+.box{
+  width: 50px;
+  height: 50px;
+  background-color: red;
+}
+.bordera{
+  .border(all,50%);
+  .box;
+}
+.bordertl{
+  .border(t_l,50%);
+  .box;
+}
+.bordertr{
+  .border(t_r,50%);
+  .box;
+}
+.borderbl{
+  .border(b_l,50%);
+  .box;
+}
+.borderbr{
+  .border(b_r,50%);
+  .box;
+}
+
+//混合的返回值
+.average(@x;@y){
+  @average:((@x+@y)/2);
+}
+div{
+  .average(16px,50px);
+  border-width: @average;
+}

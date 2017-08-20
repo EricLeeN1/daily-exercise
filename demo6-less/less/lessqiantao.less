@@ -1,0 +1,31 @@
+@charset "UTF-8";
+//&：表示当前选择器的所有父选择器
+header{
+  &:hover{
+    background-color: red;
+  }
+}
+.a{
+  .b{
+    .c{
+      color:#aaa;
+    }
+  }
+}
+//.a .b .c
+.a{
+  .b{
+    .c &{
+      color:#aaa;
+    }
+  }
+}
+//反过来.c .a .b
+p,a,ul,li{
+  border-top:2px solid red;
+  & &{
+    border: 0;
+  }
+}
+
+//所有可能组合的列表
