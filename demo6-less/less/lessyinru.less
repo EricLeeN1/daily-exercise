@@ -1,0 +1,24 @@
+@charset "UTF-8";
+@import "less初见";
+//import 可加参数
+//@import (reference)"less初见";  引用less文件但不输出
+//@import (inline)"less初见"; 引用less文件但不进行操作
+//@import (once)"less初见"; 默认只包含一次，
+//@import (less)"less初见"; 无论是什么格式的文件，都将文件格式转换为.less文件
+//@import (css)"less初见"; 无论是什么格式的文件，都将文件格式转为.css格式
+//@import (multiple)"less初见"; 允许引入多次，相同文件名的文件。
+
+//引入css文件会原样输出到编译的文件中
+//但是不能混合css文件中的样式
+
+//在调用的混合集后面添加important文件，可以让所有属性继承！important
+
+.foo {
+  @bg: #f5f5f5;
+  @color: #fff;
+}
+
+.important {
+  .foo() !important;
+  //提升所有样式的权重，但尽量少用
+}
