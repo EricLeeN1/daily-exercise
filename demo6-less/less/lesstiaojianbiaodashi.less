@@ -1,1 +1,63 @@
 @charset "UTF-8";
+//带条件的混合
+//.mixin(@a) when (lightness(@a)>=50%) {
+//  background-color: black;
+//}
+//
+//.mixin(@a) when (lightness(@a)<50%) {
+//  background-color: white;
+//}
+//
+//.mixin(@a) {
+//  color: @a;
+//}
+//
+//.class1 {
+//  .mixin(#ddd);
+//}
+//
+//.class2 {
+//  .mixin(#555);
+//}
+//iscolor isnumber isstring iskeyword isurl类型检查函数
+//.mixin(@a)when(iscolor(@a)){
+//  background-color: black;
+//}
+//.mixin(@a)when(isnumber(@a)){
+//  background-color: white;
+//  shuzi:shuzi
+//}
+//.mixin(@a) {
+//  color: @a;
+//}
+//
+//.class1 {
+//  .mixin(#ddd);
+//}
+//
+//.class2 {
+//  .mixin(333);
+//}
+
+//单位检查函数
+.mixin(@a) when (ispixel(@a)) {
+  background-color: black;
+  width: @a;
+}
+
+.mixin(@a) when (ispercentage(@a)) {
+  background-color: white;
+  width: @a;
+}
+
+.mixin(@a) {
+  color: @a;
+}
+
+.class1 {
+  .mixin(960px);
+}
+
+.class2 {
+  .mixin(95%);
+}
