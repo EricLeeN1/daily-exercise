@@ -1,106 +1,73 @@
-//如果一个值是一个数字，返回'真(true)',否则返回'假(false)'.
-//.m(@x) when (isnumber(@x)) {
-//  x:@x
-//}
+//通过十进制红色，绿色，蓝色三种值 (RGB) 创建不透明的颜色对象。
 //div{
-//.m(123);
-//.m(ABC);
+//  background: rgb(255,0,0);
+//  background: rgb(100%,0%,0%);
 //}
 
-//如果一个值是一个字符串，返回'真(true)',否则返回'假(false)'.
-//.m(@x) when (isstring(@x)) {
-//  x:@x
-//}
+//通过十进制红色，绿色，蓝色，以及 alpha 四种值 (RGBA) 创建带alpha透明的颜色对象。
 //div{
-//.m(123);
-//.m("ABC");
+//  background: rgba(255,0,0,0.5);
+//  background: rgba(100%,0%,0%,0.5);
 //}
 
-//如果一个值是一个颜色，返回'真(true)',否则返回'假(false)'.
-//.m(@x) when (iscolor(@x)) {
-//  x:@x
-//}
+//创建格式为 #AARRGGBB 的十六进制 (hex representation) 颜色 (注意不是 #RRGGBBAA ！)。
 //div{
-//  .m(123);
-//  .m("ABC");
-//  .m(red);
+//  background: argb(rgba(255,0,0,0.5));
+//  background: argb(rgba(100%,0%,0%,0.5));
 //}
 
-//如果一个值是一个关键字，返回'真(true)',否则返回'假(false)'.
-//.m(@x) when (iskeyword(@x)) {
-//  x:@x
-//}
+//通过色相 (hue)，饱和度 (saturation)，亮度 (lightness) 三种值 (HSL) 创建不透明的颜色对象。
 //div{
-//  .m(123);
-//  .m("ABC");
-//  .m(red);
-//  .m(ABC);
+//  background: hsl(90,100%,50%);
 //}
 
-//如果一个值是一个url地址，返回'真(true)',否则返回'假(false)'.
-//.m(@x) when (isurl(@x)) {
-//  x:@x
-//}
+//通过色相 (hue)，饱和度 (saturation)，亮度 (lightness)，以及 alpha 四种值 (HSLA) 创建透明的颜色对象。
 //div{
-//  .m(123);
-//  .m("ABC");
-//  .m(red);
-//  .m(ABC);
-//  .m(url(arr.jpg));
+//  background: hsla(90,100%,50%,0.5);
 //}
 
-//如果一个值是带像素长度单位的数字，返回'真(true)',否则返回'假(false)'.
-//.m(@x) when (ispixel(@x)) {
-//  x:@x
-//}
+//通过色相 (hue)，饱和度 (saturation)，色调 (value) 三种值 (HSV) 创建不透明的颜色对象。
 //div{
-//  .m(123);
-//  .m("ABC");
-//  .m(red);
-//  .m(ABC);
-//  .m(url(arr.jpg));
-//  .m(220px);
-//  .m(220cm);
+//  background: hsv(90,100%,50%);
 //}
 
-//如果一个值是带em长度单位的数字，返回'真(true)',否则返回'假(false)'.
-//.m(@x) when (isem(@x)) {
-//  x:@x
-//}
+//通过色相 (hue)，饱和度 (saturation)，色调 (value)，以及 alpha 四种值 (HSVA) 创建透明的颜色对象。
 //div{
-//  .m(123);
-//  .m("ABC");
-//  .m(red);
-//  .m(ABC);
-//  .m(url(arr.jpg));
-//  .m(220px);
-//  .m(240em);
+//  background: hsva(90,100%,50%,8%);
 //}
 
-//如果一个值是带百分比单位的数字，返回'真(true)',否则返回'假(false)'.
-//.m(@x) when (ispercentage(@x)) {
-//  x:@x
-//}
-//div{
-//  .m(123);
-//  .m("ABC");
-//  .m(red);
-//  .m(ABC);
-//  .m(url(arr.jpg));
-//  .m(220px);
-//  .m(240em);
-//  .m(260%);
-//}
 
-//如果一个值是带指定单位的数字，返回'真(true)',否则返回'假(false)'.
-.m(@x) when (isunit(@x,em)) {
-  x:@x
-}
+
+//颜色值提取函数
 div{
-  .m(123);
-  .m(220px);
-  .m(240em);
-  .m(280em);
-  .m(290em);
-  .m(260%);
+
+  //  hue()色相值
+  //z-index: hue(hsl(90,100%,50%));  //90
+  ////saturation()饱和度
+  //z-index: saturation(hsl(90,80%,50%));  //80%
+  ////lightness()亮度值
+  //z-index: lightness(hsl(90,100%,100%));  //100%
+
+  //  hsv(90,100%,50%)
+  //  z-index:hsvhue( hsv(90,100%,50%));  //函数90
+  //  z-index:hsvsaturation( hsv(90,100%,50%)); //函数100%
+  //  z-index:hsvvalue( hsv(90,100%,50%)); //函数50%
+
+  //rgba(29,199,29,80%)
+  //  提取红色
+  //z-index: red(rgba(29,199,150,80%));  //29
+  //  //  提取绿色
+  //z-index: green(rgba(29,199,150,80%));  //199
+  //  //  提取蓝色
+  //z-index: blue(rgba(29,199,150,80%));  //29
+  //  //  提取透明度
+  //z-index: alpha(rgba(29,199,150,80%));  //0.8
+
+  //  计算颜色对象luma的值（亮度的百分比表示法）。
+  //z-index:luma(rgb(100,200,30));
+  ////  计算没有伽玛校正的亮度值
+  //  z-index:luminance(rgb(100,200,30));
+
 }
+
+//颜色值运算提取函数
