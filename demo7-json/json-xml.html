@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>json&&xml互转</title>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery.xml2json.js"></script>
+    <script src="js/jquery.json2xml.js"></script>
+    <script>
+        var str = "<root>" +
+            "<name>Eric Lee</name>" +
+            "<age>26</age>" +
+            "<friends>Alice</friends>" +
+            "<friends>Gwen</friends>" +
+            "</root>";
+
+        console.log(str);
+
+        var obj = $.xml2json(str);
+
+        console.log(obj);
+
+        var jsonstr = JSON.stringify(obj);
+
+        console.log(jsonstr);
+
+
+        var person = {
+            name: "Eric Lee",
+            age: 24,
+            mother: {
+                name: "Lucy",
+                age: 46
+            },
+            a: function () {
+                return 1;
+            },
+            b: null,
+            c: undefined
+        };
+
+        var xmlstr = $.json2xml(person);
+
+        console.log(xmlstr);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
