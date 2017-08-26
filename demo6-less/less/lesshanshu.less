@@ -1,13 +1,56 @@
 @charset "UTF-8";
-.wp {
-  background-color: rgb(255, 0, 0);
-  height: 100px;
-  width: 100px;
+//.x(1) {
+//  x: 11
+//}
+//
+//.y(2) {
+//  y: 22
+//}
+//
+//.x(@x) when (default()) {
+//  z: @x
+//}
+
+body {
+  //background-color: color(skyblue);
+  //width: convert(20cm,px);
+  //background: data-uri("../img/add.png");
 }
-//}2017年8月21日23:11:23
-.wp1{
-  height: 200px;
-  background: blue(#aaaaaa)px;
-  width: 100px;
+
+//.div1 {
+//  .x(1)
+//}
+//
+//.div2 {
+//  .x(123)
+//}
+
+//.x(@x) when (ispixel(@x)) {
+//  width: @x;
+//}
+//
+//.x(@x) when not (default()) {
+//  padding: (@x/10);
+//}
+//
+//.div1 {
+//  .x(100px);
+//}
+//
+//.div2 {
+//  .x(100cm);
+//  color:red;
+//}
+
+div {
+  //width: unit(100,rem);=>width:100rem
+  //width: unit(100rem);=>width:100
+  //width: unit(100px,rem);=>width:100rem
 }
-//2017年8月22日23:46:40
+
+@list: red, orange, yellow, green;
+body {
+  //width: calc(960px-100px);
+  //n:length(1px solid #0080ff);//返回集合中字符集长度
+  background-color: extract(@list, 2); //返回集合中指定索引的值
+}
