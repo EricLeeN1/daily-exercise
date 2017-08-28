@@ -1,0 +1,64 @@
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="text/css" http-equiv="Content-Style-Type">
+    <title>7_Class与ID的使用规范</title>
+</head>
+<body>
+<h1 align="center" class="root">
+    <a name="5pla73gmjkdi3qvrbujfnuf7rs">7_Class与ID的使用规范</a>
+</h1>
+<div align="center" class="globalOverview">
+    <img src="images/7_Class%E4%B8%8EID%E7%9A%84%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83.jpg"></div>
+<h2 class="topic">
+    <a name="7k7cufo01n7nn8udntpqai8neg">区别</a>
+</h2>
+<h3 class="topic">
+    <a name="153sqfmppb3t725j37bm08pb4f">&nbsp;ID在一个页面中有且只能有一个。所以使用ID表示的CSS样式只能表示一个元素的样式
+    </a>
+</h3>
+<h3 class="topic">
+    <a name="1qb4autfk56tn6j4n24l2tflcn">&nbsp;CLASS在一个页面中可以有多个，也就是说定义一个CSS样式后，可以有多个元素引用这个class</a>
+</h3>
+<h2 class="topic">
+    <a name="6tsual69na8dh7b8ucvqviefh9">书写方式</a>
+</h2>
+<h3 class="topic">
+    <a name="5iliknra5g7fr4stj7l4h77d34">&nbsp;ID的书写样式：#title{font-size:18px; color:#333;}</a>
+</h3>
+<h3 class="topic">
+    <a name="6t90besq7k5j31e44fm98cad7r">&nbsp;Class书写方式： .title{font-size:18px;color:#333;}</a>
+</h3>
+<h2 class="topic">
+    <a name="66lhl726v2fqimv8r1stlvdagq">命名注意：</a>
+</h2>
+<h3 class="topic">
+    <a name="10c1spjdnpcluhigln56lqbcj9">&nbsp;注意：1.大的框架命名比如header/footer/wrapper/left/right之类的由设计框架之人统一命名。其他样式名称由小写英文&amp;数字&amp;_来组合命名,
+        避免使用中文拼音,尽量使用简易的单词组合;总之,命名要语义化,简明化。</a>
+</h3>
+<h3 class="topic">
+    <a name="16org7oppntomtt11gndo8rmt5">&nbsp;避免命名重复</a>
+</h3>
+<h3 class="topic">
+    <a name="17s8e5hi2npatb2jddg2d89li0">&nbsp;&nbsp;注意1：通过从属写法规避 &lt;div id="mainnav"&gt;&lt;div class="firstnav"&gt;...&lt;/div&gt;&lt;/div&gt;,
+        样式写法: #mainnav .firstnav{.......}</a>
+</h3>
+<h3 class="topic">
+    <a name="25c19fkklbaoa1823bl4cc2o6a">&nbsp;&nbsp;注意2：规避class与id重名,不建议使用id选择器</a>
+</h3>
+<h3 class="topic">
+    <a name="3psqtf83pd670rm2oshuviu244">&nbsp;&nbsp;注意3：重复使用率高的命名,可加代号加下划线起始,比如title_news;</a>
+</h3>
+<h3 class="topic">
+    <a name="6pu6bbn4uglsi6s1a0elefaf5i">&nbsp;&nbsp;注意4：取父级元素id/class命名部分命名,例如：&lt;div id="mainnav"&gt;&lt;div
+        class="main_firstnav"&gt;...&lt;/div&gt;&lt;/div&gt;, </a>
+</h3>
+<h2 class="topic">
+    <a name="0tog4jmb1rj7ij72gv2066rkfo">作业</a>
+</h2>
+<h2 class="topic">
+    <a name="2v4m48am2s2d7ame2brn53eiu1">范例</a>
+</h2>
+</body>
+</html>
