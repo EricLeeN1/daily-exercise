@@ -1,0 +1,86 @@
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="text/css" http-equiv="Content-Style-Type">
+    <title>22 图片的使用规范</title>
+</head>
+<body>
+<h1 align="center" class="root">
+    <a name="4cb3d7v1p09kitnsilg0p5mnd7">22 图片的使用规范</a>
+</h1>
+<div align="center" class="globalOverview">
+    <img src="images/22 %E5%9B%BE%E7%89%87%E7%9A%84%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83.jpg"></div>
+<h2 class="topic">
+    <a name="0s9ha5l3fk2169impfmj4facse">存放位置</a>
+</h2>
+<h3 class="topic">
+    <a name="0iebjek32a3c5vt2t2euqa1btk">&nbsp;所有页面元素类图片均放入images文件夹, 测试用图片放于img/demoimg文件夹</a>
+</h3>
+<h2 class="topic">
+    <a name="10itc4vjmm43j1nn3dpjoil6vc">命名</a>
+</h2>
+<h3 class="topic">
+    <a name="4to9u6rbu1eos8lu3vi38t672g">&nbsp;命名全部用小写英文字母 || 数字 || _ 的组合，其中不得包含汉字 || 空格 || 特殊字符；尽量用易懂的词汇, 便于团队其他成员理解;
+        另, 命名分头尾两部分, 用下划线隔开, 比如ad_left01.gif || btn_submit.gif;</a>
+</h3>
+<h2 class="topic">
+    <a name="7ensn7i3tp0ncs01dkceik3hg8">性能</a>
+</h2>
+<h3 class="topic">
+    <a name="6pjb3agprhun6b62aee74cb01l">&nbsp;在保证视觉效果的情况下选择最小的图片格式与图片质量, 以减少加载时间</a>
+</h3>
+<h3 class="topic">
+    <a name="7dssponaivklpa28591vvkkk60">&nbsp;运用css sprite技术集中小的背景图或图标, 减小页面http请求,但注意,请务必在对应的spritepsd源图中划参考线,
+        并保存至img/images目录下.</a>
+</h3>
+<h3 class="topic">
+    <a name="0e3kag4tg1qg431stv7r6vlgfp">&nbsp;&nbsp;</a>
+</h3>
+<p class="topicImage">
+    <img height="308"
+         src="images/22 %E5%9B%BE%E7%89%87%E7%9A%84%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83_files/1gdr6hj1fkun8ddqi3nk2683rh.png"
+         width="294"></p>
+<h3 class="topic">
+    <a name="326aaoqqchkae7ni68h2fvcd67">&nbsp;&nbsp;Css Sprite使用方法：
+    </a>
+</h3>
+<h3 class="topic">
+    <a name="0e2mutku7t4b15n0e0ln7uhkuv">&nbsp;&nbsp;&nbsp;1、将用到的背景图片压缩为zip格式的压缩包
+        2、用Css图片拼合生成器将其拼合成一张图片，然后下载该图片
+        3、拼合完成后会生成相应的Css规则，该文件定位了每个图片的位置及图片的宽度和高度
+        4、在Css样式中定位背景图片，例如：
+    </a>
+</h3>
+<h3 class="topic">
+    <a name="3vise8m178hfpj31itg59tj94v">&nbsp;&nbsp;&nbsp;
+        ul.share li{float:left;}
+        ul.share li a{display:block;width:25px;height:25px;text-indent:-9999px;}
+        a.renren{background:url(../images/share.gif) 0 0 no-repeat;}
+        a.kaixin{background:url(../images/share.gif) -25px 0 no-repeat;}
+        a.sina{background:url(../images/share.gif) -50px 0 no-repeat;}
+        a.douban{background:url(../images/share.gif) -75px 0 no-repeat;}
+        a.googleBM{background:url(../images/share.gif) -100px 0 no-repeat;} </a>
+</h3>
+<h3 class="topic">
+    <a name="52kokcfjr6j72p3m1fd06c7g8e">&nbsp;&nbsp;&nbsp;&lt;ul class="share"&gt;
+        &lt;li&gt;分享到：&lt;/li&gt;
+        &lt;li&gt;&lt;a class="renren" href="/cuiying_2007/blog/ " title=""&gt;人人网&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="kaixin" href="/cuiying_2007/blog/ " title=""&gt;开心网&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="sina" href="/cuiying_2007/blog/ " title=""&gt;新浪微博&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="douban" href="/cuiying_2007/blog/ " title=""&gt;豆瓣&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="googleBM" href="/cuiying_2007/blog/ " title=""&gt;谷歌书签&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    </a>
+</h3>
+<h2 class="topic">
+    <a name="1irm7fatlgsrvfsmuq95oikaun">格式</a>
+</h2>
+<h3 class="topic">
+    <a name="1q4biuosond9fdv913i3utdvg6">&nbsp;图片格式仅限于gif || png || jpg;</a>
+</h3>
+<h2 class="topic">
+    <a name="0g96rk9fd50s5pb4ljfb81aotq">作业</a>
+</h2>
+</body>
+</html>

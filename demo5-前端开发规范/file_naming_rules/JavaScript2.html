@@ -1,0 +1,161 @@
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="text/css" http-equiv="Content-Style-Type">
+    <title>19_JavaScript规范（一）</title>
+</head>
+<body>
+<h1 align="center" class="root">
+    <a name="3kvkh0a3du8prug0hrg2qnavan">19_JavaScript规范（一）</a>
+</h1>
+<div align="center" class="globalOverview">
+    <img src="images/19_JavaScript%E8%A7%84%E8%8C%83%EF%BC%88%E4%B8%80%EF%BC%89.jpg"></div>
+<h2 class="topic">
+    <a name="322egq5d0eqno7euiotc0chj0n">代码结构明了,加适量注释.提高函数重用率;</a>
+</h2>
+<h2 class="topic">
+    <a name="7su62it1n5smdmga2jnuagiajj">函数命名:</a>
+</h2>
+<h3 class="topic">
+    <a name="7432egm77mr85fmrmgai8g6089">&nbsp; 首字母小写驼峰式命名. 如iTaoLun();</a>
+</h3>
+<h2 class="topic">
+    <a name="04tkm6bcdhlh971hc2q4nhrduk">JavaScript文件</a>
+</h2>
+<h3 class="topic">
+    <a name="7kvimfv94b26dggteous2mfhkf">&nbsp;JavaScript程序应独立保存在后缀名为.js的文件中。应尽量减少在HTML
+        中的JavaScript代码，因为存在与HTML中的JavaScript代码会明显增加文件大小，且不能对其进行缓存和压缩。
+        filename.js或JavaScript的代码应尽量放到body的后面。 这样可以减少因为载入脚本而造成其他页面内容载入也被延迟的问题。
+    </a>
+</h3>
+<h2 class="topic">
+    <a name="1fu1f5cj29qb0q230flg884e0i">其他</a>
+</h2>
+<h3 class="topic">
+    <a name="0cpcr69u4bfvtnkv6sm0j408gj">&nbsp;注重与html分离,减小reflow, 注重性能</a>
+</h3>
+<h2 class="topic">
+    <a name="1vir43angvbrh244ik07sbjtbv">每行长度</a>
+</h2>
+<h3 class="topic">
+    <a name="01stct0r5s5m8l5q5omhnffj96">&nbsp;避免每行超过 80 个字符。当一条语句一行写不下时，请考虑折行。在运算符号，最好是逗号后换行。
+        在运算符后换行可以减少因为复制粘贴产生的错误被分号掩盖的几率。</a>
+</h3>
+<h2 class="topic">
+    <a name="174ak3hh62l5ob0nhepnm3krf8">书写</a>
+</h2>
+<h3 class="topic">
+    <a name="2m063pmir4bkap597r7kvj0p8f">&nbsp;书写过程中,每行代码结束必须有分号; 原则上所有功能均根据XXX项目需求原生开发, 以避免网上down下来的代码造成的代码污染(沉冗代码 ||
+        与现有代码冲突 ||...);</a>
+</h3>
+<h2 class="topic">
+    <a name="6bc95ifcq28atbcieu8bcd3tg2">变量声明</a>
+</h2>
+<h3 class="topic">
+    <a name="7ra1qa2g93ejb6tcibalqadt7c">&nbsp;所有的变量必须在使用前通过var进行声明。JavaScript并不强制必须这么做，
+        但这么做可以让程序易于阅读，且也容易发现那些没声明的变量(它们会被编译成全局变量)。 将var语句放在函数的首部。最好把每个变量的声明语句单独放到一行，并加上注释说明。
+        var　currentEntry;//当前选择项 var　level;//缩进程度　 var size; // 表格大小
+        尽量减少全局变量的使用。不要让局部变量覆盖全局变量。</a>
+</h3>
+<h2 class="topic">
+    <a name="0ra79j2dg04dgk1l6knli0ivno">缩进</a>
+</h2>
+<h3 class="topic">
+    <a name="2d7sud87sjacggdt028amberl2">&nbsp;缩进的单位为四个空格。避免使用Tab键来缩进。 因为始终没有个统一的Tab长短标准。虽然使用空格会增加文件的大小，
+        但在局域网中几乎可以忽略，且在最小化过程中也可被消除掉。</a>
+</h3>
+<h2 class="topic">
+    <a name="2uc76h3e46u77o3bf8g83ggm64">函数声明</a>
+</h2>
+<div class="notesContainer">
+    <p>函数名与&ldquo;(&rdquo;（左括号）之间不应该有空格。&ldquo;)&rdquo;（右括号）与开始程序体的&ldquo;{&rdquo;（左大括号）应在同一行。函数程序体应缩进四个空格。&ldquo;}&rdquo;（右大括号）与声明函数的那一行代码头部对齐。</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function outer(c，d){</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var e = c * d;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function inner(a， b){</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return (e * a) + b;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return inner(0， 1);</p>
+    <p>&nbsp;&nbsp;&nbsp; }</p>
+    <p>下面这种书写方式可以在 JavaScript 中正常使用，因为在 JavaScript 中，函数和对象的声明可以放到任何表达式允许的地方。且它让内联函数和混合结构具有最好的可读性。</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function getElementsByClassName(className) {</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var results = [];</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; walkTheDOM(document.body, function(node) {</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var a; // array of
+        class names</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var c =
+        node.className; // the node's classname</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var i; // loop
+        counter</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // If the node has a
+        class name, then split it into a list of simple names.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // If any of them
+        match the requested name, then append the node to the set of results.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(c){</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        a = c.split(' ');</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        for(i = 0; i &lt; a.length; i += 1){</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        if (a[i] === className){</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        results.push(node);</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        break;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        }</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        }</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return results;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+    <p>如果函数是匿名函数，则在function和 &ldquo;(&rdquo;（左括号）之间应有一个空格。如果省略了空格，否则会让人感觉函数名叫作function。</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var div.onclick = function(e) {</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return false;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var that = {</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; method: function() {</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return this.datum;</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; datum: 0</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };</p>
+    <p></p>
+    <p></p>
+    <p>尽量不使用全局函数，避免函数名重复。</p>
+    <p></p>
+    <p></p>
+    <p>&nbsp;</p>
+</div>
+<h3 class="topic">
+    <a name="5ebqhe72f7f61g0deo48rgddh8">&nbsp;所有的函数在使用前进行声明。内函数的声明跟在var语句的后面. 这样可以帮助判断哪些变量是在函数范围内的。
+    </a>
+</h3>
+<h2 class="topic">
+    <a name="2r0n78aocrfgg6ks77usd1c39j">{} 和[]</a>
+</h2>
+<h3 class="topic">
+    <a name="4d08bc9onv25m54tdvs04n0dvt">&nbsp;使用{}代替new　Object()。使用[]代替new　Array()。这样便于书写且能提高一点执行效率。
+        当成员名是一组有序的数字时使用数组来保存数据。当成员名是无规律的字符串或其他时使用对象来保存数据。</a>
+</h3>
+<h2 class="topic">
+    <a name="3abucol5hu1o33vrmvb6tfdh5t">作业</a>
+</h2>
+<h3 class="topic">
+    <a name="4krihua86sss7t5ir2pq6vn8s1">&nbsp;1.改进课程中javascript函数，使其提高重用性</a>
+</h3>
+<h3 class="topic">
+    <a name="7l05eo9d463ed2sp77o4j798fb">&nbsp;2.编写javascript函数，实现隐藏元素功能</a>
+</h3>
+<h3 class="topic">
+    <a name="5usroiti6nb5cp7905nctnafk1">&nbsp;3.完善二级菜单功能</a>
+</h3>
+<h2 class="topic">
+    <a name="4o90al1fqsv3utoshgcbg3kg5g">变量命名格式</a>
+</h2>
+<h3 class="topic">
+    <a name="7pd3atie0gcqcgk7fhdgof5rgu">&nbsp;变量命名: 驼峰式命名. 原生JavaScript变量要求是纯英文字母, 首字母须小写, 如iTaoLun; jQuery变量要求首字符为'_',
+        其他与原生JavaScript规则相同, 如: _iTaoLun; 另,要求变量集中声明,避免全局变量.</a>
+</h3>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="text/css" http-equiv="Content-Style-Type">
+    <title>24 浏览器兼容性 CSS hack</title>
+</head>
+<body>
+<h1 align="center" class="root">
+    <a name="5m9m2v73kjclr1p1gie2ppr6ms">24 浏览器兼容性 CSS hack</a>
+</h1>
+<div align="center" class="globalOverview">
+    <img src="images/24 %E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7 CSS hack.jpg"></div>
+<h2 class="topic">
+    <a name="66o60cavh5ubaols63ltdoq7ji">区别不同浏览器，CSS hack写法</a>
+</h2>
+<h3 class="topic">
+    <a name="0te3549ri6jgb6ghu5uouvmohl">&nbsp;区别IE6与FF：</a>
+</h3>
+<h3 class="topic">
+    <a name="3b91tddgj97dice487d8a9o539">&nbsp;&nbsp;background:orange;*background:blue; </a>
+</h3>
+<h3 class="topic">
+    <a name="6asq3ufnc7coar1nvi2mp46hlo">&nbsp;区别IE6与IE7：</a>
+</h3>
+<h3 class="topic">
+    <a name="7p5suun3oqtj2ggtp0i02m702v">&nbsp;&nbsp;background:green!important;background:blue; </a>
+</h3>
+<h3 class="topic">
+    <a name="30pt5dujiqeeg3lap90bq31o8v">&nbsp;区别IE7与FF：</a>
+</h3>
+<h3 class="topic">
+    <a name="2h26c319i5omrh52vhp9mgpln3">&nbsp;&nbsp;background:orange;*background:green; </a>
+</h3>
+<h3 class="topic">
+    <a name="4gjmvisrd35ameo24mfmv6mg52">&nbsp;区别FF，IE7，IE6：</a>
+</h3>
+<h3 class="topic">
+    <a name="0lqov6mejkdcb0r08h3sieqaan">&nbsp;&nbsp;background:orange;*background:green;_background:blue;
+        background:orange;*background:green!important;*background:blue; </a>
+</h3>
+<h2 class="topic">
+    <a name="2uicqlh40hud83m0numd2bpfpa">实例</a>
+</h2>
+<h3 class="topic">
+    <a name="4jfgij5jv565s03djs5lknqg85">&nbsp;</a>
+</h3>
+<p class="topicImage">
+    <img height="51"
+         src="images/24 %E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7 CSS hack_files/6e9ctmus7v4apji5up3vnrrjuv.png"
+         width="245"></p>
+<h3 class="topic">
+    <a name="3hht1n7t8gdkr73m6inul4g3l6">&nbsp;效果：我在IE6中看到是红色的，在firefox中看到是绿色的。
+    </a>
+</h3>
+<h3 class="topic">
+    <a name="1cgjuu52gu49oa0jcq5cmhg3gb">&nbsp;上面的css在firefox中，它是认识不了后面的那个带星号的东西是什么的，
+        于是将它过滤掉，不予理睬，解析得到的结果是:div{background:green}, 于是理所当然这个div的背景是绿色的。 在IE6中呢，它两个background都能识别出来，
+        它解析得到的结果是:div{background:green;*background:red;} ,于是根据优先级别，处在后面的red的优先级高，于是当然这个div的背景颜色就是红色的了。
+    </a>
+</h3>
+<h2 class="topic">
+    <a name="0grpqga5k7pvcl1gg3oiglok7v"></a>
+</h2>
+<p class="topicImage">
+    <img height="105"
+         src="images/24 %E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7 CSS hack_files/1chnpcit158s408vbgbk9c62uf.png"
+         width="245"></p>
+<h3 class="topic">
+    <a name="0nqdg84ngarod18f5r0u0d578q">&nbsp;</a>
+</h3>
+<p class="topicImage">
+    <img height="104"
+         src="images/24 %E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7 CSS hack_files/229sfv1s8o1826gj07b6qk66v7.png"
+         width="541"></p>
+<h2 class="topic">
+    <a name="7540fsc2s6hbi8mdl4dk9fi505">IE9</a>
+</h2>
+<div class="notesContainer">
+    <p>IE9的css hack</p>
+    <p>div {</p>
+    <p>background-color:red\0;&nbsp; /* ie 8/9*/</p>
+    <p>background-color:blue\9\0;&nbsp; /* ie 9*/</p>
+    <p>*background-color:green;&nbsp; /* ie 7*/</p>
+    <p>_background-color:gray;&nbsp; /* ie 6*/</p>
+    <p>}</p>
+    <p>注意写csshack的顺序，其中：</p>
+    <p>1.background-color:red\0;IE8和IE9都支持；</p>
+    <p>2.background-color:blue\9\0; 仅IE9支持；</p>
+    <p>(1)区别FF(IE8)与IE6 IE7</p>
+    <p>backgorund:orange; FF和IE8背景色将为橘黄色</p>
+    <p>*backgorund:red;&nbsp;&nbsp; IE6和IE7背景色将为红色</p>
+    <p>(2)区别FF(IE8)与IE6与IE7</p>
+    <p>background:orange;&nbsp;&nbsp; FF和IE8背景色将为橘黄色</p>
+    <p>*background:red !important;&nbsp; IE7背景色将为红色</p>
+    <p>*background:blue;&nbsp;&nbsp;&nbsp;&nbsp; IE6背景色将为蓝色</p>
+    <p>(3)区别FF(IE8)与IE6与IE7</p>
+    <p>background:orange;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FF和IE8背景色将为橘黄色</p>
+    <p>*background:red;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IE7背景色将为红色</p>
+    <p>_background:blue;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IE6背景色将为蓝色</p>
+    <p>(4)区别FF与IE6 IE7 IE8 IE9</p>
+    <p>color:gray;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FF等非IE浏览器字体色将为灰色</p>
+    <p>color:red\9;&nbsp;&nbsp;&nbsp;&nbsp; IE8 IE9字体色将为红色</p>
+    <p>*color:green;&nbsp;&nbsp;&nbsp;&nbsp; IE7字体色将为绿色</p>
+    <p>_color:blue;&nbsp;&nbsp;&nbsp;&nbsp; IE6字体色将为蓝色</p>
+    <p>提示:CSS HACK书写顺序:先写FF等非IE浏览器所需样式，其次写IE8/9所需样式，接着是IE7的，再接着才是IE6的！</p>
+    <p></p>
+    <p></p>
+    <p>总结:实际运用中我感觉比较少用到!important ,只要你记住&rdquo;*&rdquo;和&rdquo;_&rdquo;我想就足够区别于FF(IE8)与IE6与IE7了.</p>
+</div>
+<h2 class="topic">
+    <a name="256ehemgj9keqotbkl42gfkbp2">作业</a>
+</h2>
+<h2 class="topic">
+    <a name="1qdqeu33qh2mqkrdbvhuv2huh7">Css hack</a>
+</h2>
+<h3 class="topic">
+    <a name="4qgu3kba29o73a096ebc92le67">&nbsp;CSS hack的目的就是使你的CSS代码兼容不同的浏览器。当然，我们也可以反过来利用CSS hack为不同版本的浏览器定制编写不同的CSS效果。
+    </a>
+</h3>
+</body>
+</html>

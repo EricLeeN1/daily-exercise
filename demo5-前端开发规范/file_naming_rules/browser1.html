@@ -1,0 +1,128 @@
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="text/css" http-equiv="Content-Style-Type">
+    <title>17_浏览器浏览器兼容性2</title>
+</head>
+<body>
+<h1 align="center" class="root">
+    <a name="7g4249dfm78p42vvhbl7ml7gug">17_浏览器浏览器兼容性2</a>
+</h1>
+<div align="center" class="globalOverview">
+    <img src="images/17_%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A72.jpg"></div>
+<h2 class="topic">
+    <a name="5gi275o4mpde0rojserdmjjisa">问题1</a>
+</h2>
+<h3 class="topic">
+    <a name="2367ffr8b5hcpb1g9t351hlfte">&nbsp;不同浏览器的标签默认的外补丁和内补丁不同</a>
+</h3>
+<h3 class="topic">
+    <a name="7aljftmldn794u3r9i3lu70r0f">&nbsp;&nbsp;问题症状：随便写几个标签，不加样式控制的情况下，各自的margin 和padding差异较大。
+
+        碰到频率:100%
+
+        解决方案：CSS里 *{margin:0;padding:0;}
+
+        备注：这个是最常见的也是最易解决的一个浏览器兼容性问题，几乎所有的CSS文件开头都会用通配符*来设置各个标签的内外补丁是0。
+
+    </a>
+</h3>
+<h2 class="topic">
+    <a name="6nlirfio5tebj0trtnkoh684o0">什么是浏览器兼容问题？</a>
+</h2>
+<h3 class="topic">
+    <a name="2vr0q998aej7ariio0tdo2p7ag">&nbsp;所谓的浏览器兼容性问题，是指因为不同的浏览器对同一段代码有不同的解析， 造成页面显示效果不统一的情况。</a>
+</h3>
+<h2 class="topic">
+    <a name="0jocf5qdghipkj09r37kfqjd3e">问题2</a>
+</h2>
+<h3 class="topic">
+    <a name="2coluc3377li7jnsl9og0r6n20">&nbsp;浏览器兼容问题二：块属性标签float后， 又有横行的margin情况下，在IE6显示margin比设置的大</a>
+</h3>
+<h3 class="topic">
+    <a name="09m4758j7gt27bkfj3hla4cttd">&nbsp;&nbsp;问题症状:常见症状是IE6中后面的一块被顶到下一行
+
+        碰到频率：90%（稍微复杂点的页面都会碰到，float布局最常见的浏览器兼容问题）
+
+        解决方案：在float的标签样式控制中加入 display:inline;将其转化为行内属性
+
+        备注：我们最常用的就是div+CSS布局了，而div就是一个典型的块属性标签，横向布局的时候我们通常都是用div float实现的，横向的间距设置如果用margin实现，这就是一个必然会碰到的兼容性问题。
+
+    </a>
+</h3>
+<h2 class="topic">
+    <a name="55k4eb1jq6u632okp5ra1p2sqo">问题3</a>
+</h2>
+<h3 class="topic">
+    <a name="56robpdhcmtuvr4jlreh15va8k">&nbsp;设置较小高度标签（一般小于10px）， 在IE6，IE7，遨游中高度超出自己设置高度</a>
+</h3>
+<h3 class="topic">
+    <a name="251bmmsq421323ip9b0bg0iefg">&nbsp;&nbsp;问题症状：IE6、7和遨游里这个标签的高度不受控制，超出自己设置的高度
+
+        碰到频率：60%
+
+        解决方案：给超出高度的标签设置overflow:hidden;或者设置行高line-height 小于你设置的高度。
+
+        备注：这种情况一般出现在我们设置小圆角背景的标签里。 出现这个问题的原因是IE8之前的浏览器都会给标签一个最小默认的行高的高度。 即使你的标签是空的，这个标签的高度还是会达到默认的行高。
+
+    </a>
+</h3>
+<h2 class="topic">
+    <a name="3b46kagiv3m1ufkao9s6abg6sd">问题6</a>
+</h2>
+<h3 class="topic">
+    <a name="5v7e7gpm0f2ca65arc5hnd8s3e">&nbsp;模态和非模态窗口问题</a>
+</h3>
+<h3 class="topic">
+    <a name="1r3jcbjn1ngad9j7fdcku7g7f9">&nbsp;&nbsp;说明:IE下,可以通过showModalDialog和showModelessDialog打开模态和非模态窗口;Firefox下则不能.
+        解决方法：直接使用window.open(pageURL,name,parameters)方式打开新窗口。
+        如果需要将子窗口中的参数传递回父窗口,可以在子窗口中使用window.opener来访问父窗口.
+        例如：var parWin = window.opener; parWin.document.getElementById("Aqing").value = "Aqing"; </a>
+</h3>
+<h2 class="topic">
+    <a name="1c6hmdtt5n6tttued2v7fsv9ml">问题4</a>
+</h2>
+<h3 class="topic">
+    <a name="41qjc70lbaqd68vuuecn35rvi0">&nbsp;元素水平居中问题
+    </a>
+</h3>
+<h3 class="topic">
+    <a name="13ud7p08h10a7eq9ui28qa3h5j">&nbsp;&nbsp;1. FF: margin:0 auto;
+        IE: 父级{ text-align:center; }</a>
+</h3>
+<h3 class="topic">
+    <a name="1ivv919igjl6sni64rm0s3jito">&nbsp;&nbsp;解决方法：margin:0 auto;.</a>
+</h3>
+<h2 class="topic">
+    <a name="6l3al4234411qetfdeq3g1emnm">问题5</a>
+</h2>
+<h3 class="topic">
+    <a name="1mrus39b6bjp2umb8k647iimb7">&nbsp;const问题</a>
+</h3>
+<h3 class="topic">
+    <a name="6hri64oooh896tbpm92a9h4rek">&nbsp;&nbsp;const char var;//说明var这个变量现在变成&ldquo;只读变量&rdquo;，任何对var修改的语句都被编译器视为错误。
+    </a>
+</h3>
+<h3 class="topic">
+    <a name="7ebeevg5mptchvlrfg49r635up">&nbsp;&nbsp;说明:Firefox下,可以使用const关键字或var关键字来定义常量;
+        IE下,只能使用var关键字来定义常量.
+        解决方法：统一使用var关键字来定义常量.</a>
+</h3>
+<h2 class="topic">
+    <a name="4hg0m4fspinjsvuial4949hjgc">问题7</a>
+</h2>
+<h3 class="topic">
+    <a name="4qu10nb93r1ehl4iu0ulslbtai">&nbsp;float的延续性</a>
+</h3>
+<h3 class="topic">
+    <a name="2jqia8e7h7cso59ftm70mps438">&nbsp;&nbsp;说明：在i.e.浏览器中，如果使用float设置元素浮动对齐。如果不关闭浮动，将会对后面的元素标签延续浮动。</a>
+</h3>
+<h3 class="topic">
+    <a name="18cqo3k914dopqkj55gh68hboc">&nbsp;&nbsp;解决方法：在设置float的元素后面加上clear:both，关闭浮动。</a>
+</h3>
+<h2 class="topic">
+    <a name="3l0m6h2h7lc9n0e8q6s2crgtld">作业</a>
+</h2>
+</body>
+</html>

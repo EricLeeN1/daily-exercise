@@ -1,0 +1,35 @@
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="text/css" http-equiv="Content-Style-Type">
+    <title>21_Javascript规范（三）</title>
+</head>
+<body>
+<h1 align="center" class="root">
+    <a name="6q789f4n5btrbi11ehrvfqojj3">21_Javascript规范（三）</a>
+</h1>
+<div align="center" class="globalOverview">
+    <img src="images/21_Javascript%E8%A7%84%E8%8C%83%EF%BC%88%E4%B8%89%EF%BC%89 2.jpg"></div>
+<h2 class="topic">
+    <a name="2f7276ig18d18s8hcqm0i53g52">1. event.srcElement问题</a>
+</h2>
+<h3 class="topic">
+    <a name="1a7eggr6f9i2resk2k68acmnfd">&nbsp;问题说明：I.E.下，even对象有srcElement属性，但是没有target属性；
+        Firefox下，even对象有target属性，但是没有srcElement属性。
+        解决方法：使用 var obj=event.target||window.event.srcElement;</a>
+</h3>
+<h2 class="topic">
+    <a name="7brdk6jbn49sg7hat1ourg80ki">2.parentElement问题</a>
+</h2>
+<h3 class="topic">
+    <a name="204nnnvko6pe0oe4ldvos1ah66">&nbsp;firefox与I.E.的父元素(parentElement)的区别
+        IE：obj.parentElement
+        firefox：obj.parentNode
+        解决方法: 因为firefox与I.E.都支持DOM,因此使用obj.parentNode是不错选择.</a>
+</h3>
+<h2 class="topic">
+    <a name="6djpedfmf2253uu3csupnurfg0">作业</a>
+</h2>
+</body>
+</html>
