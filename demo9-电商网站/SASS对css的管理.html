@@ -1,0 +1,1425 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="exporter-version" content="Evernote Mac 6.0.16 (451861)"/>
+    <meta name="altitude" content="19.65108871459961"/>
+    <meta name="author" content="confidence68@126.com"/>
+    <meta name="created" content="2015-07-14 12:46:58 +0000"/>
+    <meta name="latitude" content="31.23170584500119"/>
+    <meta name="longitude" content="121.3619969150684"/>
+    <meta name="source" content="desktop.mac"/>
+    <meta name="updated" content="2015-07-16 14:33:08 +0000"/>
+    <title>SASS对css的管理</title></head>
+<body>
+<div><br/></div>
+<div style="font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+    <h1 style="font-weight: bold; font-size: 21px; border-bottom-width: 3px; border-bottom-style: double; border-bottom-color: rgb(170, 170, 170); padding-bottom: 2px;">
+        <span style="color: rgb(51, 51, 51);"><span style="font-family: 'Microsoft Yahei';">sass安装</span></span></h1>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px;">
+        <span style="font-family: 'Microsoft Yahei';">ruby安装</span></h2>
+    <div><span style="color: rgb(51, 51, 51);"><span style="font-family: 'Microsoft Yahei';"><br/></span></span></div>
+    <div style=""><span style="color: rgb(51, 51, 51);"><span style="font-family: 'Microsoft Yahei';">因为sass依赖于ruby环境，所以装sass之前先确认装了ruby。先导官网下载个<a
+            href="http://rubyinstaller.org/downloads" target="_blank"
+            style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">ruby</a></span></span>
+    </div>
+    <div style=""><span style="color: rgb(51, 51, 51);"><span
+            style="font-family: 'Microsoft Yahei';"><br/></span></span></div>
+    <div style=""><span style="color: rgb(51, 51, 51);"><span
+            style="font-family: 'Microsoft Yahei';">官网地址：</span></span><a
+            href="https://www.ruby-lang.org/en/documentation/installation/#homebrew">https://www.ruby-lang.org/en/documentation/installation/#homebrew</a>
+    </div>
+    <div style=""><br/></div>
+    <div style=""><a href="http://rubyinstaller.org/">http://rubyinstaller.org/</a></div>
+    <div style=""><br/></div>
+    <p style=""><span style="color: rgb(51, 51, 51);"><span style="font-family: 'Microsoft Yahei';">在安装的时候，请勾选Add Ruby executables to your PATH这个选项，添加环境变量，不然以后使用编译软件的时候会提示找不到ruby环境</span></span>
+    </p>
+    <p style=""><span style="color: rgb(51, 51, 51);"><span style="font-family: 'Microsoft Yahei';"><img
+            src="SASS%E5%AF%B9css%E7%9A%84%E7%AE%A1%E7%90%86.resources/81D3EE5C-13AD-4E13-8216-74280B5287D0.png"
+            height="264" width="537"/></span></span></p>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px;">
+        <span style="font-family: 'Microsoft Yahei';">sass安装</span></h2>
+    <p style=""><span style="color: rgb(51, 51, 51);"><span style="font-family: 'Microsoft Yahei';">安装完ruby之后，在开始菜单中，找到刚才我们安装的ruby，打开Start Command Prompt with Ruby</span></span>
+    </p>
+    <p style=""><span style="color: rgb(51, 51, 51);"><span style="font-family: 'Microsoft Yahei';"><img
+            src="SASS%E5%AF%B9css%E7%9A%84%E7%AE%A1%E7%90%86.resources/35D5B88E-A1FE-4BFC-81B9-C87F3C7BCBDD.png"
+            height="128" width="232"/></span></span></p>
+    <p style=""><span style="color: rgb(51, 51, 51);"><span
+            style="font-family: 'Microsoft Yahei';">然后直接在命令行中输入</span></span></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 1em;">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);">gem install sass</code>
+</pre>
+    <p style=""><span style="color: rgb(51, 51, 51);"><span style="font-family: 'Microsoft Yahei';">按回车键确认，等待一段时间就会提示你sass安装成功。<span
+            style="color: rgb(255, 0, 0);">最近因为墙的比较厉害，如果你没有安装成功，那么请参考下面的淘宝的RubyGems镜像安装sass，如果成功则忽略</span>。</span></span>
+    </p>
+    <p style=""><span style="color: rgb(51, 51, 51);"><span style="font-family: 'Microsoft Yahei';">如果要安装beta版本的，可以在命令行中输入</span></span>
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 1em;">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);">gem install sass --pre</code>
+</pre>
+    <p style=""><span style="color: rgb(51, 51, 51);"><span style="font-family: 'Microsoft Yahei';">你还可以从sass的<a
+            href="http://www.w3cplus.com/sassguide/github.com/nex3/sass" target="_blank"
+            style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">Git repository</a>来安装，git的命令行为</span></span>
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 1em;">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);">git clone git:<span
+        style="color: rgb(124, 124, 124);">//github.com/nex3/sass.git</span>
+cd sass
+rake install</code>
+</pre>
+    <p style=""><span style="color: rgb(51, 51, 51);"><span style="font-family: 'Microsoft Yahei';">升级sass版本的命令行为</span></span>
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 1em;">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);">gem update sass</code>
+</pre>
+    <p style=""><span style="color: rgb(51, 51, 51);"><span style="font-family: 'Microsoft Yahei';">查看sass版本的命令行为</span></span>
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 1em;">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);">sass -v</code>
+</pre>
+    <p style=""><span style="color: rgb(51, 51, 51);"><span
+            style="font-family: 'Microsoft Yahei';">你也可以运行帮助命令行来查看你需要的命令</span></span></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 1em;">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);">sass -h</code>
+</pre>
+</div>
+<div>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px; font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        淘宝RubyGems镜像安装 sass</h2>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        由于国内网络原因（你懂的），导致 <a href="http://rubygems.org">rubygems.org</a> 存放在 Amazon S3 上面的资源文件间歇性连接失败。这时候我们可以通过<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">gem
+        sources</code>命令来配置源，先移除默认的<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);"><a
+            href="https://rubygems.org">https://rubygems.org</a></code>源，然后添加淘宝的源<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);"><a
+            href="https://ruby.taobao.org/">https://ruby.taobao.org/</a></code>，然后查看下当前使用的源是哪个，如果是淘宝的，则表示可以输入sass安装命令<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">gem
+        install sass</code>了，关于常用gem source命令可参看：<a href="http://foyo99.zhuidaniu.com/blogs/687" target="_blank"
+                                                    style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">常用的gem
+        source</a></p>
+</div>
+<div style="overflow: auto; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+    <code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);">$ gem sources --remove https:<span
+            style="color: rgb(124, 124, 124);">//rubygems.org/</span><br/>
+        $ gem sources -a https:<span style="color: rgb(124, 124, 124);">//ruby.<a
+                href="http://taobao.org/">taobao.org/</a></span><br/>
+        $ gem sources -l<br/>
+        *** CURRENT SOURCES ***<br/>
+        <br/>
+        https:<span style="color: rgb(124, 124, 124);">//ruby.<a href="http://taobao.org">taobao.org</a></span><br/>
+        # 请确保只有 <a href="http://ruby.taobao.org">ruby.taobao.org</a></code>
+    <div><span style="background-color: rgb(0, 0, 0);"><span style="color: rgb(248, 248, 248);"><span
+            style="font-size: 1em;">$ gem install sass</span></span></span></div>
+</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><span style="font-size: 24px;"><b>mac安装：</b></span></div>
+<div><b><span style="font-size: 24px;"><br/></span></b></div>
+<div>
+    <div style="padding: 10px 10px 7px; color: rgb(51, 51, 51); font-size: 12px; font-family: Menlo, Monaco, Consolas, 'Lucida Console', 'Courier New', 'Microsoft Yahei', monospace; border-style: solid; border-width: 1px 1px 1px 2px; border-color: rgb(221, 221, 221) rgb(221, 221, 221) rgb(221, 221, 221) rgb(27, 88, 184); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(240, 240, 240);">
+        <code style="padding: 0px; font-weight: normal; font-style: normal; color: rgb(51, 51, 51); font-size: 12px; font-family: Menlo, Monaco, Consolas, 'Lucida Console', 'Courier New', 'Microsoft Yahei', monospace; background-color: transparent;"><span
+                style="color: rgb(0, 0, 0);">$ curl </span><span style="color: rgb(102, 102, 0);">-</span><span
+                style="color: rgb(0, 0, 0);">L https</span><span style="color: rgb(102, 102, 0);">:</span><span
+                style="color: rgb(136, 0, 0);">//get.<a href="http://rvm.io">rvm.io</a> | bash -s stable</span><span
+                style="color: rgb(0, 0, 0);"><br/>
+<br/>
+$ source </span><span style="color: rgb(102, 102, 0);">~</span><span style="color: rgb(0, 136, 0);">/.rvm/</span><span
+                style="color: rgb(0, 0, 0);">scripts</span><span style="color: rgb(102, 102, 0);">/</span><span
+                style="color: rgb(0, 0, 0);">rvm<br/>
+<br/>
+ $ rvm </span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">v<br/>
+<br/>
+$ rvm install </span><span style="color: rgb(0, 102, 102);">2.0</span><span
+                style="color: rgb(102, 102, 0);">.</span><span style="color: rgb(0, 102, 102);">0</span><span
+                style="color: rgb(0, 0, 0);"><br/>
+<br/>
+$ gem </span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">v</span></code></div>
+</div>
+<div><br/></div>
+<div><br/></div>
+<div>
+    <h1 style="font-weight: bold; font-size: 21px; border-bottom-width: 3px; border-bottom-style: double; border-bottom-color: rgb(170, 170, 170); padding-bottom: 2px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sass语法</h1>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        关于sass 3.3.0更新说明——<a href="http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#330_7_march_2014"
+                             style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">3.3.0</a>
+    </p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sublime相关插件为：<a href="https://github.com/MarioRicalde/SCSS.tmbundle" target="_blank"
+                        style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">scss语法高亮</a>，<a
+            href="https://github.com/nathos/sass-textmate-bundle" target="_blank"
+            style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">sass语法高亮</a>，<a
+            href="https://github.com/jaumefontal/SASS-Build-SublimeText2" target="_blank"
+            style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">编译</a>，<a
+            href="https://github.com/alexnj/SublimeOnSaveBuild" target="_blank"
+            style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">保存即编译</a>，<a
+            href="https://github.com/badsyntax/SassBeautify" target="_blank"
+            style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">格式化</a></p>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px; font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        文件后缀名</h2>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sass有两种后缀名文件：一种后缀名为sass，不使用大括号和分号；另一种就是我们这里使用的scss文件，这种和我们平时写的css文件格式差不多，使用大括号和分号。而本教程中所说的所有sass文件都指后缀名为scss的文件。在此也建议使用后缀名为scss的文件，以避免sass后缀名的严格格式要求报错。</p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//文件后缀名为sass的语法</span>
+<span style="color: rgb(150, 203, 254);">body</span>
+  background: <span style="color: rgb(198, 197, 254);">#eee</span>
+  font-size:<span style="color: rgb(255, 115, 253);">12</span>px
+p
+  background: <span style="color: rgb(198, 197, 254);">#0982c1</span>
+
+//文件后缀名为scss的语法  
+body {
+  background: <span style="color: rgb(198, 197, 254);">#eee</span>;
+  font-size:<span style="color: rgb(255, 115, 253);">12</span>px;
+}
+<span style="color: rgb(150, 203, 254);">p</span>{
+  background: <span style="color: rgb(198, 197, 254);">#0982c1</span>;
+} 
+</code>
+</pre>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px; font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        导入</h2>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sass的导入(<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@import</code>)规则和CSS的有所不同，编译时会将<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@import</code>的scss文件合并进来只生成一个CSS文件。但是如果你在sass文件中导入css文件如<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@import
+        'reset.css'</code>，那效果跟普通CSS导入样式文件一样，导入的css文件不会合并到编译后的文件中，而是以<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@import</code>方式存在。
+    </p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        所有的sass导入文件都可以忽略后缀名<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">.scss</code>。一般来说基础的文件命名方法以_开头，如<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">_mixin.scss</code>。这种文件在导入的时候可以不写下划线，可写成<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@import
+        "mixin"</code>。</p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">被导入sass文件a.scss：</strong></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//a.scss</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+<span style="color: rgb(150, 203, 254);">body</span> {
+  background: <span style="color: rgb(198, 197, 254);">#eee</span>;
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">需要导入样式的sass文件b.scss：</strong></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);">@<span
+        style="color: rgb(150, 203, 254);">import</span> <span style="color: rgb(168, 255, 96);">"reset.css"</span>;
+@<span style="color: rgb(150, 203, 254);">import</span> <span style="color: rgb(168, 255, 96);">"a"</span>;
+<span style="color: rgb(150, 203, 254);">p</span>{
+  background: <span style="color: rgb(198, 197, 254);">#0982c1</span>;
+} 
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">转译出来的b.css样式：</strong></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);">@<span
+        style="color: rgb(150, 203, 254);">import</span> <span style="color: rgb(168, 255, 96);">"reset.css"</span>;
+<span style="color: rgb(150, 203, 254);">body</span> {
+  background: <span style="color: rgb(198, 197, 254);">#eee</span>;
+}
+<span style="color: rgb(150, 203, 254);">p</span>{
+  background: <span style="color: rgb(198, 197, 254);">#0982c1</span>;
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        根据上面的代码可以看出，b.scss编译后，reset.css继续保持import的方式，而a.scss则被整合进来了。</p>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px; font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        注释</h2>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sass有两种注释方式，一种是标准的css注释方式<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">/*
+        */</code>，另一种则是<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">//</code>双斜杆形式的单行注释，不过这种单行注释不会被转译出来。
+    </p>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        标准的css注释</h3>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">/*
+*我是css的标准注释
+*设置body内距
+*/</span>
+<span style="color: rgb(150, 203, 254);">body</span>{
+  padding:<span style="color: rgb(255, 115, 253);">5</span>px;
+} 
+</code>
+</pre>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        双斜杆单行注释</h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        单行注释跟JavaScript语言中的注释一样，使用又斜杠（<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">//</code>），但单行注释不会输入到CSS中。
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//我是双斜杠表示的单行注释</span>
+<span style="color: rgb(124, 124, 124);">//设置body内距</span>
+<span style="color: rgb(150, 203, 254);">body</span>{
+  padding:<span style="color: rgb(255, 115, 253);">5</span>px; <span style="color: rgb(124, 124, 124);">//5px</span>
+} 
+</code>
+</pre>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px; font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        变量</h2>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sass的变量必须是$开头，后面紧跟变量名，而变量值和变量名之间就需要使用冒号(:)分隔开（就像CSS属性设置一样），如果值后面加上!default则表示默认值。</p>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        普通变量</h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        定义之后可以在全局范围内使用。</p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+$fontSize: <span style="color: rgb(255, 115, 253);">12</span>px;
+<span style="color: rgb(150, 203, 254);">body</span>{
+    font-size:$fontSize;
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+<span style="color: rgb(150, 203, 254);">body</span>{
+    font-size:<span style="color: rgb(255, 115, 253);">12</span>px;
+}
+</code>
+</pre>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        默认变量</h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sass的默认变量仅需要在值后面加上<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">!default</code>即可。
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+$baseLineHeight:        <span style="color: rgb(255, 115, 253);">1.5</span> !default;
+<span style="color: rgb(150, 203, 254);">body</span>{
+    line-height: $baseLineHeight; 
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+<span style="color: rgb(150, 203, 254);">body</span>{
+    line-height:<span style="color: rgb(255, 115, 253);">1.5</span>;
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sass的默认变量一般是用来设置默认值，然后根据需求来覆盖的，覆盖的方式也很简单，只需要在默认变量之前重新声明下变量即可</p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+$baseLineHeight:        <span style="color: rgb(255, 115, 253);">2</span>;
+$baseLineHeight:        <span style="color: rgb(255, 115, 253);">1.5</span> !default;
+<span style="color: rgb(150, 203, 254);">body</span>{
+    line-height: $baseLineHeight; 
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+<span style="color: rgb(150, 203, 254);">body</span>{
+    line-height:<span style="color: rgb(255, 115, 253);">2</span>;
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        可以看出现在编译后的<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">line-height</code>为2，而不是我们默认的1.5。默认变量的价值在进行组件化开发的时候会非常有用。
+    </p>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        特殊变量</h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        一般我们定义的变量都为属性值，可直接使用，但是如果变量作为属性或在某些特殊情况下等则必须要以<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">#{$variables}</code>形式使用。
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+$borderDirection:       top !default; 
+$baseFontSize:          <span style="color: rgb(255, 115, 253);">12</span>px !default;
+$baseLineHeight:        <span style="color: rgb(255, 115, 253);">1.5</span> !default;
+
+<span style="color: rgb(124, 124, 124);">//应用于class和属性</span>
+.border-#{$borderDirection}{
+  border-#{$borderDirection}:<span style="color: rgb(255, 115, 253);">1</span>px solid <span
+            style="color: rgb(198, 197, 254);">#ccc</span>;
+}
+<span style="color: rgb(124, 124, 124);">//应用于复杂的属性值</span>
+<span style="color: rgb(150, 203, 254);">body</span>{
+    font:#{$baseFontSize}/#{$baseLineHeight};
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.border-top{
+  border-top:<span style="color: rgb(255, 115, 253);">1</span>px solid <span
+            style="color: rgb(198, 197, 254);">#ccc</span>;
+}
+<span style="color: rgb(150, 203, 254);">body</span> {
+  font: <span style="color: rgb(255, 115, 253);">12</span>px/<span style="color: rgb(255, 115, 253);">1.5</span>;
+}
+</code>
+</pre>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        多值变量</h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        多值变量分为list类型和map类型，简单来说list类型有点像js中的数组，而map类型有点像js中的对象。</p>
+    <h4 style="font-size: 14px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        list</h4>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        list数据可通过空格，逗号或小括号分隔多个值，可用<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">nth($var,$index)</code>取值。关于list数据操作还有很多其他函数如<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">length($list)</code>，<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">join($list1,$list2,[$separator])</code>，<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">append($list,$value,[$separator])</code>等，具体可参考<a
+            href="http://sass-lang.com/documentation/Sass/Script/Functions.html"
+            style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">sass Functions</a>（搜索<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">List
+        Functions</code>即可）</p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">定义</strong></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//一维数据</span>
+$px: <span style="color: rgb(255, 115, 253);">5</span>px <span style="color: rgb(255, 115, 253);">10</span>px <span
+            style="color: rgb(255, 115, 253);">20</span>px <span style="color: rgb(255, 115, 253);">30</span>px;
+
+<span style="color: rgb(124, 124, 124);">//二维数据，相当于js中的二维数组</span>
+$px: <span style="color: rgb(255, 115, 253);">5</span>px <span style="color: rgb(255, 115, 253);">10</span>px, <span
+            style="color: rgb(255, 115, 253);">20</span>px <span style="color: rgb(255, 115, 253);">30</span>px;
+$px: (<span style="color: rgb(255, 115, 253);">5</span>px <span style="color: rgb(255, 115, 253);">10</span>px) (<span
+            style="color: rgb(255, 115, 253);">20</span>px <span style="color: rgb(255, 115, 253);">30</span>px);
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">使用</strong></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+$linkColor:         <span style="color: rgb(198, 197, 254);">#08c</span> <span
+            style="color: rgb(198, 197, 254);">#333</span> !default;<span style="color: rgb(124, 124, 124);">//第一个值为默认值，第二个鼠标滑过值</span>
+<span style="color: rgb(150, 203, 254);">a</span>{
+  color:nth($linkColor,<span style="color: rgb(255, 115, 253);">1</span>);
+
+  &amp;:hover{
+    color:nth($linkColor,<span style="color: rgb(255, 115, 253);">2</span>);
+  }
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+<span style="color: rgb(150, 203, 254);">a</span>{
+  color:<span style="color: rgb(198, 197, 254);">#08c</span>;
+}
+<span style="color: rgb(150, 203, 254);">a</span>:hover{
+  color:<span style="color: rgb(198, 197, 254);">#333</span>;
+}
+</code>
+</pre>
+    <h4 style="font-size: 14px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        map</h4>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        map数据以key和value成对出现，其中value又可以是list。格式为：<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">$map:
+        (key1: value1, key2: value2, key3: value3);</code>。可通过<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">map-get($map,$key)</code>取值。关于map数据还有很多其他函数如<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">map-merge($map1,$map2)</code>，<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">map-keys($map)</code>，<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">map-values($map)</code>等，具体可参考<a
+            href="http://sass-lang.com/documentation/Sass/Script/Functions.html"
+            style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">sass Functions</a>（搜索<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">Map
+        Functions</code>即可）</p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">定义</strong></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);">$heading: (h1: <span
+        style="color: rgb(255, 115, 253);">2</span>em, h2: <span
+        style="color: rgb(255, 115, 253);">1.5</span>em, h3: <span style="color: rgb(255, 115, 253);">1.2</span>em);
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">使用</strong></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+$headings: (h1: <span style="color: rgb(255, 115, 253);">2</span>em, h2: <span
+            style="color: rgb(255, 115, 253);">1.5</span>em, h3: <span style="color: rgb(255, 115, 253);">1.2</span>em);
+@<span style="color: rgb(150, 203, 254);">each</span> $header, $size in $headings {
+  #{$<span style="color: rgb(150, 203, 254);">header</span>} {
+    font-size: $size;
+  }
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+<span style="color: rgb(150, 203, 254);">h1</span> {
+  font-size: <span style="color: rgb(255, 115, 253);">2</span>em; 
+}
+<span style="color: rgb(150, 203, 254);">h2</span> {
+  font-size: <span style="color: rgb(255, 115, 253);">1.5</span>em; 
+}
+<span style="color: rgb(150, 203, 254);">h3</span> {
+  font-size: <span style="color: rgb(255, 115, 253);">1.2</span>em; 
+}
+</code>
+</pre>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        全局变量</h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        在变量值后面加上<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">!global</code>即为全局变量。这个目前还用不上，不过将会在sass
+        3.4后的版本中正式应用。目前的sass变量范围饱受诟病，所以才有了这个全局变量。</p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">目前变量机制</strong></p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        在选择器中声明的变量会覆盖外面全局声明的变量。(这也就人们常说的sass没有局部变量)</p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+$fontSize:      <span style="color: rgb(255, 115, 253);">12</span>px;
+<span style="color: rgb(150, 203, 254);">body</span>{
+    $fontSize: <span style="color: rgb(255, 115, 253);">14</span>px;        
+    font-size:$fontSize;
+}
+<span style="color: rgb(150, 203, 254);">p</span>{
+    font-size:$fontSize;
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+<span style="color: rgb(150, 203, 254);">body</span>{
+    font-size:<span style="color: rgb(255, 115, 253);">14</span>px;
+}
+<span style="color: rgb(150, 203, 254);">p</span>{
+    font-size:<span style="color: rgb(255, 115, 253);">14</span>px;
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">启用global之后的机制</strong></p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        请注意，这个目前还无法使用，所以样式不是真实解析出来的。</p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+$fontSize:      <span style="color: rgb(255, 115, 253);">12</span>px;
+$color:         <span style="color: rgb(198, 197, 254);">#333</span>;
+<span style="color: rgb(150, 203, 254);">body</span>{
+    $fontSize: <span style="color: rgb(255, 115, 253);">14</span>px;        
+    $color：   #fff !global;
+    font-size:$fontSize;
+    color:$color;
+}
+<span style="color: rgb(150, 203, 254);">p</span>{
+    font-size:$fontSize;
+    color:$color;
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+<span style="color: rgb(150, 203, 254);">body</span>{
+    font-size:<span style="color: rgb(255, 115, 253);">14</span>px;
+    color:<span style="color: rgb(198, 197, 254);">#fff</span>;
+}
+<span style="color: rgb(150, 203, 254);">p</span>{
+    font-size:<span style="color: rgb(255, 115, 253);">12</span>px;
+    color:<span style="color: rgb(198, 197, 254);">#fff</span>;
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        这里设置了两个变量，然后在body里面重新设置了下，有点不同的是对于<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">$color</code>变量，我们设置了<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">!global</code>。通过编译后的css可以看到<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">font-size</code>取值不同，而<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">color</code>取值相同。与上面的机制对比就会发现默认在选择器里面的变量为局部变量，而只有设置了<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">!global</code>之后才会成为全局变量。
+    </p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        关于变量的详细分析请查阅<a href="http://www.w3cplus.com/preprocessor/sass-basic-variable.html"
+                       style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">sass揭秘之变量</a>
+    </p>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px; font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        嵌套(Nesting)</h2>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sass的嵌套包括两种：一种是选择器的嵌套；另一种是属性的嵌套。我们一般说起或用到的都是选择器的嵌套。</p>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        选择器嵌套</h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        所谓选择器嵌套指的是在一个选择器中嵌套另一个选择器来实现继承，从而增强了sass文件的结构性和可读性。</p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        在选择器嵌套中，可以使用<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">&amp;</code>表示父元素选择器
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+#top_nav{
+  line-height: <span style="color: rgb(255, 115, 253);">40</span>px;
+  text-transform: capitalize;
+  background-color:<span style="color: rgb(198, 197, 254);">#333</span>;
+  <span style="color: rgb(150, 203, 254);">li</span>{
+    float:left;
+  }
+  <span style="color: rgb(150, 203, 254);">a</span>{
+    display: block;
+    padding: <span style="color: rgb(255, 115, 253);">0</span> <span style="color: rgb(255, 115, 253);">10</span>px;
+    color: <span style="color: rgb(198, 197, 254);">#fff</span>;
+
+    &amp;:hover{
+      color:<span style="color: rgb(198, 197, 254);">#ddd</span>;
+    }
+  }
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+#top_nav{
+  line-height: <span style="color: rgb(255, 115, 253);">40</span>px;
+  text-transform: capitalize;
+  background-color:<span style="color: rgb(198, 197, 254);">#333</span>;
+}  
+#top_nav <span style="color: rgb(150, 203, 254);">li</span>{
+  float:left;
+}
+#top_nav <span style="color: rgb(150, 203, 254);">a</span>{
+  display: block;
+  padding: <span style="color: rgb(255, 115, 253);">0</span> <span style="color: rgb(255, 115, 253);">10</span>px;
+  color: <span style="color: rgb(198, 197, 254);">#fff</span>;
+}
+#top_nav <span style="color: rgb(150, 203, 254);">a</span>:hover{
+  color:<span style="color: rgb(198, 197, 254);">#ddd</span>;
+}
+</code>
+</pre>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        属性嵌套</h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        所谓属性嵌套指的是有些属性拥有同一个开始单词，如border-width，border-color都是以border开头。拿个官网的实例看下：</p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.fakeshadow {
+  border: {
+    style: solid;
+    left: {
+      width: <span style="color: rgb(255, 115, 253);">4</span>px;
+      color: <span style="color: rgb(198, 197, 254);">#888</span>;
+    }
+    right: {
+      width: <span style="color: rgb(255, 115, 253);">2</span>px;
+      color: <span style="color: rgb(198, 197, 254);">#ccc</span>;
+    }
+  }
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.fakeshadow {
+  border-style: solid;
+  border-left-width: <span style="color: rgb(255, 115, 253);">4</span>px;
+  border-left-color: <span style="color: rgb(198, 197, 254);">#888</span>;
+  border-right-width: <span style="color: rgb(255, 115, 253);">2</span>px;
+  border-right-color: <span style="color: rgb(198, 197, 254);">#ccc</span>; 
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        当然这只是个属性嵌套的例子，如果实际这样使用，那估计得疯掉。</p>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px; font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        @at-root</h2>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sass3.3.0中新增的功能，用来跳出选择器嵌套的。默认所有的嵌套，继承所有上级选择器，但有了这个就可以跳出所有上级选择器。</p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">普通跳出嵌套</strong></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+<span style="color: rgb(124, 124, 124);">//没有跳出</span>
+.parent-1 {
+  color:<span style="color: rgb(198, 197, 254);">#f00</span>;
+  .child {
+    width:<span style="color: rgb(255, 115, 253);">100</span>px;
+  }
+}
+
+<span style="color: rgb(124, 124, 124);">//单个选择器跳出</span>
+.parent-2 {
+  color:<span style="color: rgb(198, 197, 254);">#f00</span>;
+  @at-root .child {
+    width:<span style="color: rgb(255, 115, 253);">200</span>px;
+  }
+}
+
+<span style="color: rgb(124, 124, 124);">//多个选择器跳出</span>
+.parent-3 {
+  background:<span style="color: rgb(198, 197, 254);">#f00</span>;
+  @at-root {
+    .child1 {
+      width:<span style="color: rgb(255, 115, 253);">300</span>px;
+    }
+    .child2 {
+      width:<span style="color: rgb(255, 115, 253);">400</span>px;
+    }
+  }
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.parent-1 {
+  color: <span style="color: rgb(198, 197, 254);">#f00</span>;
+}
+.parent-1 .child {
+  width: <span style="color: rgb(255, 115, 253);">100</span>px;
+}
+
+.parent-2 {
+  color: <span style="color: rgb(198, 197, 254);">#f00</span>;
+}
+.child {
+  width: <span style="color: rgb(255, 115, 253);">200</span>px;
+}
+
+.parent-3 {
+  background: <span style="color: rgb(198, 197, 254);">#f00</span>;
+}
+.child1 {
+  width: <span style="color: rgb(255, 115, 253);">300</span>px;
+}
+.child2 {
+  width: <span style="color: rgb(255, 115, 253);">400</span>px;
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;"><code
+                style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@at-root
+            (without: ...)</code>和<code
+                style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@at-root
+            (with: ...)</code></strong></p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        默认<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@at-root</code>只会跳出选择器嵌套，而不能跳出<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@media</code>或<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@support</code>，如果要跳出这两种，则需使用<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@at-root
+        (without: media)</code>，<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@at-root
+        (without: support)</code>。这个语法的关键词有四个：<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">all</code>（表示所有），<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">rule</code>（表示常规css），<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">media</code>（表示media），<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">support</code>（表示support，因为<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@support</code>目前还无法广泛使用，所以在此不表）。我们默认的<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@at-root</code>其实就是<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@at-root
+        (without:rule)</code>。</p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+<span style="color: rgb(124, 124, 124);">//跳出父级元素嵌套</span>
+@<span style="color: rgb(150, 203, 254);">media</span> print {
+    .parent1{
+      color:<span style="color: rgb(198, 197, 254);">#f00</span>;
+      @at-root .child1 {
+        width:<span style="color: rgb(255, 115, 253);">200</span>px;
+      }
+    }
+}
+
+<span style="color: rgb(124, 124, 124);">//跳出media嵌套，父级有效</span>
+@<span style="color: rgb(150, 203, 254);">media</span> print {
+  .parent2{
+    color:<span style="color: rgb(198, 197, 254);">#f00</span>;
+
+    @at-root (without: media) {
+      .child2 {
+        width:<span style="color: rgb(255, 115, 253);">200</span>px;
+      } 
+    }
+  }
+}
+
+<span style="color: rgb(124, 124, 124);">//跳出media和父级</span>
+@<span style="color: rgb(150, 203, 254);">media</span> print {
+  .parent3{
+    color:<span style="color: rgb(198, 197, 254);">#f00</span>;
+
+    @at-root (without: all) {
+      .child3 {
+        width:<span style="color: rgb(255, 115, 253);">200</span>px;
+      } 
+    }
+  }
+}
+
+<span style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+@<span style="color: rgb(150, 203, 254);">media</span> print {
+  .parent1 {
+    color: <span style="color: rgb(198, 197, 254);">#f00</span>;
+  }
+  .child1 {
+    width: <span style="color: rgb(255, 115, 253);">200</span>px;
+  }
+}
+
+@<span style="color: rgb(150, 203, 254);">media</span> print {
+  .parent2 {
+    color: <span style="color: rgb(198, 197, 254);">#f00</span>;
+  }
+}
+.parent2 .child2 {
+  width: <span style="color: rgb(255, 115, 253);">200</span>px;
+}
+
+@<span style="color: rgb(150, 203, 254);">media</span> print {
+  .parent3 {
+    color: <span style="color: rgb(198, 197, 254);">#f00</span>;
+  }
+}
+.child3 {
+  width: <span style="color: rgb(255, 115, 253);">200</span>px;
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;"><code
+                style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@at-root</code>与<code
+                style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">&amp;</code>配合使用</strong>
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.child{
+    @at-root .parent &amp;{
+        color:<span style="color: rgb(198, 197, 254);">#f00</span>;
+    }
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.parent .child {
+  color: <span style="color: rgb(198, 197, 254);">#f00</span>;
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">应用于@keyframe</strong></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.demo {
+    ...
+    animation: motion <span style="color: rgb(255, 115, 253);">3</span>s infinite;
+
+    @at-root {
+        @keyframes motion {
+          ...
+        }
+    }
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------   </span>
+.demo {
+    ...   
+    animation: motion <span style="color: rgb(255, 115, 253);">3</span>s infinite;
+}
+@keyframes motion {
+    ...
+}
+</code>
+</pre>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px; font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        混合(mixin)</h2>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sass中使用<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@mixin</code>声明混合，可以传递参数，参数名以$符号开始，多个参数以逗号分开，也可以给参数设置默认值。声明的<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@mixin</code>通过<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@include</code>来调用。
+    </p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">无参数mixin</strong></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+@<span style="color: rgb(150, 203, 254);">mixin</span> center-block {
+    margin-left:auto;
+    margin-right:auto;
+}
+.demo{
+    @<span style="color: rgb(150, 203, 254);">include</span> center-block;
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.demo{
+    margin-left:auto;
+    margin-right:auto;
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">有参数mixin</strong></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------   </span>
+@<span style="color: rgb(150, 203, 254);">mixin</span> opacity($opacity:<span
+            style="color: rgb(255, 115, 253);">50</span>) {
+  opacity: $opacity / <span style="color: rgb(255, 115, 253);">100</span>;
+  filter: alpha(opacity=$opacity);
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.opacity{
+  @<span style="color: rgb(150, 203, 254);">include</span> opacity; <span
+            style="color: rgb(124, 124, 124);">//参数使用默认值</span>
+}
+.opacity-80{
+  @<span style="color: rgb(150, 203, 254);">include</span> opacity(<span style="color: rgb(255, 115, 253);">80</span>); <span
+            style="color: rgb(124, 124, 124);">//传递参数</span>
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">多个参数mixin</strong></p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        调用时可直接传入值，如<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@include</code>传入参数的个数小于<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@mixin</code>定义参数的个数，则按照顺序表示，后面不足的使用默认值，如不足的没有默认值则报错。除此之外还可以选择性的传入参数，使用参数名与值同时传入。
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------   </span>
+@<span style="color: rgb(150, 203, 254);">mixin</span> horizontal-line($border:<span style="color: rgb(255, 115, 253);">1</span>px dashed <span
+            style="color: rgb(198, 197, 254);">#ccc</span>, $padding:<span style="color: rgb(255, 115, 253);">10</span>px){
+    border-bottom:$border;
+    padding-top:$padding;
+    padding-bottom:$padding;  
+}
+.imgtext-h <span style="color: rgb(150, 203, 254);">li</span>{
+    @<span style="color: rgb(150, 203, 254);">include</span> horizontal-line(<span
+            style="color: rgb(255, 115, 253);">1</span>px solid <span style="color: rgb(198, 197, 254);">#ccc</span>);
+}
+.imgtext-h--product <span style="color: rgb(150, 203, 254);">li</span>{
+    @<span style="color: rgb(150, 203, 254);">include</span> horizontal-line($padding:<span
+            style="color: rgb(255, 115, 253);">15</span>px);
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.imgtext-h <span style="color: rgb(150, 203, 254);">li</span> {
+    border-bottom: <span style="color: rgb(255, 115, 253);">1</span>px solid <span style="color: rgb(198, 197, 254);">#cccccc</span>;
+    padding-top: <span style="color: rgb(255, 115, 253);">10</span>px;
+    padding-bottom: <span style="color: rgb(255, 115, 253);">10</span>px;
+}
+.imgtext-h--product <span style="color: rgb(150, 203, 254);">li</span> {
+    border-bottom: <span style="color: rgb(255, 115, 253);">1</span>px dashed <span style="color: rgb(198, 197, 254);">#cccccc</span>;
+    padding-top: <span style="color: rgb(255, 115, 253);">15</span>px;
+    padding-bottom: <span style="color: rgb(255, 115, 253);">15</span>px;
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">多组值参数mixin</strong></p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        如果一个参数可以有多组值，如box-shadow、transition等，那么参数则需要在变量后加三个点表示，如<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">$variables...</code>。
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------   </span>
+<span style="color: rgb(124, 124, 124);">//box-shadow可以有多组值，所以在变量参数后面添加...</span>
+@<span style="color: rgb(150, 203, 254);">mixin</span> box-shadow($shadow...) {
+  -webkit-box-shadow:$shadow;
+  box-shadow:$shadow;
+}
+.box{
+  border:<span style="color: rgb(255, 115, 253);">1</span>px solid <span style="color: rgb(198, 197, 254);">#ccc</span>;
+  @<span style="color: rgb(150, 203, 254);">include</span> box-shadow(<span style="color: rgb(255, 115, 253);">0</span> 2px 2px rgba(<span
+            style="color: rgb(255, 115, 253);">0</span>,<span style="color: rgb(255, 115, 253);">0</span>,<span
+            style="color: rgb(255, 115, 253);">0</span>,.<span style="color: rgb(255, 115, 253);">3</span>),<span
+            style="color: rgb(255, 115, 253);">0</span> 3px 3px rgba(<span
+            style="color: rgb(255, 115, 253);">0</span>,<span style="color: rgb(255, 115, 253);">0</span>,<span
+            style="color: rgb(255, 115, 253);">0</span>,.<span style="color: rgb(255, 115, 253);">3</span>),<span
+            style="color: rgb(255, 115, 253);">0</span> 4px 4px rgba(<span
+            style="color: rgb(255, 115, 253);">0</span>,<span style="color: rgb(255, 115, 253);">0</span>,<span
+            style="color: rgb(255, 115, 253);">0</span>,.<span style="color: rgb(255, 115, 253);">3</span>));
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.box{
+  border:<span style="color: rgb(255, 115, 253);">1</span>px solid <span style="color: rgb(198, 197, 254);">#ccc</span>;
+  -webkit-box-shadow:<span style="color: rgb(255, 115, 253);">0</span> <span style="color: rgb(255, 115, 253);">2</span>px <span
+            style="color: rgb(255, 115, 253);">2</span>px rgba(<span style="color: rgb(255, 115, 253);">0</span>,<span
+            style="color: rgb(255, 115, 253);">0</span>,<span style="color: rgb(255, 115, 253);">0</span>,.<span
+            style="color: rgb(255, 115, 253);">3</span>),<span style="color: rgb(255, 115, 253);">0</span> <span
+            style="color: rgb(255, 115, 253);">3</span>px <span style="color: rgb(255, 115, 253);">3</span>px rgba(<span
+            style="color: rgb(255, 115, 253);">0</span>,<span style="color: rgb(255, 115, 253);">0</span>,<span
+            style="color: rgb(255, 115, 253);">0</span>,.<span style="color: rgb(255, 115, 253);">3</span>),<span
+            style="color: rgb(255, 115, 253);">0</span> <span style="color: rgb(255, 115, 253);">4</span>px <span
+            style="color: rgb(255, 115, 253);">4</span>px rgba(<span style="color: rgb(255, 115, 253);">0</span>,<span
+            style="color: rgb(255, 115, 253);">0</span>,<span style="color: rgb(255, 115, 253);">0</span>,.<span
+            style="color: rgb(255, 115, 253);">3</span>);
+  box-shadow:<span style="color: rgb(255, 115, 253);">0</span> <span style="color: rgb(255, 115, 253);">2</span>px <span
+            style="color: rgb(255, 115, 253);">2</span>px rgba(<span style="color: rgb(255, 115, 253);">0</span>,<span
+            style="color: rgb(255, 115, 253);">0</span>,<span style="color: rgb(255, 115, 253);">0</span>,.<span
+            style="color: rgb(255, 115, 253);">3</span>),<span style="color: rgb(255, 115, 253);">0</span> <span
+            style="color: rgb(255, 115, 253);">3</span>px <span style="color: rgb(255, 115, 253);">3</span>px rgba(<span
+            style="color: rgb(255, 115, 253);">0</span>,<span style="color: rgb(255, 115, 253);">0</span>,<span
+            style="color: rgb(255, 115, 253);">0</span>,.<span style="color: rgb(255, 115, 253);">3</span>),<span
+            style="color: rgb(255, 115, 253);">0</span> <span style="color: rgb(255, 115, 253);">4</span>px <span
+            style="color: rgb(255, 115, 253);">4</span>px rgba(<span style="color: rgb(255, 115, 253);">0</span>,<span
+            style="color: rgb(255, 115, 253);">0</span>,<span style="color: rgb(255, 115, 253);">0</span>,.<span
+            style="color: rgb(255, 115, 253);">3</span>);
+}
+</code>
+</pre>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        @content</h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <code style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@content</code>在sass3.2.0中引入，可以用来解决css3的@media等带来的问题。它可以使<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@mixin</code>接受一整块样式，接受的样式从@content开始。
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"> <span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------                     </span>
+@<span style="color: rgb(150, 203, 254);">mixin</span> max-screen($res){
+  @<span style="color: rgb(150, 203, 254);">media</span> only screen and ( max-width: $res )
+  {
+    @<span style="color: rgb(150, 203, 254);">content</span>;
+  }
+}
+
+@<span style="color: rgb(150, 203, 254);">include</span> max-screen(<span style="color: rgb(255, 115, 253);">480</span>px) {
+  <span style="color: rgb(150, 203, 254);">body</span> { color: red }
+}
+
+//css style
+//-------------------------------
+@media only screen and (max-width: <span style="color: rgb(255, 115, 253);">480</span>px) {
+  body { color: red }
+}                     
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        PS：<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@mixin</code>通过<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@include</code>调用后解析出来的样式是以拷贝形式存在的，而下面的继承则是以联合声明的方式存在的，所以从3.2.0版本以后，建议传递参数的用<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@mixin</code>，而非传递参数类的使用下面的继承<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">%</code>。
+    </p>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px; font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        继承</h2>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sass中，选择器继承可以让选择器继承另一个选择器的所有样式，并联合声明。使用选择器的继承，要使用关键词<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@extend</code>，后面紧跟需要继承的选择器。
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+<span style="color: rgb(150, 203, 254);">h1</span>{
+  border: <span style="color: rgb(255, 115, 253);">4</span>px solid <span
+            style="color: rgb(198, 197, 254);">#ff9aa9</span>;
+}
+.speaker{
+  @<span style="color: rgb(150, 203, 254);">extend</span> h1;
+  border-width: <span style="color: rgb(255, 115, 253);">2</span>px;
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+<span style="color: rgb(150, 203, 254);">h1</span>,.speaker{
+  border: <span style="color: rgb(255, 115, 253);">4</span>px solid <span
+            style="color: rgb(198, 197, 254);">#ff9aa9</span>;
+}
+.speaker{
+  border-width: <span style="color: rgb(255, 115, 253);">2</span>px;
+}
+</code>
+</pre>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        占位选择器<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">%</code>
+    </h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        从sass 3.2.0以后就可以定义占位选择器<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">%</code>。这种选择器的优势在于：如果不调用则不会有任何多余的css文件，避免了以前在一些基础的文件中预定义了很多基础的样式，然后实际应用中不管是否使用了<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@extend</code>去继承相应的样式，都会解析出来所有的样式。占位选择器以<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">%</code>标识定义，通过<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@extend</code>调用。
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+%ir{
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: <span style="color: rgb(255, 115, 253);">0</span>;
+}
+%clearfix{
+  @<span style="color: rgb(150, 203, 254);">if</span> $lte7 {
+    *zoom: <span style="color: rgb(255, 115, 253);">1</span>;
+  }
+  &amp;:before,
+  &amp;:after {
+    content: <span style="color: rgb(168, 255, 96);">""</span>;
+    display: table;
+    font: <span style="color: rgb(255, 115, 253);">0</span>/<span style="color: rgb(255, 115, 253);">0</span> a;
+  }
+  &amp;:after {
+    clear: both;
+  }
+}
+#header{
+  <span style="color: rgb(150, 203, 254);">h1</span>{
+    @<span style="color: rgb(150, 203, 254);">extend</span> %ir;
+    width:<span style="color: rgb(255, 115, 253);">300</span>px;
+  }
+}
+.ir{
+  @<span style="color: rgb(150, 203, 254);">extend</span> %ir;
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+#header <span style="color: rgb(150, 203, 254);">h1</span>,
+.ir{
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: <span style="color: rgb(255, 115, 253);">0</span>;
+}
+#header <span style="color: rgb(150, 203, 254);">h1</span>{
+  width:<span style="color: rgb(255, 115, 253);">300</span>px;
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        如上代码，定义了两个占位选择器<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">%ir</code>和<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">%clearfix</code>，其中<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">%clearfix</code>这个没有调用，所以解析出来的css样式也就没有clearfix部分。占位选择器的出现，使css文件更加简练可控，没有多余。所以可以用其定义一些基础的样式文件，然后根据需要调用产生相应的css。
+    </p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">ps</strong>：在<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@media</code>中暂时不能<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@extend</code> <code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@media</code>外的代码片段，以后将会可以。
+    </p>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px; font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        函数</h2>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sass定义了很多函数可供使用，当然你也可以自己定义函数，以@fuction开始。sass的官方函数链接为：<a
+            href="http://sass-lang.com/documentation/Sass/Script/Functions.html"
+            style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">sass fuction</a>，实际项目中我们使用最多的应该是颜色函数，而颜色函数中又以lighten减淡和darken加深为最，其调用方法为<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">lighten($color,$amount)</code>和<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">darken($color,$amount)</code>，它们的第一个参数都是颜色值，第二个参数都是百分比。
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------                     </span>
+$baseFontSize:      <span style="color: rgb(255, 115, 253);">10</span>px !default;
+$gray:              <span style="color: rgb(198, 197, 254);">#ccc</span> !defualt;        
+
+<span style="color: rgb(124, 124, 124);">// pixels to rems </span>
+@function pxToRem($px) {
+  @return $px / $baseFontSize * 1rem;
+}
+
+<span style="color: rgb(150, 203, 254);">body</span>{
+  font-size:$baseFontSize;
+  color:lighten($gray,<span style="color: rgb(255, 115, 253);">10</span>%);
+}
+.test{
+  font-size:pxToRem(<span style="color: rgb(255, 115, 253);">16</span>px);
+  color:darken($gray,<span style="color: rgb(255, 115, 253);">10</span>%);
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+<span style="color: rgb(150, 203, 254);">body</span>{
+  font-size:<span style="color: rgb(255, 115, 253);">10</span>px;
+  color:<span style="color: rgb(198, 197, 254);">#E6E6E6</span>;
+}
+.test{
+  font-size:<span style="color: rgb(255, 115, 253);">1.6</span>rem;
+  color:<span style="color: rgb(198, 197, 254);">#B3B3B3</span>;
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        关于<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@mixin</code>，<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">%</code>，<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@function</code>更多说明可参阅：
+    </p>
+    <ul style="padding: 0px; list-style: none outside none; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <li style=" padding: 0px;"><a href="http://www.w3cplus.com/preprocessor/sass-mixins-function-placeholder.html"
+                                      style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">sass揭秘之@mixin，%，@function</a>
+        </li>
+        <li style=" padding: 0px;"><a href="http://www.w3cplus.com/preprocessor/sass-color-function.html"
+                                      style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">Sass基础——颜色函数</a>
+        </li>
+        <li style=" padding: 0px;"><a href="http://www.w3cplus.com/preprocessor/sass-other-function.html"
+                                      style="text-decoration: none; color: rgb(0, 136, 204); background: transparent;">Sass基础——Sass函数</a>
+        </li>
+    </ul>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px; font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        运算</h2>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        sass具有运算的特性，可以对数值型的Value(如：数字、颜色、变量等)进行加减乘除四则运算。请注意运算符前后请留一个空格，不然会出错。</p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);">$baseFontSize:          <span
+        style="color: rgb(255, 115, 253);">14</span>px !default;
+$baseLineHeight:        <span style="color: rgb(255, 115, 253);">1.5</span> !default;
+$baseGap:               $baseFontSize * $baseLineHeight !default;
+$halfBaseGap:           $baseGap / <span style="color: rgb(255, 115, 253);">2</span>  !default;
+$samllFontSize:         $baseFontSize - <span style="color: rgb(255, 115, 253);">2</span>px  !default;
+
+<span style="color: rgb(124, 124, 124);">//grid </span>
+$_columns:                     <span style="color: rgb(255, 115, 253);">12</span> !default;      <span
+            style="color: rgb(124, 124, 124);">// Total number of columns</span>
+$_column-width:                <span style="color: rgb(255, 115, 253);">60</span>px !default;   <span
+            style="color: rgb(124, 124, 124);">// Width of a single column</span>
+$_gutter:                      <span style="color: rgb(255, 115, 253);">20</span>px !default;     <span
+            style="color: rgb(124, 124, 124);">// Width of the gutter</span>
+$_gridsystem-width:            $_columns * ($_column-width + $_gutter); <span style="color: rgb(124, 124, 124);">//grid system width</span>
+</code>
+</pre>
+    <h2 style="font-weight: bold; font-size: 18.2px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(170, 170, 170); color: rgb(0, 116, 217); padding-bottom: 2px; font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        条件判断及循环</h2>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        @if判断</h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <code style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@if</code>可一个条件单独使用，也可以和<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@else</code>结合多条件使用
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+$lte7: true;
+$type: monster;
+.ib{
+    display:inline-block;
+    @<span style="color: rgb(150, 203, 254);">if</span> $lte7 {
+        *display:inline;
+        *zoom:<span style="color: rgb(255, 115, 253);">1</span>;
+    }
+}
+<span style="color: rgb(150, 203, 254);">p</span> {
+  @<span style="color: rgb(150, 203, 254);">if</span> $type == ocean {
+    color: blue;
+  } @<span style="color: rgb(150, 203, 254);">else</span> if $type == matador {
+    color: red;
+  } @<span style="color: rgb(150, 203, 254);">else</span> if $type == monster {
+    color: green;
+  } @<span style="color: rgb(150, 203, 254);">else</span> {
+    color: black;
+  }
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.ib{
+    display:inline-block;
+    *display:inline;
+    *zoom:<span style="color: rgb(255, 115, 253);">1</span>;
+}
+<span style="color: rgb(150, 203, 254);">p</span> {
+  color: green; 
+}
+</code>
+</pre>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        三目判断</h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        语法为：<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">if($condition,
+        $if_true, $if_false)</code> 。三个参数分别表示：条件，条件为真的值，条件为假的值。</p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(150, 203, 254);">if</span>(<span style="color: rgb(198, 197, 254);">true</span>, <span
+        style="color: rgb(255, 115, 253);">1</span>px, <span style="color: rgb(255, 115, 253);">2</span>px) =&gt; <span
+        style="color: rgb(255, 115, 253);">1</span>px
+<span style="color: rgb(150, 203, 254);">if</span>(<span style="color: rgb(198, 197, 254);">false</span>, <span
+            style="color: rgb(255, 115, 253);">1</span>px, <span
+            style="color: rgb(255, 115, 253);">2</span>px) =&gt; <span style="color: rgb(255, 115, 253);">2</span>px
+</code>
+</pre>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        for循环</h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        for循环有两种形式，分别为：<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@for
+        $var from &lt;start&gt; through &lt;end&gt;</code>和<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@for
+        $var from &lt;start&gt; to &lt;end&gt;</code>。$i表示变量，start表示起始值，end表示结束值，这两个的区别是关键字through表示包括end这个数，而to则不包括end这个数。
+    </p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+@<span style="color: rgb(150, 203, 254);">for</span> $i from 1 through 3 {
+  .item-#{$<span style="color: rgb(150, 203, 254);">i</span>} { width: <span style="color: rgb(255, 115, 253);">2</span>em * $i; }
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.item-1 {
+  width: <span style="color: rgb(255, 115, 253);">2</span>em; 
+}
+.item-2 {
+  width: <span style="color: rgb(255, 115, 253);">4</span>em; 
+}
+.item-3 {
+  width: <span style="color: rgb(255, 115, 253);">6</span>em; 
+}
+</code>
+</pre>
+    <h3 style="font-weight: bold; font-size: 16px; color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        @each循环</h3>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        语法为：<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">@each
+        $var in &lt;list or map&gt;</code>。其中<code
+            style="font-family: monospace, monospace; font-size: 1em; padding: 0px 5px; border-radius: 5px; background-color: rgb(245, 245, 245);">$var</code>表示变量，而list和map表示list类型数据和map类型数据。sass
+        3.3.0新加入了多字段循环和map数据循环。</p>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">单个字段list数据循环</strong></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+$animal-list: puma, sea-slug, egret, salamander;
+@<span style="color: rgb(150, 203, 254);">each</span> $animal in $animal-list {
+  .#{$animal}-icon {
+    background-image: url(<span style="color: rgb(168, 255, 96);">'/images/#{$animal}.png'</span>);
+  }
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.puma-icon {
+  background-image: url(<span style="color: rgb(168, 255, 96);">'/images/puma.png'</span>); 
+}
+.sea-slug-icon {
+  background-image: url(<span style="color: rgb(168, 255, 96);">'/images/sea-slug.png'</span>); 
+}
+.egret-icon {
+  background-image: url(<span style="color: rgb(168, 255, 96);">'/images/egret.png'</span>); 
+}
+.salamander-icon {
+  background-image: url(<span style="color: rgb(168, 255, 96);">'/images/salamander.png'</span>); 
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">多个字段list数据循环</strong></p>
+    <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+        style="color: rgb(124, 124, 124);">//sass style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+$animal-data: (puma, black, default),(sea-slug, blue, pointer),(egret, white, move);
+@<span style="color: rgb(150, 203, 254);">each</span> $animal, $color, $cursor in $animal-data {
+  .#{$animal}-icon {
+    background-image: url(<span style="color: rgb(168, 255, 96);">'/images/#{$animal}.png'</span>);
+    border: <span style="color: rgb(255, 115, 253);">2</span>px solid $color;
+    cursor: $cursor;
+  }
+}
+
+<span style="color: rgb(124, 124, 124);">//css style</span>
+<span style="color: rgb(124, 124, 124);">//-------------------------------</span>
+.puma-icon {
+  background-image: url(<span style="color: rgb(168, 255, 96);">'/images/puma.png'</span>);
+  border: <span style="color: rgb(255, 115, 253);">2</span>px solid black;
+  cursor: default; 
+}
+.sea-slug-icon {
+  background-image: url(<span style="color: rgb(168, 255, 96);">'/images/sea-slug.png'</span>);
+  border: <span style="color: rgb(255, 115, 253);">2</span>px solid blue;
+  cursor: pointer; 
+}
+.egret-icon {
+  background-image: url(<span style="color: rgb(168, 255, 96);">'/images/egret.png'</span>);
+  border: <span style="color: rgb(255, 115, 253);">2</span>px solid white;
+  cursor: move; 
+}
+</code>
+</pre>
+    <p style="color: rgb(51, 51, 51); font-family: 'Microsoft Yahei'; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <strong style="font-weight: bold;">多个字段map数据循环</strong></p>
+    <div style="overflow: auto; font-family: monospace, monospace; font-size: 14px; color: rgb(51, 51, 51); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <code style="font-family: monospace, monospace; font-size: 1em; padding: 0.5em; border-radius: 5px; color: rgb(248, 248, 248); background: rgb(0, 0, 0);"><span
+                style="color: rgb(124, 124, 124);">//sass style</span><br/>
+            <span style="color: rgb(124, 124, 124);">//-------------------------------</span><br/>
+            $headings: (h1: <span style="color: rgb(255, 115, 253);">2</span>em, h2: <span
+                    style="color: rgb(255, 115, 253);">1.5</span>em, h3: <span
+                    style="color: rgb(255, 115, 253);">1.2</span>em);<br/>
+            @<span style="color: rgb(150, 203, 254);">each</span> $header, $size in $headings {<br/>
+              #{$<span style="color: rgb(150, 203, 254);">header</span>} {<br/>
+                font-size: $size;<br/>
+              }<br/>
+            }<br/>
+            <br/>
+            <span style="color: rgb(124, 124, 124);">//css style</span><br/>
+            <span style="color: rgb(124, 124, 124);">//-------------------------------</span><br/>
+            <span style="color: rgb(150, 203, 254);">h1</span> {<br/>
+              font-size: <span style="color: rgb(255, 115, 253);">2</span>em; <br/>
+            }<br/>
+            <span style="color: rgb(150, 203, 254);">h2</span> {<br/>
+              font-size: <span style="color: rgb(255, 115, 253);">1.5</span>em; <br/>
+            }<br/>
+            <span style="color: rgb(150, 203, 254);">h3</span> {<br/>
+              font-size: <span style="color: rgb(255, 115, 253);">1.2</span>em; <br/>
+            }</code></div>
+</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>具体请看：</div>
+<div><a href="http://www.haorooms.com/post/sass_css">http://www.haorooms.com/post/sass_css</a></div>
+<div><br/></div>
+<div><br/></div>
+</body>
+</html>
