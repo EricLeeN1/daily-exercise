@@ -1,16 +1,15 @@
-require.config{{
+require.config({
     paths: {
-        a: "js/a",
-            c:"js/b",
-                b:"js/c"
-    },
-    shim: {
-        b: {
-            exports: "b"
-        }
+        a: "a",
+        c: "b",
+        b: "c"
     }
-}
-}
-require(["a", "b"], function (a, c) {
-    c.hello();
+    // shim: {
+    //     b: {
+    //         exports: "b"
+    //     }
+    // }
+});
+require(["a"], function (a) {
+    a.hello();
 })
