@@ -1,15 +1,19 @@
 require.config({
     paths: {
         a: "a",
-        c: "b",
-        b: "c"
+        c: "c",
+        b: "b"
+    },
+    shim: {
+        b: {
+            exports: "b"
+        }
     }
-    // shim: {
-    //     b: {
-    //         exports: "b"
-    //     }
-    // }
 });
-require(["a"], function (a) {
-    a.hello();
-})
+require(["a", "b", "c"], function (a, b, c) {
+    var hello = a.hello();
+    document.querySelector('#h1').innerHTML = hello;
+    hellob();
+    hellob1();
+    c.helloc();
+});
