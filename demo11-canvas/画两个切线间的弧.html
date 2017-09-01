@@ -32,31 +32,20 @@
         };
 
         function init() {
-            ctx.moveTo(80, 80);
-            ctx.lineTo(200, 200);
-            ctx.rect(60, 60, 100, 45);
+            ctx.beginPath();
+            ctx.moveTo(100, 60);
+            ctx.strokeStyle = "red";
+            ctx.lineWidth = 5;
+            ctx.arcTo(200, 60, 260, 150, 60);
             ctx.closePath();
-            ctx.lineWidth = 9;
-            ctx.strokeStyle = "orange";
             ctx.stroke();
         }
 
         function drawRound() {
-            ctx.beginPath();
-            ctx.arc(250, 250, 100, 0 * Math.PI, 1.5 * Math.PI, true);
-            ctx.closePath();
-            ctx.lineWidth = 9;
-            ctx.strokeStyle = "orange";
-            ctx.stroke();
         };
 
         function drawRound1() {
-            ctx.beginPath();
-            ctx.arc(250, 250, 100, 0 * Math.PI, 1.5 * Math.PI, false);
-            ctx.closePath();
-            ctx.lineWidth = 9;
-            ctx.strokeStyle = "orange";
-            ctx.stroke();
+
         };
     };
 </script>

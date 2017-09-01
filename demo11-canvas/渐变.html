@@ -32,32 +32,29 @@
         };
 
         function init() {
-            ctx.moveTo(80, 80);
-            ctx.lineTo(200, 200);
-            ctx.rect(60, 60, 100, 45);
-            ctx.closePath();
-            ctx.lineWidth = 9;
-            ctx.strokeStyle = "orange";
-            ctx.stroke();
+            var grad = ctx.createLinearGradient(0, 0, 200, 85);
+            grad.addColorStop(0.3, "#eee");
+            grad.addColorStop(0.6, "#aaa");
+            grad.addColorStop(0.9, "orange");
+            ctx.fillStyle = grad;
+            ctx.fillRect(60, 60, 200, 80);
         }
 
         function drawRound() {
+            var grad1 = ctx.createRadialGradient(250, 250, 60, 250, 250, 120);
+            grad1.addColorStop(0, "white");
+            grad1.addColorStop(1, "red");
+
             ctx.beginPath();
-            ctx.arc(250, 250, 100, 0 * Math.PI, 1.5 * Math.PI, true);
+            ctx.arc(250, 250, 120, 0, 2 * Math.PI, true);
             ctx.closePath();
-            ctx.lineWidth = 9;
-            ctx.strokeStyle = "orange";
-            ctx.stroke();
-        };
+            ctx.fillStyle = grad1;
+            ctx.fill();
+        }
 
         function drawRound1() {
-            ctx.beginPath();
-            ctx.arc(250, 250, 100, 0 * Math.PI, 1.5 * Math.PI, false);
-            ctx.closePath();
-            ctx.lineWidth = 9;
-            ctx.strokeStyle = "orange";
-            ctx.stroke();
-        };
+
+        }
     };
 </script>
 </html>
