@@ -26,6 +26,7 @@ window.onload = function () {
         cxt.font = "34px 微软雅黑";
         cxt.fillText("大家好", 100, 150);
 
+        cxt.textAlign = "center";
         cxt.strokeStyle = "red";
         cxt.strokeText("大家好", 100, 200);
     }
