@@ -12,6 +12,7 @@ window.onload = function () {
     let black = new Image();
     let white = new Image();
     let isBlack = true;
+    let win = false;
     let blackChess = 2;
     let whiteChess = 1;
 
@@ -34,29 +35,43 @@ window.onload = function () {
         // //点击canvas的坐标
         // let x = event.clientX-leftOffset,
         //     y = event.clientY-32;
-        let x = event.offsetX,
-            y = event.offsetY;
-        let row, col;
-        if (x % 40 >= 20) {
-            row = parseInt(x / 40) + 1;
+
+        if (!win) {
+            let x = event.offsetX,
+                y = event.offsetY;
+            let row, col;
+            if (x % 40 >= 20) {
+                row = parseInt(x / 40) + 1;
+            } else {
+                row = parseInt(x / 40);
+            }
+            if (y % 40 >= 20) {
+                col = parseInt(y / 40) + 1;
+            } else {
+                col = parseInt(y / 40);
+            }
+            if (isBlack) {
+                if (!maps[row][col]) {
+                    ctx.drawImage(black, row * 20 - 10, col * 10 - 5, 18, 9);
+                    maps[row][col] = blackChess;//黑
+                    isBlack = !isBlack;
+                    isWin(blackChess, row, col);
+                } else {
+                    alert('你不能在这下');
+                }
+            } else {
+                if (!maps[row][col]) {
+                    ctx.drawImage(white, row * 20 - 10, col * 10 - 5, 18, 9);
+                    maps[row][col] = whiteChess;//白
+                    isBlack = !isBlack;
+                    isWin(whiteChess, row, col);
+                } else {
+                    alert('你不能在这下');
+                }
+            }
         } else {
-            row = parseInt(x / 40);
+            alert('已经分出胜负了');
         }
-        if (y % 40 >= 20) {
-            col = parseInt(y / 40) + 1;
-        } else {
-            col = parseInt(y / 40);
-        }
-        if (isBlack) {
-            ctx.drawImage(black, row * 20 - 10, col * 10 - 5, 18, 9);
-            maps[row][col] = blackChess;//黑
-            isWin(blackChess, row, col);
-        } else {
-            ctx.drawImage(white, row * 20 - 10, col * 10 - 5, 18, 9);
-            maps[row][col] = whiteChess;//白
-            isWin(whiteChess, row, col);
-        }
-        isBlack = !isBlack;
     };
 
     // @param 1白，2黑
@@ -69,19 +84,19 @@ window.onload = function () {
             total++;
             col--;
         }
-
         row = orgrow;
         col = orgcol;
         while ((col + 1 < 15) && (maps[row][col + 1] == t)) {
             col++;
             total++;
         }
-
         if (total >= 5) {
             if (t == 1) {
                 alert("白棋赢了");
+                win = true;
             } else {
                 alert("黑棋赢了");
+                win = true;
             }
         }
         //水平
@@ -101,8 +116,10 @@ window.onload = function () {
         if (total >= 5) {
             if (t == 1) {
                 alert("白棋赢了");
+                win = true;
             } else {
                 alert("黑棋赢了");
+                win = true;
             }
         }
         //左下,右上
@@ -124,8 +141,10 @@ window.onload = function () {
         if (total >= 5) {
             if (t == 1) {
                 alert("白棋赢了");
+                win = true;
             } else {
                 alert("黑棋赢了");
+                win = true;
             }
         }
         //左上,右下
@@ -139,9 +158,7 @@ window.onload = function () {
         }
         row = orgrow;
         col = orgcol;
-        while ((row + 1 < 15) && (col + 1 < 15) && (maps[row + 1][col +
-
-        1] == t)) {
+        while ((row + 1 < 15) && (col + 1 < 15) && (maps[row + 1][col + 1] == t)) {
             row++;
             col++;
             total++;
@@ -149,8 +166,10 @@ window.onload = function () {
         if (total >= 5) {
             if (t == 1) {
                 alert("白棋赢了");
+                win = true;
             } else {
                 alert("黑棋赢了");
+                win = true;
             }
         }
     }
