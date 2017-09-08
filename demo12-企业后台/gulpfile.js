@@ -28,7 +28,7 @@ var cssnano = require('gulp-cssnano');
 
 gulp.task('style', function () {
     // 这里实在执行style任务时自动执行的
-    gulp.src('src/styles/*.less')
+    gulp.src('src/styles/login.less')
         .pipe(rename({suffix: '.min'}))
         .pipe(less())
         .pipe(cssnano())
@@ -47,7 +47,7 @@ gulp.task('scripts', function () {
     gulp.src('src/scripts/*.js')
     //.pipe(concat('all.js'))拼接
         .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
+        // .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('dist/scripts'))
         .pipe(browserSync.reload({
             stream: true
