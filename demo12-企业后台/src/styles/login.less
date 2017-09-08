@@ -1,9 +1,47 @@
 @charset "utf-8";
 @base-font-color: #666;
+@input-color: #c3c3c3;
+@main-color: #006cd4;
+@bg-color: #fff;
+@input-border-color: #a8bcc6;
 body {
   width: 100%;
   height: 100%;
-  background: #fff url("../images/bg@3x.png") no-repeat fixed center;
+  background: url("../images/bg@3x.png") no-repeat fixed center;
   background-image: image-set(url("../images/bg@2x.png") 2x, url("../images/bg@3x.png") 3x);
   overflow: hidden;
+  background-size: cover;
+  .login {
+    background: url("../images/top@2x.png") no-repeat left top;
+    min-width: 317px;
+    min-height: 323px;
+    position: absolute;
+    top: 25%;
+    right: 25%;
+    padding: 0 20px;
+    .login-title {
+      color: @bg-color;
+      position: relative;
+      height: 40px;
+      font-size: 20px;
+      line-height: 40px;
+      margin-bottom: 16px;
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: 4px;
+        background-color: @main-color;
+        left: 0;
+        width: calc(20px * 6);
+      }
+    }
+    .flex-center {
+      display: flex;
+      align-items: center;
+      .input-group-addon{
+        flex:1 1 33px;
+      }
+    }
+  }
 }
