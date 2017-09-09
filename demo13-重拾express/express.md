@@ -115,6 +115,43 @@
             res.send() 	发送各种类型的响应。
             res.sendFile 	以八位字节流的形式发送文件。
             res.sendStatus() 	设置响应状态代码，并将其以字符串形式作为响应体的一部分发送。
+    8. app.route();
+        使用 app.route() **创建路由路径的链式路由句柄 **   。
+        由于路径在一个地方指定，这样做有助于创建模块化的路由，而且减少了代码冗余和拼写错误。请参考 Router() 文档 了解更多有关路由的信息。
+        `app.route('/book')
+            .get(function(req, res) {
+                res.send('Get a random book');
+            })
+            .post(function(req, res) {
+                res.send('Add a book');
+            })
+            .put(function(req, res) {
+                res.send('Update the book');
+            });`
+    9. express.Router
+        使用 express.Router 类*创建模块化、可挂载的路由句柄。*
+        Router 实例是一个完整的中间件和路由系统，因此常称其为一个 “mini-app”。 
+        `var express = require('express');
+            var router = express.Router();
+            // 该路由使用的中间件
+            router.use(function timeLog(req, res, next) {
+            console.log('Time: ', Date.now());
+            next();
+            });
+            // 定义网站主页的路由
+            router.get('/', function(req, res) {
+            res.send('Birds home page');
+            });
+            // 定义 about 页面的路由
+            router.get('/about', function(req, res) {
+            res.send('About birds');
+            });
+            module.exports = router;`
+            然后在应用中加载路由模块：
+            `var birds = require('./birds');
+            app.use('/birds', birds);`
+            应用即可处理发自 /birds 和 /birds/about 的请求，并且调用为该路由指定的 timeLog 中间件。
+
 ##demo详解
      
     1. hello world.js
@@ -135,3 +172,8 @@
             app.use('/static', express.static('public'));
             现在，你就爱可以通过带有 “/static” 前缀的地址来访问 public 目录下面的文件了。
             http://127.0.0.1:3000/static/images/ad.png
+    4. route.js
+        创建了一个路由路径的链式路由句柄，由于路径在一个地方指定，这样做有助于创建模块化的路由，而且减少了代码冗余和拼写错误。
+    5. Router.js
+        创建了一个路由模块，并加载了一个中间件，定义了一些路由，并且将它们挂载至应用的路径上。然后在应用中加载路由模块：
+        应用即可处理发自 /birds 和 /birds/about 的请求，并且调用为该路由指定的 timeLog 中间件。
