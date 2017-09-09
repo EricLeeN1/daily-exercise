@@ -20,6 +20,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+//以上是用各种第三方中间件
 // 利用express托管静态文件
 app.use(express.static(path.join(__dirname, 'public')));
 

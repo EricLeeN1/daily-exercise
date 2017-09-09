@@ -177,6 +177,70 @@
     2. 路由级中间件
         路由级中间件和应用级中间件一样，只是它绑定的对象为 express.Router()。
         路由级使用 router.use() 或 router.VERB() 加载。
+    3. 内置中间件
+        express.static(root, [options])
+        express.static 是 Express 唯一内置的中间件。它基于 serve-static，负责在 Express 应用中提托管静态资源。
+        参数 root 指提供静态资源的根目录。
+        可选的 options 参数拥有如下属性。
+        属性 	描述 	类型 	缺省值
+        dotfiles 	是否对外输出文件名以点（.）开头的文件。可选值为 “allow”、“deny” 和 “ignore” 	String 	“ignore”
+        etag 	是否启用 etag 生成 	Boolean 	true
+        extensions 	设置文件扩展名备份选项 	Array 	[]
+        index 	发送目录索引文件，设置为 false 禁用目录索引。 	Mixed 	“index.html”
+        lastModified 	设置 Last-Modified 头为文件在操作系统上的最后修改日期。可能值为 true 或 false。 	Boolean 	true
+        maxAge 	以毫秒或者其字符串格式设置 Cache-Control 头的 max-age 属性。 	Number 	0
+        redirect 	当路径为目录时，重定向至 “/”。 	Boolean 	true
+        setHeaders 	设置 HTTP 头以提供文件的函数。 	Function 	
+        下面的例子使用了 express.static 中间件，其中的 options 对象经过了精心的设计。 
+        `var options = {
+            dotfiles: 'ignore',
+            etag: false,
+            extensions: ['htm', 'html'],
+            index: false,
+            maxAge: '1d',
+            redirect: false,
+            setHeaders: function (res, path, stat) {
+            res.set('x-timestamp', Date.now());
+            }
+        }   
+        app.use(express.static('public', options));`
+        每个应用可有多个静态目录。
+        `app.use(express.static('public'));
+        app.use(express.static('uploads'));
+        app.use(express.static('files'));`
+    4. 第三方中间件
+        通过使用第三方中间件从而为 Express 应用增加更多功能。
+        安装所需功能的 node 模块，并在应用中加载，可以在应用级加载，也可以在路由级加载。例:
+        $ npm install cookie-parser
+        var express = require('express');
+        var app = express();
+        var cookieParser = require('cookie-parser');
+        // 加载用于解析 cookie 的中间件
+        app.use(cookieParser());
+
+###3.模版引擎
+
+需要在应用中进行如下设置才能让 Express 渲染模板文件：
+
+    views, 放模板文件的目录，比如： app.set('views', './views')
+    view engine, 设置模板引擎，比如： app.set('view engine', 'jade')
+    安装相应的模板引擎 npm 软件包。
+    $ npm install jade --save
+    一旦 view engine 设置成功，就不需要显式指定引擎，或者在应用中加载模板引擎模块，Express 已经在内部加载，如下所示。
+    app.set('view engine', 'jade');
+    例：
+    在 views 目录下生成名为 index.jade 的 Jade 模板文件，内容如下：
+    html
+        head
+            title!= title
+        body
+            h1!= message
+    然后创建一个路由渲染 index.jade 文件。如果没有设置 view engine，您需要指明视图文件的后缀，否则就会遗漏它。
+    app.get('/', function (req, res) {
+        res.render('index', { title: 'Hey', message: 'Hello there!'});
+    });
+    此时向主页发送请求，“index.jade” 会被渲染为 HTML。
+
 ##demo详解
      
     1. hello world.js
