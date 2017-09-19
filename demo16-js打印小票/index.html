@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>打印</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <!--<link rel="stylesheet" href="css/print.css">-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="js/jquery.printarea.js"></script>
+</head>
+<body>
+<div id="printArea">
+    <div class="pay-title">歌匣子储值卡充值交易订单</div>
+    <div class="pay-time"><span>付款时间：</span><span>2017-9-19 15:49:55</span></div>
+    <div class="pay-ktv"><span>KTV名称：</span><span>麦嘎KTV</span></div>
+    <div class="pay-truth"><span>储值卡充值金额：</span><span>¥0.01</span></div>
+    <div class="pay-get"><span>储值卡赠送金额：</span><span>¥10000</span></div>
+    <div class="pay-total"><span>总金额：</span><span>¥0.01</span></div>
+    <div class="pay-final"><span>用户实付：</span><span>¥0.01</span></div>
+    <div class="pay-order-number"><span>订单号：</span><span>200000000</span></div>
+    <div class="pay-print-time"><span>打印时间：</span><span>2017-9-19 15:50:03</span></div>
+    <div class="pay-number"><span>歌匣子客服电话：</span><span>4006-588516</span></div>
+    <div class="pay-serial-number"><span>订单流水号：</span><span>201709060005</span></div>
+</div>
+</body>
+<script>
+    $(function () {
+        $("#printArea").printArea({
+            "mode": "popup",
+            "popClose": true
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,87 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script>
+        function notify(title, content) {
+            if (!title && !content) {
+                title = "桌面提醒";
+                content = "您看到此条信息桌面提醒设置成功";
+            }
+            var iconUrl = "/images/send_ok.png";
+
+            if (window.webkitNotifications) {
+                //chrome老版本
+                if (window.webkitNotifications.checkPermission() == 0) {
+                    var notif = window.webkitNotifications.createNotification(iconUrl, title, content);
+                    notif.display = function () {
+                    }
+                    notif.onerror = function () {
+                    }
+                    notif.onclose = function () {
+                    }
+                    notif.onclick = function () {
+                        this.cancel();
+                    }
+                    notif.replaceId = 'Meteoric';
+                    notif.show();
+                } else {
+                    window.webkitNotifications.requestPermission($jy.notify);
+                }
+            }
+            else if ("Notification" in window) {
+                // 判断是否有权限
+                if (Notification.permission === "granted") {
+                    var notification = new Notification(title, {
+                        "icon": iconUrl,
+                        "body": content,
+                    });
+                }
+                //如果没权限，则请求权限
+                else if (Notification.permission !== 'denied') {
+                    Notification.requestPermission(function (permission) {
+                        // Whatever the user answers, we make sure we store the
+                        // information
+                        if (!('permission' in Notification)) {
+                            Notification.permission = permission;
+                        }
+                        //如果接受请求
+                        if (permission === "granted") {
+                            var notification = new Notification(title, {
+                                "icon": iconUrl,
+                                "body": content,
+                            });
+                        }
+                    });
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<button onclick="notify('会员提醒','2个会员等待审核');">Show Notification</button>
+</body>
+</html>
+最近项目需要做一个桌面提醒的功能。
+当有新会员注册的时候，桌面提醒。
+网上介绍了很多种方法，选用了一种最简单的办法，隔一段时间刷新页面，其他方法比较麻烦。
+HTML代码已经在上面写了，不过这种只会在桌面弹出窗口，如果有声音播放就更好。
+使用html5代码加了一段音频播放的功能。
+
+<script>
+    var music = "music/menling.wav";
+    $("#music").html('<audio src="' + music + '" autoplay="autoplay">你的浏览器不支持音频播放！</audio>');
+
+    //    建立一个函数，隔一段时间刷新页面 setInterval("checkNew()",120000);
+
+    function checkNew() {
+        $.get("check.html", function (data) {
+            if (data > 0) {
+                var music = "music/menling.wav";
+                $("#music").html('<audio src="' + music + '" autoplay="autoplay">你的浏览器不支持音频播放！</audio>');
+                notify('网站提醒', data + '个会员等待审核');
+            } else {
+                return;
+            }
+        });
+    }
+</script>

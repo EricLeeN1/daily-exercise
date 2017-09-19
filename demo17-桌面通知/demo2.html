@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>本例转自张鑫旭大神的文章</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+<a href="http://www.zhangxinxu.com/wordpress/2016/07/know-html5-web-notification/">本例转自张鑫旭大神的文章,详情请点击此处</a>
+<br>
+<button style="margin-top: 30px;" id="button">有人想加你为好友</button>
+<p id="text"></p>
+</body>
+<script>
+    // 获得权限
+    Notification.requestPermission();
+    // 点击按钮
+    document.querySelector('#button').addEventListener('click', function () {
+        new Notification("Hi，帅哥：", {
+            body: '可以加你为好友吗？',
+            icon: 'https://avatars6.githubusercontent.com/u/496048?v=4&s=460'
+        });
+    });
+</script>
+</html>

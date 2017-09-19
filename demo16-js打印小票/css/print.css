@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#printArea {
+    width: 100%;
+    /*background-color: red;*/
+    font-size: 9pt;
+    color: #000;
+    font-weight: normal;
+    font-family: Arial;
+    line-height: 1.4;
+    margin: 0 auto;
+}
+
+#printArea > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#printArea .pay-title {
+    justify-content: center;
+}
