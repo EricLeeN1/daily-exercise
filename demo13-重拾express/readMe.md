@@ -308,3 +308,120 @@
                     else return false;
                     })
     5. etag属性设置
+    Type	Value
+	Boolean 	设置为true，启用weak ETag。这个是默认设置。设置false，禁用所有的ETag。
+	String 	如果是strong，使能strong ETag。如果是weak，启用weak ETag。
+	Function 	客户自定义`ETag`方法的实现. 如果你使用这个，请确保你自己知道你在干什么。
+				app.set('etag',function (body, encoding) {return generateHash(body, encoding); // consider the function is defined})
+
+####20）.app.use([path,], function [, function...])
+
+	1. 挂载中间件方法到路径上。如果路径未指定，那么默认为"/"。
+	2. 一个路由将匹配任何路径如果这个路径以这个路由设置路径后紧跟着"/"。比如：app.use('/appale', ...)将匹配"/apple"，"/apple/images"，"/apple/images/news"等。见例子expUse.js
+	3. 在一个路径上挂载一个中间件之后，每当请求的路径的前缀部分匹配了这个路由路径，那么这个中间件就会被执行。
+	由于默认的路径为/，中间件挂载没有指定路径，那么对于每个请求，这个中间件都会被执行。
+	4. 中间件方法是顺序处理的，所以中间件包含的顺序是很重要的。
+		1.         // 这个中间件将不允许req超越它
+        app.use(function(req, res, next) {
+            res.send('Hello World');
+        });
+        // 路由永远到不了这里
+        app.use('/', function(req, res) {
+            res.send('Welcome');
+        });
+	5. 路径可以是代表路径的一串字符，一个路径模式，一个匹配路径的正则表达式，或者他们的一组集合。
+    下面是路径的简单的例子。
+	Type 	Example
+	Path 	// will match paths starting with /abcd
+			app.use('/abcd', function (req, res, next{
+  			next();
+			})
+
+	Path Pattern 	// will match paths starting with /abcd and /abd
+					app.use('/abc?d', function (req, res, next) {
+  					next();
+					})
+					// will match paths starting with /abcd, /abbcd, /abbbbbcd and so on
+					app.use('/ab+cd', function (req, res, next) {
+  					next();
+					})
+					// will match paths starting with /abcd, /abxcd, /abFOOcd, /abbArcd and so on
+					app.use('/ab\*cd', function (req, res, next) {
+  					next();
+					})
+					// will match paths starting with /ad and /abcd
+					app.use('/a(bc)?d', function (req, res, next) {
+  					next();
+					})
+
+	Regular Expression 	// will match paths starting with /abc and /xyz
+						app.use(/\/abc|\/xyz/, function (req, res, next) {
+  						next();
+						})
+	Array 			// will match paths starting with /abcd, /xyza, /lmn, and /pqr
+					app.use(['/abcd', '/xyza', /\/lmn|\/pqr/], function (req, res, next) {
+  					next();
+					})
+	方法可以是一个中间件方法，一系列中间件方法，一组中间件方法或者他们的集合。由于router和app实现了中间件接口，你可以像使用其他任一中间件方法那样使用它们。
+	Usage 	Example
+	单个中间件 	你可以局部定义和挂载一个中间件。
+				app.use(function (req, res, next) {
+  				next();
+				})
+				一个router是有效的中间件。
+				var router = express.Router();
+				router.get('/', function (req, res, next) {
+  				next();
+				})
+				app.use(router);
+				一个Express程序是一个有效的中间件。
+				var subApp = express();
+				subApp.get('/', function (req, res, next) {
+  				next();
+				})
+				app.use(subApp);
+	一系列中间件 	对于一个相同的挂载路径，你可以挂载超过一个的中间件。
+				var r1 = express.Router();
+				r1.get('/', function (req, res, next) {
+  				next();
+				})
+				var r2 = express.Router();
+				r2.get('/', function (req, res, next) {
+  				next();
+				})
+				app.use(r1, r2);
+	一组中间件 	在逻辑上使用一个数组来组织一组中间件。如果你传递一组中间件作为第一个或者唯一的参数，接着你需要指定挂载的路径。
+				var r1 = express.Router();
+				r1.get('/', function (req, res, next) {
+  				next();
+				})
+				var r2 = express.Router();
+				r2.get('/', function (req, res, next) {
+  				next();
+				})
+				app.use('/', [r1, r2]);
+
+	组合 	你可以组合下面的所有方法来挂载中间件。
+			function mw1(req, res, next) { next(); }
+			function mw2(req, res, next) { next(); }
+			var r1 = express.Router();
+			r1.get('/', function (req, res, next) { next(); });
+			var r2 = express.Router();
+			r2.get('/', function (req, res, next) { next(); });
+			var subApp = express();
+			subApp.get('/', function (req, res, next) { next(); });
+			app.use(mw1, [mw2, r1, r2], subApp);
+	下面是一些例子，在Express程序中使用express.static中间件。
+	为程序托管位于程序目录下的public目录下的静态资源：
+    // GET /style.css etc
+    app.use(express.static(__dirname + '/public'));
+	在/static路径下挂载中间件来提供静态资源托管服务，只当请求是以/static为前缀的时候。
+    // GET /static/style.css etc.
+    app.use('/static', express.static(express.__dirname + '/public'));
+	通过在设置静态资源中间件之后加载日志中间件来关闭静态资源请求的日志。
+       app.use(express.static(__dirname + '/public'));
+       app.use(logger());
+	托管静态资源从不同的路径，但./public路径比其他更容易被匹配：
+    	app.use(express.static(__dirname + '/public'));
+    	app.use(express.static(__dirname + '/files'));
+    	app.use(express.static(__dirname + '/uploads'));
