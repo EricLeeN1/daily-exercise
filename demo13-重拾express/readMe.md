@@ -64,9 +64,33 @@
         3. 渲染HTML视图，例子app.render
         4. 注册一个模版引擎，例子app.engine
 
-###3. app对象的一些会影响到它表现的属性/设置
-####1）. app.locals
+###3. app对象的一些会影响到它表现的属性/设置 -> Properties
+####1）. app.locals(区域变量)
 
-    local对象是一个JavaScript对象，它的属性是应用程序中的局部变量 
+    app.locals对象是一个JavaScript对象，它的属性是应用程序中的局部变量 
     app.locals在整个应用周期都不变
     res.locals仅在请求的周期内有效
+    您可以在应用程序中渲染模板时访问本地变量。这对于向模板提供辅助函数以及app级数据非常有用。但是，请注意，您不能在中间件中访问本地变量。
+
+####2）. app.mountpath(嵌入路径、增加路径)
+
+    1. 这个属性是安装子应用程序的路径模式。
+    2. 一个子应用程序（sub app）是express的一个实例，它可以用于处理请求到路由
+    3.它类似于req对象的baseUrl属性，但是req。baseUrl返回匹配的URL路径，而不是匹配的模式(s)。 
+    4. 例子：-> mountpath.js  mountpath1.js
+    5. 感觉：-> 通过这种方式可以用来处理’/main/sub‘这种sub路由的细致操作，不需要每次都请求`/main/sub`这个路径。通过中间件main.use(url,sub);即可实现sub.get('/',function(){})，这种操作，简化了路由处理。
+
+###4. app的事件 -> Events
+####1）.app.on('mount', callback(parent))
+
+    1. 这个嵌入事件在子应用程序上被触发，当它被安装在父应用程序上时，父应用程序被传递给回调函数。
+    2. 例子：appEvents.js
+
+ ###5.app的方法 -> Methods
+####1）.app.all(path, callback [, callback ...])
+
+    该方法类似于标准的app . method()方法，除了app . method()方法与所有的HTTP动词相匹配不一样。
+
+####2）.app.delete(path, callback [, callback ...])
+
+    1. 通过指定的回调函数将HTTP DELETE请求路由  指定的路径
