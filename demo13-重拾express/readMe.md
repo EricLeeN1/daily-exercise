@@ -425,3 +425,5 @@
     	app.use(express.static(__dirname + '/public'));
     	app.use(express.static(__dirname + '/files'));
     	app.use(express.static(__dirname + '/uploads'));
+
+##三.Request(请求)由于文件过长请参看request.md
