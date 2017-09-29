@@ -138,3 +138,9 @@
 ####6).req.is(type)
 
     如果进来的请求的Content-type头部域匹配参数type给定的MIME type，那么其返回true。否则返回false。
+
+####7）.req.param(name [, defaultValue])
+
+    过时的。可以在适合的情况下，使用req.params，req.body或者req.query。
+
+##四、Response（响应）见Response.md

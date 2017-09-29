@@ -36,6 +36,7 @@ app.get('/:id', function (req, res) {
 
     console.log(req.subdomains);//  []
     console.log(req.xhr);// false
-    res.send('Hello Eric');
+    console.log(req.is('html'));// null
+
 });
 app.listen(3000);
