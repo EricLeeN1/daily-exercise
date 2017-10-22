@@ -7,12 +7,58 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Search</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/normalize.min.css">
     <link rel="stylesheet" href="styles/index.min.css">
 </head>
 <body>
-
+<header>
+    <ul class="flex-center">
+        <li><a href="../后台管理系统/html/index.html">代理商登录</a></li>
+        |
+        <li><a href="../后台管理系统/html/index.html">管理员登录</a></li>
+        |
+        <li><a href="tel:18839893536">联系客服</a></li>
+    </ul>
+</header>
+<section class="container">
+    <section id="banner" class="flex-center">
+        <img src="images/banner.png" alt="banner">
+    </section>
+    <form action="" class="flex-center">
+        <input id="search" type="text" placeholder="请输入文件名称...">
+        <input type="submit" value="搜索">
+    </form>
+    <div class="line"></div>
+    <section class="content flex-center">
+        <aside>
+            <div id="report-logo" class="flex-center">
+                <!--<div id="report-logo" class="flex-center" style="display: none;">-->
+                <img src="images/img.png" alt="报告标题">
+                <a href="">下载</a>
+            </div>
+            <div id="contact-tel">
+                <a href="tel:"><img src="images/tel.png" alt="联系电话"></a>
+            </div>
+            <div id="contact-wechat">
+                <img src="images/wechat.png" alt="微信二维码">
+                <!--<img src="" alt="扫一扫图">-->
+            </div>
+            <div class="aside-ad-list">
+                <img src="images/img1.png" alt="广告图">
+            </div>
+        </aside>
+        <main>
+            <!--文件内容-->
+            <a href="出师表.pdf" id="preview"></a>
+        </main>
+    </section>
+</section>
+<footer>
+    大连润来科技有限公司版权所有
+</footer>
 </body>
-<script src="../dist/scripts/fontsize.min.js"></script>
-<script src="../dist/scripts/jquery-3.2.0.min.js"></script>
+<script src="scripts/fontsize.min.js"></script>
+<script src="scripts/jquery-3.2.0.min.js"></script>
+<script src="scripts/jquery.media.min.js"></script>
+<script src="scripts/index.min.js"></script>
 </html>
