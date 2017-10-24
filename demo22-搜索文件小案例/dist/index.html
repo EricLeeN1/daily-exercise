@@ -7,48 +7,50 @@
     <title>Search</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/normalize.min.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/index.min.css">
 </head>
 <body>
-<header>
+<header class="container-fluid">
     <ul class="flex-center">
-        <li><a href="../后台管理系统/html/index.html">代理商登录</a></li>
+        <li><a href="admin/adminOne/pages/login.html">代理商登录</a></li>
         |
-        <li><a href="../后台管理系统/html/index.html">管理员登录</a></li>
+        <li><a href="admin/adminAll/pages/login.html">管理员登录</a></li>
         |
         <li><a href="tel:18839893536">联系客服</a></li>
     </ul>
 </header>
-<section class="container">
-    <section id="banner" class="flex-center">
+<section class="row clearfix" id="container">
+    <section class="col-md-12 col-xs-12 flex-center banner">
         <img src="images/banner.png" alt="banner">
     </section>
-    <form action="" class="flex-center">
+    <form action="" class="col-md-12 col-xs-12 flex-center">
         <input id="search" type="text" placeholder="请输入文件名称...">
         <input type="submit" value="搜索">
     </form>
-    <div class="line"></div>
-    <section class="content flex-center">
-        <aside>
+    <div class="line col-md-12 col-xs-12"></div>
+    <div class="clearfix"></div>
+    <section class="content clearfix">
+        <aside class="col-md-3 col-xs-12">
             <div id="report-logo" class="flex-center">
                 
                 <img src="images/img.png" alt="报告标题">
-                <a href="">下载</a>
+                <a href="data:text/txt;charset=utf-8" download="出师表.pdf">下载</a>
             </div>
             <div id="contact-tel">
-                <a href="tel:"><img src="images/tel.png" alt="联系电话"></a>
+                <a href="tel:18888888888"><img src="images/tel.png" alt="联系电话"></a>
             </div>
             <div id="contact-wechat">
                 <img src="images/wechat.png" alt="微信二维码">
-                
             </div>
             <div class="aside-ad-list">
                 <img src="images/img1.png" alt="广告图">
             </div>
         </aside>
-        <main>
+        <main class="col-md-9 col-xs-12">
+            <a class="btn btn-success" href="data:text/txt;charset=utf-8" download="出师表.pdf">已搜索到出师表.pdf文件，点击下载</a>
+            <a class="btn btn-success" href="出师表.pdf">在线预览</a>
             
-            <a href="出师表.pdf" id="preview"></a>
         </main>
     </section>
 </section>
