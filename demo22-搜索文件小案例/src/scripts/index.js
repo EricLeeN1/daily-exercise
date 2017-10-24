@@ -21,7 +21,7 @@ $(function () {
             var that = this;
             console.log('init');
             that.getPdf();
-            $('a#preview').media({width: 750, height: 600});
+            // $('a#preview').media({width: 750, height: 600});
         }
     };
     Base.init();
