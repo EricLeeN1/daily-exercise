@@ -1,0 +1,86 @@
+//一些参数配置
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+@base-color-red: #f55053;
+@base-color-bg-blue: #1ABC9C;
+@base-color-white: #ffffff;
+
+body {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  color: #666;
+  overflow-x: hidden;
+  background-color: #f7f8f9;
+  font-size: .3rem;
+  @media (min-width: 750px) {
+    max-width: 7.5rem;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    overflow-x: hidden;
+    background-color: #f7f8f9;
+  }
+  img {
+    display: block;
+  }
+  .flex-center {
+    display: flex;
+    align-items: center;
+  }
+  #container {
+    background-color: @base-color-bg-blue;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    .play {
+      position: absolute;
+      width: 100px;
+      .user-name {
+
+      }
+      .user-card {
+        position: relative;
+        flex: 1 1 auto;
+        img {
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+    .player-1 {
+      left: 0;
+      top: 200px;
+    }
+    .player-2 {
+      flex-direction: row-reverse;
+      right: 0;
+      top: 200px;
+    }
+    .player-3 {
+      top: 50px;
+      left: 50%;
+      margin-left: -50px;
+    }
+    #deal {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      .rounded-corners(10px);
+      border: 1px solid @base-color-red;
+      color: @base-color-red;
+      background-color: @base-color-white;
+    }
+  }
+}
