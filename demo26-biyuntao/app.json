@@ -1,0 +1,55 @@
+{
+    "pages": [
+        "pages/index/index",
+       "pages/new/mew",
+        "pages/manage/manage",
+        "pages/my/my",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#f7f8f9",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "避孕套专卖店",
+        "backgroundTextStyle": "light",
+        "backgroundColor": "#fff"
+    },
+    "tabBar": {
+        "color": "#929292",
+        "selectedColor": "skyblue",
+        "backgroundColor": "#f7f8f9",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/tabBar/homepage.png",
+                "selectedIconPath": "images/tabBar/homepage-sel.png"
+            },
+            {
+                "pagePath": "pages/new/new",
+                "text": "新品",
+                "iconPath": "images/tabBar/service.png",
+                "selectedIconPath": "images/tabBar/service.png"
+            },
+            {
+                "pagePath": "pages/manage/manage",
+                "text": "分类",
+                "iconPath": "images/tabBar/manage.png",
+                "selectedIconPath": "images/tabBar/manage-sel.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "个人中心",
+                "iconPath": "images/tabBar/people.png",
+                "selectedIconPath": "images/tabBar/people-sel.png"
+            }
+        ],
+        "networkTimeout": {
+            "request": 20000,
+            "connectSocket": 20000,
+            "uploadFile": 20000,
+            "downloadFile": 20000
+        },
+        "debug": false
+    }
+}
