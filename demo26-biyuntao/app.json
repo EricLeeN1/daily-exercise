@@ -1,7 +1,7 @@
 {
     "pages": [
         "pages/index/index",
-       "pages/new/mew",
+      "pages/new/new",
         "pages/manage/manage",
         "pages/my/my",
         "pages/logs/logs"
@@ -29,7 +29,7 @@
                 "pagePath": "pages/new/new",
                 "text": "新品",
                 "iconPath": "images/tabBar/service.png",
-                "selectedIconPath": "images/tabBar/service.png"
+              "selectedIconPath": "images/tabBar/service-sel.png"
             },
             {
                 "pagePath": "pages/manage/manage",

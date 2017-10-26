@@ -3,13 +3,9 @@ $(function () {
     var Base = window.Base || {};
     Base = {
         default: '',
-        card: [],
         usedCard: [],
         leavedCard: [],
-        spade: [],
-        heart: [],
-        club: [],
-        diamond: [],
+        playersCard: [],
         getQueryString: function (name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
             var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
@@ -72,67 +68,77 @@ $(function () {
             })
         },
         setCards: function () {
-            // 设置初始牌;
-            var that = this,
-                card = that.card,
-                spade = that.spade,
-                heart = that.heart,
-                club = that.club,
-                diamond = that.diamond,
-                usedCard = that.usedCard,
-                leavedCard = that.leavedCard;
-            for (var i = 0; i < 13; i++) {
-                card[i] = [];
-                usedCard[i] = [];
-                leavedCard[i] = [];
-                spade[i] = i;
-                heart[i] = i;
-                club[i] = i;
-                diamond[i] = i;
-                for (var j = 0; j < 4; j++) {
-                    card[i][j] = j + 1;
-                    usedCard[i][j] = 0;
-                    leavedCard[i][j] = j + 1;
+            // 拿出一副新牌;
+            var that = this;
+            for (var i = 1; i <= 13; i++) {
+                for (var j = 1; j <= 4; j++) {
+                    that.leavedCard.push(i + '-' + j);
                 }
             }
-            console.log(that);
+            //洗牌
+            that.leavedCard.sort(that.randomSort);
+            that.showCardInfos();
+            //创建玩家牌数组
+            var playerNumber = $("#container>section").length || 0;
+            for (var k = 0; k < playerNumber; k++) {
+                that.playersCard[k] = [];
+            }
+        },
+        randomSort: function (a, b) {
+            return Math.random() > .5 ? -1 : 1;
+            //用Math.random()函数生成0~1之间的随机数与0.5比较，返回-1或1
+        },
+        showCardInfos: function () {
+            var that = this;
+            $('#container .cards-leaved-number>span').text(that.leavedCard.length);
+            $('#container .cards-used-number>span').text(that.usedCard.length);
         },
         deal: function () {
             var that = this,
                 playerNumber = $("#container>section").length || 0,
                 length = $("#player1>.user-card>img").length || 0,
-                top = (length * 40) + 'px',
-                card = that.card,
-                used = that.usedCard,
-                leavedCard = that.leavedCard;
-            for (var i = 0; i < playerNumber; i++) {
-                var data = that.randomCards();
-                if (!data) {
-                    console.log(data);
+                top = (length * 30) + 'px';
+            if (length < 3) {
+                for (var i = 0; i < playerNumber; i++) {
+                    var data = that.randomCards();
+                    if (!data) {
+                        alert('数据错误');
+                    }
+                    $("#container>section").eq(i).children('.user-card').append("<img src='images/" + data.value + ".png' style=top:" + top + ">");
+                    that.playersCard[i].push(data.value);
+                    that.leavedCard.splice(data.index, 1);
+                    that.usedCard.push(data.value);
                 }
-                if (length < 3) {
-                    $("#container>section").eq(i).children('.user-card').append("<img src='images/" + (data.number + 1) + '-' + (data.color + 1) + ".png' style=top:" + top + ">");
-                } else {
-                    alert('排够了');
+            } else {
+                alert('牌够了');
+            }
+
+            that.showCardInfos();
+        },
+        judge: function () {
+            var that = this,
+                newPlayerCards = [];
+            console.log(that.playersCard);
+            //将数组设置为三维数组，用来区分不同用户，第几张牌、点数及花色，
+            for (var i = 0; i < that.playersCard.length; i++) {
+                newPlayerCards[i] = [];
+                for (var j = 0; j < 3; j++) {
+                    that.playersCard[i][j]
+                    newPlayerCards[i][j] = [];
                 }
             }
         },
         randomCards: function () {
-            var that = this;
-            var random1 = parseInt(Math.random() * 13);
-            var random2 = parseInt(Math.random() * 4);
-            if (that.leavedCard[random1][random2]) {
-                var randomData = {
-                    number: random1,
-                    color: random2
+            var that = this, length = that.leavedCard.length, playerNumber = $("#container>section").length;
+            var randomCard = parseInt(Math.random() * length);
+            if (playerNumber * 3 < length) {
+                var data = {
+                    index: randomCard,
+                    value: that.leavedCard[randomCard]
                 };
-                that.leavedCard[random1][random2] = 0;
-                that.usedCard[random1][random2] = 1;
-                console.log(randomData);
-                return randomData;
+                return data;
             } else {
-                console.log('发过这张牌了');
-                that.randomCards();
+                console.log("牌不够了");
             }
         },
         init: function () {
