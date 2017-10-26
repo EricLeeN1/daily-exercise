@@ -17,8 +17,8 @@
             <h2>{{item.name}}</h2>
         </li>
     </ul>
-    <input type="button" value="Previouse">
-    <input type="button" value="Next">
+    <input type="button" value="Previous" v-on:click="previous">
+    <input type="button" value="Next" v-on:click="next">
 </div>
 <script>
     var songs = [{
@@ -39,19 +39,21 @@
             playThis: function (item, index) {
                 this.currentSrc = item.src;
                 this.currentIndex = index;
+            },
+            previous: function () {
+                //播放上一首
+                this.currentIndex--;
+                this.currentIndex = Math.max(0, this.currentIndex);
+                this.currentSrc = this.songs[this.currentIndex].src;
+                console.log(this.currentSrc, this.currentIndex);
+            },
+            next: function () {
+                //播放下一首
+                this.currentIndex++;
+                this.currentIndex = Math.min(this.songs.length - 1, this.currentIndex);
+                this.currentSrc = this.songs[this.currentIndex].src;
+                console.log(this.currentSrc, this.currentIndex);
             }
-        },
-        previous: function () {
-            //播放上一首
-            this.currentIndex--;
-            this.currentIndex = Math.max(0, this.currentIndex);
-            this.currentSrc = this.songs[this.currentIndex].src;
-        },
-        next: function () {
-            //播放下一首
-            this.currentIndex++;
-            this.currentIndex = Math.min(this.songs.length - 1, this.currentIndex);
-            this.currentSrc = this.songs[this.currentIndex].src;
         }
     };
     var app = new Vue(options);
