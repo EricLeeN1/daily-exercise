@@ -41,6 +41,7 @@ App({
     site:'https://api2.buy2019.com',
     imgSite:'https://img1.buy2019.com'
   },
+    // 设备信息
   getSystemInfo: function () {
       var that = this;
       wx.getSystemInfo({
@@ -53,6 +54,7 @@ App({
           },
       });
   },
+    // 位置信息
   positionInfo: function () {
       var page = this
       wx.getLocation({
@@ -85,6 +87,7 @@ App({
           }
       })
   },
+    // 网络状态
   netWork: function () {
       wx.getNetworkType({
           success: function (res) {
@@ -98,6 +101,7 @@ App({
           },
       })
   },
+    //网络改变
   netWorkChange: function () {
       wx.onNetworkStatusChange(function (res) {
           if (res.isConnected == false) {
@@ -132,5 +136,11 @@ App({
           success: successFun,
           fail: failFun
       });
-  }
+  },
+    // 打电话
+    makeCall: function () {
+        wx.makePhoneCall({
+            phoneNumber: '15201173239',
+        })
+    }
 })

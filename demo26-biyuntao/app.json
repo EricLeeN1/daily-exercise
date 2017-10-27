@@ -14,34 +14,34 @@
     "backgroundColor": "#fff"
   },
   "tabBar": {
-    "color": "#929292",
-    "selectedColor": "skyblue",
+    "color": "#999999",
+    "selectedColor": "#f65314",
     "backgroundColor": "#f7f8f9",
     "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/tabBar/homepage.png",
-        "selectedIconPath": "images/tabBar/homepage-sel.png"
+        "iconPath": "images/tabBar/home.png",
+        "selectedIconPath": "images/tabBar/home-sel.png"
       },
       {
         "pagePath": "pages/new/new",
         "text": "新品",
-        "iconPath": "images/tabBar/service.png",
-        "selectedIconPath": "images/tabBar/service-sel.png"
+        "iconPath": "images/tabBar/new.png",
+        "selectedIconPath": "images/tabBar/new-sel.png"
       },
       {
         "pagePath": "pages/manage/manage",
         "text": "分类",
-        "iconPath": "images/tabBar/manage.png",
-        "selectedIconPath": "images/tabBar/manage-sel.png"
+        "iconPath": "images/tabBar/all.png",
+        "selectedIconPath": "images/tabBar/all-sel.png"
       },
       {
         "pagePath": "pages/my/my",
         "text": "个人中心",
-        "iconPath": "images/tabBar/people.png",
-        "selectedIconPath": "images/tabBar/people-sel.png"
+        "iconPath": "images/tabBar/account.png",
+        "selectedIconPath": "images/tabBar/account-sel.png"
       }
     ],
     "networkTimeout": {

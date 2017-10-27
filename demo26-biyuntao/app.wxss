@@ -1,4 +1,35 @@
-.flex-center{
+/* 公共样式 */
+
+.flex-center {
   display: flex;
   align-items: center;
+}
+
+image {
+  display: block;
+}
+
+.contact-us {
+  font-size: 26rpx;
+  color: #999;
+  justify-content: center;
+  margin-bottom: 30rpx;
+}
+
+.contact-us button {
+  margin: 0;
+  margin-left: 20rpx;
+}
+
+.btn-share {
+  margin: 0 30rpx;
+  margin-bottom: 30rpx;
+  background-color: #f65314;
+  color: #fff;
+  box-sizing: border-box;
+}
+.btn-share-active{
+  border: 1px solid #f65314;
+  color: #f65314;
+  background-color: #fff;
 }

@@ -1,14 +1,64 @@
 <view class="body">
-    <view class='swiper'>
-        <swiper indicator-dots="{{banner.indicatorDots}}" autoplay="{{banner.autoplay}}" interval="{{banner.interval}}"
-                duration="{{banner.duration}}">
-            <block wx:for="{{imgUrls}}" wx:key="*this">
-                <swiper-item>
-                    <!-- <image src="{{item}}" />  -->
-                    <navigator class="slide-image" style="background-color:{{item}}"></navigator>
-                </swiper-item>
-            </block>
-        </swiper>
-  </view>
-    <view></view>
+
+    <!-- 轮播 -->
+    <swiper indicator-dots="{{banner.indicatorDots}}" autoplay="{{banner.autoplay}}" interval="{{banner.interval}}"
+            duration="{{banner.duration}}" indicator-color="{{banner.indicatorColor}}"
+            indicator-active-color="{{banner.indicatorActiveColor}}" class='swiper'>
+        <block wx:for="{{imgUrls}}" wx:key="*this">
+            <swiper-item>
+                <navigator class="slide-image">
+                    <image src='{{item}}' mode='widthFix'></image>
+                </navigator>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <!-- 导航 -->
+    <view class='nav flex-center'>
+        <view class='nav-item flex-center' wx:for="{{navDatas}}" wx:key="{{index}}" hover-class='nav-item-active'
+              catchtap='lookDetailManage'>
+            <image src="{{item.url}}" mode='widthFix'></image>
+            <view>{{item.title}}</view>
+        </view>
+    </view>
+
+    <!-- 产品列表 -->
+    <view class='goods-list'>
+        <view class='goods-item' wx:for="{{goodsDatas}}" catchtap='lookGoodsDetail' data-id='{{item.id}}'>
+            <image src='{{item.url}}' mode='widthFix'></image>
+            <view class='goods-infos'>
+                <view class='goods-title flex-center'>
+                    <view class='goods-name'>{{item.title}}</view>
+                    <view class='goods-sell-number'>
+                        {{item.goodsNumber}}
+                        <text>人已购买</text>
+                    </view>
+                </view>
+                <view class='goods-description'>{{item.des}}</view>
+                <view class='goods-price-detail flex-center'>
+                    <view class='goods-price-now'>¥
+                        <text>{{item.priceNow}}</text>
+                    </view>
+                    <view class='goods-price-del'>¥
+                        <text>{{item.priceDel}}</text>
+                    </view>
+                    <view class='buy-now' catchtap='buyNow' data-id='{{item.id}}' hover-class='buy-now-active'>
+                        立即购买
+                    </view>
+                </view>
+            </view>
+
+        </view>
+    </view>
+
+    <!-- 联系方式 -->
+    <view class='contact-us flex-center'>
+        微信小程序开发电话~15201173239
+        <button size='mini' catchtap='makeCall'> 立即联系</button>
+    </view>
+
+    <!-- 分享好友按钮 -->
+    <button class='btn-share' open-type='share' hover-class='btn-share-active'>
+        分享给好友赚红包
+    </button>
 </view>

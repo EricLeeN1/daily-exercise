@@ -1,16 +1,122 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 Page({
   data: {
       imgUrls: [
-          'red',
-          'yellow',
-          'blue'
+          "../../images/banner/banner@2x.jpg",
+          "../../images/banner/banner@2x.jpg",
+          "../../images/banner/banner@2x.jpg"
       ],
+      navDatas: [
+          {
+              url: "../../images/nav/nav-1@2x.png",
+              title: "限时秒杀",
+              targetUrl: ""
+          },
+          {
+              url: "../../images/nav/nav-2@2x.png",
+              title: "男性用品",
+              targetUrl: ""
+          },
+          {
+              url: "../../images/nav/nav-3@2x.png",
+              title: "女用器具",
+              targetUrl: ""
+          },
+          {
+              url: "../../images/nav/nav-4@2x.png",
+              title: "避孕套",
+              targetUrl: ""
+          },
+          {
+              url: "../../images/nav/nav-5@2x.png",
+              title: "情趣内衣",
+              targetUrl: ""
+          },
+          {
+              url: "../../images/nav/nav-6@2x.png",
+              title: "延时喷剂",
+              targetUrl: ""
+          },
+          {
+              url: "../../images/nav/nav-7@2x.png",
+              title: "保健护理",
+              targetUrl: ""
+          },
+          {
+              url: "../../images/nav/nav-8@2x.png",
+              title: "性爱床椅",
+              targetUrl: ""
+          },
+          {
+              url: "../../images/nav/nav-9@2x.png",
+              title: "我的分享",
+              targetUrl: ""
+          },
+          {
+              url: "../../images/nav/nav-10@2x.png",
+              title: "我要加盟",
+              targetUrl: ""
+          }
+      ],
+      goodsDatas: [{
+          url: "../../images/banner/banner1.jpg",
+          id: 1,
+          title: "杜蕾斯",
+          des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
+          priceNow: "66.66",
+          priceDel: "88.88",
+          goodsNumber: "666"
+      },
+          {
+              url: "../../images/banner/banner1.jpg",
+              id: 2,
+              title: "杜蕾斯",
+              des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
+              priceNow: "66.66",
+              priceDel: "88.88",
+              goodsNumber: "666"
+          }, {
+              url: "../../images/banner/banner1.jpg",
+              id: 3,
+              title: "杜蕾斯",
+              des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
+              priceNow: "66.66",
+              priceDel: "88.88",
+              goodsNumber: "666"
+          }, {
+              url: "../../images/banner/banner1.jpg",
+              id: 4,
+              title: "杜蕾斯",
+              des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
+              priceNow: "66.66",
+              priceDel: "88.88",
+              goodsNumber: "666"
+          }
+          , {
+              url: "../../images/banner/banner1.jpg",
+              id: 5,
+              title: "杜蕾斯",
+              des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
+              priceNow: "66.66",
+              priceDel: "88.88",
+              goodsNumber: "666"
+          },
+          {
+              url: "../../images/banner/banner1.jpg",
+              id: 6,
+              title: "杜蕾斯",
+              des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
+              priceNow: "66.66",
+              priceDel: "88.88",
+              goodsNumber: "666"
+          }],
       banner: {
-          indicatorDots: false,
-          autoplay: false,
+          indicatorActiveColor: "rgb(246,83,20)",
+          indicatorColor: "#00a1f1",
+          indicatorDots: true,
+          autoplay: true,
           interval: 5000,
           duration: 1000
       },
@@ -19,13 +125,11 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-    bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   onLoad: function () {
+      const that = this;
+      that.setData({
+          imgSite: app.globalData.imgSite
+      })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -60,5 +164,8 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+    },
+    makeCall: function () {
+        app.makeCall();
+    }
 })
