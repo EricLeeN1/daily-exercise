@@ -1,2 +1,32 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="body">
+    <!-- //用户信息栏 -->
+    <view class='user-info flex-center'>
+        <view>
+            <image src='{{userInfo.avatarUrl}}' mode='widthFix'></image>
+        </view>
+        <text>{{userInfo.nickName}}</text>
+    </view>
+
+    <view class='order'>
+        <view class='order-title flex-center'>
+            我的订单
+            <view class='flex-center'>
+                全部订单
+                <image src='{{icon.more}}' mode='widthFix'></image>
+            </view>
+        </view>
+        <view class='user-column flex-center'>
+            <navigator class='user-column-item flex-center' wx:for="{{userColumns}}" wx:key="index" url='{{item.url}}'>
+                <image src='{{item.icon}}' mode='widthFix'></image>
+                <text>{{item.title}}</text>
+            </navigator>
+        </view>
+        <view class='user-row'>
+            <view class='user-row-item flex-center' wx:for="{{userRows}}" wx:key="index" catchtap='{{item.fun}}'
+                  style="{{index==userRows.length-1?'border-bottom:none':''}}" data-index='{{index}}'>
+                <image src='{{item.icon}}' mode='widthFix'></image>
+                <text>{{item.title}}</text>
+            </view>
+        </view>
+    </view>
+</view>

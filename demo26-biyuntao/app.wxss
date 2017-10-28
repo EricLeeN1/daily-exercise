@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-image {
+image ,video{
   display: block;
 }
 
@@ -28,7 +28,225 @@ image {
   color: #fff;
   box-sizing: border-box;
 }
-.btn-share-active{
+
+.btn-share-active {
+  border: 1px solid #f65314;
+  color: #f65314;
+  background-color: #fff;
+}
+
+/* loading线 */
+
+.loading-show {
+  position: relative;
+  border-bottom: 1px solid #e1e1e1;
+  justify-content: center;
+  width: 80%;
+  margin: 30rpx auto 50rpx auto;
+  border-radius: 50%;
+}
+
+.loading-show text {
+  height: 36rpx;
+  position: absolute;
+  background-color: #fff;
+  padding: 0 20rpx;
+  line-height: 36rpx;
+  font-size: 26rpx;
+  color: #999;
+  border-radius: 10rpx;
+}
+
+/* 一行两排列表样式 */
+.goods-col-list {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.goods-col-item {
+  width: 360rpx;
+  margin-bottom: 30rpx;
+}
+
+.goods-col-item image {
+  width: 100%;
+}
+
+.goods-col-item .goods-col-border {
+  border: 1px solid #e1e1e1;
+  border-top: none;
+  box-sizing: border-box;
+  padding: 10rpx 20rpx;
+}
+
+.goods-col-border .goods-col-title {
+  color: #666;
+  font-size: 30rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.goods-col-border .goods-col-price {
+  color: #666;
+  font-size: 24rpx;
+  line-height: 1.8;
+}
+
+.goods-col-price view {
+  color: #f65314;
+  margin-right: auto;
+}
+
+.goods-col-price text {
+  color: #f65314;
+}
+
+
+/* 一行多个 */
+
+
+.goods-scroll {
+  height: 280rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  white-space: nowrap;
+  position: relative;
+}
+
+.goods-scroll-item {
+  width: 200rpx;
+  margin-left: 30rpx;
+  display: inline-block;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+
+.goods-scroll-item  image {
+  width: 100%;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+
+.goods-scroll-item .goods-item-border {
+  border: 1px solid #e1e1e1;
+  box-sizing: border-box;
+  padding: 0 10rpx;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+
+.goods-scroll-item .goods-item-title {
+  color: #666;
+  font-size: 24rpx;
+  white-space: nowrap;
+  width: 100%;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.goods-scroll-item .goods-item-price {
+  text-align: left;
+  font-size: 20rpx;
+  white-space: nowrap;
+  width: 100%;
+  line-height: 1.8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.goods-scroll-item .goods-item-price .goods-item-new {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #f65314;
+  margin-right: 10rpx;
+}
+
+.goods-scroll-item .goods-item-new text {
+  color: #999;
+}
+
+
+/* 卡片式列表 */
+.goods-cards-item {
+  box-shadow: 6rpx 8rpx 2rpx #999;
+  margin-bottom: 30rpx;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  overflow: hidden;
+}
+
+.goods-cards-item .goods-infos {
+  border-left: 1px solid #999;
+  padding: 10rpx 20rpx;
+}
+
+.goods-cards-item video {
+  width: 100%;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+
+.goods-cards-item .goods-infos .goods-title {
+  color: #f65314;
+  justify-content: space-between;
+  height: 60rpx;
+}
+
+.goods-cards-item .goods-title .goods-name {
+  font-weight: 400;
+}
+
+.goods-cards-item .goods-title .goods-sell-number {
+  font-size: 30rpx;
+}
+
+.goods-cards-item .goods-sell-number text {
+  color: #999;
+}
+
+.goods-cards-item .goods-infos .goods-description {
+  color: #999;
+  font-size: 24rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.goods-cards-item .goods-infos .goods-price-detail {
+  padding: 20rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.goods-cards-item .goods-price-detail .goods-price-now, .goods-price-detail .goods-price-del {
+  font-size: 36rpx;
+  color: #f65314;
+}
+
+.goods-cards-item .goods-price-detail  .goods-price-del {
+  text-decoration: line-through;
+  color: #999;
+  margin-left: 20rpx;
+  margin-right: auto;
+}
+
+.goods-cards-item .goods-price-detail .buy-now {
+  background-color: #f65314;
+  color: #fff;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 0 20rpx;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  box-sizing: border-box;
+}
+
+.goods-cards-item .goods-price-detail .buy-now-active{
   border: 1px solid #f65314;
   color: #f65314;
   background-color: #fff;

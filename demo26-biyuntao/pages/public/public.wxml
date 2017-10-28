@@ -1,0 +1,64 @@
+<!-- 一行两个列表 -->
+<template name="goodsList">
+    <view class='goods-col-list flex-center'>
+        <view class='goods-col-item' wx:for="{{listDatas}}" wx:key="*this" data-id='{{item.id}}' catchtap='lookDetail'>
+            <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+            <view class='goods-col-border'>
+                <view class='goods-col-title'>{{item.name}}</view>
+                <view class='goods-col-price flex-center'>
+                    <view>{{'¥'+item.price}}</view>
+                    已有
+                    <text>{{item.number}}</text>
+                    人购买
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+        <!-- 一行多个滚动条 -->
+<template name="goodsScroll">
+<scroll-view scroll-x style='width:100%;' class="goods-scroll">
+    <view class="goods-scroll-item" wx:for="{{scrollDatas}}" wx:key="index" data-id='{{item.id}}' catchtap='lookDetail'
+          style="{{index==scrollDatas.length-1?'padding-right:30rpx;':''}}">
+        <image src="{{item.logo}}" mode="widthFix"></image>
+        <view class='goods-item-border'>
+            <view class="goods-item-title">{{item.name}}</view>
+            <view class="goods-item-price flex-center">
+                <view>尝新价：</view>
+                <view class="goods-item-new">
+                    {{"¥"+item.price}}
+                    <text>{{"/"+item.unit}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+</template>
+
+        <!-- 卡片式列表页 -->
+<template name="cardsLists">
+<view class='goods-cards-item' wx:for="{{cardsDatas}}" data-id='{{item.id}}' wx:key="index">
+    <video src='{{item.url}}' poster="{{imgUrls[1]}}"></video>
+    <view class='goods-infos' catchtap='lookDetail' data-id='{{item.id}}'>
+        <view class='goods-title flex-center'>
+            <view class='goods-name'>{{item.title}}</view>
+            <view class='goods-sell-number'>
+                {{item.goodsNumber}}
+                <text>人已购买</text>
+            </view>
+        </view>
+        <view class='goods-description'>{{item.des}}</view>
+        <view class='goods-price-detail flex-center'>
+            <view class='goods-price-now'>¥
+                <text>{{item.priceNow}}</text>
+            </view>
+            <view class='goods-price-del'>¥
+                <text>{{item.priceDel}}</text>
+            </view>
+            <view class='buy-now' catchtap='buyNow' data-id='{{item.id}}' hover-class='buy-now-active'>
+                立即购买
+            </view>
+        </view>
+    </view>
+</view>
+</template>

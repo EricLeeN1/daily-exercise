@@ -1,0 +1,23 @@
+<view class="body">
+    <scroll-view class='weui-navbar' scroll-x style='width:100%;' scroll-left="{{sliderOffset}}"
+                 scroll-into-view="{{type}}">
+        <block wx:for="{{tabs}}" wx:key="*this">
+            <view id="{{'id-'+index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-navbar__item_on' : ''}}"
+                  bindtap="tabClick" data-id='{{index}}'>
+                <view class="weui-navbar__title">{{item}}</view>
+            </view>
+        </block>
+        <view class="weui-navbar__slider"
+              style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </scroll-view>
+    <import src="../public/public.wxml"/>
+    <template is="goodsList" data="{{listDatas}}"/>
+    <!-- loading -->
+    <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+        <text class='flex-center'>loading...</text>
+    </view>
+    <!-- 我也是有底线的 -->
+    <view class='loading-show flex-center' wx:if="{{noDatas}}">
+        <text class='flex-center'>我也是有底线的</text>
+    </view>
+</view>

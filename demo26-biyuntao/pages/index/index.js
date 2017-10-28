@@ -4,73 +4,74 @@ const app = getApp();
 Page({
   data: {
       imgUrls: [
-          "../../images/banner/banner@2x.jpg",
-          "../../images/banner/banner@2x.jpg",
-          "../../images/banner/banner@2x.jpg"
+          "../../images/banner/banner@2x.png",
+          "../../images/banner/banner@2x.png",
+          "../../images/banner/banner@2x.png"
       ],
       navDatas: [
           {
               url: "../../images/nav/nav-1@2x.png",
               title: "限时秒杀",
-              targetUrl: ""
+              fun: "goSecKill"
           },
           {
               url: "../../images/nav/nav-2@2x.png",
               title: "男性用品",
-              targetUrl: ""
+              fun: "goLists"
           },
           {
               url: "../../images/nav/nav-3@2x.png",
               title: "女用器具",
-              targetUrl: ""
+              fun: "goLists"
           },
           {
               url: "../../images/nav/nav-4@2x.png",
               title: "避孕套",
-              targetUrl: ""
+              fun: "goLists"
           },
           {
               url: "../../images/nav/nav-5@2x.png",
               title: "情趣内衣",
-              targetUrl: ""
+              fun: "goLists"
           },
           {
               url: "../../images/nav/nav-6@2x.png",
               title: "延时喷剂",
-              targetUrl: ""
+              fun: "goLists"
           },
           {
               url: "../../images/nav/nav-7@2x.png",
               title: "保健护理",
-              targetUrl: ""
+              fun: "goLists"
           },
           {
               url: "../../images/nav/nav-8@2x.png",
               title: "性爱床椅",
-              targetUrl: ""
+              fun: "goLists"
           },
           {
               url: "../../images/nav/nav-9@2x.png",
               title: "我的分享",
-              targetUrl: ""
+              fun: "myShare"
           },
           {
               url: "../../images/nav/nav-10@2x.png",
               title: "我要加盟",
-              targetUrl: ""
+              fun: "makeCall"
           }
       ],
-      goodsDatas: [{
-          url: "../../images/banner/banner1.jpg",
-          id: 1,
-          title: "杜蕾斯",
-          des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
-          priceNow: "66.66",
-          priceDel: "88.88",
-          goodsNumber: "666"
+      cardsDatas: [
+          {
+              url: "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400",
+              id: 1,
+              title: "杜蕾斯",
+              des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
+              priceNow: "66.66",
+              priceDel: "88.88",
+              goodsNumber: "666"
       },
           {
-              url: "../../images/banner/banner1.jpg",
+              url: "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400",
               id: 2,
               title: "杜蕾斯",
               des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
@@ -78,7 +79,7 @@ Page({
               priceDel: "88.88",
               goodsNumber: "666"
           }, {
-              url: "../../images/banner/banner1.jpg",
+              url: "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400",
               id: 3,
               title: "杜蕾斯",
               des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
@@ -86,7 +87,7 @@ Page({
               priceDel: "88.88",
               goodsNumber: "666"
           }, {
-              url: "../../images/banner/banner1.jpg",
+              url: "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400",
               id: 4,
               title: "杜蕾斯",
               des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
@@ -95,7 +96,7 @@ Page({
               goodsNumber: "666"
           }
           , {
-              url: "../../images/banner/banner1.jpg",
+              url: "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400",
               id: 5,
               title: "杜蕾斯",
               des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
@@ -104,14 +105,15 @@ Page({
               goodsNumber: "666"
           },
           {
-              url: "../../images/banner/banner1.jpg",
+              url: "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400",
               id: 6,
               title: "杜蕾斯",
               des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
               priceNow: "66.66",
               priceDel: "88.88",
               goodsNumber: "666"
-          }],
+          }
+      ],
       banner: {
           indicatorActiveColor: "rgb(246,83,20)",
           indicatorColor: "#00a1f1",
@@ -167,5 +169,30 @@ Page({
     },
     makeCall: function () {
         app.makeCall();
+    },
+    goSecKill: function () {
+        wx.navigateTo({
+            url: '../seckill/seckill',
+        });
+    },
+    goLists: function (e) {
+        const that = this, type = e.currentTarget.dataset.type;
+        wx.navigateTo({
+            url: '../goodslists/goodslists?type=' + type,
+        });
+    },
+    makeCall: function () {
+        app.makeCall();
+    },
+    lookDetail: function (e) {
+        app.lookDetail(e);
+    },
+    buyNow: function () {
+
+    },
+    myShare: function () {
+        wx.navigateTo({
+            url: '../myShare/myShare',
+        })
     }
 })

@@ -1,10 +1,15 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/seckill/seckill",
+    "pages/myShare/myShare",
+    "pages/goodslists/goodslists",
+    "pages/goodsDetails/goodsDetails",
     "pages/new/new",
     "pages/manage/manage",
     "pages/my/my",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/public/public"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f7f8f9",

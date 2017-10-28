@@ -1,0 +1,46 @@
+.weui-navbar {
+  height: 100rpx;
+  line-height: 100rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  white-space: nowrap;
+  position: relative;
+}
+
+.weui-navbar__item {
+  padding: 0 16rpx;
+  display: inline-block;
+  text-align: center;
+  color: #666;
+  width: 118rpx;
+  height: 100rpx;
+}
+
+.weui-navbar__slider {
+  position: absolute;
+  content: " ";
+  left: 0;
+  top: 94rpx;
+  width: 150rpx;
+  height: 6rpx;
+  background-color: #f65314;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.weui-navbar__title {
+  display: inline-block;
+  font-size: 14px;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.weui-navbar .weui-navbar__item_on {
+  color: #f65314;
+}

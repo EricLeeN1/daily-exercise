@@ -1,1 +1,91 @@
-/* pages/my/my.wxss */
+.body {
+  color: #333;
+  background-color: #f7f8f9;
+  width: 100vw;
+  height: 100vh;
+}
+
+.user-info {
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f65314;
+  height: 300rpx;
+}
+
+.user-info view {
+  border: 10rpx solid rgba(255 , 255, 255, 0.3);
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 20rpx;
+}
+
+.user-info image {
+  width: 128rpx;
+}
+
+.user-info text {
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.order {
+  
+}
+
+.order-title {
+  background-color: #fff;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 0 30rpx;
+  height: 90rpx;
+  justify-content: space-between;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.order-title .flex-center {
+  font-weight: normal;
+  color: #f65314;
+}
+
+.order-title image {
+  width: 36rpx;
+  margin-left: 10rpx;
+}
+
+.user-column {
+  background-color: #fff;
+  margin-bottom: 30rpx;
+}
+
+.user-column-item {
+  height: 150rpx;
+  justify-content: center;
+  width: 20%;
+  flex: 0 0 150rpx;
+  flex-direction: column;
+}
+
+.user-column-item image {
+  width: 70rpx;
+}
+
+.user-column-item text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.user-row {
+  background-color: #fff;
+}
+
+.user-row-item {
+  border-bottom: 1px solid #e1e1e1;
+  height: 100rpx;
+  padding-left: 30rpx;
+  font-size: 30rpx;
+}
+
+.user-row-item image {
+  width: 80rpx;
+  margin-right: 20rpx;
+}

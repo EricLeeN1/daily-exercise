@@ -113,7 +113,7 @@ App({
           };
       })
   },
-  getAjaX:function(url,data,successFun,failFun){
+    getAjax: function (url, data, successFun, failFun) {
       wx.request({
           url: url,
           data:data,
@@ -141,6 +141,12 @@ App({
     makeCall: function () {
         wx.makePhoneCall({
             phoneNumber: '15201173239',
+        })
+    },
+    lookDetail: function (e) {
+        const id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '../goodsDetails/goodsDetails?id=' + id,
         })
     }
 })

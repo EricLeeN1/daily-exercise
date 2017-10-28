@@ -1,4 +1,4 @@
-// pages/logs/logs.js
+// pages/myShare/myShare.js
 Page({
 
     /**
@@ -59,6 +59,6 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-  
-  }
+
+    }
 })
