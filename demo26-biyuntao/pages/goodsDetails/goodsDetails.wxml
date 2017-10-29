@@ -1,59 +1,70 @@
 <view class="body">
     <!-- 轮播 -->
-    <swiper autoplay="{{banner.autoplay}}" interval="{{banner.interval}}" duration="{{banner.duration}}" class='swiper'>
+    <swiper autoplay="{{banner.autoplay}}" interval="{{banner.interval}}" duration="{{banner.duration}}" class='swiper' bindchange="swiperChange">
         <block wx:for="{{imgUrls}}" wx:key="*this">
             <swiper-item>
                 <image src='{{item}}' mode='widthFix' lazy-load='true' class="slide-image"></image>
-                <view></view>
+                <view>{{swiperCurrent+"/"+imgUrls.length}}</view>
             </swiper-item>
         </block>
     </swiper>
 
     <view class='price-detail flex-center'>
-        <view class='price-detail-left'>
+        <view class='price-detail-left flex1-center'>
             <view class='goods-price flex-center'>
                 <view>{{'¥'+datas.priceNow}}</view>
                 <text>{{'¥'+datas.priceDel}}</text>
             </view>
+            <view class='goods-number'>
+                {{"月销"+datas.soldnumber+'件'}}
+            </view>
         </view>
-        <view class='price-detail-right flex-center'>
+        <button class='price-detail-right flex1-center' open-type='share'>
             <image src='{{icon.share}}' mode='widthFix'></image>
             <text>分享</text>
-        </view>
+        </button>
     </view>
+
     <view class='goods-title'>
         {{datas.title}}
     </view>
     <view class='goods-des'>
         {{datas.des}}
     </view>
-    <view class='service-detail'>
-        <view class='service-item'>
-            <image src='{{icon.right}}' mode='widthFix'></image>
-            全场包邮
+
+    <view class='service-detail flex1-center' catchtap='showServiceModal'>
+        <view class='service-title flex-center'>
+            <image src='{{icon.logo}}' mode='widthFix'></image>
+            方便快捷，为您创造‘性’福生活
         </view>
-        <view class='service-item'>
-            <image src='{{icon.right}}' mode='widthFix'></image>
-            7天退换
+        <view class='flex-center service-list'>
+            <view class='service-item flex-center'>
+                <image src='{{icon.serviceMail}}' mode='widthFix'></image>
+                全场包邮
+            </view>
+            <view class='service-item flex-center'>
+                <image src='{{icon.serviceSeven}}' mode='widthFix'></image>
+                7天退换
+            </view>
+            <view class='service-item flex-center'>
+                <image src='{{icon.serviceSend}}' mode='widthFix'></image>
+                48小时发货
+            </view>
+            <view class='service-item flex-center'>
+                <image src='{{icon.serviceCompensate}}' mode='widthFix'></image>
+                假一赔十
+            </view>
+            <image src='{{icon.more}}' mode='widthFix' class='more' catchtap='lookService'></image>
         </view>
-        <view class='service-item'>
-            <image src='{{icon.right}}' mode='widthFix'></image>
-            48小时发货
-        </view>
-        <view class='service-item'>
-            <image src='{{icon.right}}' mode='widthFix'></image>
-            假一赔十
-        </view>
-        <image src='' mode='widthFix'></image>
     </view>
 
-    <view class='comments-list'>
-        <view class='comments-title'>
+    <view class='comments'>
+        <view class='comments-title flex-center'>
             <view class='comments-number'>
                 <text>商品评价</text>
-                {{datas.commentsNum}}
+                {{"("+datas.commentsNum+")"}}
             </view>
-            <view class='commments-more'>
+            <view class='comments-more flex-center'>
                 查看更多
                 <image src='{{icon.more}}' mode='widthFix'></image>
             </view>
@@ -100,7 +111,7 @@
     </view>
 
     <!-- 服务弹窗 -->
-    <view class='service-modal'>
+    <view class='service-modal' hidden='{{!serviceModal}}'>
         <view class='service-modal-title'>服务说明</view>
         <view class='service-modal-list'>
             <view class='service-modal-item flex-center' wx:for="{{serviceModalDatas}}">
@@ -129,8 +140,7 @@
                 {{item.type}}
             </view>
             <view class='choice-color-list flex-center'>
-                <view class='choice-color-item' wx:for="{{item.style}}" wx:key="index" wx:for-item="iItem"
-                      wx:for-item="iIndex">
+                <view class='choice-color-item' wx:for="{{item.style}}" wx:key="index" wx:for-item="iItem" wx:for-item="iIndex">
                     {{iItem}}
                 </view>
             </view>

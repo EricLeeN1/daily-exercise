@@ -5,6 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
+        swiperCurrent: 1,
+        serviceModal:false,
         banner: {
             indicatorActiveColor: "rgb(246,83,20)",
             indicatorColor: "#00a1f1",
@@ -26,7 +28,18 @@ Page({
             des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
             priceNow: "66.66",
             priceDel: "88.88",
-            goodsNumber: "666"
+            goodsNumber: "666",
+            soldnumber:"666",
+            commentsNum:999
+        },
+        icon:{
+            share:'../../images/icon/share-1.png',
+            logo:'../../images/icon/share-1.png',
+            more:'../../images/icon/more1.png',
+            serviceMail:'../../images/icon/service-mail.png',
+            serviceSend:'../../images/icon/service-send.png',
+            serviceSeven:'../../images/icon/service-seven.png',
+            serviceCompensate:'../../images/icon/service-compensate.png',
         }
     },
 
@@ -84,5 +97,16 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    swiperChange: function (e) {
+        const that = this, current = e.detail.current - 0 + 1;
+        that.setData({
+            swiperCurrent: current
+        });
+    },
+    showServiceModal:function(){
+        this.setData({
+            serviceModal: true
+        });
     }
 })
