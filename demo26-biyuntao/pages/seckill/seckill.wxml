@@ -1,2 +1,169 @@
-<!--pages/seckill/seckill.wxml-->
-<text>pages/seckill/seckill.wxml</text>
+<view class="body">
+    <!-- 导航栏 -->
+    <view class='weui-navbar flex-center'>
+        <block wx:for="{{tabs}}" wx:key="*this">
+            <view id="{{'id-'+index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-navbar__item_on' : ''}}"
+                  bindtap="tabClick" data-id='{{index}}'>
+                <view class="weui-navbar__title">{{item}}</view>
+            </view>
+        </block>
+    </view>
+    <!-- 时间栏 -->
+    <view class='time'>
+        <view class='time-column'>
+            <view class='time-line flex-center' hidden="{{activeIndex != 0}}">
+                <view class='time-now flex-center'>
+                    <image src='{{icon.thunder}}' mode='widthFix' lazy-load='true'></image>
+                    <!-- 请求接口返回 -->
+                    <view>{{time[0]}}正在疯抢</view>
+                </view>
+                <view class="times-remain-show flex-center">
+                    <text>距结束</text>
+                    <view>{{min.min0}}</view>
+                    <view>{{min.min1}}</view>
+                    :
+                    <view>{{min.min0}}</view>
+                    <view>{{min.min1}}</view>
+                    :
+                    <view>{{sec.sec0}}</view>
+                    <view>{{sec.sec1}}</view>
+                </view>
+            </view>
+            <view class='time-line flex-center' hidden="{{activeIndex != 1}}">
+                <view class='time-now flex-center'>
+                    <image src='{{icon.time}}' mode='widthFix' lazy-load='true'></image>
+                    <!-- 请求接口返回 -->
+                    <view>{{time[1]}}明日开抢</view>
+                </view>
+                <view class="times-remain-show flex-center">
+                    <text>距开始</text>
+                    <view>{{min.min0}}</view>
+                    <view>{{min.min1}}</view>
+                    :
+                    <view>{{min.min0}}</view>
+                    <view>{{min.min1}}</view>
+                    :
+                    <view>{{sec.sec0}}</view>
+                    <view>{{sec.sec1}}</view>
+                </view>
+            </view>
+            <view class='time-line flex-center' hidden="{{activeIndex != 2}}">
+                <view class='time-now flex-center'>
+                    <image src='{{icon.time}}' mode='widthFix' lazy-load='true'></image>
+                    <!-- 请求接口返回 -->
+                    <view>{{time[2]}}后日开抢</view>
+                </view>
+                <view class="times-remain-show flex-center">
+                    <text>距开始</text>
+                    <view>{{min.min0}}</view>
+                    <view>{{min.min1}}</view>
+                    :
+                    <view>{{min.min0}}</view>
+                    <view>{{min.min1}}</view>
+                    :
+                    <view>{{sec.sec0}}</view>
+                    <view>{{sec.sec1}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 列表 -->
+    <view class='seckill-list' hidden="{{activeIndex != 0}}">
+        <view class='seckill-item flex-center' wx:for="{{seckillDatas}}" wx:key="index" data-id='{{item.id}}'
+              catchtap='lookDetail'>
+            <view class='seckill-item-logo'>
+                <image src='{{item.logo}}' mode='widthFix'></image>
+            </view>
+            <view class='seckill-item-content flex-center'>
+                <view class='seckill-item-title'>{{item.des}}</view>
+                <view class='seckill-item-progress flex-center'>
+                    <progress percent='{{item.percent}}' show-info activeColor='#f65314' active="true"
+                              stroke-width="8"></progress>
+                    <text>已抢{{item.goodsNumber}}件</text>
+                </view>
+                <view class='seckill-item-price flex-center'>
+                    <view class='price-now'>{{'¥'+item.priceNow}}</view>
+                    <view class='price-del'>{{'¥'+item.priceDel}}</view>
+                    <view class='kill-now flex-center'>马上抢 ></view>
+                </view>
+            </view>
+        </view>
+        <!-- loading -->
+        <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+            <text class='flex-center'>loading...</text>
+        </view>
+        <!-- 我也是有底线的 -->
+        <view class='loading-show flex-center' wx:if="{{noDatas}}">
+            <text class='flex-center'>我也是有底线的</text>
+        </view>
+    </view>
+    <view class='seckill-list' hidden="{{activeIndex != 1}}">
+        <view class='seckill-item flex-center' wx:for="{{seckillDatas}}" wx:key="index" data-id='{{item.id}}'
+              catchtap='lookDetail'>
+            <view class='seckill-item-logo'>
+                <image src='{{item.logo}}' mode='widthFix'></image>
+            </view>
+            <view class='seckill-item-content flex-center'>
+                <view class='seckill-item-title'>{{item.des}}</view>
+                <view class='seckill-item-progress flex-center'>
+                    <view>限量{{item.goodsNumber}}件</view>
+                </view>
+                <view class='seckill-item-price flex-center'>
+                    <view class='price-now'>{{'¥'+item.priceNow}}</view>
+                    <view class='price-del'>{{'¥'+item.priceDel}}</view>
+                    <view class='kill-now flex-center' wx:if="{{data.setting}}" data-id='{{item.id}}'
+                          catchtap='settingClock'>
+                        <image src='{{icon.clock}}' mode='widthFix'></image>
+                        提醒我
+                    </view>
+                    <view class='kill-now flex-center' wx:else>
+                        已设提醒
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- loading -->
+        <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+            <text class='flex-center'>loading...</text>
+        </view>
+        <!-- 我也是有底线的 -->
+        <view class='loading-show flex-center' wx:if="{{noDatas}}">
+            <text class='flex-center'>我也是有底线的</text>
+        </view>
+    </view>
+    <view class='seckill-list' hidden="{{activeIndex != 2}}">
+        <view class='seckill-item flex-center' wx:for="{{seckillDatas}}" wx:key="index" data-id='{{item.id}}'
+              catchtap='lookDetail'>
+            <view class='seckill-item-logo'>
+                <image src='{{item.logo}}' mode='widthFix'></image>
+            </view>
+            <view class='seckill-item-content flex-center'>
+                <view class='seckill-item-title'>{{item.des}}</view>
+                <view class='seckill-item-progress flex-center'>
+                    <view>限量{{item.goodsNumber}}件</view>
+                </view>
+                <view class='seckill-item-price flex-center'>
+                    <view class='price-now'>{{'¥'+item.priceNow}}</view>
+                    <view class='price-del'>{{'¥'+item.priceDel}}</view>
+                    <view class='kill-now flex-center' wx:if="{{!data.setting}}" data-id='{{item.id}}'
+                          catchtap='settingClock'>
+                        <image src='{{icon.clock}}' mode='widthFix'></image>
+                        提醒我
+                    </view>
+                    <view class='kill-now flex-center' wx:else>
+                        已设提醒
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- loading -->
+        <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+            <text class='flex-center'>loading...</text>
+        </view>
+        <!-- 我也是有底线的 -->
+        <view class='loading-show flex-center' wx:if="{{noDatas}}">
+            <text class='flex-center'>我也是有底线的</text>
+        </view>
+    </view>
+
+</view>

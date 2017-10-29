@@ -4,7 +4,31 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+        banner: {
+            indicatorActiveColor: "rgb(246,83,20)",
+            indicatorColor: "#00a1f1",
+            indicatorDots: true,
+            autoplay: true,
+            interval: 5000,
+            duration: 1000
+        },
+        imgUrls: [
+            "../../images/banner/banner@2x.png",
+            "../../images/banner/banner@2x.png",
+            "../../images/banner/banner@2x.png"
+        ],
+        datas: {
+            logo: '../../images/new/logo@2x.png',
+            id: 1,
+            percent: "20",
+            title: "杜蕾斯",
+            des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
+            priceNow: "66.66",
+            priceDel: "88.88",
+            goodsNumber: "666"
+        }
+    },
 
     /**
      * 生命周期函数--监听页面加载

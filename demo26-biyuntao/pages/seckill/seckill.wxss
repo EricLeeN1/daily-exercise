@@ -1,1 +1,189 @@
-/* pages/seckill/seckill.wxss */
+.body {
+  background-color: #f7f8f9;
+  min-height: 100vh;
+}
+
+.weui-navbar {
+  background-color: #fff;
+  height: 100rpx;
+  line-height: 100rpx;
+  white-space: nowrap;
+  position: relative;
+  color: #fff;
+}
+
+.weui-navbar__item {
+  text-align: center;
+  background-color: #333;
+  width: 250rpx;
+  height: 100rpx;
+}
+
+.weui-navbar__title {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 20rpx;
+}
+
+.weui-navbar .weui-navbar__item_on {
+  background-color: #f65314;
+  position: relative;
+}
+
+.weui-navbar .weui-navbar__item_on::after {
+  position: absolute;
+  content: ' ';
+  bottom: -40rpx;
+  height: 0;
+  left: 50%;
+  margin-left: -20rpx;
+  border: 20rpx solid transparent;
+  border-top-color: #f65314;
+}
+
+/* 时间 */
+
+.time {
+  background-color: #fff;
+  padding-top: 40rpx;
+  padding-bottom: 0rpx;
+}
+
+.time-line {
+  border-top: 1px solid #e1e1e1;
+  border-radius: 50%;
+  position: relative;
+  justify-content: center;
+  width: 80%;
+  margin: 30rpx auto;
+}
+
+.time-now {
+  position: absolute;
+  background-color: #fff;
+  padding: 20rpx;
+  color: #f65314;
+  top: -45rpx;
+  justify-content: center;
+  z-index: 2;
+}
+
+.time image {
+  width: 40rpx;
+  margin-right: 10rpx;
+}
+
+.times-remain-show {
+  margin-top: 40rpx;
+  justify-content: center;
+  z-index: 3;
+  color: #666;
+}
+
+.times-remain-show text {
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 10rpx;
+}
+
+.times-remain-show view {
+  background-color: #666;
+  height: 30rpx;
+  width: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  margin: 0 5rpx;
+  font-size: 26rpx;
+  color: #fff;
+  font-family: Georgia;
+  border-radius: 4rpx;
+}
+
+/* 列表页 */
+
+.seckill-list {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 0 20rpx 20rpx 16rpx;
+}
+
+.seckill-item {
+  border-bottom: 1px solid #999;
+  padding: 16rpx 0;
+  height: 260rpx;
+}
+
+.seckill-item  image {
+  width: 260rpx;
+}
+
+.seckill-item .seckill-item-content {
+  margin-left: 20rpx;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.seckill-item .seckill-item-title {
+  color: #333;
+  font-size: 30rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.seckill-item .seckill-item-progress {
+  margin-bottom: auto;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.seckill-item-progress progress {
+  width: 260rpx;
+}
+
+.seckill-item-progress text {
+  color: #f65314;
+  font-size: 26rpx;
+  margin-left: auto;
+}
+
+.seckill-item-progress view {
+  color: #f65314;
+  font-size: 26rpx;
+}
+
+.seckill-item .seckill-item-price {
+  width: 100%;
+}
+
+.seckill-item-price .price-now {
+  color: #f65314;
+  font-size: 36rpx;
+  margin-right: 20rpx;
+}
+
+.seckill-item-price .price-del {
+  color: #999;
+  font-size: 24rpx;
+  margin-right: auto;
+  text-decoration: line-through;
+}
+
+.seckill-item-price .kill-now {
+  color: #fff;
+  font-size: 24rpx;
+  background-color: #f65314;
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+}
+
+.seckill-item-price .kill-now image {
+  width: 30rpx;
+  margin-right: 10rpx;
+}

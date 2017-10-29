@@ -1,2 +1,150 @@
-<!--pages/goodsDetails/goodsDetails.wxml-->
-<text>pages/goodsDetails/goodsDetails.wxml</text>
+<view class="body">
+    <!-- 轮播 -->
+    <swiper autoplay="{{banner.autoplay}}" interval="{{banner.interval}}" duration="{{banner.duration}}" class='swiper'>
+        <block wx:for="{{imgUrls}}" wx:key="*this">
+            <swiper-item>
+                <image src='{{item}}' mode='widthFix' lazy-load='true' class="slide-image"></image>
+                <view></view>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <view class='price-detail flex-center'>
+        <view class='price-detail-left'>
+            <view class='goods-price flex-center'>
+                <view>{{'¥'+datas.priceNow}}</view>
+                <text>{{'¥'+datas.priceDel}}</text>
+            </view>
+        </view>
+        <view class='price-detail-right flex-center'>
+            <image src='{{icon.share}}' mode='widthFix'></image>
+            <text>分享</text>
+        </view>
+    </view>
+    <view class='goods-title'>
+        {{datas.title}}
+    </view>
+    <view class='goods-des'>
+        {{datas.des}}
+    </view>
+    <view class='service-detail'>
+        <view class='service-item'>
+            <image src='{{icon.right}}' mode='widthFix'></image>
+            全场包邮
+        </view>
+        <view class='service-item'>
+            <image src='{{icon.right}}' mode='widthFix'></image>
+            7天退换
+        </view>
+        <view class='service-item'>
+            <image src='{{icon.right}}' mode='widthFix'></image>
+            48小时发货
+        </view>
+        <view class='service-item'>
+            <image src='{{icon.right}}' mode='widthFix'></image>
+            假一赔十
+        </view>
+        <image src='' mode='widthFix'></image>
+    </view>
+
+    <view class='comments-list'>
+        <view class='comments-title'>
+            <view class='comments-number'>
+                <text>商品评价</text>
+                {{datas.commentsNum}}
+            </view>
+            <view class='commments-more'>
+                查看更多
+                <image src='{{icon.more}}' mode='widthFix'></image>
+            </view>
+        </view>
+        <view class='comments-label'>
+            <view class='comments-label-item' wx:for="{{commentsLabelLists}}" wx:key="index">{{item}}
+            </view>
+        </view>
+        <view class='comments-list'>
+            <view class='comments-item' wx:for="{{commentsLists}}" wx:key="index">
+                <view class='comments-item-title flex-center'>
+                    <image src='{{item.avatarUrl}}' mode='widthFix'></image>
+                    <view>{{item.name}}</view>
+                    <text>{{item.time}}</text>
+                </view>
+                <view class='comments-item-content'>{{item.des}}</view>
+                <view class='comments-item-size flex-center'>
+                    <view>{{"颜色"+item.color}}</view>
+                    <text>{{"颜色"+item.size}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='goods-details'>
+        <block wx:for="{{goodsDetails}}">
+            <image src='{{item}}' mode='widthFix'></image>
+        </block>
+    </view>
+
+    <!-- 底部购买栏 -->
+    <view class='buy-column flex-center'>
+        <view class='buy-col'>
+            <image src='{{icon.home}}' mode='widthFix'></image>
+            首页
+        </view>
+        <view class='buy-col'>
+            <image src='{{icon.service}}' mode='widthFix'></image>
+            客服
+        </view>
+        <view class='buy-col buy-now'>
+            <view>{{"¥"+datas.price}}</view>
+            <text>一键购买</text>
+        </view>
+    </view>
+
+    <!-- 服务弹窗 -->
+    <view class='service-modal'>
+        <view class='service-modal-title'>服务说明</view>
+        <view class='service-modal-list'>
+            <view class='service-modal-item flex-center' wx:for="{{serviceModalDatas}}">
+                <image src='{{icon.ok}}' mode='widthFix'></image>
+                <view class='service-modal-item flex-center'>
+                    <view>{{item.title}}</view>
+                    <text>{{item.des}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 商品选择详情弹窗 -->
+    <view class='choice-modal'>
+        <view class='choice-modal-title'>
+            <view class='choice-modal-logo'>
+                <image src='{{}}' mode='widthFix'></image>
+            </view>
+            <view class='choice-modal-infos'>
+                <view></view>
+                <text>请选择 颜色 尺码</text>
+                <text>{{"已选: "+datas}}</text>
+            </view>
+        </view>
+        <view class='choice-modal-color' wx:for="{{datas.choice}}" wx:key="index">
+            <view class='choice-color-title'>
+                {{item.type}}
+            </view>
+            <view class='choice-color-list flex-center'>
+                <view class='choice-color-item' wx:for="{{item.style}}" wx:key="index" wx:for-item="iItem"
+                      wx:for-item="iIndex">
+                    {{iItem}}
+                </view>
+            </view>
+        </view>
+        <view class='choice-modal-num flex-center'>
+            <text>数量</text>
+            <view class='choice-num-change'>
+                <image src='{{icon.reduce}}' mode='widthFix'></image>
+                <input value='{{}}'></input>
+                <image src='{{icon.add}}' mode='widthFix'></image>
+            </view>
+        </view>
+        <view class='choice-ok'>
+            确定
+        </view>
+    </view>
+</view>
