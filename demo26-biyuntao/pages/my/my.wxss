@@ -66,7 +66,7 @@
 }
 
 .user-column-item image {
-  width: 70rpx;
+  width: 60rpx;
 }
 
 .user-column-item text {
@@ -86,6 +86,6 @@
 }
 
 .user-row-item image {
-  width: 80rpx;
+  width: 60rpx;
   margin-right: 20rpx;
 }

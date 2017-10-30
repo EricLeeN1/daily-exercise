@@ -4,7 +4,45 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+        shareDatas: [
+            {
+                id: 1,
+                name: "杜蕾斯",
+                profits: 88.88,
+                time: "2017-10-30",
+                logo: "../../images/icon/logo.png"
+            },
+            {
+                id: 1,
+                name: "杜蕾斯",
+                profits: 88.88,
+                time: "2017-10-30",
+                logo: "../../images/icon/logo.png"
+            },
+            {
+                id: 1,
+                name: "杜蕾斯",
+                profits: 88.88,
+                time: "2017-10-30",
+                logo: "../../images/icon/logo.png"
+            },
+            {
+                id: 1,
+                name: "杜蕾斯",
+                profits: 88.88,
+                time: "2017-10-30",
+                logo: "../../images/icon/logo.png"
+            },
+            {
+                id: 1,
+                name: "杜蕾斯",
+                profits: 88.88,
+                time: "2017-10-30",
+                logo: "../../images/icon/logo.png"
+            }
+        ]
+    },
 
     /**
      * 生命周期函数--监听页面加载

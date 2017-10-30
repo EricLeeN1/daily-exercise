@@ -10,22 +10,22 @@ Page({
           more: "../../images/icon/more.png"
       },
       userColumns: [{
-          url: '',
+          url: '../myOrder/myOrder?type=1',
           icon: '../../images/icon/daifukuan.png',
           title: "待付款"
       },
           {
-              url: '',
+              url: '../myOrder/myOrder?type=2',
               icon: '../../images/icon/daifahuo.png',
               title: "待发货"
           },
           {
-              url: '',
+              url: '../myOrder/myOrder?type=3',
               icon: '../../images/icon/daishouhuo.png',
               title: "待收货"
           },
           {
-              url: '',
+              url: '../myOrder/myOrder?type=4',
               icon: '../../images/icon/daipingjia.png',
               title: "待评价"
           },
@@ -44,7 +44,7 @@ Page({
               icon: '../../images/icon/daifukuan.png',
               title: "客服与投诉"
           }, {
-              fun: '',
+              fun: 'myShare',
               icon: '../../images/icon/daifukuan.png',
               title: "我的分享"
           }, {
@@ -161,4 +161,9 @@ Page({
     // onShareAppMessage: function () {
 
     // }
+    myShare:function(){
+        wx.navigateTo({
+            url: '../myShare/myShare',
+        })
+    }
 })
