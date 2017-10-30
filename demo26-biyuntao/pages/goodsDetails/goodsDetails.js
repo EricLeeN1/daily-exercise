@@ -6,7 +6,45 @@ Page({
      */
     data: {
         swiperCurrent: 1,
-        serviceModal:false,
+        commentsLabelLists: [
+            {
+                name: "商家态度好",
+                num: 123
+            },
+            {
+                name: "物流速度快",
+                num: 123
+            },
+            {
+                name: "商品质量好",
+                num: 123
+            },
+            {
+                name: "物美价廉",
+                num: 123
+            }
+        ],
+        commentsLists: [
+            {
+                avatarUrl: "../../images/icon/logo.png",
+                name: "客户1",
+                time: "2017-10-30",
+                des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
+                color: "红色",
+                size: "超大"
+            },
+            {
+                avatarUrl: "../../images/icon/logo.png",
+                name: "客户1",
+                time: "2017-10-30",
+                des: "杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...",
+                color: "红色",
+                size: "超大"
+            }
+        ],
+        serviceModal: false,
+        choiceModal: false,
+        readyToBuy: false,
         banner: {
             indicatorActiveColor: "rgb(246,83,20)",
             indicatorColor: "#00a1f1",
@@ -15,6 +53,24 @@ Page({
             interval: 5000,
             duration: 1000
         },
+        serviceModalDatas: [
+            {
+                title: "全场包邮",
+                des: "所有商品均无条件包邮"
+            },
+            {
+                title: "七天退换",
+                des: "商家承诺七天无理由退换货"
+            },
+            {
+                title: "48小时发货",
+                des: "若超时未发货，商家将补偿3元无门槛代金券"
+            },
+            {
+                title: "假一赔十",
+                des: "若收到的商品是假冒品牌，可获得加倍赔偿"
+            }
+        ],
         imgUrls: [
             "../../images/banner/banner@2x.png",
             "../../images/banner/banner@2x.png",
@@ -29,17 +85,34 @@ Page({
             priceNow: "66.66",
             priceDel: "88.88",
             goodsNumber: "666",
-            soldnumber:"666",
-            commentsNum:999
+            soldnumber: "666",
+            commentsNum: 999,
+            price: 123,
+            choice: [
+                {
+                    type: "颜色",
+                    style: ["白色", "黑色", "酒红色", "驼色", "墨绿色", "灰色", "粉色"]
         },
-        icon:{
-            share:'../../images/icon/share-1.png',
-            logo:'../../images/icon/share-1.png',
-            more:'../../images/icon/more1.png',
-            serviceMail:'../../images/icon/service-mail.png',
-            serviceSend:'../../images/icon/service-send.png',
-            serviceSeven:'../../images/icon/service-seven.png',
-            serviceCompensate:'../../images/icon/service-compensate.png',
+                {
+                    type: "尺码",
+                    style: ["s", "m", "xl", "xxl", "xxl"]
+                }
+            ]
+        },
+        icon: {
+            home: "../../images/tabBar/home.png",
+            close: "../../images/icon/close.png",
+            right: "../../images/icon/right.png",
+            service: "../../images/icon/service.png",
+            share: '../../images/icon/share-1.png',
+            logo: '../../images/icon/logo.png',
+            more: '../../images/icon/more1.png',
+            serviceMail: '../../images/icon/service-mail.png',
+            serviceSend: '../../images/icon/service-send.png',
+            serviceSeven: '../../images/icon/service-seven.png',
+            serviceCompensate: '../../images/icon/service-compensate.png',
+            reduce: '../../images/icon/reduce.png',
+            add: '../../images/icon/add.png',
         }
     },
 
@@ -47,7 +120,22 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let that = this,
+            datas = that.data.datas,
+            length = datas.choice.length,
+            activeArr = [];
 
+        for (let i = 0; i = length; i++) {
+            activeArr[i] = {
+                activeIndex: -1
+            };
+        }
+        ;
+        // datas.activeArr = activeArr;
+        // console.log(that.data.datas.activeArr);
+        // that.setData({
+        //   datas: datas
+        // });
     },
 
     /**
@@ -104,9 +192,40 @@ Page({
             swiperCurrent: current
         });
     },
-    showServiceModal:function(){
+    showServiceModal: function () {
         this.setData({
             serviceModal: true
         });
+    },
+    closeServiceModal: function () {
+        this.setData({
+            serviceModal: false
+        });
+    },
+    showChoiceModal: function () {
+        this.setData({
+            choiceModal: true
+        });
+    },
+    closeChoiceModal: function () {
+        this.setData({
+            choiceModal: false
+        });
+    },
+    readyToBuy: function () {
+
+    },
+    buyNow: function () {
+        this.setData({
+            choiceModal: true
+        });
+    },
+    choiceChange: function (e) {
+        console.log(e);
+        const that = this,
+            datas = that.data.datas,
+            index = e.currentTarget.dataset.index,
+            iindex = e.currentTarget.dataset.iindex,
+            length = datas.choice.length;
     }
 })

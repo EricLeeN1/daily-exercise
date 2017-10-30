@@ -1,6 +1,7 @@
 <view class="body">
     <!-- 轮播 -->
-    <swiper autoplay="{{banner.autoplay}}" interval="{{banner.interval}}" duration="{{banner.duration}}" class='swiper' bindchange="swiperChange">
+    <swiper autoplay="{{banner.autoplay}}" interval="{{banner.interval}}" duration="{{banner.duration}}" class='swiper'
+            bindchange="swiperChange">
         <block wx:for="{{imgUrls}}" wx:key="*this">
             <swiper-item>
                 <image src='{{item}}' mode='widthFix' lazy-load='true' class="slide-image"></image>
@@ -70,41 +71,44 @@
             </view>
         </view>
         <view class='comments-label'>
-            <view class='comments-label-item' wx:for="{{commentsLabelLists}}" wx:key="index">{{item}}
+            <view class='comments-label-item' wx:for="{{commentsLabelLists}}" wx:key="index">
+                {{item.name+"("+item.num+")"}}
             </view>
         </view>
         <view class='comments-list'>
-            <view class='comments-item' wx:for="{{commentsLists}}" wx:key="index">
+            <view class='comments-item flex1-center' wx:for="{{commentsLists}}" wx:key="index"
+                  style="{{index==commentsLists.length-1?'border-bottom:none':''}}">
                 <view class='comments-item-title flex-center'>
-                    <image src='{{item.avatarUrl}}' mode='widthFix'></image>
+                    <image src='{{item.avatarUrl}}' mode='widthFix' lazy-load='true'></image>
                     <view>{{item.name}}</view>
                     <text>{{item.time}}</text>
                 </view>
                 <view class='comments-item-content'>{{item.des}}</view>
                 <view class='comments-item-size flex-center'>
-                    <view>{{"颜色"+item.color}}</view>
-                    <text>{{"颜色"+item.size}}</text>
+                    <view>{{"颜色: "+item.color}}</view>
+                    <text>{{"型号: "+item.size}}</text>
                 </view>
             </view>
         </view>
     </view>
     <view class='goods-details'>
-        <block wx:for="{{goodsDetails}}">
-            <image src='{{item}}' mode='widthFix'></image>
+        <view class='goods-details-title'>商品详情</view>
+        <block wx:for="{{goodsDetails||imgUrls}}">
+            <image src='{{item}}' mode='widthFix' lazy-load='true'></image>
         </block>
     </view>
 
     <!-- 底部购买栏 -->
     <view class='buy-column flex-center'>
-        <view class='buy-col'>
+        <navigator class='buy-col flex1-center' url='/pages/index/index' open-type='switchTab'>
             <image src='{{icon.home}}' mode='widthFix'></image>
             首页
-        </view>
-        <view class='buy-col'>
+        </navigator>
+        <button class='buy-col flex1-center' open-type='contact'>
             <image src='{{icon.service}}' mode='widthFix'></image>
             客服
-        </view>
-        <view class='buy-col buy-now'>
+        </button>
+        <view class='buy-col buy-now flex1-center' catchtap='buyNow'>
             <view>{{"¥"+datas.price}}</view>
             <text>一键购买</text>
         </view>
@@ -112,49 +116,59 @@
 
     <!-- 服务弹窗 -->
     <view class='service-modal' hidden='{{!serviceModal}}'>
-        <view class='service-modal-title'>服务说明</view>
-        <view class='service-modal-list'>
-            <view class='service-modal-item flex-center' wx:for="{{serviceModalDatas}}">
-                <image src='{{icon.ok}}' mode='widthFix'></image>
-                <view class='service-modal-item flex-center'>
-                    <view>{{item.title}}</view>
-                    <text>{{item.des}}</text>
+        <view class='modal-bg' catchtap='closeServiceModal'></view>
+        <view class='service-panel'>
+            <view class='service-modal-title flex-center'>
+                服务说明
+                <image src='{{icon.close}}' mode='widthFix' lazy-load='true' catchtap='closeServiceModal'></image>
+            </view>
+            <view class='service-modal-list'>
+                <view class='service-modal-item flex-center' wx:for="{{serviceModalDatas}}">
+                    <image src='{{icon.right}}' mode='widthFix'></image>
+                    <view class='service-item-content flex1-center'>
+                        <view>{{item.title}}</view>
+                        <text>{{item.des}}</text>
+                    </view>
                 </view>
             </view>
-        </view>
+    </view>
     </view>
     <!-- 商品选择详情弹窗 -->
-    <view class='choice-modal'>
-        <view class='choice-modal-title'>
-            <view class='choice-modal-logo'>
-                <image src='{{}}' mode='widthFix'></image>
-            </view>
-            <view class='choice-modal-infos'>
-                <view></view>
-                <text>请选择 颜色 尺码</text>
-                <text>{{"已选: "+datas}}</text>
-            </view>
-        </view>
-        <view class='choice-modal-color' wx:for="{{datas.choice}}" wx:key="index">
-            <view class='choice-color-title'>
-                {{item.type}}
-            </view>
-            <view class='choice-color-list flex-center'>
-                <view class='choice-color-item' wx:for="{{item.style}}" wx:key="index" wx:for-item="iItem" wx:for-item="iIndex">
-                    {{iItem}}
+    <view class='choice-modal' hidden='{{choiceModal}}'>
+        <view class='modal-bg' catchtap='closeChoiceModal'></view>
+        <view class='choice-panel'>
+            <view class='choice-modal-title'>
+                <view class='choice-modal-logo'>
+                    <image src='{{datas.logo}}' mode='widthFix'></image>
+                </view>
+                <view class='choice-modal-infos flex1-center'>
+                    <view>{{"¥ "+datas.price}}</view>
+                    <text wx:if="{{!datas.colorActive}}">请选择 颜色 尺码</text>
+                    <text wx:else>{{"已选: "+datas.colorActive+" "+datas.colorActive}}</text>
                 </view>
             </view>
-        </view>
-        <view class='choice-modal-num flex-center'>
-            <text>数量</text>
-            <view class='choice-num-change'>
-                <image src='{{icon.reduce}}' mode='widthFix'></image>
-                <input value='{{}}'></input>
-                <image src='{{icon.add}}' mode='widthFix'></image>
+            <view class='choice-modal-type' wx:for="{{datas.choice}}" wx:key="index">
+                <view class='choice-type-title'>
+                    {{item.type}}
+                </view>
+                <view class='choice-style-list'>
+                    <view class='choice-style-item' wx:for="{{item.style}}" wx:key="index" wx:for-item="iItem"
+                          wx:for-index="iIndex" data-index='{{index}}' data-iindex='{{iIndex}}' catchtap='choiceChange'>
+                        {{iItem}}
+                    </view>
+                </view>
             </view>
-        </view>
-        <view class='choice-ok'>
-            确定
-        </view>
+            <view class='choice-modal-num flex-center'>
+                <text>数量</text>
+                <view class='choice-num-change flex-center'>
+                    <image src='{{icon.reduce}}' mode='widthFix'></image>
+                    <input type='number' confirm-type="选好了" bindblur="getNumber"></input>
+                    <image src='{{icon.add}}' mode='widthFix'></image>
+                </view>
+            </view>
+            <view class='choice-ok' catchtap='readyToBuy'>
+                确定
+            </view>
+    </view>
     </view>
 </view>

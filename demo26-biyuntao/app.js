@@ -2,9 +2,6 @@
 App({
   onLaunch: function () {
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || [];
-    logs.unshift(Date.now());
-    wx.setStorageSync('logs', logs);
     this.netWork();
     this.netWorkChange();
     this.getSystemInfo();
@@ -38,8 +35,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    site:'https://api2.buy2019.com',
-    imgSite:'https://img1.buy2019.com'
+      site: 'https://api2.buy2019.com',
+      imgSite: 'https://img1.buy2019.com'
   },
     // 设备信息
   getSystemInfo: function () {
@@ -58,9 +55,9 @@ App({
   positionInfo: function () {
       var page = this
       wx.getLocation({
-          type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标 
+          type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
           success: function (res) {
-              // success 
+              // success
               var longitude = res.longitude;
               var latitude = res.latitude;
               wx.setStorage({
@@ -83,7 +80,7 @@ App({
               })
           },
           complete: function () {
-              // complete 
+              // complete
           }
       })
   },
@@ -110,32 +107,33 @@ App({
                   content: '当前没有网络连接，请连接网络以后再试！',
                   confirmColor: "#F55053"
               })
-          };
+          }
+          ;
       })
   },
     getAjax: function (url, data, successFun, failFun) {
-      wx.request({
-          url: url,
-          data:data,
-          method:"GET",
-          header: {
-              'content-type': 'application/x-www-form-urlencoded' 
-          },
-          success:successFun,
-          fail:failFun
-      });
+        wx.request({
+            url: url,
+            data: data,
+            method: "GET",
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: successFun,
+            fail: failFun
+        });
   },
-  postAjax: function (url, data, successFun, failFun){
-      wx.request({
-          url: url,
-          data: data,
-          method: "POST",
-          header: {
-              'content-type': 'application/x-www-form-urlencoded'
-          },
-          success: successFun,
-          fail: failFun
-      });
+    postAjax: function (url, data, successFun, failFun) {
+        wx.request({
+            url: url,
+            data: data,
+            method: "POST",
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: successFun,
+            fail: failFun
+        });
   },
     // 打电话
     makeCall: function () {

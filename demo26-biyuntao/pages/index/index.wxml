@@ -22,11 +22,11 @@
         </view>
     </view>
 
-    <!-- 产品列表 -->
-    <view class='goods-list'>
-        <import src="../public/public.wxml"/>
-        <template is="cardsLists" data="{{cardsDatas}}"/>
-    </view>
+    <!-- 产品列表
+   <view class='goods-list'>
+       <import src="../public/public.wxml"/>
+       <template is="cardsLists" data="{{cardsDatas}}"/>
+   </view> -->
 
     <!-- 联系方式 -->
     <view class='contact-us flex-center'>

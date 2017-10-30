@@ -1,154 +1,480 @@
 .body {
-    background-color: #f7f8f9;
-    color: #333;
+  background-color: #f7f8f9;
+  color: #333;
+}
+
+image {
+  height: 40rpx;
 }
 
 .swiper {
-    height: 360rpx;
+  height: 360rpx;
 }
 
 .swiper swiper-item {
-    position: relative;
+  position: relative;
 }
 
 swiper-item view {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    /* background-color: red; */
-    padding: 10rpx 20rpx;
-    color: #999;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  /* background-color: red; */
+  padding: 10rpx 20rpx;
+  color: #999;
 }
 
 .swiper .slide-image {
-    width: 100%;
-    height: 360rpx;
+  width: 100%;
+  height: 360rpx;
 }
 
 .swiper image {
-    width: 100%;
+  width: 100%;
 }
 
 .price-detail {
-    background-color: #fff;
-    padding: 20rpx 30rpx;
-    justify-content: space-between;
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+  justify-content: space-between;
 }
 
 .price-detail image {
-    width: 50rpx;
+  width: 50rpx;
 }
 
 .price-detail .goods-price text {
-    font-size: 24rpx;
-    color: #666;
-    text-decoration: line-through;
+  font-size: 24rpx;
+  color: #666;
+  text-decoration: line-through;
 }
 
 .price-detail .goods-price view {
-    color: #f65314;
-    font-size: 40rpx;
-    text-decoration: none;
-    margin-right: 10rpx;
+  color: #f65314;
+  font-size: 40rpx;
+  text-decoration: none;
+  margin-right: 10rpx;
 }
 
 .price-detail .goods-number {
-    color: #666;
-    align-self: flex-start;
-    font-size: 30rpx;
+  color: #666;
+  align-self: flex-start;
+  font-size: 30rpx;
 }
 
 .price-detail .price-detail-right {
-    font-size: 26rpx;
-    padding-left: 30rpx;
-    padding-right: 0;
-    color: #666;
-    margin-right: 0;
-    background-color: #fff;
-    line-height: 1.5;
-    border: none;
+  font-size: 26rpx;
+  padding-left: 30rpx;
+  padding-right: 0;
+  color: #666;
+  margin-right: 0;
+  background-color: #fff;
+  line-height: 1.5;
+  border: none;
 }
 
 .price-detail .price-detail-right::after {
-    border: none;
+  border: none;
 }
 
 .goods-title {
-    background-color: #fff;
-    color: #333;
-    padding: 0 30rpx;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    margin-bottom: 20rpx;
+  background-color: #fff;
+  color: #333;
+  padding: 0 30rpx 20rpx 30rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .goods-des {
-    background-color: #fff;
-    font-size: 26rpx;
-    color: #666;
-    padding: 0 30rpx;
-    margin-bottom: 20rpx;
+  background-color: #fff;
+  font-size: 26rpx;
+  color: #666;
+  padding: 0 30rpx 20rpx 30rpx;
 }
 
 .service-detail {
-    background-color: #ccc;
-    padding-bottom: 20rpx;
-    margin-bottom: 20rpx;
-    color: #999;
+  background-color: rgba(246, 83, 20, 0.6);
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+  color: #999;
 }
 
 .service-detail .more {
-    width: 40rpx;
+  width: 40rpx;
 }
 
 .service-detail .service-title {
-    align-self: flex-start;
-    padding: 20rpx 30rpx;
-    font-size: 30rpx;
-    color: #666;
+  align-self: flex-start;
+  padding: 20rpx 30rpx;
+  font-size: 30rpx;
+  color: #666;
 }
 
 .service-detail .service-title image {
-    width: 60rpx;
-    margin-right: 20rpx;
+  width: 60rpx;
+  margin-right: 20rpx;
 }
 
 .service-detail .service-list {
-    justify-content: space-between;
-    padding-left: 30rpx;
-    width: 100%;
-    box-sizing: border-box;
+  justify-content: space-between;
+  padding-left: 30rpx;
+  padding-right: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .service-detail .service-item {
-    font-size: 24rpx;
+  font-size: 24rpx;
 }
 
 .service-item image {
-    width: 40rpx;
-    margin-right: 10rpx;
+  width: 40rpx;
+  margin-right: 6rpx;
 }
 
 .comments {
-    background-color: #fff;
+  background-color: #fff;
+  margin-bottom: 20rpx;
 }
 
 .comments .comments-title {
-    padding: 20rpx 30rpx;
-    justify-content: space-between;
-    border-bottom: 1px solid #e1e1e1;
-    color: #666;
-    font-size: 30rpx;
+  padding: 20rpx 20rpx 20rpx 30rpx;
+  justify-content: space-between;
+  border-bottom: 1px solid #e1e1e1;
+  color: #666;
+  font-size: 30rpx;
 }
 
 .comments-title .comments-more {
-    color: #999;
-    font-size: 26rpx;
+  color: #999;
+  font-size: 26rpx;
 }
 
 .comments-more image {
-    width: 40rpx;
-    margin-left: 10rpx;
+  width: 40rpx;
+  margin-left: 10rpx;
+}
+
+/* 评价标签 */
+
+.comments-label {
+  padding: 20rpx 30rpx;
+  overflow: hidden;
+  padding-bottom: 10rpx;
+}
+
+.comments-label-item {
+  background-color: #f65314;
+  color: #fff;
+  padding: 10rpx;
+  float: left;
+  margin-bottom: 10rpx;
+  margin-right: 20rpx;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+}
+
+.comments-list {
+}
+
+.comments-list .comments-item {
+  margin: 0 30rpx 20rpx 30rpx;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.comments-item .comments-item-title {
+  padding-bottom: 20rpx;
+  align-self: flex-start;
+  width: 100%;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.comments-item-title image {
+  width: 60rpx;
+}
+
+.comments-item-title view {
+  margin-left: 20rpx;
+  color: #333;
+  font-size: 30rpx;
+  margin-right: auto;
+}
+
+.comments-item .comments-item-content {
+  font-size: 28rpx;
+  color: #666;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.comments-item .comments-item-size {
+  margin: 10rpx 0 20rpx 0;
+  font-size: 26rpx;
+  color: #999;
+  align-self: flex-start;
+}
+
+.comments-item-size view {
+  margin-right: 20rpx;
+}
+
+/* 商品详情 */
+
+.goods-details {
+  margin-bottom: 120rpx;
+  background-color: #fff;
+}
+
+.goods-details .goods-details-title {
+  padding: 20rpx 0;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.goods-details image {
+  width: 100%;
+}
+
+/* 底部购买 */
+
+.buy-column {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+}
+
+.buy-column .buy-col {
+  justify-content: center;
+  height: 100rpx;
+  font-size: 24rpx;
+  flex: 0 0 150rpx;
+  color: #333;
+  border-top: 1px solid #e1e1e1;
+  box-sizing: border-box;
+}
+
+.buy-column button {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  line-height: inherit;
+  background-color: #fff;
+  justify-content: center;
+}
+
+.buy-column button::after {
+  border: none;
+}
+
+.buy-col image {
+  width: 40rpx;
+}
+
+.buy-column .buy-now {
+  border-top: none;
+  background-color: #f65314;
+  flex: auto;
+  color: #fff;
+}
+
+/* 弹窗 */
+
+.service-modal, .choice-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.modal-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.service-modal .service-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 101;
+  height: 600rpx;
+  background-color: #fff;
+  padding: 0 30rpx;
+}
+
+.service-panel image {
+  width: 40rpx;
+  margin-right: 20rpx;
+  align-self: center;
+}
+
+.service-panel .service-modal-title {
+  position: relative;
+  justify-content: center;
+  height: 80rpx;
+  border-bottom: 1px solid #e1e1e1;
+  font-size: 30rpx;
+}
+
+.service-modal-title image {
+  position: absolute;
+  right: 0;
+  bottom: 20rpx;
+  width: 40rpx;
+}
+
+.service-panel .service-modal-list {
+  padding: 30rpx;
+}
+
+.service-panel .service-modal-item {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.service-modal-item .service-item-content {
+  justify-content: center;
+  height: 100rpx;
+}
+
+.service-modal-item view {
+  align-self: flex-start;
+}
+
+.service-modal-item text {
+  font-size: 24rpx;
+  color: #999;
+  align-self: flex-start;
+}
+
+/* 商品选择弹窗 */
+
+.choice-modal .choice-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 101;
+  min-height: 600rpx;
+  background-color: #fff;
+}
+
+.choice-panel .choice-modal-title {
+  position: relative;
+  padding: 0 30rpx;
+  border-bottom: 1px solid #e1e1e1;
+  /* height: 166rpx; */
+}
+
+.choice-modal-title .choice-modal-logo {
+  padding: 6rpx;
+  border-radius: 6rpx;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  top: -40rpx;
+  box-shadow: 3rpx 6rpx 6rpx #999;
+}
+
+.choice-modal-logo image {
+  width: 160rpx;
+}
+
+.choice-modal-title .choice-modal-infos {
+  margin-left: 200rpx;
+  align-items: flex-start;
+  justify-content: center;
+  height: 166rpx;
+}
+
+.choice-modal-infos view {
+  color: #f65314;
+}
+
+.choice-modal-infos text {
+  font-size: 30rpx;
+}
+
+.choice-modal-type {
+  border-bottom: 1px solid #e1e1e1;
+  padding: 0 30rpx;
+}
+
+.choice-modal-type .choice-type-title {
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+
+.choice-modal-type .choice-style-list {
+  overflow: hidden;
+}
+
+.choice-style-list .choice-style-item {
+  font-size: 24rpx;
+  padding: 10rpx 20rpx;
+  line-height: 36rpx;
+  float: left;
+  margin-right: 30rpx;
+  background-color: #e1e1e1;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.choice-style-list  .choice-style-item-active {
+  background-color: #f65314;
+}
+
+.choice-panel .choice-modal-num {
+  padding: 0 30rpx;
+  border-bottom: 1px solid #e1e1e1;
+  height: 100rpx;
+  justify-content: space-between;
+}
+
+.choice-modal-num text {
+  margin-right: auto;
+  font-size: 30rpx;
+}
+
+.choice-modal-num .choice-num-change {
+  margin-right: 0;
+}
+
+.choice-num-change input {
+  min-width: 80rpx;
+  max-width: 80rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  background-color: #e1e1e1;
+  padding: 0 20rpx;
+}
+
+.choice-num-change image {
+  width: 40rpx;
+}
+
+.choice-panel .choice-ok{
+  background-color: #f65314;
+  color: #fff;
+  line-height: 100rpx;
+  text-align: center;
+  margin-top: 100rpx;
 }
