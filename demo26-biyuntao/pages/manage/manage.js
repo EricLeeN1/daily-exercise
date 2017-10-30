@@ -10,6 +10,826 @@ Page({
           clearCart: 'chaoshi_icon_empty@2x.png',
           icon: 'icon.png'
       },
+      datas: [
+          {
+              "cid": 1,
+              "cname": "热销",
+              "shops": [
+                  {
+                      "id": 1,
+                      "name": "KIMI猕猴桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ],
+                  },
+                  {
+                      "id": 2,
+                      "name": "KIMI葡萄味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ],
+                  },
+                  {
+                      "id": 3,
+                      "name": "KIMI菠萝味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ],
+                  },
+                  {
+                      "id": 4,
+                      "name": "KIMI水密桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 5,
+                      "name": "KIMI鸭梨味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 6,
+                      "name": "KIMI鸭梨味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  }
+              ],
+              "totalRecords": 5
+          },
+          {
+              "cid": 2,
+              "cname": "酒水",
+              "shops": [
+                  {
+                      "id": 7,
+                      "name": "KIMI葡萄味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 8,
+                      "name": "KIMI菠萝味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 9,
+                      "name": "KIMI水密桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 10,
+                      "name": "KIMI鸭梨味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  }, {
+                      "id": 11,
+                      "name": "KIMI猕猴桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 12,
+                      "name": "KIMI鸭梨味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  }
+              ],
+              "totalRecords": 5
+          },
+          {
+              "cid": 3,
+              "cname": "零食",
+              "shops": [
+                  {
+                      "id": 13,
+                      "name": "KIMI猕猴桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 14,
+                      "name": "KIMI葡萄味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 15,
+                      "name": "KIMI菠萝味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 16,
+                      "name": "KIMI水密桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 17,
+                      "name": "KIMI鸭梨味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 18,
+                      "name": "KIMI水密桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+              ],
+              "totalRecords": 5
+          },
+          {
+              "cid": 4,
+              "cname": "干果",
+              "shops": [
+                  {
+                      "id": 19,
+                      "name": "KIMI猕猴桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 20,
+                      "name": "KIMI葡萄味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 21,
+                      "name": "KIMI菠萝味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 22,
+                      "name": "KIMI水密桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 23,
+                      "name": "KIMI鸭梨味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 24,
+                      "name": "KIMI水密桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  }
+              ],
+              "totalRecords": 5
+          },
+          {
+              "cid": 5,
+              "cname": "茶点",
+              "shops": [
+                  {
+                      "id": 25,
+                      "name": "KIMI水密桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 26,
+                      "name": "KIMI猕猴桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 22,
+                      "name": "KIMI葡萄味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 27,
+                      "name": "KIMI菠萝味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 28,
+                      "name": "KIMI水密桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 29,
+                      "name": "KIMI鸭梨味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 30,
+                      "name": "KIMI水密桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  }
+              ],
+              "totalRecords": 5
+          },
+          {
+              "cid": 6,
+              "cname": "珍宝",
+              "shops": [
+                  {
+                      "id": 31,
+                      "name": "KIMI水密桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 32,
+                      "name": "KIMI猕猴桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 33,
+                      "name": "KIMI葡萄味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 34,
+                      "name": "KIMI菠萝味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 35,
+                      "name": "KIMI水密桃味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  },
+                  {
+                      "id": 36,
+                      "name": "KIMI鸭梨味",
+                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                      "oprice": "100.00",
+                      "price": "80.00",
+                      "type": [
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "50.00",
+                              "price": "30.00",
+                              "weight": "200g"
+                          },
+                          {
+                              "name": "KIMI猕猴桃味",
+                              "oprice": "100.00",
+                              "price": "60.00",
+                              "weight": "500g"
+                          }
+                      ]
+                  }
+              ],
+              "totalRecords": 5
+          }
+      ],
       toastImage: {
           success: 'success.png',
           fail: 'fail.png'
@@ -40,7 +860,7 @@ Page({
           options: options,
           imgSite: ''
       });
-      // that.getList();
+      that.getList();
   },
   onReady: function () {
 
@@ -107,37 +927,38 @@ Page({
     },
     getList: function () {
         const that = this;
-        app.getAjax('http://127.0.0.1:3000', {
-                // ktvid: that.data.options.id
-            },
-            function (res) {
-                console.log(res.data.data);
-                let list = res.data.data,
-                    typeArray = [];
-                list.forEach(function (ele, index, arr) {
-                    typeArray.push('type-' + index);
-                    for (let i = 0; i < ele.shops.length; i++) {
-                        ele.shops[i].showModal = true;
-                        for (let j = 0; j < ele.shops[i].type.length; j++) {
-                            ele.shops[i].type[j].number = 0;
-                        }
-                    }
-                });
-                that.setData({
-                    list: list,
-                    numberAll: 0,
-                    opriceAll: 0,
-                    priceAll: 0,
-                    typeArray: typeArray,
-                    typeArrayCurrent: typeArray[0]
-                });
-            }, function (res) {
-            });
+        // app.getAjax('http://127.0.0.1:3000', {
+        //   // ktvid: that.data.options.id
+        // },
+        //   function (res) {
+
+        //   }, function (res) {
+        //   });
+        let list = that.data.datas,
+            typeArray = [];
+        list.forEach(function (ele, index, arr) {
+            typeArray.push(index);
+            for (let i = 0; i < ele.shops.length; i++) {
+                ele.shops[i].showModal = true;
+                for (let j = 0; j < ele.shops[i].type.length; j++) {
+                    ele.shops[i].type[j].number = 0;
+                }
+            }
+        });
+        that.setData({
+            list: list,
+            numberAll: 0,
+            opriceAll: 0,
+            priceAll: 0,
+            typeArray: typeArray,
+            typeArrayCurrent: typeArray[0]
+        });
     },
     currentType: function (e) {
         const that = this,
             currentType = e.currentTarget.dataset.index,
             typeArrayCurrent = that.data.typeArray[currentType];
+        console.log(currentType, typeArrayCurrent);
         that.setData({
             currentType: currentType,
             typeArrayCurrent: typeArrayCurrent

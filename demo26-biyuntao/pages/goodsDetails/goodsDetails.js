@@ -6,6 +6,8 @@ Page({
      */
     data: {
         swiperCurrent: 1,
+        choiceNumber: 1,
+        makeChoiced: false,
         commentsLabelLists: [
             {
                 name: "商家态度好",
@@ -120,22 +122,14 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let that = this,
-            datas = that.data.datas,
-            length = datas.choice.length,
-            activeArr = [];
-
-        for (let i = 0; i = length; i++) {
-            activeArr[i] = {
-                activeIndex: -1
-            };
+        let that = this, datas = that.data.datas;
+        for (let i = 0; i < datas.choice.length; i++) {
+            datas.choice[i].active = -1;
         }
         ;
-        // datas.activeArr = activeArr;
-        // console.log(that.data.datas.activeArr);
-        // that.setData({
-        //   datas: datas
-        // });
+        that.setData({
+            datas: datas
+        });
     },
 
     /**
@@ -163,7 +157,7 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-
+        //弹窗劝阻
     },
 
     /**
@@ -213,7 +207,10 @@ Page({
         });
     },
     readyToBuy: function () {
-
+        this.setData({
+            choiceModal: false
+        });
+        // 订单提交
     },
     buyNow: function () {
         this.setData({
@@ -221,11 +218,44 @@ Page({
         });
     },
     choiceChange: function (e) {
-        console.log(e);
         const that = this,
             datas = that.data.datas,
             index = e.currentTarget.dataset.index,
-            iindex = e.currentTarget.dataset.iindex,
-            length = datas.choice.length;
+            iindex = e.currentTarget.dataset.iindex;
+        datas.choice[index].active = iindex;
+        if (!that.data.makeChoiced) {
+            that.setData({
+                datas: datas,
+                makeChoiced: true
+            });
+        } else {
+            that.setData({
+                datas: datas
+            });
+    }
+    },
+    getChoiceNumber: function (e) {
+        var number = e.detail.value;
+        if (!number) {
+            number = 0;
+        }
+        this.setData({
+            choiceNumber: number
+        });
+    },
+    addChoiceNumber: function () {
+        var number = this.data.choiceNumber;
+        number++;
+        this.setData({
+            choiceNumber: number
+        });
+    },
+    reduceChoiceNumber: function () {
+        var number = this.data.choiceNumber;
+        number--;
+        number = Math.max(number, 1);
+        this.setData({
+            choiceNumber: number
+        });
     }
 })

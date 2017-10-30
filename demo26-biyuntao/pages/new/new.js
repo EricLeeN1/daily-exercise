@@ -1,4 +1,4 @@
-// pages/new/new.js
+var app = getApp()
 Page({
 
     /**
@@ -170,5 +170,8 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    lookDetail: function (e) {
+        app.lookDetail(e);
     }
 })

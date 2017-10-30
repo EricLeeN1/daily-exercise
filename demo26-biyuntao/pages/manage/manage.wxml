@@ -21,10 +21,9 @@
             </scroll-view>
         </view>
         <view class="goods-scroll-view">
-            <scroll-view scroll-y scroll-into-view="{{typeArrayCurrent}}" scroll-top="{{scrollTop}}"
-                         scroll-with-animation lower-threshold="0" bindscrolltolower="scrolltolower">
+            <scroll-view scroll-y scroll-top="{{scrollTop}}" lower-threshold="0" bindscrolltolower="scrolltolower">
                 <view id="{{'type-'+index}}" class="goods-list" wx:for="{{list}}" data-cid="{{item.cid}}"
-                      data-index="{{index}}" wx:key="index" wx:if="{{currentType==index}}">
+                      data-index="{{index}}" wx:key="index" hidden="{{currentType!=index}}">
                     <view class="goods-item-type">{{item.cname}}</view>
                     <view class="goods-item flex-center" wx:for="{{item.shops}}" wx:key="index" wx:for-index="idx"
                           wx:for-item="itemName" data-typeIndex="{{index}}" data-id="{{itemName.id}}"

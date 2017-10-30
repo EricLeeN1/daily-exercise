@@ -413,6 +413,13 @@ swiper-item view {
   font-size: 30rpx;
 }
 
+.choice-modal-infos .choice-changed-show {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
 .choice-modal-type {
   border-bottom: 1px solid #e1e1e1;
   padding: 0 30rpx;
@@ -440,6 +447,7 @@ swiper-item view {
 
 .choice-style-list  .choice-style-item-active {
   background-color: #f65314;
+  color: #fff;
 }
 
 .choice-panel .choice-modal-num {
@@ -465,13 +473,14 @@ swiper-item view {
   margin-right: 20rpx;
   background-color: #e1e1e1;
   padding: 0 20rpx;
+  text-align: center;
 }
 
 .choice-num-change image {
   width: 40rpx;
 }
 
-.choice-panel .choice-ok{
+.choice-panel .choice-ok {
   background-color: #f65314;
   color: #fff;
   line-height: 100rpx;
