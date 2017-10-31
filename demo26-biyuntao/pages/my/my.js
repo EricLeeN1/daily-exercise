@@ -30,7 +30,7 @@ Page({
               title: "待评价"
           },
           {
-              url: '',
+              url: 'myTickets/myTickets',
               icon: '../../images/icon/youhuiquan.png',
               title: "我的优惠券"
           }],

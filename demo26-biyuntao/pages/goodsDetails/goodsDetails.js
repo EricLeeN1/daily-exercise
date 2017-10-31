@@ -213,6 +213,9 @@ Page({
             choiceModal: false
         });
         // 订单提交
+        wx.navigateTo({
+            url: 'pay/pay',
+        })
     },
     buyNow: function () {
         this.setData({

@@ -4,8 +4,20 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
-
+    data: {
+        icon:{
+            notickets:"../../../images/icon/tickets.png"
+        },
+        tabs: ["未使用", "已使用", "已过期"],
+        activeIndex: 0,
+        sliderOffset:0
+    },
+    tabClick: function (e) {
+        this.setData({
+            sliderOffset: e.currentTarget.offsetLeft,
+            activeIndex: e.currentTarget.dataset.id
+        });
+    },
     /**
      * 生命周期函数--监听页面加载
      */

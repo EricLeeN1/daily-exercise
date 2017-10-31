@@ -6,6 +6,7 @@
     "pages/goodslists/goodslists",
     "pages/goodsDetails/goodsDetails",
     "pages/goodsDetails/comments/comments",
+    "pages/goodsDetails/pay/pay",
     "pages/new/new",
     "pages/manage/manage",
     "pages/my/my",
