@@ -28,6 +28,7 @@ Page({
         ],
         commentsLists: [
             {
+                id: 1,
                 avatarUrl: "../../images/icon/logo.png",
                 name: "客户1",
                 time: "2017-10-30",
@@ -36,6 +37,7 @@ Page({
                 size: "超大"
             },
             {
+                id: 2,
                 avatarUrl: "../../images/icon/logo.png",
                 name: "客户1",
                 time: "2017-10-30",
@@ -257,5 +259,12 @@ Page({
         this.setData({
             choiceNumber: number
         });
+    },
+    moreComments: function (e) {
+        let that = this,
+            id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: './comments/comments?id=' + id,
+        })
     }
 })

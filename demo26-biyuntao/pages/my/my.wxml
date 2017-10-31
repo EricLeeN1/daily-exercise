@@ -10,10 +10,10 @@
     <view class='order'>
         <view class='order-title flex-center'>
             我的订单
-            <view class='flex-center'>
+            <navigator class='flex-center' url='../myOrder/myOrder?type=0'>
                 全部订单
                 <image src='{{icon.more}}' mode='widthFix'></image>
-            </view>
+            </navigator>
         </view>
         <view class='user-column flex-center'>
             <navigator class='user-column-item flex-center' wx:for="{{userColumns}}" wx:key="index" url='{{item.url}}'>
@@ -23,7 +23,18 @@
         </view>
         <view class='user-row'>
             <view class='user-row-item flex-center' wx:for="{{userRows}}" wx:key="index" catchtap='{{item.fun}}'
-                  style="{{index==userRows.length-1?'border-bottom:none':''}}" data-index='{{index}}'>
+                  style="{{index==userRows.length-1?'border-bottom:none':''}}" data-index='{{index}}'
+                  wx:if="{{index<1}}">
+                <image src='{{item.icon}}' mode='widthFix'></image>
+                <text>{{item.title}}</text>
+            </view>
+            <button class='user-row-item flex-center' open-type='contact' catchtap='{{userRows[1].fun}}'>
+                <image src='{{userRows[1].icon}}' mode='widthFix'></image>
+                <text>{{userRows[1].title}}</text>
+            </button>
+            <view class='user-row-item flex-center' wx:for="{{userRows}}" wx:key="index" catchtap='{{item.fun}}'
+                  style="{{index==userRows.length-1?'border-bottom:none':''}}" data-index='{{index}}'
+                  wx:if="{{index>1}}">
                 <image src='{{item.icon}}' mode='widthFix'></image>
                 <text>{{item.title}}</text>
             </view>

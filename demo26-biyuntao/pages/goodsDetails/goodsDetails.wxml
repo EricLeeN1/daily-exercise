@@ -65,19 +65,21 @@
                 <text>商品评价</text>
                 {{"("+datas.commentsNum+")"}}
             </view>
-            <view class='comments-more flex-center'>
+            <view class='comments-more flex-center' data-id='index-0' catchtap='moreComments'>
                 查看更多
                 <image src='{{icon.more}}' mode='widthFix'></image>
             </view>
         </view>
         <view class='comments-label'>
-            <view class='comments-label-item' wx:for="{{commentsLabelLists}}" wx:key="index">
+            <view class='comments-label-item' wx:for="{{commentsLabelLists}}" wx:key="index" data-id='index-0'
+                  catchtap='moreComments'>
                 {{item.name+"("+item.num+")"}}
             </view>
         </view>
         <view class='comments-list'>
             <view class='comments-item flex1-center' wx:for="{{commentsLists}}" wx:key="index"
-                  style="{{index==commentsLists.length-1?'border-bottom:none':''}}">
+                  style="{{index==commentsLists.length-1?'border-bottom:none':''}}" data-id="{{'index-'+item.id}}"
+                  catchtap='moreComments'>
                 <view class='comments-item-title flex-center'>
                     <image src='{{item.avatarUrl}}' mode='widthFix' lazy-load='true'></image>
                     <view>{{item.name}}</view>

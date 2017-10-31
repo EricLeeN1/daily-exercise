@@ -10,11 +10,10 @@
 }
 
 .weui-navbar__item {
-  padding: 0 16rpx;
   display: inline-block;
   text-align: center;
   color: #666;
-  width: 118rpx;
+  width: 150rpx;
   height: 100rpx;
 }
 
@@ -34,7 +33,7 @@
 .weui-navbar__title {
   display: inline-block;
   font-size: 14px;
-  width: auto;
+  width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

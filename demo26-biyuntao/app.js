@@ -36,7 +36,9 @@ App({
   globalData: {
     userInfo: null,
       site: 'https://api2.buy2019.com',
-      imgSite: 'https://img1.buy2019.com'
+      imgSite: 'https://img1.buy2019.com',
+      success: "../../images/icon/success.png",
+      fail: "../../images/icon/fail.png"
   },
     // 设备信息
   getSystemInfo: function () {
@@ -146,5 +148,24 @@ App({
         wx.navigateTo({
             url: '../goodsDetails/goodsDetails?id=' + id,
         })
+    },
+    attendUs: function () {
+        wx.navigateTo({
+            url: '../attendUs/attendUs',
+        });
+    },
+    myShare: function () {
+        wx.navigateTo({
+            url: '../myShare/myShare',
+        });
+    },
+    // 吐司
+    myToast: function (title, isSuccess) {
+        let that = this,
+            url = isSuccess == true ? that.globalData.success : that.globalData.fail;
+        wx.showToast({
+            image: url,
+            title: title,
+        });
     }
 })

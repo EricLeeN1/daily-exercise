@@ -44,6 +44,7 @@
 /* 商品列表 */
 
 .goods-list {
-  padding: 30rpx;
+  padding: 30rpx 0;
   padding-bottom: 0;
+  background-color: #f7f8f9;
 }

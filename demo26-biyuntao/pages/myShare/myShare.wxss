@@ -1,9 +1,9 @@
 .share-list {
-    padding: 30rpx;
+    padding:0 30rpx;
 }
 
 .share-list .share-item {
-    height: 240rpx;
+    height: 200rpx;
     border-bottom: 1px solid #e1e1e1;
 }
 

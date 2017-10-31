@@ -34,22 +34,23 @@ Page({
               icon: '../../images/icon/youhuiquan.png',
               title: "我的优惠券"
           }],
-      userRows: [{
-          fun: '',
-          icon: '../../images/icon/daifukuan.png',
-          title: "收货地址"
+      userRows: [
+          {
+              fun: 'settingAddress',
+              icon: '../../images/icon/address.png',
+              title: "收货地址"
       },
           {
               fun: '',
-              icon: '../../images/icon/daifukuan.png',
+              icon: '../../images/icon/service1.png',
               title: "客服与投诉"
           }, {
               fun: 'myShare',
-              icon: '../../images/icon/daifukuan.png',
+              icon: '../../images/icon/share-2.png',
               title: "我的分享"
           }, {
-              fun: '',
-              icon: '../../images/icon/daifukuan.png',
+              fun: 'attendUs',
+              icon: '../../images/icon/attendus.png',
               title: "加盟我们"
           }],
       hasUserInfo: false,
@@ -91,7 +92,7 @@ Page({
                           }
                       })
                   }
-          }
+              }
           })
       } else {
           // 在没有 open-type=getUserInfo 版本的兼容处理
@@ -161,9 +162,15 @@ Page({
     // onShareAppMessage: function () {
 
     // }
-    myShare:function(){
+    myShare: function () {
+        app.myShare();
+    },
+    attendUs: function () {
+        app.attendUs();
+    },
+    settingAddress: function () {
         wx.navigateTo({
-            url: '../myShare/myShare',
+            url: '../address/address',
         })
     }
 })

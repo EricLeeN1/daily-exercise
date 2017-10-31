@@ -37,8 +37,9 @@
 
         <!-- 卡片式列表页 -->
 <template name="cardsLists">
-<view class='goods-cards-item' wx:for="{{cardsDatas}}" data-id='{{item.id}}' wx:key="index">
-    <video src='{{item.url}}' poster="{{imgUrls[1]}}"></video>
+<view class='goods-cards-item' wx:for="{{cardsDatas}}" data-id='{{item.id}}' wx:key="index"
+      data-poster='{{item.poster}}'>
+    <video src='{{item.url}}' poster="{{item.poster}}"></video>
     <view class='goods-infos' catchtap='lookDetail' data-id='{{item.id}}'>
         <view class='goods-title flex-center'>
             <view class='goods-name'>{{item.title}}</view>
@@ -55,7 +56,7 @@
             <view class='goods-price-del'>¥
                 <text>{{item.priceDel}}</text>
             </view>
-            <view class='buy-now' catchtap='buyNow' data-id='{{item.id}}' hover-class='buy-now-active'>
+            <view class='buy-now' data-id='{{item.id}}' hover-class='buy-now-active'>
                 立即购买
             </view>
         </view>

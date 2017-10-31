@@ -89,3 +89,16 @@
   width: 60rpx;
   margin-right: 20rpx;
 }
+
+.user-row button{
+  background-color: #fff;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #e1e1e1;
+  box-sizing: content-box;
+}
+
+.user-row button::after{
+  border-radius: 0;
+  border: none;
+}

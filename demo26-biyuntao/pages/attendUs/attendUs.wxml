@@ -1,0 +1,12 @@
+<view class="body">
+    <view class='attend-title'>加入我们</view>
+    <view class='attend-list'>
+        <view class='attend-item' wx:for="{{attendDatas}}" wx:key="index">
+            {{index+1+"、"+item}}
+        </view>
+    </view>
+    <view class='ourVoice'>
+        <text>满足以上任一条件的</text>
+        用户请与我们客服取得联系，我们希望通过【避孕套专卖店】这个平台对需要从事该行业的用户提供稳定的货源，同时我们也需要避孕套厂家源源不断的给我们提供质量上佳、有创新的好产品；
+    </view>
+</view>
