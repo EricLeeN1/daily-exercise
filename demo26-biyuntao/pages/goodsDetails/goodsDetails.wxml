@@ -180,4 +180,23 @@
             </view>
     </view>
     </view>
+
+    <!-- 切换菜单按钮2-->
+    <view class="menu-group2 flex-center">
+        <view class='menu-group2-btn-box'>
+            <view class="menu-group2-btn flex-center" catchtap='menu2Click'>
+                <image src="{{menu2Btn?icon.back:icon.forward}}" mode='widthFix'></image>
+            </view>
+        </view>
+        <view class="menu-group2-panel flex-center" hidden="{{!menu2Btn?true:false}}">
+            <view class='menu2-item' hover-class='menu2-item-active'>菜单1</view>
+            <view class='menu2-item' hover-class='menu2-item-active'>菜单2</view>
+            <view class='menu2-item' hover-class='menu2-item-active'>菜单3</view>
+            <view class='menu2-item' hover-class='menu2-item-active'>菜单4</view>
+            <view class='menu2-item' hover-class='menu2-item-active'>菜单5</view>
+            <view class='menu2-item' hover-class='menu2-item-active'>菜单6</view>
+            <view class='menu2-item' hover-class='menu2-item-active'>菜单7</view>
+            <view class='menu2-item' hover-class='menu2-item-active'>菜单8</view>
+        </view>
+    </view>
 </view>

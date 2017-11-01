@@ -5,12 +5,65 @@ Page({
      * 页面的初始数据
      */
     data: {
-        icon:{
-            notickets:"../../../images/icon/tickets.png"
+        icon: {
+            notickets: "../../../images/icon/tickets.png",
+            fullcutUrl: '../../../images/icon/ktv_detail_bg_manjian@2x.png'
         },
         tabs: ["未使用", "已使用", "已过期"],
         activeIndex: 0,
-        sliderOffset:0
+        sliderOffset: 0,
+        unUsedList: [
+            {
+                id: 1,
+                name: "抵值券",
+                number: "3",
+                btime: "2017/11/1",
+                etime: "2017/11/8",
+                status: 0
+            },
+            {
+                id: 1,
+                name: "抵值券",
+                number: "3",
+                btime: "2017/11/1",
+                etime: "2017/11/8",
+                status: 0
+            },
+            {
+                id: 1,
+                name: "抵值券",
+                number: "3",
+                btime: "2017/11/1",
+                etime: "2017/11/8",
+                status: 0
+            }
+        ],
+        usedList: [
+            {
+                id: 1,
+                name: "抵值券",
+                number: "3",
+                btime: "2017/11/1",
+                etime: "2017/11/8",
+                status: 1
+            },
+            {
+                id: 1,
+                name: "抵值券",
+                number: "3",
+                btime: "2017/11/1",
+                etime: "2017/11/8",
+                status: 1
+            },
+            {
+                id: 1,
+                name: "抵值券",
+                number: "3",
+                btime: "2017/11/1",
+                etime: "2017/11/8",
+                status: 1
+            }],
+        overdueList: [],
     },
     tabClick: function (e) {
         this.setData({
@@ -72,5 +125,10 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    goGoodsList: function () {
+        wx.navigateTo({
+            url: '../../goodslists/goodslists?type=1',
+        });
     }
 })

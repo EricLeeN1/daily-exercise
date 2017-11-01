@@ -13,7 +13,7 @@
 }
 
 .user-info view {
-  border: 10rpx solid rgba(255 , 255, 255, 0.3);
+  border: 10rpx solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   overflow: hidden;
   margin: 20rpx;
@@ -29,7 +29,6 @@
 }
 
 .order {
-  
 }
 
 .order-title {
@@ -63,6 +62,7 @@
   width: 20%;
   flex: 0 0 150rpx;
   flex-direction: column;
+  position: relative;
 }
 
 .user-column-item image {
@@ -72,6 +72,20 @@
 .user-column-item text {
   font-size: 24rpx;
   color: #666;
+}
+
+.user-column-item view {
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  font-size: 24rpx;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background-color: #f65314;
+  color: #fff;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .user-row {
@@ -90,7 +104,7 @@
   margin-right: 20rpx;
 }
 
-.user-row button{
+.user-row button {
   background-color: #fff;
   border-radius: 0;
   border: none;
@@ -98,7 +112,7 @@
   box-sizing: content-box;
 }
 
-.user-row button::after{
+.user-row button::after {
   border-radius: 0;
   border: none;
 }

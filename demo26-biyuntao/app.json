@@ -11,6 +11,8 @@
     "pages/manage/manage",
     "pages/my/my",
     "pages/my/myTickets/myTickets",
+    "pages/my/toComments/toComments",
+    "pages/my/toLogistics/toLogistics",
     "pages/myOrder/myOrder",
     "pages/public/public",
     "pages/attendUs/attendUs",
@@ -19,7 +21,7 @@
   "window": {
     "navigationBarBackgroundColor": "#f7f8f9",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "歌匣子",
+    "navigationBarTitleText": "性用品专卖",
     "backgroundTextStyle": "light",
     "backgroundColor": "#fff"
   },

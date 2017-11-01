@@ -1,0 +1,45 @@
+<view class="body">
+    <view class='comments-goods-title flex-center'>
+        <image src='{{datas.logo}}' lazy-load='true' mode='widthFix'></image>
+        <view class='comments-goods-name'>{{datas.name}}</view>
+    </view>
+    <form bindsubmit="formSubmit">
+        <view class='comments-form-textarea flex1-center'>
+            <textarea name="content" placeholder='亲，您对这个商品满意吗？您的评价会帮助我们选择更好的商品哦'></textarea>
+            <view class='loaded-image-group flex-center' hidden="{{tempFilePaths.length==0}}">
+                <view wx:for="{{tempFilePaths}}">
+                    <image src='{{item}}' lazy-load='true' mode='widthFix'></image>
+                </view>
+            </view>
+            <view class='form-load-image flex1-center' catchtap='loadImage' data-id="{{datas.id}}">
+                <image src='{{icon.camera}}' lazy-load='true' mode='widthFix'></image>
+                <view>上传图片</view>
+            </view>
+
+        </view>
+        <view class='comments-form-score'>
+            <view class='form-score-title flex-center'>
+                <image src='{{icon.shop}}' lazy-load='true' mode='widthFix'></image>
+                <view>店铺评分</view>
+            </view>
+            <view class='form-score-list'>
+                <view class='form-score-item flex-center' wx:for="{{scoreDatas}}" wx:key="index">
+                    <view class='form-score-title'>{{item.title}}</view>
+                    <view class='star-groups flex-center'>
+                        <image src="{{item.score>=1?icon.star1:icon.star}}" lazy-load='true' mode='widthFix'
+                               catchtap='commentsStars' data-iindex='1' data-index='{{index}}'></image>
+                        <image src="{{item.score>=2?icon.star1:icon.star}}" lazy-load='true' mode='widthFix'
+                               catchtap='commentsStars' data-iindex='2' data-index='{{index}}'></image>
+                        <image src="{{item.score>=3?icon.star1:icon.star}}" lazy-load='true' mode='widthFix'
+                               catchtap='commentsStars' data-iindex='3' data-index='{{index}}'></image>
+                        <image src="{{item.score>=4?icon.star1:icon.star}}" lazy-load='true' mode='widthFix'
+                               catchtap='commentsStars' data-iindex='4' data-index='{{index}}'></image>
+                        <image src="{{item.score==5?icon.star1:icon.star}}" lazy-load='true' mode='widthFix'
+                               catchtap='commentsStars' data-iindex='5' data-index='{{index}}'></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <button form-type='submit' id='btn-submit'>提交评价</button>
+    </form>
+</view>

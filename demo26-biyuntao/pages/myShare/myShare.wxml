@@ -9,8 +9,10 @@
             <view class='share-content flex1-center'>
                 <view class='share-title'>{{item.name}}</view>
                 <view class='share-detail flex-center'>
-                    <view>为您带来的提成:<text>{{"¥ "+item.profits}}</text></view>
-                    <text>{{item.time}}</text>
+                    <view>为您带来的总收益:
+                        <text>{{"¥ "+item.profits}}</text>
+                    </view>
+                    <text>{{"开始时间:"+item.time}}</text>
                 </view>
             </view>
         </view>

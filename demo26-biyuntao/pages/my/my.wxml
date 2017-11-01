@@ -1,10 +1,13 @@
 <view class="body">
     <!-- //用户信息栏 -->
+
     <view class='user-info flex-center'>
-        <view>
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称
+        </button>
+        <view wx:if="{{hasUserInfo}}">
             <image src='{{userInfo.avatarUrl}}' mode='widthFix'></image>
         </view>
-        <text>{{userInfo.nickName}}</text>
+        <text wx:if="{{hasUserInfo}}">{{userInfo.nickName}}</text>
     </view>
 
     <view class='order'>
@@ -19,6 +22,7 @@
             <navigator class='user-column-item flex-center' wx:for="{{userColumns}}" wx:key="index" url='{{item.url}}'>
                 <image src='{{item.icon}}' mode='widthFix'></image>
                 <text>{{item.title}}</text>
+                <view class='flex-center' wx:if="{{item.newNumber>0}}">{{item.newNumber>99?99:item.newNumber}}</view>
             </navigator>
         </view>
         <view class='user-row'>

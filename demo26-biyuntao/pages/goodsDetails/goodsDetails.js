@@ -49,6 +49,7 @@ Page({
         serviceModal: false,
         choiceModal: false,
         readyToBuy: false,
+        menu2Btn: false,
         banner: {
             indicatorActiveColor: "rgb(246,83,20)",
             indicatorColor: "#00a1f1",
@@ -106,6 +107,8 @@ Page({
         icon: {
             home: "../../images/tabBar/home.png",
             close: "../../images/icon/close.png",
+            back: "../../images/icon/back.png",
+            forward: "../../images/icon/forward.png",
             right: "../../images/icon/right.png",
             service: "../../images/icon/service.png",
             share: '../../images/icon/share-1.png',
@@ -133,7 +136,13 @@ Page({
             datas: datas
         });
     },
-
+    menu2Click: function () {
+        const that = this, btn = that.data.menu2Btn;
+        that.setData({
+            menu2Btn: !btn
+        });
+        console.log(that.data.menu2Btn);
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

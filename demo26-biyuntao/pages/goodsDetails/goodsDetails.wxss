@@ -487,3 +487,45 @@ swiper-item view {
   text-align: center;
   margin-top: 100rpx;
 }
+
+/* 菜单按钮2 */
+
+.menu-group2 {
+  position: fixed;
+  bottom: 130rpx;
+  right: 0;
+  z-index: 100;
+  font-size: 14px;
+}
+
+.menu-group2 .menu-group2-btn-box {
+  border: 1rpx solid #f65314;
+  background-color: #fff;
+  /* align-self: flex-start; *//* border-top-left-radius: 20rpx;
+  border-bottom-left-radius: 20rpx; */
+}
+
+.menu-group2 .menu-group2-btn-box image {
+  width: 60rpx;
+}
+
+.menu-group2 .menu-group2-panel {
+  width: 320rpx;
+  flex-wrap: wrap;
+}
+
+.menu-group2 .menu-group2-panel .menu2-item {
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #fff;
+  border: 1px solid #f65314;
+  box-sizing: border-box;
+  line-height: 80rpx;
+  font-size: 12px;
+  text-align: center;
+}
+
+.menu-group2 .menu-group2-panel .menu2-item-active {
+  background-color: #f55053;
+  color: #fff;
+}

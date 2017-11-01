@@ -39,7 +39,9 @@
 <template name="cardsLists">
 <view class='goods-cards-item' wx:for="{{cardsDatas}}" data-id='{{item.id}}' wx:key="index"
       data-poster='{{item.poster}}'>
-    <video src='{{item.url}}' poster="{{item.poster}}"></video>
+    <image src='{{item.poster}}' lazy-load='true' mode="aspectFill" class="goods-cards-media"></image>
+    <image class="goods-cards-play-video" data-url='{{item.url}}' src='{{video}}' lazy-load='true' mode="widthFix"
+           catchtap='playThisVideo' data-logo='{{item.poster}}'></image>
     <view class='goods-infos' catchtap='lookDetail' data-id='{{item.id}}'>
         <view class='goods-title flex-center'>
             <view class='goods-name'>{{item.title}}</view>

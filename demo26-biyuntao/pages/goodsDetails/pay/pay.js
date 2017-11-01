@@ -20,36 +20,36 @@ Page({
             street: "东大街8号",
         },
         orderListAll:
-        {
-            logo: "../../../images/icon/logo.png",
-            id: 1,
-            name: "避孕套专卖店",
-            status: 0,
-            goods: [
-                {
-                    logo: '../../../images/new/logo@2x.png',
-                    name: '杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...',
-                    size: "灰色 大盒装",
-                    price: 66.66,
-                    number: 1
-                },
-                {
-                    logo: '../../../images/new/logo@2x.png',
-                    name: '杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...',
-                    size: "灰色 大盒装",
-                    price: 66.66,
-                    number: 1
-                },
-                {
-                    logo: '../../../images/new/logo@2x.png',
-                    name: '杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...',
-                    size: "灰色 大盒装",
-                    price: 66.66,
-                    number: 1
-                }
-            ],
-            priceAll: 66.66 * 3
-        }
+            {
+                logo: "../../../images/icon/logo.png",
+                id: 1,
+                name: "避孕套专卖店",
+                status: 0,
+                goods: [
+                    {
+                        logo: '../../../images/new/logo@2x.png',
+                        name: '杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...',
+                        size: "灰色 大盒装",
+                        price: 66.66,
+                        number: 1
+                    },
+                    {
+                        logo: '../../../images/new/logo@2x.png',
+                        name: '杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...',
+                        size: "灰色 大盒装",
+                        price: 66.66,
+                        number: 1
+                    },
+                    {
+                        logo: '../../../images/new/logo@2x.png',
+                        name: '杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...',
+                        size: "灰色 大盒装",
+                        price: 66.66,
+                        number: 1
+                    }
+                ],
+                priceAll: 66.66 * 3
+            }
     },
 
     /**
@@ -68,7 +68,7 @@ Page({
             priceAll: priceAll
         });
     },
-    changeAddress:function(){
+    changeAddress: function () {
         wx.navigateTo({
             url: '../../address/address',
         });
@@ -90,12 +90,36 @@ Page({
             index = e.currentTarget.dataset.index,
             number = orderListAll.goods[index].number;
         number--;
-        number = Math.max(number, 1);
-        orderListAll.goods[index].number = number;
-        this.setData({
-            orderListAll: orderListAll
-        });
-        that.finallyPay();
+        if (number == 0) {
+            wx.showModal({
+                title: '温馨提示',
+                content: '您将删除此商品？确定删除吗',
+                confirmText: "确定删除",
+                confirmColor: "#f65314",
+                cancelText: "留着吧",
+                success: function () {
+                    console.log(111);
+                    orderListAll.goods.splice(index, 1);
+                    that.setData({
+                        orderListAll: orderListAll
+                    });
+                    that.finallyPay();
+                },
+                fail: function () {
+                    orderListAll.goods[index].number = 1;
+                    that.setData({
+                        orderListAll: orderListAll
+                    });
+                    that.finallyPay();
+                }
+            })
+        } else {
+            orderListAll.goods[index].number = number;
+            that.setData({
+                orderListAll: orderListAll
+            });
+            that.finallyPay();
+        }
     },
     addChoiceNumber: function (e) {
         let that = this,
@@ -156,5 +180,10 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    toDetail: function () {
+        wx.navigateTo({
+            url: '../../goodslists/goodslists?type=1',
+        })
     }
 })

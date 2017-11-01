@@ -15,31 +15,31 @@ Page({
             },
             {
                 id: 1,
-                name: "杜蕾斯",
+                name: "关闭",
                 profits: 88.88,
                 time: "2017-10-30",
-                logo: "../../images/icon/logo.png"
+                logo: "../../images/icon/close1.png"
             },
             {
                 id: 1,
-                name: "杜蕾斯",
+                name: "客服校园",
                 profits: 88.88,
                 time: "2017-10-30",
-                logo: "../../images/icon/logo.png"
+                logo: "../../images/icon/service.png"
             },
             {
                 id: 1,
-                name: "杜蕾斯",
+                name: "钱包",
                 profits: 88.88,
                 time: "2017-10-30",
-                logo: "../../images/icon/logo.png"
+                logo: "../../images/icon/dingwei.png"
             },
             {
                 id: 1,
-                name: "杜蕾斯",
+                name: "时间",
                 profits: 88.88,
                 time: "2017-10-30",
-                logo: "../../images/icon/logo.png"
+                logo: "../../images/icon/time.png"
             }
         ]
     },

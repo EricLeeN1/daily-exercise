@@ -3,6 +3,14 @@
 const app = getApp();
 Page({
   data: {
+      icon: {
+          redBg: "../../images/icon/red-bg@2x.png",
+          red1: "../../images/icon/red-1@2x.png",
+          red2: "../../images/icon/red-2@2x.png",
+          red3: "../../images/icon/red-money-bg.png",
+          close: "../../images/icon/close2.png",
+      },
+      video: "../../images/icon/video.png",
       imgUrls: [
           "../../images/banner/banner@2x.png",
           "../../images/banner/banner@2x.png",
@@ -131,12 +139,25 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
+      showVideoBg: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function () {
       const that = this;
       that.setData({
           imgSite: app.globalData.imgSite
+      });
+      wx.getStorage({
+          key: 'getRedTickets',
+          success: function (res) {
+              console.log(res);
+          },
+          fail: function (res) {
+              console.log(res);
+              that.setData({
+                  showRedBg: true
+              })
+          }
       })
     if (app.globalData.userInfo) {
       this.setData({
@@ -198,5 +219,43 @@ Page({
     },
     attendUs: function () {
         app.attendUs();
-    }
+    },
+    closeRedBg: function () {
+        this.setData({
+            showRedBg: false
+        });
+    },
+    closeRed1Bg: function () {
+        this.setData({
+            showRed1Bg: false
+        });
+    },
+    closeVideoBg: function () {
+        this.setData({
+            showVideoBg: false
+        });
+    },
+    getRedTickets: function () {
+        let that = this,
+            redMoney = parseInt(Math.random() * 100);
+        that.setData({
+            showRedBg: false,
+            showRed1Bg: true,
+            redMoney: redMoney != 0 ? redMoney : 1
+        });
+        wx.setStorage({
+            key: 'getRedTickets',
+            data: true,
+        })
+    },
+    playThisVideo: function (e) {
+        let that = this,
+            url = e.currentTarget.dataset.url,
+            logo = e.currentTarget.dataset.logo;
+        that.setData({
+            activeUrl: url,
+            activeLogo: logo,
+            showVideoBg: true
+        })
+    },
 })

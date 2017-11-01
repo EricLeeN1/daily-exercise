@@ -14,14 +14,16 @@
         <image src='{{icon.more}}' mode='widthFix' class='address-more'></image>
     </view>
 
-    <view class='order-list'>
+    <view class='order-list' wx:if="{{!orderListAll.goods.length>0}}">
         <view class='order-item' data-id='{{item.id}}'>
             <view class='order-title flex-center'>
                 <image src='{{orderListAll.logo}}' mode='widthFix' lazy-load='true'></image>
                 <text>{{orderListAll.name}}</text>
             </view>
             <view class='order-goods-list' data-id='{{orderListAll.id}}'>
-                <view class='order-goods-item flex-center' wx:for="{{orderListAll.goods}}" wx:if="index" wx:for-item="iItem" wx:for-index="iIndex" style="{{iIndex==orderListAll.goods.length-1?'border-bottom:none;':''}}">
+                <view class='order-goods-item flex-center' wx:for="{{orderListAll.goods}}" wx:if="index"
+                      wx:for-item="iItem" wx:for-index="iIndex"
+                      style="{{iIndex==orderListAll.goods.length-1?'border-bottom:none;':''}}">
                     <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true' class='order-goods-logo'></image>
                     <view class='order-goods-des'>
                         <view class='order-goods-name'>{{iItem.name}}</view>
@@ -29,9 +31,12 @@
                         <view class='order-goods-price flex-center'>
                             <view>{{"¥"+iItem.price}}</view>
                             <view class='choice-num-change flex-center'>
-                                <image src='{{icon.reduce}}' mode='widthFix' catchtap='reduceChoiceNumber' data-index='{{iIndex}}'></image>
-                                <input type='number' confirm-type="done" bindblur="getChoiceNumber" cursor="100" value='{{iItem.number}}' data-index='{{iIndex}}'></input>
-                                <image src='{{icon.add}}' mode='widthFix' catchtap='addChoiceNumber' data-index='{{iIndex}}'></image>
+                                <image src='{{icon.reduce}}' mode='widthFix' catchtap='reduceChoiceNumber'
+                                       data-index='{{iIndex}}'></image>
+                                <input type='number' confirm-type="done" bindblur="getChoiceNumber" cursor="100"
+                                       value='{{iItem.number}}' data-index='{{iIndex}}'></input>
+                                <image src='{{icon.add}}' mode='widthFix' catchtap='addChoiceNumber'
+                                       data-index='{{iIndex}}'></image>
                             </view>
                         </view>
                     </view>
@@ -39,10 +44,16 @@
             </view>
         </view>
     </view>
+    <view class='no-goods flex-center'>
+        这里还没有产品哦
+        <view class='to-buy' catchtap='toDetail'>立即去选</view>
+    </view>
 
     <view class='pay-column flex-center'>
         <view class='pay-finally flex-center'>
-            实付款:<view>{{"¥ "+priceAll}}</view><text>免运费</text>
+            实付款:
+            <view>{{"¥ "+priceAll}}</view>
+            <text>免运费</text>
         </view>
         <view class='pay-now'>
             立即支付

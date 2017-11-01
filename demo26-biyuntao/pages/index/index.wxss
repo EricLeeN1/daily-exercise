@@ -48,3 +48,189 @@
   padding-bottom: 0;
   background-color: #f7f8f9;
 }
+
+/* 红包弹窗1 */
+
+.red1-modal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+}
+
+.red1-modal .bg {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.red1-modal .red1-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  justify-content: center;
+}
+
+.red1-panel .red1-bg {
+  width: 400rpx;
+}
+
+.red1-panel .red1-bg-active {
+  width: 400rpx;
+  animation: toBig 3s ease-in 2s 1;
+}
+
+@keyframes toBig {
+  0% {
+    width: 0rpx;
+  }
+
+  100% {
+    width: 400rpx;
+  }
+}
+
+.red1-panel .red1-close {
+  position: absolute;
+  width: 60rpx;
+  right: 120rpx;
+  top: -20rpx;
+}
+
+.red1-panel .getRed {
+  position: absolute;
+  width: 268rpx;
+  bottom: 160rpx;
+  left: 50%;
+  margin-left: -134rpx;
+}
+
+.red1-panel button {
+  position: absolute;
+  width: 268rpx;
+  bottom: 60rpx;
+  left: 50%;
+  margin: 0;
+  margin-left: -134rpx;
+  padding: 0;
+  border: none;
+  border-radius: 60rpx;
+}
+
+.red1-panel button::after {
+  border: none;
+}
+
+.red1-panel button image {
+  width: 100%;
+}
+
+/* 红包弹窗2 */
+
+.red2-modal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+}
+
+.red2-modal .bg {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.red2-modal .red2-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  justify-content: center;
+}
+
+.red2-panel .red2-bg {
+  width: 400rpx;
+}
+
+.red2-panel .red2-bg-active {
+  width: 400rpx;
+  animation: toBig 3s ease-in 2s 1;
+}
+
+@keyframes toBig {
+  0% {
+    width: 0rpx;
+  }
+
+  100% {
+    width: 400rpx;
+  }
+}
+
+.red2-panel .red2-close {
+  position: absolute;
+  width: 60rpx;
+  right: 150rpx;
+  top: -60rpx;
+}
+
+.red2-panel .red-money-number {
+  position: absolute;
+  bottom: 180rpx;
+  color: #fff000;
+  font-size: 200rpx;
+  margin-left: -30rpx;
+  font-family: Georgia;
+}
+
+.red2-panel .red-money-show {
+  color: #fff;
+  padding: 0 30rpx;
+}
+
+.red-money-show text {
+  color: #fff000;
+}
+
+/* 视频弹窗 */
+
+.video-modal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+}
+
+.video-modal .bg {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.video-modal video {
+}
+
+.video-modal .video-close {
+  position: absolute;
+  width: 60rpx;
+  right: 15rpx;
+  top: 50%;
+  margin-top: -200rpx;
+}

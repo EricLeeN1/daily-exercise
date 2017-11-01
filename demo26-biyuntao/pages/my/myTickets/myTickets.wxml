@@ -1,11 +1,14 @@
 <view class="body">
-    <scroll-view class='weui-navbar' scroll-x style='width:100%;' scroll-left="{{sliderOffset}}" scroll-into-view="{{type}}">
+    <scroll-view class='weui-navbar' scroll-x style='width:100%;' scroll-left="{{sliderOffset}}"
+                 scroll-into-view="{{type}}">
         <block wx:for="{{tabs}}" wx:key="*this">
-            <view id="{{'id-'+index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-navbar__item_on' : ''}}" bindtap="tabClick" data-id='{{index}}'>
+            <view id="{{'id-'+index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-navbar__item_on' : ''}}"
+                  bindtap="tabClick" data-id='{{index}}'>
                 <view class="weui-navbar__title">{{item}}</view>
             </view>
         </block>
-        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        <view class="weui-navbar__slider"
+              style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
     </scroll-view>
     <view class='tickets-panel' hidden='{{activeIndex!=0}}'>
         <view class='no-tickets flex1-center' wx:if="{{unUsedList.length==0}}">
@@ -13,7 +16,70 @@
             <text>暂无该类优惠券</text>
         </view>
         <view class='tickets-list' wx:else>
-            <view class='tickets-item'></view>
+            <view class="tickets-item flex-center" wx:key="id" wx:for="{{unUsedList}}" data-ticketid="{{item.id}}"
+                  catchtap="goToNopage">
+                <image src="{{icon.fullcutUrl}}" class="tickets-bg" mode="widthFix"></image>
+                <view class="denomination flex-center">
+                    <view class="tickets-number">
+                        <text>{{"¥ "+item.number}}</text>
+                    </view>
+                    <view class="tickets-name">
+                        {{item.name}}
+                    </view>
+                    <view class="valid-time">
+                        {{'有效期'+item.btime+'-'+item.etime}}
+                    </view>
+                </view>
+                <text class="riceive-now" catchtap='goGoodsList'>去使用</text>
+            </view>
         </view>
+    </view>
+    <view class='tickets-panel' hidden='{{activeIndex!=1}}'>
+        <view class='no-tickets flex1-center' wx:if="{{usedList.length==0}}">
+            <image src='{{icon.notickets}}' mode='widthFix' lazy-load='true'></image>
+            <text>暂无该类优惠券</text>
+        </view>
+        <view class='tickets-list' wx:else>
+            <view class="tickets-item flex-center" wx:key="id" wx:for="{{usedList}}" data-ticketid="{{item.id}}"
+                  catchtap="goToNopage">
+                <image src="{{icon.fullcutUrl}}" class="tickets-bg" mode="widthFix"></image>
+                <view class="denomination flex-center">
+                    <view class="tickets-number">
+                        <text>{{"¥ "+item.number}}</text>
+                    </view>
+                    <view class="tickets-name">
+                        {{item.name}}
+                    </view>
+                    <view class="valid-time">
+                        {{'有效期'+item.btime+'-'+item.etime}}
+                    </view>
+                </view>
+                <text class="riceive-now">已使用</text>
+            </view>
+        </view>
+    </view>
+    <view class='tickets-panel' hidden='{{activeIndex!=2}}'>
+        <view class='no-tickets flex1-center' wx:if="{{overdueList.length==0}}">
+            <image src='{{icon.notickets}}' mode='widthFix' lazy-load='true'></image>
+            <text>暂无该类优惠券</text>
+        </view>
+        <view class='tickets-list' wx:else>
+            <view class="tickets-item flex-center" wx:key="id" wx:for="{{overdueList}}" data-ticketid="{{item.id}}"
+                  catchtap="goToNopage">
+                <image src="{{icon.fullcutUrl}}" class="tickets-bg" mode="widthFix"></image>
+                <view class="denomination flex-center">
+                    <view class="tickets-number">
+                        <text>{{"¥ "+item.number}}</text>
+                    </view>
+                    <view class="tickets-name">
+                        {{item.name}}
+                    </view>
+                    <view class="valid-time">
+                        {{'有效期'+item.btime+'-'+item.etime}}
+                    </view>
+        </view>
+                <text class="riceive-now">已过期</text>
+            </view>
+    </view>
     </view>
 </view>

@@ -75,6 +75,29 @@ Page({
                     }
                 ],
                 priceAll: 66.66 * 2
+            },
+            {
+                logo: "../../images/icon/logo.png",
+                id: 1,
+                name: "避孕套专卖店",
+                status: 3,
+                goods: [
+                    {
+                        logo: '../../images/new/logo@2x.png',
+                        name: '杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...',
+                        size: "灰色 大盒装",
+                        price: 66.66,
+                        number: 1
+                    },
+                    {
+                        logo: '../../images/new/logo@2x.png',
+                        name: '杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌，杜蕾斯，低价风暴，让爱更安全。全球第一安全套品牌。杜蕾斯...',
+                        size: "灰色 大盒装",
+                        price: 66.66,
+                        number: 1
+                    }
+                ],
+                priceAll: 66.66 * 2
             }
         ]
     },
@@ -144,6 +167,87 @@ Page({
         this.setData({
             sliderOffset: e.currentTarget.offsetLeft,
             activeIndex: e.currentTarget.dataset.id
+        });
+    },
+    toComments: function (e) {
+        let that = this,
+            id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '../my/toComments/toComments?id=' + id,
+        });
+    },
+    lookForLogistics: function (e) {
+        let that = this,
+            id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '../my/toLogistics/toLogistics?id=' + id,
+        });
+    },
+    delyToReceive: function (e) {
+        let that = this,
+            id = e.currentTarget.dataset.id,
+            index = e.currentTarget.dataset.index,
+            datas = that.data.orderListAll;
+        wx.showModal({
+            title: '平台提示',
+            content: '亲，距离结束时间3天才可以申请哦!',
+            confirmColor: "#f65314",
+            confirmText: "到时再说",
+            success: function (res) {
+            },
+            fail: function (res) {
+
+            }
+        });
+    },
+    readyToReceive: function (e) {
+        let that = this,
+            id = e.currentTarget.dataset.id,
+            index = e.currentTarget.dataset.index,
+            datas = that.data.orderListAll;
+        wx.showModal({
+            title: '平台提示',
+            content: '是否确认收货?',
+            confirmColor: "#f65314",
+            confirmText: "确定",
+            success: function (res) {
+                datas[index].status = 3;
+                that.setData({
+                    orderListAll: datas
+                })
+            },
+            fail: function (res) {
+
+            }
+        });
+    },
+    buyAgain: function (e) {
+        let that = this,
+            id = e.currentTarget.dataset.id;
+        //吊起接口支付；
+        wx.navigateTo({
+            url: '../goodsDetails/pay/pay',
+        })
+    },
+    deleteThisOrder: function (e) {
+        let that = this,
+            id = e.currentTarget.dataset.id,
+            index = e.currentTarget.dataset.index,
+            datas = that.data.orderListAll;
+        wx.showModal({
+            title: '平台提示',
+            content: '是否删除此订单?',
+            confirmColor: "#f65314",
+            confirmText: "确定",
+            success: function (res) {
+                datas.splice(index, 1);
+                that.setData({
+                    orderListAll: datas
+        });
+            },
+            fail: function (res) {
+
+            }
         });
     }
 })

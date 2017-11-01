@@ -22,11 +22,11 @@
         </view>
     </view>
 
-    <!-- 产品列表 -->
-   <view class='goods-list'>
-       <import src="../public/public.wxml"/>
-       <template is="cardsLists" data="{{cardsDatas}}"/>
-   </view>
+    <!-- 产品列表  -->
+    <view class='goods-list'>
+        <import src="../public/public.wxml"/>
+        <template is="cardsLists" data="{{cardsDatas,video}}"/>
+    </view>
 
     <!-- 联系方式 -->
     <view class='contact-us flex-center'>
@@ -38,4 +38,40 @@
     <button class='btn-share' open-type='share' hover-class='btn-share-active'>
         分享给好友赚红包
     </button>
+    <!--红包弹窗1 -->
+    <view class='red1-modal flex-center' wx:if="{{showRedBg}}">
+        <view class='bg' catchtap='closeRedBg'></view>
+        <view class='red1-panel flex-center'>
+            <image src='{{icon.close}}' mode='widthFix' lazy-load='true' class='red1-close'
+                   catchtap='closeRedBg'></image>
+            <image src='{{icon.redBg}}' mode='widthFix' lazy-load='true' class='red1-bg'></image>
+            <image src='{{icon.red2}}' mode='widthFix' lazy-load='true' class='getRed' catchtap='getRedTickets'></image>
+            <button open-type='share'>
+                <image src='{{icon.red1}}' mode='widthFix' lazy-load='true' class='shareToFriends'
+                       catchtap='shareToFriends'></image>
+            </button>
+        </view>
+    </view>
+    <!--红包弹窗2 -->
+    <view class='red2-modal flex-center' wx:if="{{showRed1Bg}}">
+        <view class='bg' catchtap='closeRed1Bg'></view>
+        <view class='red2-panel flex1-center'>
+            <image src='{{icon.close}}' mode='widthFix' lazy-load='true' class='red2-close'
+                   catchtap='closeRed1Bg'></image>
+            <image src='{{icon.red3}}' mode='widthFix' lazy-load='true' class='red2-bg'></image>
+            <view class='red-money-number'>{{redMoney}}</view>
+            <view class='red-money-show'>
+                恭喜您获得
+                <text>{{redMoney}}</text>
+                元抵扣券，快去个人中心-优惠券查看吧
+            </view>
+        </view>
+    </view>
+    <!-- 视屏弹窗 -->
+    <view class='video-modal flex-center' wx:if="{{showVideoBg}}">
+        <view class='bg' catchtap='closeVideoBg'></view>
+        <image src='{{icon.close}}' mode='widthFix' lazy-load='true' class='video-close'
+               catchtap='closeVideoBg'></image>
+        <video src='{{activeUrl}}' poster='{{activeLogo}}' controls></video>
+    </view>
 </view>

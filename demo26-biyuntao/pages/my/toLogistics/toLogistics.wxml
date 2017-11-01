@@ -1,0 +1,46 @@
+<view class="body">
+    <view class='logistics-header flex-center'>
+        <image src='{{datas.logo}}' mode='widthFix' lazy-load='true'></image>
+        <view class='logistics-title flex1-center'>
+            <view class='logistics-company flex-center'>
+                物流公司：
+                <text>{{datas.company}}</text>
+            </view>
+            <view class='logistics-number flex-center'>
+                运单编号：
+                <text>{{datas.number}}</text>
+                <view catchtap='copyNumber' data-number='{{datas.number}}'>复制</view>
+            </view>
+            <view class='logistics-phone flex-center'>
+                物流电话：
+                <text>{{datas.phone}}</text>
+            </view>
+        </view>
+    </view>
+    <view class='logistics-list-title flex-center'>
+        <text>订单跟踪</text>
+        <view class='flex-center' catchtap='sendTrouble' data-number='{{datas.phone}}'>
+            联系物流
+            <image src='{{icon.trouble}}' mode='widthFix' lazy-load='true'></image>
+        </view>
+    </view>
+    <view class='logistics-list'>
+
+        <view class='no-infos flex1-center' wx:if="{{datas.logistics.length==0}}">
+            <image src='{{icon.noLogistics}}' mode='widthFix' lazy-load='true'></image>
+            该商品暂无物流信息
+        </view>
+        <view class="logistics-item flex-center {{index==0?'logistics-item-active':''}}" wx:for="{{datas.logistics}}"
+              wx:key="index" wx:if="{{datas.logistics.length>0}}">
+            <view class='logistics-item-point'>
+                <view style="{{index==datas.logistics.length-1?'bottom:40rpx;':''}}"></view>
+                <text></text>
+            </view>
+            <view class='logistics-item-content flex1-center'
+                  style="{{index==datas.logistics.length-1?'border-bottom:none':''}}">
+                <view>{{item.content}}</view>
+                <text>{{item.time}}</text>
+            </view>
+        </view>
+    </view>
+</view>
