@@ -4,15 +4,15 @@ body {
   box-sizing: border-box;
   position: relative;
   overflow-x: hidden;
-  font-size: .2rem;
-  @media (min-width: 750px) {
-    max-width: 7.5rem;
-    width: 100vw;
-    height: 100vh;
-    margin: 0 auto;
-    overflow-x: hidden;
-    background-color: #f7f8f9;
-  }
+  font-size: .3rem;
+  //@media (min-width: 750px) {
+  //  max-width: 7.5rem;
+  //  width: 100vw;
+  //  height: 100vh;
+  //  margin: 0 auto;
+  //  overflow-x: hidden;
+  //  background-color: #f7f8f9;
+  //}
   img {
     display: block;
   }
@@ -23,6 +23,12 @@ body {
   > header {
     margin-top: .3rem;
     overflow: hidden;
+    @media (min-width: 750px) {
+      max-width: 7.5rem;
+      margin: 0 auto;
+      overflow-x: hidden;
+      font-size: .2rem;
+    }
     > ul {
       float: right;
       margin-right: .2rem;
@@ -39,10 +45,28 @@ body {
       }
     }
   }
+  > #carousel-generic {
+    overflow: hidden;
+    margin: .2rem auto;
+    .carousel-indicators {
+      li {
+        border-color: #37704d;
+      }
+      li.active {
+        background-color: #37704d;
+      }
+    }
+  }
   > #container {
     width: 100%;
     max-width: 1000px;
     margin: .3rem auto;
+    @media (min-width: 750px) {
+      max-width: 7.5rem;
+      margin: 0 auto;
+      overflow-x: hidden;
+      font-size: .2rem;
+    }
     .banner {
       width: 100%;
       justify-content: center;
@@ -68,7 +92,7 @@ body {
       }
       input[type="submit"] {
         width: .82rem;
-        background-color: #37704d;
+        //background-color: #37704d;
         color: #fff;
         border: none;
         border-top-right-radius: .05rem;
@@ -95,7 +119,7 @@ body {
         #report-logo {
           flex-direction: column;
           > a {
-            width: 2rem;
+            width: 100%;
             height: .6rem;
             background-color: #666666;
             color: #fff;
@@ -111,13 +135,64 @@ body {
             }
           }
         }
+        #contact-tel {
+          position: relative;
+          div {
+            position: absolute;
+            font-family: Georgia;
+            font-weight: 400;
+            color: #999;
+            bottom: 0;
+            right: .3rem;
+            font-size: .7rem;
+            @media (min-width: 750px) {
+              bottom: 0;
+              right: .35rem;
+              font-size: .75rem;
+            }
+            @media (min-width: 1000px) {
+              bottom: 0;
+              right: .1rem;
+              font-size: .16rem;
+            }
+          }
+        }
+        #contact-wechat {
+          position: relative;
+          .qrcode {
+            position: absolute;
+            width: 34%;
+            top: .27rem;
+            left: .6rem;
+            @media (min-width: 750px) {
+              top: .3rem;
+              left: .7rem;
+            }
+            @media (min-width: 1000px) {
+              top: .07rem;
+              left: .2rem;
+            }
+          }
+        }
       }
       > main {
         align-self: flex-start;
+        .search-result {
+          margin-bottom: .2rem;
+        }
+        .alert-success {
+          font-size: .16rem;
+        }
       }
     }
   }
   > footer {
+    @media (min-width: 750px) {
+      max-width: 7.5rem;
+      margin: 0 auto;
+      overflow-x: hidden;
+      font-size: .2rem;
+    }
     text-align: center;
     margin: .5rem auto;
     font-size: .14rem;
