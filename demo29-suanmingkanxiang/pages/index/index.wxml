@@ -1,0 +1,42 @@
+<view class='body'>
+    <swiper indicator-dots="{{banner.indicatorDots}}" autoplay="{{banner.autoplay}}" interval="{{banner.interval}}"
+            duration="{{banner.duration}}" class='swiper'>
+        <block wx:for="{{imgUrls}}" wx:key="index">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image" mode='widthFix' lazy-load='true'/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class='nav flex-center'>
+        <view class='nav-item' wx:for="{{navDatas}}" wx:key="index" catchtap='{{item.fun}}'></view>
+    </view>
+    <view class='deal-number flex-center'>
+        截至目前已成交客户数:
+        <text>{{datas.countNumbers}}</text>
+        人
+    </view>
+    <view class='nav1 flex-center'>
+        <view class='nav1-item flex1-center' wx:for="{{nav1Datas}}" wx:key="index" catchtap='{{item.fun}}'>
+            <view class='nav1-item-img' style="{{'background-color:'+item.color}}"></view>
+            <text>{{item.text}}</text>
+        </view>
+    </view>
+    <scroll-view bindscroll="scroll" id="scroll-view" class="alone-list" scroll-y="true" scroll-top="{{scrollTop}}"
+                 style="{{loading==true?'z-index:1;':'z-index:0;'}}">
+        <view class="alone-item" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" catchtap="alonePage"
+              data-ktvid="{{ktvId}}">
+            <view class="alone-number">
+                {{item.id}}
+            </view>
+            <view class="alone-text">
+                {{item.content}}
+            </view>
+            <view class="alone-border">
+                |
+            </view>
+            <view class="read-beGet">
+                {{textList.readyBeGet}}
+            </view>
+        </view>
+    </scroll-view>
+</view>

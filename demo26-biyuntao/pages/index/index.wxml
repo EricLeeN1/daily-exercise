@@ -1,17 +1,22 @@
 <view class="body">
 
-    <!-- 轮播 -->
-    <swiper indicator-dots="{{banner.indicatorDots}}" autoplay="{{banner.autoplay}}" interval="{{banner.interval}}"
-            duration="{{banner.duration}}" indicator-color="{{banner.indicatorColor}}"
-            indicator-active-color="{{banner.indicatorActiveColor}}" class='swiper'>
-        <block wx:for="{{imgUrls}}" wx:key="*this">
-            <swiper-item>
-                <navigator class="slide-image">
-                    <image src='{{item}}' mode='widthFix' lazy-load='true'></image>
-                </navigator>
-            </swiper-item>
-        </block>
-    </swiper>
+    <!-- 轮播
+      <swiper indicator-dots="{{banner.indicatorDots}}" autoplay="{{banner.autoplay}}" interval="{{banner.interval}}"
+              duration="{{banner.duration}}" indicator-color="{{banner.indicatorColor}}"
+              indicator-active-color="{{banner.indicatorActiveColor}}" class='swiper'>
+          <block wx:for="{{imgUrls}}" wx:key="*this">
+              <swiper-item>
+                  <navigator class="slide-image">
+                      <image src='{{item}}' mode='widthFix' lazy-load='true'></image>
+                  </navigator>
+              </swiper-item>
+          </block>
+      </swiper> -->
+    <view class='banner flex1-center'>
+        <view>避孕套专卖店</view>
+        <text>正品+免费配送+礼品包装+绝对隐私</text>
+        <image src='{{icon.logo}}' mode='widthFix' lazy-load='true'></image>
+    </view>
 
     <!-- 导航 -->
     <view class='nav flex-center'>
@@ -68,10 +73,12 @@
         </view>
     </view>
     <!-- 视屏弹窗 -->
-    <view class='video-modal flex-center' wx:if="{{showVideoBg}}">
+    <view class='video-modal' wx:if="{{showVideoBg}}">
         <view class='bg' catchtap='closeVideoBg'></view>
-        <image src='{{icon.close}}' mode='widthFix' lazy-load='true' class='video-close'
-               catchtap='closeVideoBg'></image>
-        <video src='{{activeUrl}}' poster='{{activeLogo}}' controls></video>
+        <!-- <image src='{{icon.close}}' mode='widthFix' lazy-load='true' class='video-close' catchtap='closeVideoBg'></image> -->
+        <view class='video-nodal-panel'>
+            <video src='{{activeUrl}}' poster='{{activeLogo}}' controls objectFit="cover"></video>
+            <view catchtap='closeVideoBg'>关闭视频</view>
+    </view>
     </view>
 </view>

@@ -9,6 +9,7 @@ Page({
           red2: "../../images/icon/red-2@2x.png",
           red3: "../../images/icon/red-money-bg.png",
           close: "../../images/icon/close2.png",
+          logo: "../../images/icon/logo.png",
       },
       video: "../../images/icon/video.png",
       imgUrls: [
@@ -258,4 +259,9 @@ Page({
             showVideoBg: true
         })
     },
+    onHide: function () {
+        this.setData({
+            showVideoBg: false
+        });
+    }
 })

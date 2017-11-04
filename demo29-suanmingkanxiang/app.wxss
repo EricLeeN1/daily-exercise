@@ -1,0 +1,36 @@
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex1-center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+image, video {
+  display: block;
+}
+
+/* loading线 */
+
+.loading-show {
+  position: relative;
+  border-bottom: 1px solid #e1e1e1;
+  justify-content: center;
+  width: 80%;
+  margin: 30rpx auto 50rpx auto;
+  border-radius: 50%;
+}
+
+.loading-show text {
+  height: 36rpx;
+  position: absolute;
+  background-color: #fff;
+  padding: 0 20rpx;
+  line-height: 36rpx;
+  font-size: 26rpx;
+  color: #999;
+  border-radius: 10rpx;
+}

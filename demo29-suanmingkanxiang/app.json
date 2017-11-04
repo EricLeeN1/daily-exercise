@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#09BB07",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabbar/tab1.png",
+        "selectedIconPath": "images/tabbar/tab1-sel.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "讲座",
+        "iconPath": "images/tabbar/tab2.png",
+        "selectedIconPath": "images/tabbar/tab2-sel.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "吉物",
+        "iconPath": "images/tabbar/tab3.png",
+        "selectedIconPath": "images/tabbar/tab3-sel.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "问答",
+        "iconPath": "images/tabbar/tab4.png",
+        "selectedIconPath": "images/tabbar/tab4-sel.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "个人中心",
+        "iconPath": "images/tabbar/tab5.png",
+        "selectedIconPath": "images/tabbar/tab5-sel.png"
+      }
+    ]
+  }
+}
