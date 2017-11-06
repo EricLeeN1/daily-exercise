@@ -1,0 +1,10 @@
+<view class='body'>
+    <swiper>
+        <block wx:for="{{historyData}}">
+            <swiper-item>
+                <scroll-view style='height:100%' scroll-y>
+                </scroll-view>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>

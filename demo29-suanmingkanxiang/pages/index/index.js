@@ -15,9 +15,39 @@ Page({
             interval: 5000,
             duration: 1000
         },
-        navDatas: [
+        nav1Datas: [
             {
                 color: "red",
+                text: "八字合婚",
+                fun: ""
+            },
+            {
+                color: "orange",
+                text: "八字合婚",
+                fun: ""
+            },
+            {
+                color: "yellow",
+                text: "八字合婚",
+                fun: ""
+            },
+            {
+                color: "green",
+                text: "八字合婚",
+                fun: ""
+            },
+            {
+                color: "skyblue",
+                text: "八字合婚",
+                fun: ""
+            },
+            {
+                color: "blue",
+                text: "八字合婚",
+                fun: ""
+            },
+            {
+                color: "purple",
                 text: "八字合婚",
                 fun: ""
             },
@@ -27,46 +57,45 @@ Page({
                 fun: ""
             },
             {
-                color: "red",
+                color: "orange",
                 text: "八字合婚",
                 fun: ""
             },
             {
-                color: "red",
-                text: "八字合婚",
-                fun: ""
-            },
-            {
-                color: "red",
-                text: "八字合婚",
-                fun: ""
-            },
-            {
-                color: "red",
-                text: "八字合婚",
-                fun: ""
-            },
-            {
-                color: "red",
-                text: "八字合婚",
-                fun: ""
-            },
-            {
-                color: "red",
-                text: "八字合婚",
-                fun: ""
-            },
-            {
-                color: "red",
-                text: "八字合婚",
-                fun: ""
-            },
-            {
-                color: "red",
+                color: "yellow",
                 text: "八字合婚",
                 fun: ""
             }
         ],
+        navDatas: [
+            {
+                "fun": "",
+                "title": "团队介绍"
+            },
+            {
+                "fun": "",
+                "title": "成员分布"
+            },
+            {
+                "fun": "",
+                "title": "咨询须知"
+            },
+            {
+                "fun": "",
+                "title": "客户反馈"
+            },
+            {
+                "fun": "",
+                "title": "免费算卦"
+            },
+            {
+                "fun": "",
+                "title": "微信客服"
+            }
+        ],
+        datas: {
+            countNumbers: 3666
+        },
         userInfo: {},
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo')

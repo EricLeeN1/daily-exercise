@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Swiper</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <script src="js/swiper.min.js"></script>
+</head>
+<body>
+<style>
+    .swiper-container {
+        width: 600px;
+        height: 300px;
+        border: 1px solid #f55053;
+    }
+</style>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            111
+        </div>
+        <div class="swiper-slide">
+            222
+        </div>
+        <div class="swiper-slide">
+            333
+        </div>
+    </div>
+    <!--分页器-->
+    <div class="swiper-pagination"></div>
+    <!--导航按钮-->
+    <div class="swiper-button-prev">
+    </div>
+    <div class="swiper-button-next">
+    </div>
+    <!--滚动条-->
+    <!--<div class="swiper-scrollbar">-->
+
+    <!--</div>-->
+</div>
+</body>
+<script>
+    window.onload = function () {
+        var mySwiper = new Swiper('.swiper-container', {
+//            direction:"vertical",
+            direction: "horizontal",
+            initialSlide: 0,
+            speed: 2000,
+            autoplay: true,
+            loop: true,
+//            分页器
+            pagination: {
+                el: ".swiper-pagination"
+            },
+//            前进后退按钮
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+//            如果需要滚动条
+            scrollbar: {
+                el: ".swiper-scrollbar"
+            }
+        })
+    };
+</script>
+</html>

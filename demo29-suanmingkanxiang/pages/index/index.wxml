@@ -8,7 +8,12 @@
         </block>
     </swiper>
     <view class='nav flex-center'>
-        <view class='nav-item' wx:for="{{navDatas}}" wx:key="index" catchtap='{{item.fun}}'></view>
+        <view class='nav-item flex-center' wx:for="{{navDatas}}" wx:key="index" catchtap='{{item.fun}}'
+              wx:if="{{index<navDatas.length-1}}">{{item.title}}
+        </view>
+        <button id='contact-button' class='nav-item flex-center'>
+            {{navDatas[navDatas.length-1].title}}
+        </button>
     </view>
     <view class='deal-number flex-center'>
         截至目前已成交客户数:
@@ -26,7 +31,7 @@
         <view class="alone-item" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" catchtap="alonePage"
               data-ktvid="{{ktvId}}">
             <view class="alone-number">
-                {{item.id}}
+                {{item.time}}
             </view>
             <view class="alone-text">
                 {{item.content}}

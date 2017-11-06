@@ -10,3 +10,65 @@
 .swiper .slide-image image {
   width: 100%;
 }
+
+.nav {
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: -20rpx;
+  margin-bottom: 30rpx;
+}
+
+.nav .nav-item {
+  flex: 0 0 150rpx;
+  background-color: #f55053;
+  color: #fff;
+  margin: 30rpx 0 0rpx 20rpx;
+  padding: 10rpx 20rpx;
+  justify-content: center;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  line-height: 1.5;
+}
+
+.nav #contact-button {
+  margin: 30rpx 0 0rpx 20rpx;
+  padding: 10rpx 20rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  line-height: 1.5;
+  box-sizing: content-box;
+}
+
+.deal-number {
+  margin: 30rpx 0;
+  border-top: 1px solid #f55053;
+  border-bottom: 1px solid #f55053;
+  font-size: 30rpx;
+  height: 80rpx;
+  justify-content: center;
+}
+
+.deal-number text {
+  color: #f55053;
+}
+
+.nav1 {
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30rpx;
+}
+
+.nav1 .nav1-item{
+  flex: 0 0 20%;
+  font-size: 30rpx;
+  height: 200rpx;
+  justify-content: center;
+  border:1px solid #f55053;
+  box-sizing: border-box;
+}
+
+.nav1-item  .nav1-item-img{
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+}
