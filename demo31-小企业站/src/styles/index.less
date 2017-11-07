@@ -127,9 +127,6 @@ body {
             //width: 200px;
 
             height: 144px;
-            &:last-child {
-
-            }
             .news-img-item-title {
               position: absolute;
               left: 0;
@@ -169,11 +166,24 @@ body {
           }
           > ul {
             li {
-              line-height: 59px;
+              position: relative;
+              height: 60px;
+              line-height: 60px;
               border-bottom: 1px dashed @base-bg-color;
-              .text-hidden-one
+              box-sizing: border-box;
+              .text-hidden-one;
+              span{
+                position: absolute;
+                width: 2px;
+                background-color: @base-blue-color;
+                display: block;
+                height:60px;
+                top:0;
+                left: 9px;
+                bottom: 0;
+              }
               a {
-                margin-left: 10px;
+                margin-left: 20px;
               }
             }
           }
