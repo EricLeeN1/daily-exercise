@@ -30,6 +30,14 @@
   line-height: 1.5;
 }
 
+.nav #share-button {
+  margin: 30rpx 0 0rpx 20rpx;
+  padding: 10rpx 20rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  line-height: 1.5;
+  box-sizing: content-box;
+}
 .nav #contact-button {
   margin: 30rpx 0 0rpx 20rpx;
   padding: 10rpx 20rpx;

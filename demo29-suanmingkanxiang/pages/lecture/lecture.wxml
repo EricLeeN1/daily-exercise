@@ -1,8 +1,15 @@
 <view class='body'>
-    <swiper>
-        <block wx:for="{{historyData}}">
+    <view class='no-datas' wx:if="{{lectureData.length==0}}">
+        还没有开办过讲座哦，请下次再来吧!
+    </view>
+    <swiper wx:else>
+        <block wx:for="{{lectureData}}" wx:key="index">
             <swiper-item>
                 <scroll-view style='height:100%' scroll-y>
+                    <view class='lecture-banner'>
+                        <image src='{{item.banner}}' mode='widthFix' lazy-load='true'></image>
+                    </view>
+
                 </scroll-view>
             </swiper-item>
         </block>

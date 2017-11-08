@@ -4,7 +4,13 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+        lectureData: [
+            {
+                "banner": "../../images/banner/banner2.png",
+            }
+        ]
+    },
 
     /**
      * 生命周期函数--监听页面加载

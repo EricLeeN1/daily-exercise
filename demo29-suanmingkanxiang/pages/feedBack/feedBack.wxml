@@ -1,0 +1,20 @@
+<view class="body">
+    <form bindsubmit="submitOpinion">
+        <label for="text">
+            <textarea id="text" bindinput="input" placeholder="请提供您的宝贵意见，我们非常感谢！" placeholder-class="none"
+                      maxlength="140" auto-height="{{autoHeight?true:false}}" cursor-spacing="100" name="input"
+                      value="{{text}}"/>
+        </label>
+        <view class='phone-get'>
+            <view>
+                请输入您的手机号，方便我们与您取得联系
+            </view>
+            <input name="phone"></input>
+            <text>我们保证只会将您的手机号码作为联系您的用途，不会另做他用</text>
+        </view>
+        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">一键获取您的手机号</button>
+        <view class="btn-view">
+            <button id="btn-submit" form-type="submit" hover-class="none" loading="{{loading?true:false}}">确认提交</button>
+        </view>
+    </form>
+</view>

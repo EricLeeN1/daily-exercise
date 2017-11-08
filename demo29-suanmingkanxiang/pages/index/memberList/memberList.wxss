@@ -1,0 +1,15 @@
+.body {
+  min-height: 100vh;
+}
+
+.title {
+  border-top: 1px solid #e1e1e1;
+  text-align: center;
+  color: #f55053;
+  line-height: 80rpx;
+  font-size: 28rpx;
+}
+
+.goods-list {
+  padding:2rpx 30rpx;
+}

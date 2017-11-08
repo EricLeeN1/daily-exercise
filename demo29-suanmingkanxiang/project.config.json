@@ -21,8 +21,38 @@
       "list": []
     },
     "miniprogram": {
-      "current": -1,
-      "list": []
+      "current": 4,
+      "list": [
+        {
+          "id": -1,
+          "name": "讲座",
+          "pathName": "pages/lecture/lecture",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "成员列表",
+          "pathName": "pages/index/memberList/memberList",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "成员详情",
+          "pathName": "pages/index/memberDetail/memberDetail",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "客户反馈",
+          "pathName": "pages/feedBack/feedBack",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "吉祥物购买",
+          "pathName": "pages/mascot/mascot"
+        }
+      ]
     }
   }
 }

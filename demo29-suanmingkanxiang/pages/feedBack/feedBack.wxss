@@ -1,0 +1,39 @@
+.body {
+  color: #333;
+  position: relative;
+  background-color: #f7f8f9;
+  min-height: 100vh;
+}
+
+#text {
+  font-size:40rpx;
+  line-height: 60rpx;
+  background-color: white;
+  width: 100vw;
+  padding: 15rpx;
+  box-sizing: border-box;
+}
+
+.btn-view {
+  margin-top: 30rpx;
+  padding: 0 30rpx;
+}
+
+#btn-submit {
+  background-color: #F55053;
+  border: none;
+  color: #fff;
+}
+
+.phone-get{
+
+}
+.phone-get input{
+  border: 1px solid #e1e1e1;
+}
+.phone-get view{
+  font-size: 24rpx;
+}
+.phone-get button{
+
+}

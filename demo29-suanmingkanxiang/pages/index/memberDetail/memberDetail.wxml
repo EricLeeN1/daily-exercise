@@ -1,0 +1,83 @@
+<view class='body'>
+    <view class='banner'>
+        <image src='{{datas.poster}}' mode='widthFix' lazy-load='true'></image>
+    </view>
+
+
+    <view class='master-name'>
+        {{datas.name+"大师简介"}}
+    </view>
+
+
+    <view class='master-details' wx:if="{{datas.infos.length>0&&showDetails==true}}">
+        <view class='master-infos' wx:for="{{datas.infos}}" wx:key="{{index}}">
+            {{item}}
+        </view>
+        <view class='master-baike'>
+            {{"网络上有（"+datas.name+"）相关百科简介"}}
+        </view>
+    </view>
+
+    <view class='master-post' wx:if="{{datas.posts.length>0&&showDetails==true}}">
+        <view class='master-post-title'>
+            {{datas.name+"先生现在担任职务有"}}
+        </view>
+        <view class='master-post-list'>
+            <view class='master-post-item' wx:for="{{datas.posts}}" wx:key="{{index}}">
+                {{item}}
+            </view>
+        </view>
+    </view>
+
+    <form bindsubmit="formSubmit" bindreset="formReset">
+        <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio flex-center" wx:for="{{datas.services}}" wx:if="{{index<=all}}">
+                <view class='service-name'>{{item.name}}</view>
+                <view class='service-price'>{{"¥"+item.price}}</view>
+                <radio value="{{item.name}}" checked="{{item.checked}}"/>
+            </label>
+            <view class='all-servie-btn' catchtap='toggleAllService'>
+                全部服务
+            </view>
+        </radio-group>
+    </form>
+
+    <view class='comments'>
+        <view class='comments-title flex-center'>
+            <view class='comments-number'>
+                <text>商品评价</text>
+                {{"("+datas.commentsNum+")"}}
+            </view>
+            <view class='comments-more flex-center' data-id='index-0' catchtap='moreComments'>
+                查看更多
+                <image src='{{icon.more}}' mode='widthFix'></image>
+            </view>
+        </view>
+        <view class='comments-label'>
+            <view class='comments-label-item' wx:for="{{commentsLabelLists}}" wx:key="index" data-id='index-0'
+                  catchtap='moreComments'>
+                {{item.name+"("+item.num+")"}}
+            </view>
+        </view>
+        <view class='comments-list'>
+            <view class='comments-item flex1-center' wx:for="{{commentsLists}}" wx:key="index"
+                  style="{{index==commentsLists.length-1?'border-bottom:none':''}}" data-id="{{'index-'+item.id}}"
+                  catchtap='moreComments'>
+                <view class='comments-item-title flex-center'>
+                    <image src='{{item.avatarUrl}}' mode='widthFix' lazy-load='true'></image>
+                    <view>{{item.name}}</view>
+                    <text>{{item.time}}</text>
+                </view>
+                <view class='comments-item-content'>{{item.des}}</view>
+                <view class='comments-item-size flex-center'>
+                    <view>{{"颜色: "+item.color}}</view>
+                    <text>{{"型号: "+item.size}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class='show-detail' catchtap='showDetail'>
+        隐藏信息
+    </view>
+</view>

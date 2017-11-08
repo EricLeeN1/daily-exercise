@@ -1,0 +1,13 @@
+<view class='body'>
+    <view class='title'>
+        大师列表
+    </view>
+    <view class='goods-list'>
+        <import src="../../public/public.wxml"/>
+        <template is="cardsLists" data="{{cardsDatas}}"/>
+    </view>
+    <!-- 我也是有底线的 -->
+    <view class='loading-show flex-center'>
+        <text class='flex-center'>所有大师都在上面了</text>
+    </view>
+</view>

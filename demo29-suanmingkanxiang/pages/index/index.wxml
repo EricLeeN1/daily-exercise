@@ -9,9 +9,12 @@
     </swiper>
     <view class='nav flex-center'>
         <view class='nav-item flex-center' wx:for="{{navDatas}}" wx:key="index" catchtap='{{item.fun}}'
-              wx:if="{{index<navDatas.length-1}}">{{item.title}}
+              wx:if="{{index<navDatas.length-2}}">{{item.title}}
         </view>
-        <button id='contact-button' class='nav-item flex-center'>
+        <button id='share-button' class='nav-item flex-center' open-type="share">
+            {{navDatas[navDatas.length-2].title}}
+        </button>
+        <button id='contact-button' class='nav-item flex-center' open-type="contact">
             {{navDatas[navDatas.length-1].title}}
         </button>
     </view>

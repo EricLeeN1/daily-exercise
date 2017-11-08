@@ -1,10 +1,17 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/memberList/memberList",
+    "pages/index/memberList2/memberList2",
+    "pages/index/memberSpread/memberSpread",
+    "pages/index/memberDetail/memberDetail",
+    "pages/index/comments/comments",
+    "pages/feedBack/feedBack",
     "pages/lecture/lecture",
     "pages/mascot/mascot",
     "pages/qAndA/qAndA",
     "pages/my/my",
+    "pages/notice/notice",
     "pages/logs/logs"
   ],
   "window": {

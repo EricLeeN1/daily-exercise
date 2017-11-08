@@ -1,0 +1,88 @@
+.comments {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.comments .comments-title {
+  padding: 20rpx 20rpx 20rpx 30rpx;
+  justify-content: space-between;
+  border-bottom: 1px solid #e1e1e1;
+  color: #666;
+  font-size: 30rpx;
+}
+
+.comments-title .comments-more {
+  color: #999;
+  font-size: 26rpx;
+}
+
+.comments-more image {
+  width: 40rpx;
+  margin-left: 10rpx;
+}
+
+/* 评价标签 */
+
+.comments-label {
+  padding: 20rpx 30rpx;
+  overflow: hidden;
+  padding-bottom: 10rpx;
+}
+
+.comments-label-item {
+  background-color: #f65314;
+  color: #fff;
+  padding: 10rpx;
+  float: left;
+  margin-bottom: 10rpx;
+  margin-right: 20rpx;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+}
+
+.comments-list {
+}
+
+.comments-list .comments-item {
+  margin: 0 30rpx 20rpx 30rpx;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.comments-item .comments-item-title {
+  padding-bottom: 20rpx;
+  align-self: flex-start;
+  width: 100%;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.comments-item-title image {
+  width: 60rpx;
+}
+
+.comments-item-title view {
+  margin-left: 20rpx;
+  color: #333;
+  font-size: 30rpx;
+  margin-right: auto;
+}
+
+.comments-item .comments-item-content {
+  font-size: 28rpx;
+  color: #666;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.comments-item .comments-item-size {
+  margin: 10rpx 0 20rpx 0;
+  font-size: 26rpx;
+  color: #999;
+  align-self: flex-start;
+}
+
+.comments-item-size view {
+  margin-right: 20rpx;
+}

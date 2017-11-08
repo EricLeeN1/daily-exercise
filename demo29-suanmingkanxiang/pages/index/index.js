@@ -19,69 +19,69 @@ Page({
             {
                 color: "red",
                 text: "八字合婚",
-                fun: ""
+                fun: "memberList2"
             },
             {
                 color: "orange",
                 text: "八字合婚",
-                fun: ""
+                fun: "memberList2"
             },
             {
                 color: "yellow",
                 text: "八字合婚",
-                fun: ""
+                fun: "memberList2"
             },
             {
                 color: "green",
                 text: "八字合婚",
-                fun: ""
+                fun: "memberList2"
             },
             {
                 color: "skyblue",
                 text: "八字合婚",
-                fun: ""
+                fun: "memberList2"
             },
             {
                 color: "blue",
                 text: "八字合婚",
-                fun: ""
+                fun: "memberList2"
             },
             {
                 color: "purple",
                 text: "八字合婚",
-                fun: ""
+                fun: "memberList2"
             },
             {
                 color: "red",
                 text: "八字合婚",
-                fun: ""
+                fun: "memberList2"
             },
             {
                 color: "orange",
                 text: "八字合婚",
-                fun: ""
+                fun: "memberList2"
             },
             {
                 color: "yellow",
                 text: "八字合婚",
-                fun: ""
+                fun: "memberList2"
             }
         ],
         navDatas: [
             {
-                "fun": "",
+                "fun": "memberList",
                 "title": "团队介绍"
             },
             {
-                "fun": "",
+                "fun": "memberSpread",
                 "title": "成员分布"
             },
             {
-                "fun": "",
+                "fun": "notice",
                 "title": "咨询须知"
             },
             {
-                "fun": "",
+                "fun": "feedBack",
                 "title": "客户反馈"
             },
             {
@@ -99,6 +99,31 @@ Page({
         userInfo: {},
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo')
+    },
+    memberList: function () {
+        wx.navigateTo({
+            url: 'memberList/memberList',
+        });
+    },
+    memberList2: function () {
+        wx.navigateTo({
+            url: 'memberList2/memberList2',
+        });
+    },
+    feedBack: function () {
+        wx.navigateTo({
+            url: '../feedBack/feedBack',
+        });
+    },
+    memberSpread: function () {
+        wx.navigateTo({
+            url: 'memberSpread/memberSpread',
+        });
+    },
+    notice: function () {
+        wx.navigateTo({
+            url: '../notice/notice',
+        });
     },
     //事件处理函数
     bindViewTap: function () {
