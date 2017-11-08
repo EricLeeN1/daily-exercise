@@ -1,2 +1,50 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="body">
+    <!-- //用户信息栏 -->
+
+    <view class='user-info'>
+        <view class='user-info-main flex-center'>
+            <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称
+            </button>
+            <view wx:if="{{hasUserInfo}}">
+                <image src='{{userInfo.avatarUrl}}' mode='widthFix'></image>
+            </view>
+            <text wx:if="{{hasUserInfo}}">{{userInfo.nickName}}</text>
+        </view>
+    </view>
+    <view class='order'>
+        <view class='order-title flex-center'>
+            我的订单
+            <navigator class='flex-center' url='../myOrder/myOrder?type=0'>
+                全部订单
+                <image src='{{icon.more}}' mode='widthFix'></image>
+            </navigator>
+        </view>
+        <view class='user-column flex-center'>
+            <navigator class='user-column-item flex-center' wx:for="{{userColumns}}" wx:key="index" url='{{item.url}}'>
+                <image src='{{item.icon}}' mode='widthFix'></image>
+                <text>{{item.title}}</text>
+                <view class='flex-center' wx:if="{{item.newNumber>0}}">{{item.newNumber>99?99:item.newNumber}}</view>
+            </navigator>
+        </view>
+    </view>
+    <view>
+        <view class='user-row'>
+            <view class='user-row-item flex-center' wx:for="{{userRows}}" wx:key="index" catchtap='{{item.fun}}'
+                  style="{{index==userRows.length-1?'border-bottom:none':''}}" data-index='{{index}}'
+                  wx:if="{{index<1}}">
+                <image src='{{item.icon}}' mode='widthFix'></image>
+                <text>{{item.title}}</text>
+            </view>
+            <button class='user-row-item flex-center' open-type='contact' catchtap='{{userRows[1].fun}}'>
+                <image src='{{userRows[1].icon}}' mode='widthFix'></image>
+                <text>{{userRows[1].title}}</text>
+            </button>
+            <view class='user-row-item flex-center' wx:for="{{userRows}}" wx:key="index" catchtap='{{item.fun}}'
+                  style="{{index==userRows.length-1?'border-bottom:none':''}}" data-index='{{index}}'
+                  wx:if="{{index>1}}">
+                <image src='{{item.icon}}' mode='widthFix'></image>
+                <text>{{item.title}}</text>
+            </view>
+        </view>
+    </view>
+</view>

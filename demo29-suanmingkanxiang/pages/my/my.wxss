@@ -1,1 +1,127 @@
-/* pages/my/my.wxss */
+.body {
+    position: relative;
+}
+
+.user-info {
+    height: 420rpx;
+    background-color: #f55053;
+}
+
+.user-info-main {
+    flex-direction: column;
+    justify-content: center;
+    height: 300rpx;
+}
+
+.user-info-main view {
+    border: 10rpx solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20rpx;
+}
+
+.user-info-main image {
+    width: 128rpx;
+}
+
+.user-info-main text {
+    color: #fff;
+    font-size: 28rpx;
+}
+
+/* 订单部分 */
+
+.order {
+    z-index: 2;
+    width: 690rpx;
+    /* height: 242rpx; */
+    margin: 0 auto;
+    margin-top: -120rpx;
+     border-radius: 20rpx;
+     /* overflow: hidden;  */
+     background-color: #fff;
+     box-shadow: 0 0 0 1rpx #f55053; 
+}
+
+.order-title {
+    
+    border-bottom: 1px solid #e1e1e1;
+    padding: 0 30rpx;
+    height: 90rpx;
+    justify-content: space-between;
+    font-size: 30rpx;
+}
+
+.order-title .flex-center {
+    color: #f55053;
+}
+
+.order-title image {
+    width: 36rpx;
+    margin-left: 10rpx;
+}
+
+.user-column {
+    margin-bottom: 30rpx;
+}
+
+.user-column-item {
+    height: 150rpx;
+    justify-content: center;
+    width: 20%;
+    flex: 1;
+    flex-direction: column;
+    position: relative;
+}
+
+.user-column-item image {
+    width: 60rpx;
+}
+
+.user-column-item text {
+    font-size: 24rpx;
+    color: #666;
+}
+
+.user-column-item view {
+    position: absolute;
+    right: 30rpx;
+    top: 20rpx;
+    font-size: 24rpx;
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 50%;
+    background-color: #f55053;
+    color: #fff;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.user-row {
+    background-color: #fff;
+}
+
+.user-row-item {
+    border-bottom: 1px solid #e1e1e1;
+    height: 100rpx;
+    padding-left: 30rpx;
+    font-size: 30rpx;
+}
+
+.user-row-item image {
+    width: 60rpx;
+    margin-right: 20rpx;
+}
+
+.user-row button {
+    background-color: #fff;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #e1e1e1;
+    box-sizing: content-box;
+}
+
+.user-row button::after {
+    border-radius: 0;
+    border: none;
+}
