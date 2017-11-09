@@ -97,3 +97,16 @@ image, video {
   border-bottom-left-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
 }
+
+.goods-cards-item .goods-cards-label1{
+  position: absolute;
+  right: 0;
+  top: 180rpx;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  color: #fff;
+  padding: 0 30rpx;
+  background-color: rgba(0, 0, 0, .6);
+  border-bottom-left-radius: 20rpx;
+  border-top-left-radius: 20rpx;
+}

@@ -15,37 +15,38 @@
         </view>
     </view>
 </template>
-        <!-- 一行多个滚动条 -->
+<!-- 一行多个滚动条 -->
 <template name="goodsScroll">
-<scroll-view scroll-x style='width:100%;' class="goods-scroll">
-    <view class="goods-scroll-item" wx:for="{{scrollDatas}}" wx:key="index" data-id='{{item.id}}' catchtap='lookDetail'
-          style="{{index==scrollDatas.length-1?'padding-right:30rpx;':''}}">
-        <image src="{{item.logo}}" mode="widthFix"></image>
-        <view class='goods-item-border'>
-            <view class="goods-item-title">{{item.name}}</view>
-            <view class="goods-item-price flex-center">
-                <view>尝新价：</view>
-                <view class="goods-item-new">
-                    {{"¥"+item.price}}
-                    <text>{{"/"+item.unit}}</text>
+    <scroll-view scroll-x style='width:100%;' class="goods-scroll">
+        <view class="goods-scroll-item" wx:for="{{scrollDatas}}" wx:key="index" data-id='{{item.id}}' catchtap='lookDetail' style="{{index==scrollDatas.length-1?'padding-right:30rpx;':''}}">
+            <image src="{{item.logo}}" mode="widthFix"></image>
+            <view class='goods-item-border'>
+                <view class="goods-item-title">{{item.name}}</view>
+                <view class="goods-item-price flex-center">
+                    <view>尝新价：</view>
+                    <view class="goods-item-new">
+                        {{"¥"+item.price}}
+                        <text>{{"/"+item.unit}}</text>
+                    </view>
                 </view>
             </view>
         </view>
-    </view>
-</scroll-view>
+    </scroll-view>
 </template>
 
-        <!-- 卡片式列表页 -->
+<!-- 卡片式列表页 -->
 <template name="cardsLists">
-<view class='goods-cards-item' wx:for="{{cardsDatas}}" data-id='{{item.id}}' wx:key="index"
-      data-poster='{{item.poster}}' catchtap='lookDetail'>
-    <image src='{{item.poster}}' lazy-load='true' mode="aspectFill" class="goods-cards-media"></image>
-    <view class='goods-infos' catchtap='lookDetail' data-id='{{item.id}}'>
-        <view class='goods-name'>{{item.title}}</view>
-        <view class='goods-description'>{{item.des}}</view>
+    <view class='goods-cards-item' wx:for="{{cardsDatas}}" data-id='{{item.id}}' wx:key="index" data-poster='{{item.poster}}' catchtap='lookDetail'>
+        <image src='{{item.poster}}' lazy-load='true' mode="aspectFill" class="goods-cards-media"></image>
+        <view class='goods-infos' catchtap='lookDetail' data-id='{{item.id}}'>
+            <view class='goods-name'>{{item.title}}</view>
+            <view class='goods-description'>{{item.des}}</view>
+        </view>
+        <view class='goods-cards-label'>
+            {{item.label}}
+        </view>
+        <view class='goods-cards-label1'>
+            {{item.number+"订单"}}
+        </view>
     </view>
-    <view class='goods-cards-label'>
-        {{item.label}}
-    </view>
-</view>
 </template>

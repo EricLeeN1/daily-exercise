@@ -6,9 +6,16 @@ Page({
      */
     data: {
         showDetails: false,
+        icon:{
+            level:"../../../images/icon/level.png"
+        },
         all: 5,
         datas: {
             id: 1,
+            level:"特级",
+            logo: "../../../images/banner/banner6.jpg",
+            active: 225,
+            number: 974,
             name: "炳坤",
             title: "炳坤专业算命，起名馆 起名 算命",
             des: "专业就是用心起好每个名字，专业就是给你最优的指导",
@@ -27,21 +34,21 @@ Page({
                 "中国商业联合会副会长"
             ],
             services: [
-                {name: '一事一占', price: '128', value: '一事一占'},
-                {name: '情感婚姻', price: '128', value: '情感婚姻', checked: 'true'},
-                {name: '八字合婚', price: '128', value: '八字合婚'},
-                {name: '手机号预测', price: '128', value: '手机号预测'},
-                {name: '测算名字', price: '128', value: '测算名字'},
-                {name: '一事一占', price: '128', value: '一事一占'},
-                {name: '情感婚姻', price: '128', value: '情感婚姻', checked: 'true'},
-                {name: '八字合婚', price: '128', value: '八字合婚'},
-                {name: '手机号预测', price: '128', value: '手机号预测'},
-                {name: '测算名字', price: '128', value: '测算名字'},
-                {name: '一事一占', price: '128', value: '一事一占'},
-                {name: '情感婚姻', price: '128', value: '情感婚姻', checked: 'true'},
-                {name: '八字合婚', price: '128', value: '八字合婚'},
-                {name: '手机号预测', price: '128', value: '手机号预测'},
-                {name: '测算名字', price: '128', value: '测算名字'}
+                { name: '一事一占', price: '128', value: '一事一占' },
+                { name: '情感婚姻', price: '128', value: '情感婚姻', checked: 'true' },
+                { name: '八字合婚', price: '128', value: '八字合婚' },
+                { name: '手机号预测', price: '128', value: '手机号预测' },
+                { name: '测算名字', price: '128', value: '测算名字' },
+                { name: '一事一占', price: '128', value: '一事一占' },
+                { name: '情感婚姻', price: '128', value: '情感婚姻', checked: 'true' },
+                { name: '八字合婚', price: '128', value: '八字合婚' },
+                { name: '手机号预测', price: '128', value: '手机号预测' },
+                { name: '测算名字', price: '128', value: '测算名字' },
+                { name: '一事一占', price: '128', value: '一事一占' },
+                { name: '情感婚姻', price: '128', value: '情感婚姻', checked: 'true' },
+                { name: '八字合婚', price: '128', value: '八字合婚' },
+                { name: '手机号预测', price: '128', value: '手机号预测' },
+                { name: '测算名字', price: '128', value: '测算名字' }
             ]
         }
     },

@@ -1,37 +1,45 @@
 <view class='body'>
     <view class='asker-infos flex-center'>
         <image src='{{datas.ask.logo}}' mode='widthFix' lazy-load='true'></image>
-        <view class='asker-infos-main'>
-            <view></view>
-            <text></text>
+        <view class='asker-infos-main flex1-center'>
+            <view class='asker-infos-top flex-center'>
+                <view>{{datas.ask.name}}</view>
+                <text>{{datas.ask.type}}</text>
+            </view>
+            <view class='asker-infos-bottom'>
+                {{datas.ask.ask}}
+            </view>
         </view>
-        <text></text>
     </view>
 
     <view class='answer-list'>
-        <view class='answer-item'>
-            <view class='answer-item-top'>
-                <image class='answer-logo' src='{{datas.answer.logo}}' mode='widthFix' lazy-load='true'></image>
+        <view class='answer-item' wx:for="{{datas.answer}}" wx:key="index">
+            <view class='answer-item-top flex-center'>
+                <image class='answer-logo' src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
                 <view class='answer-infos-main flex1-center'>
-                    <view class='answer-name'></view>
+                    <view class='answer-name'>{{item.name}}</view>
                     <view class='answer-des flex-center'>
-                        <view></view>
+                        <view>{{item.judge+"好评"}}</view>
                         •
-                        <view></view>
+                        <view>{{item.answer+"回答"}}</view>
                     </view>
-                    <view class='answer-audio'>
-                        <image></image>
-                        <text></text>
+                    <view class='answer-audio flex-center'>
+                        <image src='{{icon.audio}}' mode='widthFix' lazy-load='true'></image>
+                        <text>{{item.length+"s"}}</text>
                     </view>
                 </view>
                 <view class='answer-price'>
+                    {{item.price+"¥"}}
                 </view>
             </view>
             <view class='answer-item-bottom flex-center'>
                 <text>用户评价</text>
-                <image src='{{}}' mode='widthFix' lazy-load='true'></image>
+                <view>非常不错！</view>
             </view>
         </view>
     </view>
-
+<!-- 我也是有底线的 -->
+    <view class='loading-show flex-center'>
+        <text class='flex-center'>所有大师回复都在上面了</text>
+    </view>
 </view>

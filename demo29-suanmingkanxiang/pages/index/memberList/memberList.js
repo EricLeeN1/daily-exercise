@@ -11,6 +11,7 @@ Page({
                 title: "炳坤专业算命，起名馆 起名 算命",
                 des: "专业就是用心起好每个名字，专业就是给你最优的指导",
                 label: "明星大师",
+                number:974,
                 poster: "../../../images/banner/banner2.png"
             },
             {
@@ -18,21 +19,25 @@ Page({
                 title: "炳坤专业算命，起名馆 起名 算命",
                 des: "专业就是用心起好每个名字，专业就是给你最优的指导",
                 label: "明星大师",
+                number: 974,
                 poster: "../../../images/banner/banner3.png"
             }, {
                 id: 3,
+                number: 974,
                 title: "炳坤专业算命，起名馆 起名 算命",
                 des: "专业就是用心起好每个名字，专业就是给你最优的指导",
                 label: "明星大师",
                 poster: "../../../images/banner/banner4.png"
             }, {
                 id: 4,
+                number: 974,
                 title: "炳坤专业算命，起名馆 起名 算命",
                 des: "专业就是用心起好每个名字，专业就是给你最优的指导",
                 label: "明星大师",
                 poster: "../../../images/banner/banner2.png"
             }, {
                 id: 5,
+                number: 974,
                 title: "炳坤专业算命，起名馆 起名 算命",
                 des: "专业就是用心起好每个名字，专业就是给你最优的指导",
                 label: "明星大师",
@@ -40,6 +45,7 @@ Page({
             },
             {
                 id: 6,
+                number: 974,
                 title: "炳坤专业算命，起名馆 起名 算命",
                 des: "专业就是用心起好每个名字，专业就是给你最优的指导",
                 label: "明星大师",

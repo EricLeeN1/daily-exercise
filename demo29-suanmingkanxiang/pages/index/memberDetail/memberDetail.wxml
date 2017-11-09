@@ -3,14 +3,26 @@
         <image src='{{datas.poster}}' mode='widthFix' lazy-load='true'></image>
     </view>
 
-
-    <view class='master-name'>
-        {{datas.name+"大师简介"}}
+    <view class='master-infos flex-center'>
+        <image class='image' src='{{datas.logo}}' mode='widthFix' lazy-load='true'></image>
+        <view class='master-name flex1-center'>
+            <text>{{datas.name}}</text>
+            <view class='flex-center'>
+                <text>{{"交易量:"+datas.number}}</text>
+                <text>{{"活跃度:"+datas.active}}</text>
+            </view>
+        </view>
+        <view class='label flex-center'>
+            <image src='{{icon.level}}' mode='widthFix' lazy-load='true'></image>
+            <view>{{datas.level}}</view>
+        </view>
     </view>
 
 
+
+
     <view class='master-details' wx:if="{{datas.infos.length>0&&showDetails==true}}">
-        <view class='master-infos' wx:for="{{datas.infos}}" wx:key="{{index}}">
+        <view class='master-details-infos' wx:for="{{datas.infos}}" wx:key="{{index}}">
             {{item}}
         </view>
         <view class='master-baike'>
@@ -34,7 +46,7 @@
             <label class="radio flex-center" wx:for="{{datas.services}}" wx:if="{{index<=all}}">
                 <view class='service-name'>{{item.name}}</view>
                 <view class='service-price'>{{"¥"+item.price}}</view>
-                <radio value="{{item.name}}" checked="{{item.checked}}"/>
+                <radio value="{{item.name}}" checked="{{item.checked}}" />
             </label>
             <view class='all-servie-btn' catchtap='toggleAllService'>
                 全部服务
@@ -54,15 +66,12 @@
             </view>
         </view>
         <view class='comments-label'>
-            <view class='comments-label-item' wx:for="{{commentsLabelLists}}" wx:key="index" data-id='index-0'
-                  catchtap='moreComments'>
+            <view class='comments-label-item' wx:for="{{commentsLabelLists}}" wx:key="index" data-id='index-0' catchtap='moreComments'>
                 {{item.name+"("+item.num+")"}}
             </view>
         </view>
         <view class='comments-list'>
-            <view class='comments-item flex1-center' wx:for="{{commentsLists}}" wx:key="index"
-                  style="{{index==commentsLists.length-1?'border-bottom:none':''}}" data-id="{{'index-'+item.id}}"
-                  catchtap='moreComments'>
+            <view class='comments-item flex1-center' wx:for="{{commentsLists}}" wx:key="index" style="{{index==commentsLists.length-1?'border-bottom:none':''}}" data-id="{{'index-'+item.id}}" catchtap='moreComments'>
                 <view class='comments-item-title flex-center'>
                     <image src='{{item.avatarUrl}}' mode='widthFix' lazy-load='true'></image>
                     <view>{{item.name}}</view>
