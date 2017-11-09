@@ -21,7 +21,7 @@
       "list": []
     },
     "miniprogram": {
-      "current": 4,
+      "current": 19,
       "list": [
         {
           "id": -1,
@@ -50,7 +50,97 @@
         {
           "id": -1,
           "name": "吉祥物购买",
-          "pathName": "pages/mascot/mascot"
+          "pathName": "pages/mascot/mascot",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "个人中心",
+          "pathName": "pages/my/my",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "地址",
+          "pathName": "pages/address/address",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "分享",
+          "pathName": "pages/myShare/myShare",
+          "query": ""
+        },
+        {
+          "id": 8,
+          "name": "通知详情",
+          "pathName": "pages/my/msg/msgDetail/msgDetail",
+          "query": "id=3"
+        },
+        {
+          "id": -1,
+          "name": "我的订单",
+          "pathName": "pages/my/myOrder/myOrder",
+          "query": "id=3"
+        },
+        {
+          "id": -1,
+          "name": "评价",
+          "pathName": "pages/my/toComments/toComments",
+          "query": "id=3"
+        },
+        {
+          "id": -1,
+          "name": "物流",
+          "pathName": "pages/my/toLogistics/toLogistics",
+          "query": "id=3"
+        },
+        {
+          "id": -1,
+          "name": "支付",
+          "pathName": "pages/pay/pay",
+          "query": "id=3"
+        },
+        {
+          "id": -1,
+          "name": "吉物",
+          "pathName": "pages/mascot/mascot",
+          "query": "id=3"
+        },
+        {
+          "id": -1,
+          "name": "须知",
+          "pathName": "pages/notice/notice",
+          "query": "id=3"
+        },
+        {
+          "id": -1,
+          "name": "问答",
+          "pathName": "pages/qAndA/qAndA",
+          "query": "id=3"
+        },
+        {
+          "id": -1,
+          "name": "问问题",
+          "pathName": "pages/qAndA/ask/ask",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "写问题",
+          "pathName": "pages/qAndA/writeAsk/writeAsk",
+          "query": "ask=2017年我的财运好不好"
+        },
+        {
+          "id": -1,
+          "name": "改变信息",
+          "pathName": "pages/qAndA/changeInfos/changeInfos",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "大师回复",
+          "pathName": "pages/qAndA/answer/answer"
         }
       ]
     }

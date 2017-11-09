@@ -1,1 +1,16 @@
-/* pages/notice/notice.wxss */
+.body{
+  font-size: 30rpx;
+  color: #333;
+  padding: 0 30rpx;
+}
+
+.title{
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  height: 80rpx;
+}
+
+.p{
+  text-indent: 72rpx;
+}

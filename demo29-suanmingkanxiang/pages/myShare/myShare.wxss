@@ -1,0 +1,41 @@
+.share-list {
+    padding:0 30rpx;
+}
+
+.share-list .share-item {
+    height: 200rpx;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.share-item image {
+    width: 180rpx;
+    margin-right: 30rpx;
+    border-radius: 50%;
+}
+
+.share-item .share-content {
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.share-content .share-title {
+    font-size: 30rpx;
+    line-height: 60rpx;
+    color: #333;
+}
+
+.share-content .share-detail {
+    font-size: 26rpx;
+    justify-content: space-between;
+    color: #666;
+    width: 100%;
+}
+
+.share-detail view text {
+    color: #f65314;
+}
+
+.share-detail .flex1-center {
+    align-items: flex-start;
+}

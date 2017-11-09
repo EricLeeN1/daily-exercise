@@ -1,0 +1,102 @@
+.body {
+  background-color: #f7f8f9;
+  min-height: 100vh;
+}
+
+.comments-goods-title {
+  background-color: #fff;
+  padding: 0 30rpx;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.comments-goods-title image {
+  width: 100rpx;
+  margin-right: 20rpx;
+}
+
+.comments-goods-title view {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 160rpx;
+  width: 550rpx;
+  font-size: 36rpx;
+}
+
+.comments-form-textarea {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+  align-items: flex-start;
+}
+
+.comments-form-textarea textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  height: 160rpx;
+}
+
+.loaded-image-group {
+  flex-wrap: wrap;
+}
+
+.loaded-image-group view {
+  margin:9.75rpx;
+  border: 1px dashed #e1e1e1;
+  width: 150rpx;
+  height: 150rpx;
+  overflow: hidden;
+}
+
+.loaded-image-group view image {
+  width: 150rpx;
+}
+
+.comments-form-textarea .form-load-image {
+  border: 1px dashed #e1e1e1;
+  width: 150rpx;
+  height: 150rpx;
+  justify-content: center;
+  font-size: 30rpx;
+  color: #999;
+}
+
+.form-load-image image {
+  width: 60rpx;
+}
+
+.comments-form-score {
+  background-color: #fff;
+  padding: 30rpx;
+}
+
+.comments-form-score .form-score-title {
+  font-size: 30rpx;
+  height: 80rpx;
+}
+
+.form-score-title image {
+  width: 60rpx;
+  margin-right: 20rpx;
+}
+
+.form-score-list .form-score-item {
+  font-size: 36rpx;
+}
+
+.form-score-item .form-score-title {
+  margin-right: 20rpx;
+  line-height: 90rpx;
+}
+
+.form-score-item image {
+  width: 70rpx;
+  margin-right: 20rpx;
+}
+
+#btn-submit {
+  background-color: #f55053;
+  color: #fff;
+  margin: 60rpx 30rpx;
+}

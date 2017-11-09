@@ -1,0 +1,41 @@
+.body {
+  background-color: #f7f8f9;
+  min-height: 100vh;
+  padding-bottom: 30rpx;
+}
+
+.tickets {
+  background-color: #fff;
+  margin-bottom: 30rpx;
+  height: 150rpx;
+  justify-content: center;
+  color: #f55053;
+}
+
+.ask-list {
+  background-color: #fff;
+  padding: 0 30rpx;
+}
+
+.ask-list .list-title {
+  justify-content: flex-end;
+  height: 100rpx;
+  font-size: 30rpx;
+}
+
+.list-title image {
+  width: 40rpx;
+  margin-right: 10rpx;
+}
+
+.ask-list .ask-item {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-top: 1px solid #e1e1e1;
+  font-size: 30rpx;
+}
+
+.loading-show text {
+  background-color: #f7f8f9;
+}

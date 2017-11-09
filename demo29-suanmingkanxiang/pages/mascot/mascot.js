@@ -891,7 +891,7 @@ Page({
         that.setData({
             menu2Btn: !btn
         });
-        console.log(that.data.menu2Btn);
+        // console.log(that.data.menu2Btn);
     },
     scrolltolower: function () {
         var that = this;
@@ -958,7 +958,7 @@ Page({
         const that = this,
             currentType = e.currentTarget.dataset.index,
             typeArrayCurrent = that.data.typeArray[currentType];
-        console.log(currentType, typeArrayCurrent);
+        // console.log(currentType, typeArrayCurrent);
         that.setData({
             currentType: currentType,
             typeArrayCurrent: typeArrayCurrent
@@ -976,7 +976,7 @@ Page({
         });
     },
     goodsAdd: function (e) {
-        console.log(e);
+        // console.log(e);
         const that = this,
             typeIndex = e.currentTarget.dataset.typeindex,
             shopsIndex = e.currentTarget.dataset.shopsindex,
@@ -990,14 +990,14 @@ Page({
         that.getAllFinallyInfos();
     },
     goodsReduce: function (e) {
-        console.log(e);
+        // console.log(e);
         const that = this,
             typeIndex = e.currentTarget.dataset.typeindex,
             shopsIndex = e.currentTarget.dataset.shopsindex,
             typesIndex = e.currentTarget.dataset.typesindex,
             id = e.currentTarget.dataset.id,
             list = that.data.list;
-        console.log(list[typeIndex].shops[shopsIndex].type[typesIndex].number);
+        // console.log(list[typeIndex].shops[shopsIndex].type[typesIndex].number);
         list[typeIndex].shops[shopsIndex].type[typesIndex].number = Math.max(list[typeIndex].shops[shopsIndex].type[typesIndex].number - 1, 0);
         that.setData({
             list: list
@@ -1123,7 +1123,7 @@ Page({
                 },
                 success: function (res) {
                     wx.navigateTo({
-                        url: ''
+                        url: '../pay/pay'
                     })
                 }
             });

@@ -10,25 +10,25 @@ Page({
             more: "../../images/icon/more.png"
         },
         userColumns: [{
-            url: '../myOrder/myOrder?type=1',
+            url: 'myOrder/myOrder?type=1',
             icon: '../../images/icon/daifukuan.png',
             title: "待付款",
             newNumber: 0
         },
         {
-            url: '../myOrder/myOrder?type=2',
+            url: 'myOrder/myOrder?type=2',
             icon: '../../images/icon/daifahuo.png',
             title: "待发货",
             newNumber: 1
         },
         {
-            url: '../myOrder/myOrder?type=3',
+            url: 'myOrder/myOrder?type=3',
             icon: '../../images/icon/daishouhuo.png',
             title: "待收货",
             newNumber: 3
         },
         {
-            url: '../myOrder/myOrder?type=4',
+            url: 'myOrder/myOrder?type=4',
             icon: '../../images/icon/daipingjia.png',
             title: "待评价",
             newNumber: 10
@@ -48,15 +48,15 @@ Page({
             {
                 fun: '',
                 icon: '../../images/icon/service1.png',
-                title: "客服与投诉"
+                title: "客服投诉"
             }, {
                 fun: 'myShare',
                 icon: '../../images/icon/share-2.png',
                 title: "我的分享"
             }, {
-                fun: 'attendUs',
+                fun: 'lookMyAudio',
                 icon: '../../images/icon/audio.png',
-                title: "我的语音"
+                title: "我的通知"
             }],
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -157,7 +157,12 @@ Page({
     },
     settingAddress: function () {
         wx.navigateTo({
-            url: '../address/address',
-        })
+            url: 'address/address',
+        });
+    },
+    lookMyAudio: function () {
+        wx.navigateTo({
+            url: 'msg/msg',
+        });
     }
 })

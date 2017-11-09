@@ -1,0 +1,40 @@
+<view class='body'>
+    <view class='tips'>
+        ！系统会自动为您排好生辰八字和奇门遁甲
+    </view>
+    <view class='user-infos flex-center'>
+        <image src='{{userInfos.avatarUrl}}' mode='widthFix' lazy-load='true'></image>
+        <view class='user-infos-main flex1-center'>
+            <view class='user-infos-main-top flex-center'>
+                <view>{{userInfos.nickName}}</view>
+                <text>{{userInfos.gender==1?"男":"女"}}</text>
+            </view>
+            <view class='user-infos-main-bottom flex-center'>
+                <view>{{userInfos.day||"您还没有填写生日"}}</view>
+                <text>{{userInfos.seconds||"您还没有填时辰"}}</text>
+            </view>
+        </view>
+        <view class='change-files' catchtap='changeFiles'>
+            修改资料
+        </view>
+    </view>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+        <textarea placeholder="输入你想提问的问题" name="textarea" value='{{options.ask}}' bindinput='bindinput'/>
+        <view class='change-money'>
+            <view class='change-money-title'>选择赏金</view>
+            <view class='change-money-list flex-center'>
+                <view class="change-money-item {{activeIndex==index?'change-money-item-active':''}}"
+                      wx:for="{{moneyLists}}" wx:key="{{index}}" data-money='{{item.index}}' data-index='{{index}}'
+                      catchtap='moneyChange'>
+                    {{item.money+"元"}}
+                </view>
+            </view>
+            <view class='change-money-tips'>
+                问题24小时内未有回复，赏金将退回到您原来的支付账号中
+            </view>
+        </view>
+        <button form-type="submit">
+            发布问题
+        </button>
+    </form>
+</view>

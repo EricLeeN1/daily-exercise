@@ -1,0 +1,31 @@
+<view class="body">
+    <view class="msg-list">
+        <view class="msg-item flex-center" data-id="{{id}}">
+            <view class="logo">
+                <image src="{{iconUrl.logoUrl}}" mode="widthFix" lazy-load='true'></image>
+            </view>
+            <view class="msg-content flex-center">
+                <view class="msg-title">
+                    {{datas.title}}
+                </view>
+                <view class="msg-text">
+                    {{datas.content}}
+                </view>
+                <view class='msg-video flex-center' wx:if="{{datas.isAudio}}" catchtap='audioPlay'>
+                    <image class='image1' src='{{iconUrl.audio}}' lazy-load='true' mode='scaleToFill'></image>
+                    <text>'{{datas.audioLength}}'</text>
+                    <image class='image2' src='{{iconUrl.gif}}' mode='widthFix' lazy-load='true'
+                           hidden='{{!gifShow}}'></image>
+                </view>
+                <view class="msg-more flex-center">
+                    <view class="msg-time">
+                        {{datas.time}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='audio' hidden='true'>
+        <audio src='{{datas.audioUrl}}' id='myAudio' bindended="bindended"></audio>
+    </view>
+</view>

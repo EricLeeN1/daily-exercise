@@ -1,0 +1,199 @@
+/* pages/address/address.wxss */
+
+.body {
+  background-color: #f7f8f9;
+  min-height: 100vh;
+}
+
+.address-group {
+  margin-bottom: 180rpx;
+}
+
+.address-item {
+  font-size: 30rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.address-item .address-details {
+  align-items: flex-start;
+  height: 160rpx;
+  justify-content: center;
+  padding: 0 30rpx;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.address-details .flex-center {
+  margin-bottom: 10rpx;
+}
+
+.address-details .address-street-infos {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.address-item .address-choice {
+  height: 100rpx;
+  padding: 0 30rpx;
+}
+
+.address-choice .choiced-text {
+  color: #f55053;
+}
+
+.address-choice image {
+  width: 40rpx;
+  margin-right: 10rpx;
+}
+
+.address-choice .address-edit {
+  margin-right: 20rpx;
+  margin-left: auto;
+}
+
+.no-address {
+  background-color: #fff;
+  height: 200rpx;
+  justify-content: center;
+  padding: 0 30rpx;
+  font-size: 30rpx;
+}
+
+.address-add-group {
+  font-size: 30rpx;
+  color: #fff;
+  padding: 0 30rpx;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 30rpx;
+  left: 0;
+  right: 0;
+}
+
+.address-add-group .address-add-item {
+  padding: 30rpx 0;
+  flex: 0 0 340rpx;
+  justify-content: center;
+  border-radius: 10rpx;
+}
+
+.address-add-item image {
+  width: 40rpx;
+  border-radius: 5rpx;
+  margin-right: 10rpx;
+}
+
+.address-add-group .address-add-handle {
+  background-color: #f55053;
+}
+
+.address-add-group .address-add-wechat {
+  background-color: #1aad19;
+}
+
+/* 弹窗 */
+
+.address-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  justify-content: center;
+}
+
+.modal-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.address-modal form {
+  z-index: 101;
+  background-color: #fff;
+  width: 660rpx;
+  border-radius: 20rpx;
+  font-size: 30rpx;
+}
+
+.address-panel .address-panel-title {
+  text-align: center;
+  line-height: 100rpx;
+  position: relative;
+  font-size: 36rpx;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.address-panel-title button {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.address-panel-title button::after {
+  border: none；;
+}
+
+.address-panel-title image {
+  width: 50rpx;
+}
+
+.address-panel .address-panel-infos {
+  border-bottom: 1px solid #e1e1e1;
+  justify-content: space-between;
+}
+
+.address-panel-infos input {
+  padding-left: 30rpx;
+  height: 100rpx;
+}
+
+.address-panel-infos .address-panel-name {
+  border-right: 1px solid #e1e1e1;
+}
+
+.address-panel .address-panel-address {
+  overflow: hidden;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.address-panel-address picker {
+  width: 100%;
+}
+
+.address-panel-address .picker {
+  float: left;
+  width: 33.333333%;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.address-panel .address-panel-street {
+}
+
+.address-panel-street textarea {
+  width: 100%;
+  padding: 20rpx 30rpx;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  height: 150rpx;
+  box-sizing: border-box;
+}
+
+.address-panel .submit-btn {
+  margin: 30rpx;
+  margin-top: 0;
+  color: #fff;
+  background-color: #f55053;
+}

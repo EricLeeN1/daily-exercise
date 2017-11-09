@@ -1,0 +1,37 @@
+<view class='body'>
+    <view class='asker-infos flex-center'>
+        <image src='{{datas.ask.logo}}' mode='widthFix' lazy-load='true'></image>
+        <view class='asker-infos-main'>
+            <view></view>
+            <text></text>
+        </view>
+        <text></text>
+    </view>
+
+    <view class='answer-list'>
+        <view class='answer-item'>
+            <view class='answer-item-top'>
+                <image class='answer-logo' src='{{datas.answer.logo}}' mode='widthFix' lazy-load='true'></image>
+                <view class='answer-infos-main flex1-center'>
+                    <view class='answer-name'></view>
+                    <view class='answer-des flex-center'>
+                        <view></view>
+                        •
+                        <view></view>
+                    </view>
+                    <view class='answer-audio'>
+                        <image></image>
+                        <text></text>
+                    </view>
+                </view>
+                <view class='answer-price'>
+                </view>
+            </view>
+            <view class='answer-item-bottom flex-center'>
+                <text>用户评价</text>
+                <image src='{{}}' mode='widthFix' lazy-load='true'></image>
+            </view>
+        </view>
+    </view>
+
+</view>

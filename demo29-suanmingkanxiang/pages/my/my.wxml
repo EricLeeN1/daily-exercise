@@ -14,7 +14,7 @@
     <view class='order'>
         <view class='order-title flex-center'>
             我的订单
-            <navigator class='flex-center' url='../myOrder/myOrder?type=0'>
+            <navigator class='flex-center' url='myOrder/myOrder?type=0'>
                 全部订单
                 <image src='{{icon.more}}' mode='widthFix'></image>
             </navigator>
@@ -40,7 +40,7 @@
                 <text>{{userRows[1].title}}</text>
             </button>
             <view class='user-row-item flex-center' wx:for="{{userRows}}" wx:key="index" catchtap='{{item.fun}}'
-                  style="{{index==userRows.length-1?'border-bottom:none':''}}" data-index='{{index}}'
+                  data-index='{{index}}'
                   wx:if="{{index>1}}">
                 <image src='{{item.icon}}' mode='widthFix'></image>
                 <text>{{item.title}}</text>

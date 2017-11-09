@@ -1,0 +1,21 @@
+<view class='body'>
+    <view class='tickets flex-center'>
+        您有
+        <text>{{datas.ticketsNumber}}</text>
+        张免费提问券可以使用
+    </view>
+    <view class='ask-list'>
+        <view class='list-title flex-center' catchtap='writeAsk' data-index="0">
+            <image src='{{icon.edit}}' mode='widthFix' lazy-load='true'></image>
+            <text>自由提问</text>
+        </view>
+        <view class='ask-item' wx:for="{{datas.lists}}" wx:key="{{index}}" data-index="{{index+1}}"
+              data-id='{{item.id}}' catchtap='writeAsk'>
+            {{item.ask}}
+        </view>
+    </view>
+    <!-- 我也是有底线的 -->
+    <view class='loading-show flex-center'>
+        <text class='flex-center'>所有语音问题都在上面了</text>
+    </view>
+</view>

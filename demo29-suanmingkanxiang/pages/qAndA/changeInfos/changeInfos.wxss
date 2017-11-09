@@ -1,0 +1,52 @@
+.body {
+  background-color: #f7f8f9;
+  min-height: 100vh;
+  padding-top: 30rpx;
+}
+
+.infos-logo {
+  margin-bottom: 30rpx;
+  justify-content: center;
+}
+
+.infos-logo image {
+  width: 140rpx;
+  border: 10rpx solid rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.infos1 {
+  padding: 0 30rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.infos1 .infos1-column {
+  height: 80rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 0 30rpx;
+}
+
+.infos1-column text {
+  flex: 0 0 160rpx;
+}
+
+.infos2 {
+  margin-top: 30rpx;
+}
+
+ .infos1 .no-border {
+   border-bottom: none; 
+ }
+
+#button{
+   position: fixed;
+   bottom: 30rpx;
+   left: 30rpx;
+   right: 30rpx;
+   background-color: #f55053;
+   color: #fff;
+   border-color: #f55053;
+ }

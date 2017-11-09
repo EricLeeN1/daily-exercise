@@ -1,0 +1,61 @@
+<view class='body'>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+        <view class='infos-logo flex-center'>
+            <image src='{{userInfos.avatarUrl}}' mode='widthFix' lazy-load='true'></image>
+        </view>
+        <view class='infos1'>
+            <view class='infos1-column flex-center'>
+                <text>用户昵称</text>
+                <view>{{userInfos.nickName}}</view>
+            </view>
+            <view class='infos1-column flex-center no-border'>
+                <text>手机号码</text>
+                <view>
+                    <input name="phone" bindinput="bindinput" placeholder="请输入您的手机号码" value='{{userInfos.phone}}'
+                           maxlength='11'/>
+                </view>
+            </view>
+        </view>
+        <view class='infos1 infos2'>
+            <view class='infos1-column flex-center'>
+                <text>性别</text>
+                <radio-group name="gender" class="radio-group" bindchange="radioChange">
+                    <label class="radio">
+                        <radio value="1" checked="{{userInfos.gender==1}}" color='#f55053'/>
+                        男
+                    </label>
+                    <label class="radio">
+                        <radio value="0" checked="{{userInfos.gender==0}}" color='#f55053'/>
+                        女
+                    </label>
+                </radio-group>
+            </view>
+            <view class='infos1-column flex-center'>
+                <text>生辰年月</text>
+                <view>
+                    <picker name="date" mode="date" value="{{date}}" start="1900-01-01" end="2017-11-11"
+                            bindchange="bindDateChange">
+                        <view class="picker">
+                            {{userInfos.date?userInfos.date:"您还没有选择生辰年月哦"}}
+                        </view>
+                    </picker>
+
+                </view>
+            </view>
+            <view class='infos1-column flex-center no-border'>
+                <text>生辰时刻</text>
+                <view>
+                    <picker name="time" mode="time" value="{{time}}" start="00:00" end="23:59"
+                            bindchange="bindTimeChange">
+                        <view class="picker">
+                            {{userInfos.time?userInfos.time:"您还没有选择生辰时刻哦"}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+        <button id='button' form-type='submit'>
+            确认修改
+        </button>
+    </form>
+</view>

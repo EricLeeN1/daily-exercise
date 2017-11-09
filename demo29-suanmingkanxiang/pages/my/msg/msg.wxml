@@ -1,0 +1,27 @@
+<view class="body">
+    <view class="msg-list">
+        <view class="no-push" wx:if="{{pushlist.length==0||!pushlist}}">
+            <image src="{{iconUrl.noPushUrl}}" mode="widthFix" lazy-load='true'></image>
+            <view class="no-push-title">{{text.noPushText}}</view>
+        </view>
+        <view wx:if="{{pushlist.length>0}}" bindtap="pushDetail" class="msg-item flex-center" wx:key="id"
+              wx:for="{{pushlist}}" data-id="{{item.id}}" data-url="{{'msgDetail/msgDetail?id='+item.id}}">
+            <view class="logo">
+                <image src="{{iconUrl.logoUrl}}" mode="widthFix" lazy-load='true'></image>
+            </view>
+            <view class="msg-content flex-center">
+                <view class="msg-title">
+                    {{item.title}}
+                </view>
+                <view class="msg-text">
+                    {{item.content}}
+                </view>
+                <view class="msg-more flex-center">
+                    <text>{{text.more}}</text>
+                    <image src="{{iconUrl.moreUrl}}" mode="widthFix" lazy-load='true'>
+                    </image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

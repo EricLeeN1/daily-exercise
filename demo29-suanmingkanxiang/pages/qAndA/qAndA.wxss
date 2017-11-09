@@ -1,1 +1,79 @@
-/* pages/qAndA/qAndA.wxss */
+.body {
+  background-color: #f7f8f9;
+  min-height: 100vh;
+  padding-bottom: 30rpx;
+}
+
+.banner {
+  margin-bottom: 30rpx;
+}
+
+.banner image {
+  width: 100%;
+}
+
+.questions-list {
+  padding: 0 30rpx;
+}
+
+.questions-list .questions-item {
+  margin-bottom: 30rpx;
+  background-color: #fff;
+  padding: 20rpx;
+  border-radius: 10rpx;
+}
+
+.questions-item .questions-logo {
+  width: 100rpx;
+  flex: 0 0 100rpx;
+  margin-right: 20rpx;
+}
+
+.questions-logo image {
+  width: 100%;
+  border-radius: 20rpx;
+}
+
+.questions-panel {
+  align-items: flex-start;
+}
+
+.questions-panel .panel-top {
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.questions-panel .panel-bottom {
+}
+
+.panel-bottom image {
+  width: 260rpx;
+  height: 60rpx;
+}
+
+.panel-bottom text, .panel-bottom view {
+  font-size: 24rpx;
+  color: #f55053;
+  margin-left: 30rpx;
+}
+
+.loading-show text {
+  background-color: #f7f8f9;
+}
+
+
+.ask-modal{
+  position: fixed;
+  bottom: 60rpx;
+  right: 60rpx;
+  width: 120rpx;
+  height: 120rpx;
+  z-index: 100;
+}
+.ask-modal image{
+  width: 100%;
+}

@@ -1,4 +1,5 @@
 .body {
+  border-top: 1px solid #e1e1e1;
   color: #333;
   position: relative;
   background-color: #f7f8f9;
@@ -6,12 +7,15 @@
 }
 
 #text {
-  font-size:40rpx;
   line-height: 60rpx;
   background-color: white;
-  width: 100vw;
+  width: 690rpx;
   padding: 15rpx;
+  margin: 30rpx auto;
   box-sizing: border-box;
+  border: 1px solid #e1e1e1;
+  border-radius: 10rpx;
+  font-size: 36rpx;
 }
 
 .btn-view {
@@ -20,20 +24,37 @@
 }
 
 #btn-submit {
-  background-color: #F55053;
+  background-color: #f55053;
   border: none;
   color: #fff;
 }
 
-.phone-get{
+.phone-get {
+  padding: 0 30rpx;
+  margin-bottom: 20rpx;
+}
 
-}
-.phone-get input{
-  border: 1px solid #e1e1e1;
-}
-.phone-get view{
+.phone-get text {
   font-size: 24rpx;
+  color: #ccc;
 }
-.phone-get button{
 
+.phone-get input {
+  border: 1px solid #e1e1e1;
+  font-size: 30rpx;
+}
+
+.phone-get .input-place{
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  color: #999;
+}
+
+.phone-get view {
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.phone-get button {
+  margin-top: 20rpx;
 }

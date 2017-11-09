@@ -1,2 +1,32 @@
-<!--pages/qAndA/qAndA.wxml-->
-<text>pages/qAndA/qAndA.wxml</text>
+<view class='body'>
+    <view class='banner'>
+        <image src='{{icon.banner}}' mode='widthFix' lazy-load='true'></image>
+    </view>
+    <view class='questions-list'>
+        <view class='questions-item flex-center' wx:for="{{lists}}" wx:key="index" data-id='{{item.id}}'
+              catchtap='lookDetail'>
+            <view class='questions-logo'>
+                <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+            </view>
+            <view class='questions-panel flex1-center'>
+                <view class='panel-top'>
+                    {{item.question}}
+                </view>
+                <view class='panel-bottom flex-center'>
+                    <image src='{{icon.audio}}' mode='scaleToFill' lazy-load='true'></image>
+                    <view>{{item.price}}</view>
+                    <text>{{item.number+"人回答"}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 我也是有底线的 -->
+    <view class='loading-show flex-center'>
+        <text class='flex-center'>所有语音问题都在上面了</text>
+    </view>
+
+    <view class='ask-modal' catchtap='askQuestion'>
+        <image src='{{icon.ask}}' mode='widthFix' lazy-load='true'></image>
+    </view>
+</view>

@@ -1,0 +1,28 @@
+<view class="body">
+    <view class='no-share flex-center' wx:if="{{shareDatas.length==0}}">
+        您还没有分享哦！快去成为第一个分享给好友的人，来获取免费算卦的机会吧！
+    </view>
+    <view class='share-list' wx:else>
+        <view class='share-item flex-center' wx:for="{{shareDatas}}" wx:key="index" data-id='{{item.id}}'
+              style="{{index==shareDatas.length-1?'border-bottom:none':''}}">
+            <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+            <view class='share-content flex1-center'>
+                <view class='share-title'>{{item.name}}</view>
+                <view class='share-detail flex-center'>
+                    <view>您于
+                        <text>{{item.time}}</text>
+                        {{"第一次分享给"+item.name+"并获得了一次免费算卦的机会。"}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- loading -->
+    <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+        <text class='flex-center'>loading...</text>
+    </view>
+    <!-- 我也是有底线的 -->
+    <view class='loading-show flex-center' wx:if="{{noDatas}}">
+        <text class='flex-center'>我也是有底线的</text>
+    </view>
+</view>

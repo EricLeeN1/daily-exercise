@@ -1,0 +1,101 @@
+<view class="body">
+    <view class='no-address flex-center' wx:if="{{addressDatas.length==0}}">
+        您还没有添加地址哦，请点击下方按钮添加吧！
+    </view>
+    <radio-group class="address-group" bindchange="radioChange" wx:else>
+        <view class='address-item' wx:for="{{addressDatas}}" wx:key="index" data-id='{{item.id}}'>
+            <view class='address-details flex1-center'>
+                <view class='flex-center'>
+                    <view>{{item.name}}</view>
+                    ,
+                    <text>{{item.phonenumber}}</text>
+                </view>
+                <view class='address-street-infos'>
+                    {{(item.province||"")+" "+(item.city||"")+" "+(item.town||"")+" "+(item.street||"")}}
+                </view>
+            </view>
+            <view class='address-choice flex-center'>
+                <label class="radio">
+                    <radio value='{{index}}' color='#f55053' checked='{{item.choice==1}}'/>
+                </label>
+                <text class="{{item.choice==1?'choiced-text':''}}">{{item.choice==1?"已设为默认":"设为默认"}}</text>
+                <view class='address-edit flex-center' catchtap='editAddress' data-index='{{index}}'>
+                    <image src='{{icon.edit}}' mode='widthFix' lazy-load='true'></image>
+                    <text>编辑</text>
+                </view>
+                <view class='flex-center' catchtap='deleteAddress' data-index='{{index}}'>
+                    <image src='{{icon.delete}}' mode='widthFix' lazy-load='true'></image>
+                    <text>删除</text>
+                </view>
+            </view>
+        </view>
+    </radio-group>
+    <view class='address-add-group flex-center'>
+        <view class='address-add-item address-add-handle flex-center' catchtap='showAddressModal'>
+            <image src='{{icon.add}}' mode='widthFix' lazy-load='true'></image>
+            手动添加
+        </view>
+        <view class='address-add-item address-add-wechat flex-center' catchtap='addAddressByWechat'>
+            <image src='{{icon.wechat}}' mode='widthFix' lazy-load='true'></image>
+            微信添加
+        </view>
+    </view>
+    <!--  -->
+
+    <!-- 添加地址modal -->
+    <view class='address-modal flex-center' hidden='{{!showAddressModal}}'>
+        <view class='modal-bg' catchtap='hideAddressModal'></view>
+        <form class='address-panel' bindsubmit='addAddressByHandle' bindreset='resetForm'>
+            <view class='address-panel-title'>
+                添加收货地址
+                <button form-type='reset' catchtap='hideAddressModal'>
+                    <image src='{{icon.close}}' mode='widthFix' lazy-load='true'></image>
+                </button>
+            </view>
+            <view class='address-panel-infos flex-center' wx:if="{{changeAddress==1}}">
+                <input type='text' name="name" placeholder='名字' class='address-panel-name'
+                       value='{{addressDatas[changingAddress].name}}'></input>
+                <input type='number' placeholder='电话' name="phone"
+                       value='{{addressDatas[changingAddress].phonenumber}}'></input>
+            </view>
+            <view class='address-panel-infos flex-center' wx:else>
+                <input type='text' placeholder='名字' name="name" class='address-panel-name'></input>
+                <input type='number' placeholder='电话' name="phone"></input>
+            </view>
+            <view class='address-panel-address flex-center' wx:if="{{changeAddress==1}}">
+                <picker mode="region" bindchange="bindRegionChange" custom-item="选择地区">
+                    <view class="picker">
+                        {{region[0]?region[0]:addressDatas[changingAddress].province}}
+                    </view>
+                    <view class='picker'>
+                        {{region[1]?region[1]:addressDatas[changingAddress].city}}
+                    </view>
+                    <view class='picker'>
+                        {{region[2]?region[2]:addressDatas[changingAddress].town}}
+                    </view>
+                </picker>
+            </view>
+            <view class='address-panel-address flex-center' wx:else>
+                <picker mode="region" bindchange="bindRegionChange" custom-item="选择地区">
+                    <view class="picker">
+                        {{region[0]?region[0]:"选择省份↓"}}
+                    </view>
+                    <view class='picker'>
+                        {{region[1]?region[1]:"选择城市↓"}}
+                    </view>
+                    <view class='picker'>
+                        {{region[2]?region[2]:"选择地区↓"}}
+                    </view>
+                </picker>
+            </view>
+            <view class='address-panel-street' wx:if="{{changeAddress==1}}">
+                <textarea name="street" placeholder='请填写详细街道地址'
+                          value='{{addressDatas[changingAddress].street}}'></textarea>
+            </view>
+            <view class='address-panel-street' wx:else>
+                <textarea name="street" placeholder='请填写详细街道地址'></textarea>
+            </view>
+            <button class='submit-btn' form-type='submit'>保存地址</button>
+        </form>
+    </view>
+</view>
