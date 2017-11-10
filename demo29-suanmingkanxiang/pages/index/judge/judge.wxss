@@ -1,0 +1,50 @@
+.body {
+  padding: 0 30rpx;
+  min-height: 100vh;
+}
+
+.user {
+  font-size: 30rpx;
+  height: 160rpx;
+  border-bottom: 1px solid #e1e1e1;
+  margin-bottom: 30rpx;
+}
+
+.user image {
+  width: 120rpx;
+  margin-right: 30rpx;
+  border-radius: 50%;
+}
+
+.order-lists {
+  font-size: 30rpx;
+}
+
+.order-item {
+  justify-content: space-between;
+  height: 80rpx;
+}
+
+.pay-panel{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100rpx;
+  background-color: #fff;
+  justify-content: space-between;
+}
+.pay-panel view{
+  padding-left: 30rpx;
+  border-top: 1px solid #e1e1e1;
+  flex: 1;
+  line-height: 100rpx;
+}
+.pay-panel text{
+  width: 200rpx;
+  color: #fff;
+  height: 100%;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: #f55053;
+}

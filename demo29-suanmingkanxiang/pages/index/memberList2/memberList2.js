@@ -4,7 +4,65 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+        icon: {
+            banner: "../../../images/banner/banner2.png",
+            level: "../../../images/icon/level.png",
+            levelpurple: "../../../images/icon/levelpurple.png",
+            levelblue: "../../../images/icon/levelblue.png",
+            levelgreen: "../../../images/icon/levelgreen.png",
+            levelred: "../../../images/icon/level.png",
+            busyTrue: "../../../images/icon/busy.png",
+            busyFalse: "../../../images/icon/busyFalse.png",
+            edit: "../../../images/icon/edit.png",
+        },
+        memberLists: [
+            {
+                id: 1,
+                logo: "../../../images/banner/banner6.jpg",
+                level: 1,
+                name: "炳坤专业算命，起名馆 起名 算命",
+                des: "专业就是用心起好每个名字，专业就是给你最优的指导,专业就是用心起好每个名字，专业就是给你最优的指导",
+                busy: 1,
+                price: 15,
+                active: 556,
+                orderNumber: 666
+            },
+            {
+                id: 2,
+                logo: "../../../images/banner/banner6.jpg",
+                level: 2,
+                name: "炳坤专业算命，起名馆 起名 算命",
+                des: "专业就是用心起好每个名字，专业就是给你最优的指导,专业就是用心起好每个名字，专业就是给你最优的指导",
+                busy: 0,
+                price: 15,
+                active: 556,
+                orderNumber: 666
+            },
+            {
+                id: 3,
+                logo: "../../../images/banner/banner6.jpg",
+                level: 3,
+                name: "炳坤专业算命，起名馆 起名 算命",
+                des: "专业就是用心起好每个名字，专业就是给你最优的指导,专业就是用心起好每个名字，专业就是给你最优的指导",
+                busy: 0,
+                price: 15,
+                active: 556,
+                orderNumber: 666
+            },
+            {
+                id: 3,
+                logo: "../../../images/banner/banner6.jpg",
+                level: 4,
+                name: "炳坤专业算命，起名馆 起名 算命",
+                des: "专业就是用心起好每个名字，专业就是给你最优的指导,专业就是用心起好每个名字，专业就是给你最优的指导",
+                busy: 1,
+                price: 15,
+                active: 556,
+                orderNumber: 666
+            }
+        ]
+    },
 
     /**
      * 生命周期函数--监听页面加载
@@ -60,5 +118,10 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    lookDetail: function (e) {
+        wx.navigateTo({
+            url: '../memberDetail/memberDetail?id=' + e.currentTarget.dataset.id,
+        });
     }
 })

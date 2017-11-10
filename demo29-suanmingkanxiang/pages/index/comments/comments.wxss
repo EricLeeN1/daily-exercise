@@ -1,31 +1,7 @@
 /* 评价标签 */
 
 .body {
-  border-top: 1px solid #e1e1e1;
-  background-color: #f7f8f9;
-  padding-top: 20rpx;
-}
-
-.comments-label {
-  padding: 20rpx 30rpx;
-  overflow: hidden;
-  padding-bottom: 10rpx;
   background-color: #fff;
-}
-
-.comments-label-item {
-  background-color: rgba(246, 83, 20, 0.8);
-  color: #fff;
-  padding: 10rpx;
-  float: left;
-  margin-bottom: 10rpx;
-  margin-right: 20rpx;
-  font-size: 24rpx;
-  border-radius: 10rpx;
-}
-
-.comments-label-item-all {
-  background-color: #f65314;
 }
 
 .comments-list {

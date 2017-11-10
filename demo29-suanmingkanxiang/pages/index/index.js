@@ -1,13 +1,143 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
     data: {
+        time: 100,
+        loading: false,
+        timer: null,
         imgUrls: [
             'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
             'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
             'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+        ],
+        list: [
+            {
+                id: 1,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 2,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 3,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 4,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 5,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 1,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 2,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 3,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 4,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 5,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 1,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 2,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 3,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 4,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 5,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 1,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 2,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 3,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 4,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 5,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 1,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 2,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 3,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 4,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            },
+            {
+                id: 5,
+                text: "来自北京的小郑哥求姻缘测算",
+                time: "1分钟前",
+            }
         ],
         banner: {
             indicatorDots: false,
@@ -17,53 +147,53 @@ Page({
         },
         nav1Datas: [
             {
-                color: "red",
+                color: "../../images/nav/nav1.png",
                 text: "八字合婚",
                 fun: "memberList2"
             },
             {
-                color: "orange",
-                text: "八字合婚",
+                color: "../../images/nav/nav2.png",
+                text: "事业财运",
                 fun: "memberList2"
             },
             {
-                color: "yellow",
-                text: "八字合婚",
+                color: "../../images/nav/nav3.png",
+                text: "婚恋感情",
                 fun: "memberList2"
             },
             {
-                color: "green",
-                text: "八字合婚",
+                color: "../../images/nav/nav4.png",
+                text: "八字算命",
                 fun: "memberList2"
             },
             {
-                color: "skyblue",
-                text: "八字合婚",
+                color: "../../images/nav/nav5.png",
+                text: "风水改运",
                 fun: "memberList2"
             },
             {
-                color: "blue",
-                text: "八字合婚",
+                color: "../../images/nav/nav6.png",
+                text: "起名改名",
                 fun: "memberList2"
             },
             {
-                color: "purple",
-                text: "八字合婚",
+                color: "../../images/nav/nav7.png",
+                text: "企业起名",
                 fun: "memberList2"
             },
             {
-                color: "red",
-                text: "八字合婚",
+                color: "../../images/nav/nav8.png",
+                text: "手相面相",
                 fun: "memberList2"
             },
             {
-                color: "orange",
-                text: "八字合婚",
+                color: "../../images/nav/nav9.png",
+                text: "选时择日",
                 fun: "memberList2"
             },
             {
-                color: "yellow",
-                text: "八字合婚",
+                color: "../../images/nav/nav10.png",
+                text: "占卜事件",
                 fun: "memberList2"
             }
         ],
@@ -126,6 +256,13 @@ Page({
         });
     },
     onLoad: function () {
+        const that = this;
+        that.setData({
+            scrollTop: 0,
+        });
+        setTimeout(function () {
+            that.timer();
+        }, 2000);
         if (app.globalData.userInfo) {
             this.setData({
                 userInfo: app.globalData.userInfo,
@@ -187,6 +324,11 @@ Page({
         }
 
     },
+    onShow: function () {
+        this.setData({
+            loading: false
+        });
+    },
     getUserInfo: function (e) {
         console.log(e)
         app.globalData.userInfo = e.detail.userInfo
@@ -194,5 +336,48 @@ Page({
             userInfo: e.detail.userInfo,
             hasUserInfo: true
         })
+    },
+    onHide: function () {
+        this.setData({
+            loading: true,
+            scrollTop: 0
+        });
+    },
+    onUnload: function () {
+        this.setData({
+            loading: true,
+            scrollTop: 0
+        });
+    },
+    timer: function () {
+        const that = this;
+        let scrollTop = 0;
+        var timer = setInterval(function () {
+            if (scrollTop < (that.data.list.length - 5) * 50) {
+                if (that.data.loading == false) {
+                    scrollTop += 1;
+                    that.setData({
+                        scrollTop: scrollTop
+                    });
+                } else {
+                    scrollTop = that.data.scrollTop;
+                }
+            } else {
+                scrollTop = 0;
+                that.setData({
+                    scrollTop: scrollTop,
+                    time: 100
+                });
+            }
+            ;
+        }, that.data.time);
+    },
+    scroll: function (e) {
+        const that = this;
+        if (that.data.loading) {
+            that.setData({
+                scrollTop: e.detail.scrollTop
+            })
     }
+    },
 })

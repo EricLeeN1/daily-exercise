@@ -44,12 +44,13 @@
   flex-direction: column;
   flex: 0 0 20%;
   color: #f65314;
-  height: 200rpx;
+  height: 180rpx;
   justify-content: center;
 }
 
 .nav-item image {
-  width: 80%;
+  width: 60%;
+  margin-bottom: 20rpx;
 }
 
 .nav-item view {

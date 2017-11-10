@@ -9,9 +9,63 @@
                     <view class='lecture-banner'>
                         <image src='{{item.banner}}' mode='widthFix' lazy-load='true'></image>
                     </view>
-
+                    <view class='lecture-list'>
+                        <view class='lecture-item flex-center'>
+                            <view>时间：</view>
+                            <text>{{item.btime+"-"+item.etime}}</text>
+                        </view>
+                        <view class='lecture-item flex-center'>
+                            <view>主题：</view>
+                            <text>{{item.title}}</text>
+                        </view>
+                        <view class='lecture-item flex-center'>
+                            <view>主讲人：</view>
+                            <text>{{item.lecturer}}</text>
+                        </view>
+                        <view class='lecture-item flex-center' wx:if="{{item.status==0}}">
+                            <view>学员数：</view>
+                            <text>{{item.number+"人"}}</text>
+                        </view>
+                        <view class='lecture-item flex-center' wx:if="{{item.status==1}}">
+                            <view>当前已报名人数：</view>
+                            <text>{{item.number+"人"}}</text>
+                        </view>
+                        <view class='lecture-item flex-center' wx:if="{{item.status==2}}">
+                            <view>火热筹备中,敬请关注</view>
+                        </view>
+                        <view class='lecture-item flex-center'>
+                            <view>开课形式：</view>
+                            <text>{{item.style||"待定"}}</text>
+                        </view>
+                        <view class='lecture-item flex-center'>
+                            <view>相关视频：</view>
+                            <view class='video' catchtap='playThisVideo'>
+                                <image class='image' src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+                                <image class='videoicon' src='{{icon.video}}' mode='widthFix' lazy-load='true'></image>
+                            </view>
+                        </view>
+                    </view>
+                    <view class='attend-lecture flex-center'>
+                        <text wx:if="{{item.status==0}}">活动已结束</text>
+                        <view wx:if="{{item.status!=0}}" class='attend-btn' catchtap='attend' data-id='{{item.id}}'>
+                            立即报名
+                        </view>
+                    </view>
+                    <view class='lecture-label'>
+                        {{item.times}}
+                    </view>
+                    <!-- 视屏弹窗 -->
+                    <view class='video-modal' wx:if="{{showVideoBg}}">
+                        <view class='bg' catchtap='closeVideoBg'></view>
+                        <!-- <image src='{{icon.close}}' mode='widthFix' lazy-load='true' class='video-close' catchtap='closeVideoBg'></image> -->
+                        <view class='video-nodal-panel'>
+                            <video src='{{activeUrl}}' poster='{{activeLogo}}' controls objectFit="cover"></video>
+                            <view catchtap='closeVideoBg'>关闭视频</view>
+                        </view>
+                    </view>
                 </scroll-view>
             </swiper-item>
         </block>
     </swiper>
+
 </view>

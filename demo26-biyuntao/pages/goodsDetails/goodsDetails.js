@@ -77,9 +77,9 @@ Page({
             }
         ],
         imgUrls: [
-            "../../images/banner/banner@2x.png",
-            "../../images/banner/banner@2x.png",
-            "../../images/banner/banner@2x.png"
+            "../../images/banner/banner@2x.jpg",
+            "../../images/banner/banner@2x.jpg",
+            "../../images/banner/banner@2x.jpg"
         ],
         datas: {
             logo: '../../images/new/logo@2x.png',

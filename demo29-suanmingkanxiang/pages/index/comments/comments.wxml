@@ -1,11 +1,4 @@
 <view class="body">
-    <view class='comments-label'>
-        <view class='comments-label-item comments-label-item-all'>{{"全部("+commentsLabelListsAll+")"}}</view>
-        <view class='comments-label-item' wx:for="{{commentsLabelLists}}" wx:key="index" data-id='index-0'
-              catchtap='moreComments'>
-            {{item.name+"("+item.num+")"}}
-        </view>
-    </view>
     <view class='comments-list'>
         <view class='comments-item flex1-center' wx:for="{{commentsLists}}" wx:key="index"
               style="{{index==commentsLists.length-1?'border-bottom:none':''}}" data-id="{{'index-'+item.id}}"

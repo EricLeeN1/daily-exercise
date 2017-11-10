@@ -21,7 +21,7 @@
       "list": []
     },
     "miniprogram": {
-      "current": 19,
+      "current": 0,
       "list": [
         {
           "id": -1,
@@ -140,7 +140,20 @@
         {
           "id": -1,
           "name": "大师回复",
-          "pathName": "pages/qAndA/answer/answer"
+          "pathName": "pages/qAndA/answer/answer",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "大师列表2",
+          "pathName": "pages/index/memberList2/memberList2",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "判断",
+          "pathName": "pages/index/judge/judge",
+          "query": ""
         }
       ]
     }

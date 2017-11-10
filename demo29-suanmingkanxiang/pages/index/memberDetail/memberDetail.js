@@ -5,15 +5,42 @@ Page({
      * 页面的初始数据
      */
     data: {
-        showDetails: false,
-        icon:{
-            level:"../../../images/icon/level.png"
+        showDetails: true,
+        icon: {
+            level: "../../../images/icon/level.png",
+            success: "../../../images/icon/success.png",
+            fail: "../../../images/icon/fail.png",
+            levelpurple: "../../../images/icon/levelpurple.png",
+            levelblue: "../../../images/icon/levelblue.png",
+            levelgreen: "../../../images/icon/levelgreen.png",
+            levelred: "../../../images/icon/level.png",
         },
+        commentsLists: [
+            {
+                id: 1,
+                avatarUrl: "../../../images/banner/banner6.jpg",
+                name: "葫芦岛吴奇隆",
+                time: "2017-10-30",
+                des: "专业就是用心起好每个名字，专业就是给你最优的指导,专业就是用心起好每个名字，专业就是给你最优的指导",
+                color: "红色",
+                size: "超大"
+            },
+            {
+                id: 2,
+                avatarUrl: "../../../images/banner/banner6.jpg",
+                name: "太原吴彦祖",
+                time: "2017-10-30",
+                des: "专业就是用心起好每个名字，专业就是给你最优的指导,专业就是用心起好每个名字，专业就是给你最优的指导",
+                color: "红色",
+                size: "超大"
+            }
+        ],
         all: 5,
+        allTotal: 5,
         datas: {
             id: 1,
-            level:"特级",
-            logo: "../../../images/banner/banner6.jpg",
+            level: 4,
+            logo: "../../../../images/banner/banner6.jpg",
             active: 225,
             number: 974,
             name: "炳坤",
@@ -34,25 +61,60 @@ Page({
                 "中国商业联合会副会长"
             ],
             services: [
-                { name: '一事一占', price: '128', value: '一事一占' },
-                { name: '情感婚姻', price: '128', value: '情感婚姻', checked: 'true' },
-                { name: '八字合婚', price: '128', value: '八字合婚' },
-                { name: '手机号预测', price: '128', value: '手机号预测' },
-                { name: '测算名字', price: '128', value: '测算名字' },
-                { name: '一事一占', price: '128', value: '一事一占' },
-                { name: '情感婚姻', price: '128', value: '情感婚姻', checked: 'true' },
-                { name: '八字合婚', price: '128', value: '八字合婚' },
-                { name: '手机号预测', price: '128', value: '手机号预测' },
-                { name: '测算名字', price: '128', value: '测算名字' },
-                { name: '一事一占', price: '128', value: '一事一占' },
-                { name: '情感婚姻', price: '128', value: '情感婚姻', checked: 'true' },
-                { name: '八字合婚', price: '128', value: '八字合婚' },
-                { name: '手机号预测', price: '128', value: '手机号预测' },
-                { name: '测算名字', price: '128', value: '测算名字' }
+                {name: '一事一占', price: '128', value: '一事一占'},
+                {name: '情感婚姻', price: '128', value: '情感婚姻'},
+                {name: '八字合婚', price: '128', value: '八字合婚'},
+                {name: '手机号预测', price: '128', value: '手机号预测'},
+                {name: '测算名字', price: '128', value: '测算名字'},
+                {name: '一事一占', price: '128', value: '一事一占'},
+                {name: '情感婚姻', price: '128', value: '情感婚姻'},
+                {name: '八字合婚', price: '128', value: '八字合婚'},
+                {name: '手机号预测', price: '128', value: '手机号预测'},
+                {name: '测算名字', price: '128', value: '测算名字'},
+                {name: '一事一占', price: '128', value: '一事一占'},
+                {name: '情感婚姻', price: '128', value: '情感婚姻'},
+                {name: '八字合婚', price: '128', value: '八字合婚'},
+                {name: '手机号预测', price: '128', value: '手机号预测'},
+                {name: '测算名字', price: '128', value: '测算名字'}
             ]
         }
     },
-
+    toggleAllService: function () {
+        let that = this, length = that.data.datas.services.length, all = that.data.all;
+        if (all == length) {
+            all = 5;
+        } else {
+            all = length
+        }
+        that.setData({
+            all: all
+        })
+    },
+    lookMore: function () {
+        wx.navigateTo({
+            url: '../comments/comments',
+        })
+    },
+    formSubmit: function (e) {
+        console.log(e.detail.value);
+        let that = this, value = e.detail.value.type;
+        if (value == "") {
+            wx.showToast({
+                image: that.data.icon.fail,
+                title: '您还没有选择呢',
+            });
+        } else {
+            wx.navigateTo({
+                url: '../judge/judge?type=' + value,
+                success: function (res) {
+                },
+                fail: function (res) {
+                },
+                complete: function (res) {
+                },
+            })
+        }
+    },
     /**
      * 生命周期函数--监听页面加载
      */

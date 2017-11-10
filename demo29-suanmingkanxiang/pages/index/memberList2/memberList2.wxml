@@ -1,2 +1,54 @@
-<!--pages/index/memberList2/memberList2.wxml-->
-<text>pages/index/memberList2/memberList2.wxml</text>
+<view class='body'>
+    <view class='banner'>
+        <image src='{{icon.banner}}' mode='widthFix' lazy-load='true'></image>
+    </view>
+    <view>
+    </view>
+
+    <view class='member-lists'>
+        <view class='member-item' wx:for="{{memberLists}}" wx:key="*this" data-id='{{item.id}}' catchtap='lookDetail'>
+            <view class='member-item-top flex-center'>
+                <view class='member-top-left flex1-center'>
+                    <image src='{{item.logo}}' class='logo' mode='widthFix' lazy-load='true'></image>
+                    <view class='flex-center member-level-blue' wx:if='{{item.level==1}}'>
+                        <image src='{{icon.levelblue}}' mode='widthFix' lazy-load='true'></image>
+                        <view>初级</view>
+                    </view>
+                    <view class='flex-center member-level-green' wx:elif='{{item.level==2}}'>
+                        <image src='{{icon.levelgreen}}' mode='widthFix' lazy-load='true'></image>
+                        <view>中级</view>
+                    </view>
+                    <view class='flex-center member-level-purple' wx:elif='{{item.level==3}}'>
+                        <image src='{{icon.levelpurple}}' mode='widthFix' lazy-load='true'></image>
+                        <view>高级</view>
+                    </view>
+                    <view class='flex-center member-level-red' wx:else>
+                        <image src='{{icon.levelred}}' mode='widthFix' lazy-load='true'></image>
+                        <view>特级</view>
+                    </view>
+                </view>
+                <view class='member-top-right flex1-center'>
+                    <view>{{item.name}}</view>
+                    <text>{{item.des}}</text>
+                </view>
+            </view>
+            <view class='member-item-bottom flex-center'>
+                <view class='member-bottom-status flex-center'>
+                    <text>{{item.busy==1?"忙碌":"在线"}}</text>
+                    <image hidden='{{item.busy!=1}}' src='{{icon.busyTrue}}' mode='widthFix' lazy-load='true'></image>
+                    <image hidden="{{item.busy==1}}" src='{{icon.busyFalse}}' mode='widthFix' lazy-load='true'></image>
+                </view>
+                <view class='member-bottom-order flex-center'>
+                    <image src='{{icon.edit}}' mode='widthFix' lazy-load='true'></image>
+                    <text>{{item.orderNumber}}</text>
+                </view>
+                <view class='member-bottom-question'>
+                    {{"¥"+item.price+"/问题"}}
+                </view>
+                <view class='member-bottom-active'>
+                    {{"活跃度:"+item.active}}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

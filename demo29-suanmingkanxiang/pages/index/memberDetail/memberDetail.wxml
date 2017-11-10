@@ -12,21 +12,33 @@
                 <text>{{"活跃度:"+datas.active}}</text>
             </view>
         </view>
-        <view class='label flex-center'>
-            <image src='{{icon.level}}' mode='widthFix' lazy-load='true'></image>
-            <view>{{datas.level}}</view>
+        <view class='label flex-center member-level-blue' wx:if='{{datas.level==1}}'>
+            <image src='{{icon.levelblue}}' mode='widthFix' lazy-load='true'></image>
+            <view>初级</view>
+        </view>
+        <view class='label flex-center member-level-green' wx:elif='{{item.level==2}}'>
+            <image src='{{icon.levelgreen}}' mode='widthFix' lazy-load='true'></image>
+            <view>中级</view>
+    </view>
+        <view class='label flex-center member-level-purple' wx:elif='{{item.level==3}}'>
+            <image src='{{icon.levelpurple}}' mode='widthFix' lazy-load='true'></image>
+            <view>高级</view>
+        </view>
+        <view class='label flex-center member-level-red' wx:else>
+            <image src='{{icon.levelred}}' mode='widthFix' lazy-load='true'></image>
+            <view>特级</view>
         </view>
     </view>
 
-
-
-
     <view class='master-details' wx:if="{{datas.infos.length>0&&showDetails==true}}">
+        <view class='master-details-title'>个人介绍</view>
         <view class='master-details-infos' wx:for="{{datas.infos}}" wx:key="{{index}}">
             {{item}}
         </view>
-        <view class='master-baike'>
-            {{"网络上有（"+datas.name+"）相关百科简介"}}
+        <view class='master-baike flex-center'>
+            网络上有（
+            <text>{{datas.name}}</text>
+            ）相关百科简介
         </view>
     </view>
 
@@ -42,36 +54,31 @@
     </view>
 
     <form bindsubmit="formSubmit" bindreset="formReset">
-        <radio-group class="radio-group" bindchange="radioChange">
+        <view class='form-title'>服务项目</view>
+        <radio-group name="type" class="radio-group" bindchange="radioChange">
             <label class="radio flex-center" wx:for="{{datas.services}}" wx:if="{{index<=all}}">
                 <view class='service-name'>{{item.name}}</view>
                 <view class='service-price'>{{"¥"+item.price}}</view>
-                <radio value="{{item.name}}" checked="{{item.checked}}" />
+                <radio value="{{item.name}}" checked="{{item.checked}}" color="#f55053"/>
             </label>
-            <view class='all-servie-btn' catchtap='toggleAllService'>
-                全部服务
-            </view>
         </radio-group>
+        <view class='all-servie-btn flex-center' catchtap='toggleAllService'>
+            全部服务
+        </view>
+        <button class='buy-now' form-type='submit'>
+            开始预测
+        </button>
     </form>
 
     <view class='comments'>
-        <view class='comments-title flex-center'>
-            <view class='comments-number'>
-                <text>商品评价</text>
-                {{"("+datas.commentsNum+")"}}
-            </view>
-            <view class='comments-more flex-center' data-id='index-0' catchtap='moreComments'>
-                查看更多
-                <image src='{{icon.more}}' mode='widthFix'></image>
-            </view>
-        </view>
-        <view class='comments-label'>
-            <view class='comments-label-item' wx:for="{{commentsLabelLists}}" wx:key="index" data-id='index-0' catchtap='moreComments'>
-                {{item.name+"("+item.num+")"}}
-            </view>
+        <view class='form-title flex-center'>
+            <view>客户评价</view>
+            <text catchtap='lookMore'>查看更多</text>
         </view>
         <view class='comments-list'>
-            <view class='comments-item flex1-center' wx:for="{{commentsLists}}" wx:key="index" style="{{index==commentsLists.length-1?'border-bottom:none':''}}" data-id="{{'index-'+item.id}}" catchtap='moreComments'>
+            <view class='comments-item flex1-center' wx:for="{{commentsLists}}" wx:key="index"
+                  style="{{index==commentsLists.length-1?'border-bottom:none':''}}" data-id="{{'index-'+item.id}}"
+                  catchtap='lookMore'>
                 <view class='comments-item-title flex-center'>
                     <image src='{{item.avatarUrl}}' mode='widthFix' lazy-load='true'></image>
                     <view>{{item.name}}</view>
@@ -79,8 +86,8 @@
                 </view>
                 <view class='comments-item-content'>{{item.des}}</view>
                 <view class='comments-item-size flex-center'>
-                    <view>{{"颜色: "+item.color}}</view>
-                    <text>{{"型号: "+item.size}}</text>
+                    <!-- <view>{{"颜色: "+item.color}}</view>
+                    <text>{{"型号: "+item.size}}</text> -->
                 </view>
             </view>
         </view>

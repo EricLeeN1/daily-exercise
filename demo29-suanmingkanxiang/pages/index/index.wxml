@@ -25,25 +25,25 @@
     </view>
     <view class='nav1 flex-center'>
         <view class='nav1-item flex1-center' wx:for="{{nav1Datas}}" wx:key="index" catchtap='{{item.fun}}'>
-            <view class='nav1-item-img' style="{{'background-color:'+item.color}}"></view>
+            <image class='nav1-item-img' src='{{item.color}}' mode='widthFix' lazy-load='true'></image>
             <text>{{item.text}}</text>
         </view>
     </view>
     <scroll-view bindscroll="scroll" id="scroll-view" class="alone-list" scroll-y="true" scroll-top="{{scrollTop}}"
                  style="{{loading==true?'z-index:1;':'z-index:0;'}}">
-        <view class="alone-item" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" catchtap="alonePage"
+        <view class="alone-item" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" catchtap="memberList2"
               data-ktvid="{{ktvId}}">
             <view class="alone-number">
-                {{item.time}}
+                {{item.id}}
             </view>
             <view class="alone-text">
-                {{item.content}}
+                {{item.text}}
             </view>
             <view class="alone-border">
                 |
             </view>
             <view class="read-beGet">
-                {{textList.readyBeGet}}
+                {{item.time}}
             </view>
         </view>
     </scroll-view>
