@@ -1,12 +1,5 @@
 <view class="body">
 
-    <view class="ktv-infos flex-center" wx:if="{{options.name}}">
-        <view class="ktv-name">{{options.name}}</view>
-        <navigator hover-class="none" url="../../my/marketOrder/marketOrder">
-            我的订单
-        </navigator>
-    </view>
-
     <view class="containers">
         <view class="goods-type-scroll">
             <scroll-view scroll-y="" class="goods-type-scroll">
@@ -54,7 +47,7 @@
                                   wx:for-item="iName" style="{{iIndex==0?'border-top: none;':''}}">
                                 <view class='goods-format-item-infos flex-center'>
                                     <view>{{iName.name+'('+iName.weight+')'}}</view>
-                                    <text>{{iName.price+'/斤'}}</text>
+                                    <text>{{iName.price+'/串'}}</text>
                                 </view>
                                 <view class="goods-number flex-center">
                                     <view class="goods-reduce" data-typeIndex="{{index}}" data-id="{{itemName.id}}"
@@ -123,9 +116,9 @@
                         <view class="goods-item flex-center" wx:for="{{iName.type}}" wx:key="index" wx:for-index="idx"
                               wx:for-item="itemName" data-typeIndex="{{index}}" data-id="{{itemName.id}}"
                               data-shopsIndex="{{idx}}" style="{{idx==0?'border-top:none;':''}}"
-                              wx:if="{{itemName.number!=0}}" data-typeIndex="{{index}}">
+                              wx:if="{{itemName.number!=0}}" data-typesIndex="{{iIndex}}">
                             <view class="goods-infos flex-center">
-                                <view class="goods-name">{{itemName.name}}</view>
+                                <view class="goods-name">{{itemName.name+"("+itemName.weight+")"}}</view>
                                 <view class="goods-infos-detail flex-center">
                                     <view class="goods-detail-left">
                                         <view class="goods-price-com">{{itemName.oprice+' '+tips.oprice}}</view>
@@ -133,12 +126,14 @@
                                     </view>
                                     <view class="goods-number flex-center">
                                         <view class="goods-reduce" data-typeIndex="{{index}}" data-id="{{itemName.id}}"
-                                              data-shopsIndex="{{idx}}" catchtap="goodsReduce">
+                                              data-shopsIndex="{{iIndex}}" catchtap="goodsReduce"
+                                              data-typesIndex="{{idx}}">
                                             <image src="{{icon.reduce}}" mode="widthFix"></image>
                                         </view>
                                         <view class="number">{{itemName.number}}</view>
                                         <view class="goods-add" catchtap="goodsAdd" data-typeIndex="{{index}}"
-                                              data-id="{{itemName.id}}" data-shopsIndex="{{idx}}">
+                                              data-id="{{itemName.id}}" data-shopsIndex="{{iIndex}}"
+                                              data-typesIndex="{{idx}}">
                                             <image src="{{icon.add}}" mode="widthFix"></image>
                                         </view>
                                     </view>

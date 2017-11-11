@@ -12,7 +12,7 @@ Page({
         lectureData: [
             {
                 id: 3,
-                banner: "../../images/banner/banner2.png",
+                banner: "../../images/banner/banner3.png",
                 btime: "11月1日",
                 etime: "12月1日",
                 title: "六爻初期",
@@ -22,11 +22,11 @@ Page({
                 style: "",
                 videoUrl: "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400",
                 times: "第三期",
-                logo: "../../images/banner/banner2.png"
+                logo: "../../images/banner/banner3.png"
             },
             {
                 id: 2,
-                banner: "../../images/banner/banner2.png",
+                banner: "../../images/banner/banner3.png",
                 btime: "10月1日",
                 etime: "11月1日",
                 title: "六爻初期",
@@ -34,14 +34,14 @@ Page({
                 status: 0,
                 number: 945,
                 style: "网络课程",
-                logo: "../../images/banner/banner2.png",
+                logo: "../../images/banner/banner3.png",
                 videoUrl: "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400",
                 times: "第二期"
             },
             {
                 id: 1,
-                logo: "../../images/banner/banner2.png",
-                banner: "../../images/banner/banner2.png",
+                logo: "../../images/banner/banner3.png",
+                banner: "../../images/banner/banner3.png",
                 btime: "9月1日",
                 etime: "10月1日",
                 title: "六爻初期",
@@ -106,7 +106,7 @@ Page({
     attend: function (e) {
         let that = this, id = e.currentTarget.dataset.id;
         wx.navigateTo({
-            url: 'lectureAttend/lectureAttend?id=' + id,
+            // url: 'lectureAttend/lectureAttend?id=' + id,
         });
     },
     /**

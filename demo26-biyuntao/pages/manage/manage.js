@@ -1,885 +1,885 @@
 const app = getApp();
 Page({
-  data: {
-      icon: {
-          hot: 'chaoshi_icon_rexiao@2x.png',
-          reduce: 'chaoshi_icon_sub@2x.png',
-          add: 'chaoshi_icon_add@2x.png',
-          cart: 'chaoshi_tab_icon_buy_on@2x.png',
-          cartNone: 'chaoshi_tab_icon_buy_none@2x.png',
-          clearCart: 'chaoshi_icon_empty@2x.png',
-          icon: 'icon.png'
-      },
-      datas: [
-          {
-              "cid": 1,
-              "cname": "热销",
-              "shops": [
-                  {
-                      "id": 1,
-                      "name": "KIMI猕猴桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ],
-                  },
-                  {
-                      "id": 2,
-                      "name": "KIMI葡萄味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ],
-                  },
-                  {
-                      "id": 3,
-                      "name": "KIMI菠萝味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ],
-                  },
-                  {
-                      "id": 4,
-                      "name": "KIMI水密桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 5,
-                      "name": "KIMI鸭梨味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 6,
-                      "name": "KIMI鸭梨味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  }
-              ],
-              "totalRecords": 5
-          },
-          {
-              "cid": 2,
-              "cname": "酒水",
-              "shops": [
-                  {
-                      "id": 7,
-                      "name": "KIMI葡萄味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 8,
-                      "name": "KIMI菠萝味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 9,
-                      "name": "KIMI水密桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 10,
-                      "name": "KIMI鸭梨味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  }, {
-                      "id": 11,
-                      "name": "KIMI猕猴桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 12,
-                      "name": "KIMI鸭梨味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  }
-              ],
-              "totalRecords": 5
-          },
-          {
-              "cid": 3,
-              "cname": "零食",
-              "shops": [
-                  {
-                      "id": 13,
-                      "name": "KIMI猕猴桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 14,
-                      "name": "KIMI葡萄味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 15,
-                      "name": "KIMI菠萝味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 16,
-                      "name": "KIMI水密桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 17,
-                      "name": "KIMI鸭梨味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 18,
-                      "name": "KIMI水密桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-              ],
-              "totalRecords": 5
-          },
-          {
-              "cid": 4,
-              "cname": "干果",
-              "shops": [
-                  {
-                      "id": 19,
-                      "name": "KIMI猕猴桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 20,
-                      "name": "KIMI葡萄味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 21,
-                      "name": "KIMI菠萝味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 22,
-                      "name": "KIMI水密桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 23,
-                      "name": "KIMI鸭梨味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 24,
-                      "name": "KIMI水密桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  }
-              ],
-              "totalRecords": 5
-          },
-          {
-              "cid": 5,
-              "cname": "茶点",
-              "shops": [
-                  {
-                      "id": 25,
-                      "name": "KIMI水密桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 26,
-                      "name": "KIMI猕猴桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 22,
-                      "name": "KIMI葡萄味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 27,
-                      "name": "KIMI菠萝味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 28,
-                      "name": "KIMI水密桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 29,
-                      "name": "KIMI鸭梨味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 30,
-                      "name": "KIMI水密桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  }
-              ],
-              "totalRecords": 5
-          },
-          {
-              "cid": 6,
-              "cname": "珍宝",
-              "shops": [
-                  {
-                      "id": 31,
-                      "name": "KIMI水密桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 32,
-                      "name": "KIMI猕猴桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 33,
-                      "name": "KIMI葡萄味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 34,
-                      "name": "KIMI菠萝味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 35,
-                      "name": "KIMI水密桃味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  },
-                  {
-                      "id": 36,
-                      "name": "KIMI鸭梨味",
-                      "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
-                      "oprice": "100.00",
-                      "price": "80.00",
-                      "type": [
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "50.00",
-                              "price": "30.00",
-                              "weight": "200g"
-                          },
-                          {
-                              "name": "KIMI猕猴桃味",
-                              "oprice": "100.00",
-                              "price": "60.00",
-                              "weight": "500g"
-                          }
-                      ]
-                  }
-              ],
-              "totalRecords": 5
-          }
-      ],
-      toastImage: {
-          success: 'success.png',
-          fail: 'fail.png'
-      },
-      tips: {
-          oprice: '门店价',
-          price: '会员价',
-          payNow: '去结算',
-          noGoods: '购物车还是空的哦！'
-      },
-      page: 1,
-      pagesize: 10,
-      opriceAll: 0,
-      priceAll: 0,
-      currentType: 0,
-      scrollTop: 0,
-      typeArrayCurrent: 'type-0',
-      showModal: false,
-      showCart: false,
-      loading: false,
-      menuBtn: true,
-      menu2Btn: true,
-  },
-  onLoad: function (options) {
-      const that = this;
-      // options.name = decodeURI(options.name);
-      that.setData({
-          options: options,
-          imgSite: ''
-      });
-      that.getList();
-  },
-  onReady: function () {
+    data: {
+        icon: {
+            hot: 'chaoshi_icon_rexiao@2x.png',
+            reduce: 'chaoshi_icon_sub@2x.png',
+            add: 'chaoshi_icon_add@2x.png',
+            cart: 'chaoshi_tab_icon_buy_on@2x.png',
+            cartNone: 'chaoshi_tab_icon_buy_none@2x.png',
+            clearCart: 'chaoshi_icon_empty@2x.png',
+            icon: 'icon.png'
+        },
+        datas: [
+            {
+                "cid": 1,
+                "cname": "热销",
+                "shops": [
+                    {
+                        "id": 1,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ],
+                    },
+                    {
+                        "id": 2,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ],
+                    },
+                    {
+                        "id": 3,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ],
+                    },
+                    {
+                        "id": 4,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 5,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 6,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    }
+                ],
+                "totalRecords": 5
+            },
+            {
+                "cid": 2,
+                "cname": "珠串",
+                "shops": [
+                    {
+                        "id": 7,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 8,
+                        "name": "桃木制品",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 9,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 10,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    }, {
+                        "id": 11,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 12,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    }
+                ],
+                "totalRecords": 5
+            },
+            {
+                "cid": 3,
+                "cname": "桃木制品",
+                "shops": [
+                    {
+                        "id": 13,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 14,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 15,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 16,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 17,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 18,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                ],
+                "totalRecords": 5
+            },
+            {
+                "cid": 4,
+                "cname": "熏香",
+                "shops": [
+                    {
+                        "id": 19,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 20,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 21,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 22,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 23,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 24,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    }
+                ],
+                "totalRecords": 5
+            },
+            {
+                "cid": 5,
+                "cname": "开光吉物",
+                "shops": [
+                    {
+                        "id": 25,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 26,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 22,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 27,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 28,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 29,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 30,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    }
+                ],
+                "totalRecords": 5
+            },
+            {
+                "cid": 6,
+                "cname": "宝箓",
+                "shops": [
+                    {
+                        "id": 31,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 32,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 33,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 34,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 35,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 36,
+                        "name": "佛珠",
+                        "logo": ["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png"],
+                        "oprice": "100.00",
+                        "price": "80.00",
+                        "type": [
+                            {
+                                "name": "佛珠",
+                                "oprice": "50.00",
+                                "price": "30.00",
+                                "weight": "200g"
+                            },
+                            {
+                                "name": "佛珠",
+                                "oprice": "100.00",
+                                "price": "60.00",
+                                "weight": "500g"
+                            }
+                        ]
+                    }
+                ],
+                "totalRecords": 5
+            }
+        ],
+        toastImage: {
+            success: 'success.png',
+            fail: 'fail.png'
+        },
+        tips: {
+            oprice: '历史价',
+            price: '热销价',
+            payNow: '去结算',
+            noGoods: '购物车还是空的哦！'
+        },
+        page: 1,
+        pagesize: 10,
+        opriceAll: 0,
+        priceAll: 0,
+        currentType: 0,
+        scrollTop: 0,
+        typeArrayCurrent: 'type-0',
+        showModal: false,
+        showCart: false,
+        loading: false,
+        menuBtn: true,
+        menu2Btn: true,
+    },
+    onLoad: function (options) {
+        const that = this;
+        // options.name = decodeURI(options.name);
+        that.setData({
+            options: options,
+            imgSite: ''
+        });
+        that.getList();
+    },
+    onReady: function () {
 
-  },
-  onShow: function () {
-  },
-  onHide: function () {
-  },
-  onUnload: function () {
-  },
-  onPullDownRefresh: function () {
+    },
+    onShow: function () {
+    },
+    onHide: function () {
+    },
+    onUnload: function () {
+    },
+    onPullDownRefresh: function () {
 
-  },
-  onReachBottom: function () {
+    },
+    onReachBottom: function () {
 
-  },
-  onShareAppMessage: function () {
+    },
+    onShareAppMessage: function () {
 
-  },
+    },
     menuClick: function () {
         const that = this, btn = that.data.menuBtn;
         that.setData({
@@ -891,7 +891,7 @@ Page({
         that.setData({
             menu2Btn: !btn
         });
-        console.log(that.data.menu2Btn);
+        // console.log(that.data.menu2Btn);
     },
     scrolltolower: function () {
         var that = this;
@@ -958,7 +958,7 @@ Page({
         const that = this,
             currentType = e.currentTarget.dataset.index,
             typeArrayCurrent = that.data.typeArray[currentType];
-        console.log(currentType, typeArrayCurrent);
+        // console.log(currentType, typeArrayCurrent);
         that.setData({
             currentType: currentType,
             typeArrayCurrent: typeArrayCurrent
@@ -976,6 +976,7 @@ Page({
         });
     },
     goodsAdd: function (e) {
+        // console.log(e);
         const that = this,
             typeIndex = e.currentTarget.dataset.typeindex,
             shopsIndex = e.currentTarget.dataset.shopsindex,
@@ -989,12 +990,14 @@ Page({
         that.getAllFinallyInfos();
     },
     goodsReduce: function (e) {
+        // console.log(e);
         const that = this,
             typeIndex = e.currentTarget.dataset.typeindex,
             shopsIndex = e.currentTarget.dataset.shopsindex,
             typesIndex = e.currentTarget.dataset.typesindex,
             id = e.currentTarget.dataset.id,
             list = that.data.list;
+        // console.log(list[typeIndex].shops[shopsIndex].type[typesIndex].number);
         list[typeIndex].shops[shopsIndex].type[typesIndex].number = Math.max(list[typeIndex].shops[shopsIndex].type[typesIndex].number - 1, 0);
         that.setData({
             list: list
@@ -1120,7 +1123,7 @@ Page({
                 },
                 success: function (res) {
                     wx.navigateTo({
-                        url: 'onlineMarketOrder/onlineMarketOrder?id=' + options.id + '&name=' + options.name,
+                        url: '../pay/pay'
                     })
                 }
             });

@@ -1,224 +1,38 @@
 <view class="body">
-
     <view class="containers">
-        <view class="goods-type-scroll">
-            <scroll-view scroll-y="" class="goods-type-scroll">
-                <view class="goods-type-list">
-                    <view class="goods-type-item flex-center {{index==currentType?'goods-type-active':''}}"
-                          wx:for="{{list}}" data-cid="{{item.cid}}" data-index="{{index}}" wx:key="index"
-                          data-currentType="{{currentType}}" catchtap="currentType">
-                        <image src="{{icon.hot}}" mode="widthFix" wx:if="{{item.cid==-1}}"></image>
-                        {{item.cname}}
-                    </view>
-                </view>
-            </scroll-view>
-        </view>
-        <view class="goods-scroll-view">
-            <scroll-view scroll-y scroll-top="{{scrollTop}}" lower-threshold="0" bindscrolltolower="scrolltolower">
-                <view id="{{'type-'+index}}" class="goods-list" wx:for="{{list}}" data-cid="{{item.cid}}"
-                      data-index="{{index}}" wx:key="index" hidden="{{currentType!=index}}">
-                    <!-- <view class="goods-item-type">{{item.cname}}</view> -->
-                    <view class="goods-item flex-center" wx:for="{{item.shops}}" wx:key="index" wx:for-index="idx"
-                          wx:for-item="itemName" data-typeIndex="{{index}}" data-id="{{itemName.id}}"
-                          data-shopsIndex="{{idx}}" style="{{(idx==item.shops.length-1)?'border-bottom:none;':''}}">
-                        <view class='goods-item-show flex-center'>
-                            <image src="{{imgSite+itemName.logo[0]}}" mode="widthFix" class="goods-logo"
-                                   data-typeIndex="{{index}}" data-id="{{itemName.id}}" data-shopsIndex="{{idx}}"
-                                   catchtap="showDetail" lazy-load='true'></image>
-                            <view class="goods-infos flex-center">
-                                <view class="goods-name">{{itemName.name}}</view>
-                                <view class="goods-infos-detail flex-center">
-                                    <view class="goods-detail-left">
-                                        <view class="goods-price-com">{{itemName.oprice+' '+tips.oprice}}</view>
-                                        <view class="goods-price-vip">{{itemName.price+' '+tips.price}}</view>
-                                    </view>
-                                    <view class='goods-format' wx:if="{{itemName.showModal==true}}"
-                                          catchtap='showItemModal' data-typeIndex="{{index}}" data-shopsIndex="{{idx}}">
-                                        选规格
-                                    </view>
-                                    <view class='goods-format' wx:else catchtap='showItemModal'
-                                          data-typeIndex="{{index}}" data-shopsIndex="{{idx}}">收起
-                                    </view>
-                                </view>
-                            </view>
+        <view class="goods-item flex-center" wx:for="{{shops}}" wx:key="index" wx:for-index="idx" wx:for-item="itemName"
+              style="{{(idx==shops.length-1)?'border-bottom:none;':''}}">
+            <view class='goods-item-show flex-center'>
+                <image src="{{itemName.logo}}" mode="widthFix" class="goods-logo" data-typeIndex="{{index}}"
+                       data-id="{{itemName.id}}" data-shopsIndex="{{idx}}" catchtap="showDetail" lazy-load='true'
+                       catchtap='playThisVideo'></image>
+                <view class="goods-infos flex1-center">
+                    <view class="goods-name" catchtap='playThisVideo'>{{itemName.name}}</view>
+                    <view class="goods-price-com" catchtap='playThisVideo'>{{itemName.des}}</view>
+                    <view class="goods-infos-detail flex-center">
+                        <view class='goods-infos-price' catchtap='playThisVideo'>
+                            {{"吉物价："+itemName.price}}
                         </view>
-                        <view class='goods-item-format' hidden='{{itemName.showModal==true}}'>
-                            <view class='goods-format-item flex-center' wx:for="{{itemName.type}}" wx:for-index="iIndex"
-                                  wx:for-item="iName" style="{{iIndex==0?'border-top: none;':''}}">
-                                <view class='goods-format-item-infos flex-center'>
-                                    <view>{{iName.name+'('+iName.weight+')'}}</view>
-                                    <text>{{iName.price+'/串'}}</text>
-                                </view>
-                                <view class="goods-number flex-center">
-                                    <view class="goods-reduce" data-typeIndex="{{index}}" data-id="{{itemName.id}}"
-                                          data-shopsIndex="{{idx}}" data-typesIndex="{{iIndex}}" catchtap="goodsReduce">
-                                        <image src="{{icon.reduce}}" mode="widthFix"></image>
-                                    </view>
-                                    <view class="number">{{iName.number}}</view>
-                                    <view class="goods-add" catchtap="goodsAdd" data-typeIndex="{{index}}"
-                                          data-id="{{itemName.id}}" data-shopsIndex="{{idx}}"
-                                          data-typesIndex="{{iIndex}}">
-                                        <image src="{{icon.add}}" mode="widthFix"></image>
-                                    </view>
-                                </view>
-                            </view>
+                        <view class='goods-buy' catchtap='buyNow' hover-class='goods-buy-active'>
+                            立即购买
                         </view>
                     </view>
                 </view>
-            </scroll-view>
-        </view>
-
-    </view>
-
-    <!-- 去结算已选货 -->
-    <view class="pay-infos flex-center" wx:if="{{numberAll>0}}">
-        <view class="cart" catchtap="lookCart">
-            <image src="{{icon.cart}}" mode="widthFix"></image>
-            <view class="goods-number-logo">{{numberAll}}</view>
-        </view>
-        <view class="goods-price-show flex-center">
-            <view class="goods-oprice-all">
-                {{'¥ '+opriceAll+' 门店价'}}
-            </view>
-            <view class="goods-price-all">
-                {{'¥ '+priceAll+' 会员价'}}
-            </view>
-        </view>
-        <view class="pay-now" catchtap="payNow">{{tips.payNow}}</view>
-    </view>
-    <!-- 去结算未选货 -->
-    <view class="pay-infos flex-center" wx:else>
-        <view class="cart">
-            <image src="{{icon.cartNone}}" mode="widthFix"></image>
-        </view>
-        <view class="goods-price-show flex-center">
-            <view class="no-goods">
-                {{tips.noGoods}}
             </view>
         </view>
     </view>
-
-    <!-- 购物车 -->
-    <view class="goods-cart" wx:if="{{showCart&&numberAll>0}}">
-        <view class="goods-cart-bg" catchtap="lookCart"></view>
-        <view class="goods-cart-modal">
-            <view class="goods-cart-title flex-center">
-                <view class="cart-title">购物车</view>
-                <view class="clear-cart flex-center" catchtap="clearCart">
-                    <image src="{{icon.clearCart}}" mode="widthFix"></image>
-                    清空购物车
-                </view>
-            </view>
-            <view class="goods-cart-list">
-                <view id="{{'type-'+index}}" class="goods-list" wx:for="{{list}}" data-cid="{{item.cid}}"
-                      data-index="{{index}}" wx:key="index">
-                    <view wx:for="{{item.shops}}" wx:for-index="iIndex" wx:for-item="iName">
-                        <view class="goods-item flex-center" wx:for="{{iName.type}}" wx:key="index" wx:for-index="idx"
-                              wx:for-item="itemName" data-typeIndex="{{index}}" data-id="{{itemName.id}}"
-                              data-shopsIndex="{{idx}}" style="{{idx==0?'border-top:none;':''}}"
-                              wx:if="{{itemName.number!=0}}" data-typesIndex="{{iIndex}}">
-                            <view class="goods-infos flex-center">
-                                <view class="goods-name">{{itemName.name+"("+itemName.weight+")"}}</view>
-                                <view class="goods-infos-detail flex-center">
-                                    <view class="goods-detail-left">
-                                        <view class="goods-price-com">{{itemName.oprice+' '+tips.oprice}}</view>
-                                        <view class="goods-price-vip">{{itemName.price+' '+tips.price}}</view>
-                                    </view>
-                                    <view class="goods-number flex-center">
-                                        <view class="goods-reduce" data-typeIndex="{{index}}" data-id="{{itemName.id}}"
-                                              data-shopsIndex="{{iIndex}}" catchtap="goodsReduce"
-                                              data-typesIndex="{{idx}}">
-                                            <image src="{{icon.reduce}}" mode="widthFix"></image>
-                                        </view>
-                                        <view class="number">{{itemName.number}}</view>
-                                        <view class="goods-add" catchtap="goodsAdd" data-typeIndex="{{index}}"
-                                              data-id="{{itemName.id}}" data-shopsIndex="{{iIndex}}"
-                                              data-typesIndex="{{idx}}">
-                                            <image src="{{icon.add}}" mode="widthFix"></image>
-                                        </view>
-                                    </view>
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-
-                </view>
-            </view>
-        </view>
+    <!-- 我也是有底线的 -->
+    <view class='loading-show flex-center'>
+        <text class='flex-center'>所有商品都在上面了</text>
     </view>
 
-    <!-- 弹窗 -->
-    <view class="goods-info-modal-bg flex-center" wx:if="{{showModal}}">
-        <view class="goods-info-bg" catchtap="closeModal"></view>
-        <view class="goods-info-modal">
-            <view class="goods-modal-title flex-center" catchtap="closeModal">
-                <text>商品详情</text>
-                <view class="goods-modal-close">
-                    ×
-                </view>
-            </view>
-            <swiper>
-                <block wx:for="{{modalGoods.logo}}">
-                    <swiper-item>
-                        <image src="{{item}}" mode="widthFix" class="goods-modal-logo"/>
-                    </swiper-item>
-                </block>
-            </swiper>
-            <view class="goods-infos flex-center">
-                <view class="goods-name">{{modalGoods.name}}</view>
-                <view class="goods-infos-detail flex-center">
-                    <view class="goods-detail-left">
-                        <view class="goods-price-com">{{modalGoods.oprice+' '+tips.oprice}}</view>
-                        <view class="goods-price-vip">{{modalGoods.price+' '+tips.price}}</view>
-                    </view>
-                    <view class="goods-number flex-center">
-                        <view class="goods-reduce" data-typeindex="{{typeIndex}}" data-id="{{modalGoods.id}}"
-                              data-shopsindex="{{shopIndex}}" catchtap="goodsReduceModal">
-                            <image src="{{icon.reduce}}" mode="widthFix"></image>
-                        </view>
-                        <view class="number">{{modalGoods.number}}</view>
-                        <view class="goods-add" catchtap="goodsAddModal" data-typeindex="{{typeIndex}}"
-                              data-id="{{modalGoods.id}}" data-shopsindex="{{shopIndex}}">
-                            <image src="{{icon.add}}" mode="widthFix"></image>
-                        </view>
-                    </view>
-                </view>
-                <view class="goods-ok-btn" catchtap="closeModal" hover-class="goods-ok-btn-active">
-                    选好了
-                </view>
-            </view>
+    <!-- 视屏弹窗 -->
+    <view class='video-modal' wx:if="{{showVideoBg}}">
+        <view class='bg' catchtap='closeVideoBg'></view>
+        <!-- <image src='{{icon.close}}' mode='widthFix' lazy-load='true' class='video-close' catchtap='closeVideoBg'></image> -->
+        <view class='video-nodal-panel'>
+            <video src='{{activeUrl}}' poster='{{activeLogo}}' controls objectFit="cover"></video>
+            <view catchtap='closeVideoBg'>关闭视频</view>
         </view>
     </view>
-
-    <!-- 菜单按钮1 -->
-    <view class='menu-group'>
-        <view class="menu-item1 flex-center {{menuBtn?'menu-item1-active-':'menu-item1-active'}}">
-            menu1
-        </view>
-        <view class="menu-item2  flex-center {{menuBtn?'menu-item2-active-':'menu-item2-active'}}">
-            menu2
-        </view>
-        <view class='menu-btn flex-center' catchtap='menuClick'
-              style="{{menuBtn?'':'color:red;border:2px solid red;background-color:#fff;'}}">{{menuBtn?'show':'hide'}}
-        </view>
-    </view>
-
-    <!-- 切换菜单按钮2
-   <view class="menu-group2 flex-center">
-       <view class='menu-group2-btn-box'>
-           <view class="menu-group2-btn flex-center {{menu2Btn?'':'menu-group2-btn-active'}}" catchtap='menu2Click'>
-               <image src='{{icon.icon}}' mode='widthFix'></image>
-           </view>
-       </view>
-       <view class="menu-group2-panel flex-center" hidden="{{menu2Btn?true:false}}">
-           <view class='menu2-item' hover-class='menu2-item-active'>菜单1</view>
-           <view class='menu2-item' hover-class='menu2-item-active'>菜单2</view>
-           <view class='menu2-item' hover-class='menu2-item-active'>菜单3</view>
-           <view class='menu2-item' hover-class='menu2-item-active'>菜单4</view>
-           <view class='menu2-item' hover-class='menu2-item-active'>菜单5</view>
-           <view class='menu2-item' hover-class='menu2-item-active'>菜单6</view>
-           <view class='menu2-item' hover-class='menu2-item-active'>菜单7</view>
-           <view class='menu2-item' hover-class='menu2-item-active'>菜单8</view>
-       </view>
-   </view> -->
 </view>
