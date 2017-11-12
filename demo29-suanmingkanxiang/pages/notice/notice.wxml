@@ -1,22 +1,56 @@
 <view class='body'>
-    <view class='title'>
-        报名须知
+    <view class='banner'>
+        <image src='{{icon.banner}}' mode='widthFix' lazy-load='true'></image>
     </view>
-    <view class='sub-title'>
-        欢迎您来到我们这学习。我们这的使命是帮助外语学习者实现学习梦想，更快、更好地掌握外语。为加强管理，提高教学质量，请大家注意以下事项：
+    <view class='panel panel-1'>
+        <view class='panel-header'>
+            算命须知
     </view>
-    <view class='container'>
-        <view class='p'>
-            一、前来咨询或报名的学员请务必认真阅读此报名须知，一旦缴费之后，即可视为您认可本学校的一切规定，并成为一种协议。 二、报名流程：
-            阅读相关课程资料-----了解开课时间----确定要报班次-----填写报名登记表-----交缴学费------取得收据和听课证------确定报到时间
+        <view class='panel-body'>
+            <view class='panel-item' wx:for="{{datas1}}">
+                {{item}}
+            </view>
         </view>
-        <view class='p'>
-            二、前来咨询或报名的学员请务必认真阅读此报名须知，一旦缴费之后，即可视为您认可本学校的一切规定，并成为一种协议。 二、报名流程：
-            阅读相关课程资料-----了解开课时间----确定要报班次-----填写报名登记表-----交缴学费------取得收据和听课证------确定报到时间
+    </view>
+    <view class='panel panel-2'>
+        <view class='panel-header'>
+            起名须知
+    </view>
+        <view class='panel-body'>
+            <view class='panel-item' wx:for="{{datas2}}">
+                {{item}}
+            </view>
         </view>
-        <view class='p'>
-            三、前来咨询或报名的学员请务必认真阅读此报名须知，一旦缴费之后，即可视为您认可本学校的一切规定，并成为一种协议。 二、报名流程：
-            阅读相关课程资料-----了解开课时间----确定要报班次-----填写报名登记表-----交缴学费------取得收据和听课证------确定报到时间
+    </view>
+    <view class='panel panel-3'>
+        <view class='panel-header'>
+            手相面相拍照范例
         </view>
+        <view class='panel-body'>
+            <view class='panel-item flex1-center' wx:for="{{datas3}}" wx:key="index">
+                <view class='panel-item-img flex-center'>
+                    <image src='{{iItem}}' mode='widthFix' lazy-load='true' wx:for="{{item.images}}" wx:key="index"
+                           wx:for-index="idx" wx:for-item="iItem"></image>
+                </view>
+                <view class='panel-title'>{{item.title}}</view>
+                <view class='panel-des'>{{item.des}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class='phone'>
+        客服电话/微信号：1888888888
+    </view>
+
+    <view class='wechat-image flex-center'>
+        <view class='we-chat' wx:for="{{qrcode}}" wx:key="index">
+            <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+            <view>{{item.text}}</view>
+        </view>
+    </view>
+
+    <view class='back-index flex1-center' catchtap='backToIndex'>
+        <image src='{{icon.index}}' mode='widthFix' lazy-load='true'></image>
+        <view>返回首页</view>
     </view>
 </view>

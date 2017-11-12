@@ -23,8 +23,15 @@
                         •
                         <view>{{item.answer+"回答"}}</view>
                     </view>
-                    <view class='answer-audio flex-center'>
+                    <view class='answer-audio flex-center' hidden='{{item.isSelf}}' catchtap='notSelf'>
                         <image src='{{icon.audio}}' mode='widthFix' lazy-load='true'></image>
+                        <text>{{item.length+"s"}}</text>
+                    </view>
+                    <view class='answer-audio flex-center' hidden='{{!item.isSelf}}' catchtap='playAudio'
+                          data-index='{{index}}'>
+                        <image src='{{icon.audio1}}' mode='widthFix' lazy-load='true'></image>
+                        <image class='answer-gif' src='{{icon.audio2}}' mode='widthFix' lazy-load='true'
+                               wx:if='{{activeIndex==index}}'></image>
                         <text>{{item.length+"s"}}</text>
                     </view>
                 </view>
@@ -38,8 +45,11 @@
             </view>
         </view>
     </view>
-<!-- 我也是有底线的 -->
+    <!-- 我也是有底线的 -->
     <view class='loading-show flex-center'>
         <text class='flex-center'>所有大师回复都在上面了</text>
     </view>
+    <!-- <view class='audio' hidden='true'>
+          <audio src='{{activeUrl}}' id='myAudio' bindended="bindended"></audio>
+      </view> -->
 </view>

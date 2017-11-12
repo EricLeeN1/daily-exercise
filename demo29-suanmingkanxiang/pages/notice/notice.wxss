@@ -1,16 +1,143 @@
-.body{
-  font-size: 30rpx;
-  color: #333;
-  padding: 0 30rpx;
+.body {
+  /* font-size: 30rpx; *//* color: #333; *//* padding: 0 30rpx; */
 }
 
-.title{
+.title {
   font-size: 36rpx;
   font-weight: bold;
   text-align: center;
   height: 80rpx;
 }
 
-.p{
+.p {
   text-indent: 72rpx;
+}
+
+.panel {
+  margin-bottom: 20rpx;
+}
+
+.panel .panel-header {
+  height: 80rpx;
+  line-height: 80rpx;
+  position: relative;
+  padding-left: 40rpx;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.panel .panel-body {
+  font-size: 30rpx;
+  line-height: 60rpx;
+  margin: 20rpx 30rpx;
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+}
+
+.panel-header::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  background-color: #000;
+  width: 10rpx;
+  height: 100%;
+}
+
+.panel-1 .panel-header {
+  background-color: #f4dfa0;
+  color: #f55053;
+}
+
+.panel-1 .panel-body {
+  background-color: #fff2cd;
+}
+
+.panel-2 .panel-header {
+  background-color: #cfe2f3;
+  color: #4580c9;
+}
+
+.panel-2 .panel-body {
+  background-color: #e5f2fb;
+}
+
+.panel-3 .panel-header {
+  background-color: #faad3b;
+  color: #fff;
+}
+
+.panel-3 .panel-body {
+  margin: 0;
+  /* padding: 0; */
+}
+
+.panel-3 .panel-item {
+  /* background-color: #999; */
+  background-color: #e1e1e1;
+  padding: 15rpx;
+  padding-bottom: 0;
+  margin-bottom: 20rpx;
+}
+
+.panel-item-img {
+  justify-content: space-between;
+  min-height: 100rpx;
+  width: 100%;
+}
+
+.panel-item-img image {
+  /* width: 345rpx; */
+  width: 49%;
+}
+
+.panel-3 .panel-title {
+  color: #be4372;
+  font-weight: bold;
+}
+
+.panel-3 .panel-des {
+  color: #333;
+  font-weight: bold;
+  line-height: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.phone {
+  background-color: #f3f3f3;
+  color: #de984a;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.wechat-image {
+  margin-top: 30rpx;
+  justify-content: space-around;
+}
+
+.wechat-image .we-chat {
+  width: 33.333%;
+}
+
+.we-chat image {
+  width: 100%;
+}
+
+.we-chat view {
+  text-align: center;
+  color: #de984a;
+  font-size: 30rpx;
+  line-height: 50rpx;
+}
+
+.back-index{
+  padding: 10rpx 0;
+  background-color: #999999;
+  color: #fff;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+.back-index image{
+  width: 40rpx;
 }

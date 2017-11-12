@@ -6,13 +6,17 @@
             <view class='comments-item-title flex-center'>
                 <image src='{{item.avatarUrl}}' mode='widthFix' lazy-load='true'></image>
                 <view>{{item.name}}</view>
-                <text>{{item.time}}</text>
+                <text>{{"评价时间: "+item.time}}</text>
             </view>
             <view class='comments-item-content'>{{item.des}}</view>
             <view class='comments-item-size flex-center'>
-                <view>{{"颜色: "+item.color}}</view>
-                <text>{{"型号: "+item.size}}</text>
+                <view>{{"大师: "+item.color}}</view>
+                <text>{{"服务时间: "+item.time}}</text>
             </view>
         </view>
+    </view>
+    <!-- 我也是有底线的 -->
+    <view class='loading-show flex-center'>
+        <text class='flex-center'>没有更多评论了</text>
     </view>
 </view>

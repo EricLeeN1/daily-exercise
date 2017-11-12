@@ -53,7 +53,7 @@
         </view>
     </view>
 
-    <form bindsubmit="formSubmit" bindreset="formReset">
+    <!-- <form bindsubmit="formSubmit" bindreset="formReset">
         <view class='form-title'>服务项目</view>
         <radio-group name="type" class="radio-group" bindchange="radioChange">
             <label class="radio flex-center" wx:for="{{datas.services}}" wx:if="{{index<=all}}">
@@ -68,7 +68,7 @@
         <button class='buy-now' form-type='submit'>
             开始预测
         </button>
-    </form>
+    </form> -->
 
     <view class='comments'>
         <view class='form-title flex-center'>
@@ -93,7 +93,7 @@
         </view>
     </view>
 
-    <view class='show-detail' catchtap='showDetail'>
+    <!-- <view class='show-detail' catchtap='showDetail'>
         隐藏信息
-    </view>
+    </view> -->
 </view>

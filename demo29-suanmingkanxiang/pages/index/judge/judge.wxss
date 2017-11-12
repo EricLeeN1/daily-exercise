@@ -1,5 +1,6 @@
 .body {
   padding: 0 30rpx;
+  padding-bottom: 100rpx;
   min-height: 100vh;
 }
 
@@ -25,7 +26,7 @@
   height: 80rpx;
 }
 
-.pay-panel{
+.pay-panel {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -34,17 +35,116 @@
   background-color: #fff;
   justify-content: space-between;
 }
-.pay-panel view{
+
+.pay-panel view {
   padding-left: 30rpx;
   border-top: 1px solid #e1e1e1;
   flex: 1;
   line-height: 100rpx;
 }
-.pay-panel text{
+
+.pay-panel text {
   width: 200rpx;
   color: #fff;
   height: 100%;
   line-height: 100rpx;
   text-align: center;
   background-color: #f55053;
+}
+
+.form {
+  font-size: 30rpx;
+}
+
+.form .form-title {
+  border-radius: 10rpx;
+  background-color: #f55053;
+  padding: 10rpx 20rpx;
+  display: inline-block;
+  color: #fff;
+  /* margin-bottom: 20rpx; */
+}
+
+.form .all-servie-btn {
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  border: 1px solid #f55053;
+  padding: 10rpx 20rpx;
+  margin: 20rpx auto;
+  width: 120rpx;
+  color: #f55053;
+  text-align: center;
+}
+
+.form .radio {
+  line-height: 80rpx;
+}
+
+.show-detail {
+  position: fixed;
+  right: 0;
+  top: 580rpx;
+  font-size: 30rpx;
+  padding: 10rpx 30rpx;
+  background-color: #f55053;
+  color: #fff;
+  z-index: 100;
+}
+
+.radio view, .radio radio {
+  flex: 0 0 230rpx;
+  text-align: center;
+}
+
+.radio radio {
+  text-align: right;
+}
+
+.audio-change image {
+  width: 50rpx;
+  margin-right: 10rpx;
+}
+
+.pay-style {
+  border-top: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.pay-style .radio-group {
+  /* justify-content: space-between; */
+}
+
+.pay-style .radio {
+  justify-content: space-between;
+  line-height: 80rpx;
+  /* border-bottom: 1px solid #e1e1e1; */
+}
+
+.pay-style .radio view, .pay-style .radio radio {
+  text-align: left;
+  /* text-align: center; */
+}
+
+.pay-style .radio radio {
+  text-align: right;
+  /* text-align: center; */
+}
+
+.save-audio {
+  padding:20rpx 20rpx;
+  margin: 30rpx 0;
+  background-color: #f55053;
+  color: #fff;
+  justify-content: center;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+.save-audio image{
+  width: 50rpx;
+  margin-right: 10rpx;
+}
+
+.play-audio{
+  line-height: 80rpx;
+  font-size: 30rpx;
 }

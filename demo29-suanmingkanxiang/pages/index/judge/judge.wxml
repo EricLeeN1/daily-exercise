@@ -11,18 +11,45 @@
         </view>
         <view class='order-item flex-center'>
             <view>服务类型</view>
-            <text>在线实时资讯</text>
+            <text>{{currentRadio||"八字合婚"}}</text>
+        </view>
+        <view class='form'>
+            <view class='form-title' catchtap='toggleAllService'>其他服务</view>
+            <radio-group name="type" class="radio-group" bindchange="radioChange" hidden="{{!showService}}">
+                <label class="radio flex-center" wx:for="{{datas.services}}">
+                    <view class='service-name'>{{item.name}}</view>
+                    <view class='service-price'>{{"¥"+item.price}}</view>
+                    <radio value="{{item.name}}" checked="{{item.checked}}" color="#f55053"/>
+                </label>
+            </radio-group>
         </view>
         <view class='order-item flex-center'>
             <view>服务费用</view>
             <text>¥128</text>
         </view>
         <view class='order-item flex-center'>
-            <view>微信支付</view>
-            <radio checked="true"/>
+            <view>支付方式</view>
+            <text>{{currentStyle||"微信支付"}}</text>
         </view>
+        <view class='pay-style'>
+            <radio-group class="radio-group" bindchange="radioChange1">
+                <label class="radio flex-center" wx:for="{{items2}}">
+                    <view>{{item}}</view>
+                    <radio value="{{item}}" color='#f55053'/>
+                </label>
+            </radio-group>
     </view>
+        <!-- <view class='order-item audio-change flex-center'>
+          <view>语音信息</view>
+          <image src='{{icon.audio}}' mode='widthFix' lazy-load='true'></image>
+        </view> -->
+    </view>
+    <view bindtap="playAudio" class='play-audio' wx:if="{{audioUrl}}">查看录音信息</view>
 
+    <view catchlongpress='startAudio' class='save-audio  flex-center' catchtouchend='saveAudio'>
+        <image src='{{icon.audio2}}' mode='widthFix' lazy-load='true'></image>
+        长按发送语音信息(最长一分钟)
+    </view>
     <view class='pay-panel flex-center'>
         <view>总计 :¥128</view>
         <text catchtap='pay'>提交订单</text>

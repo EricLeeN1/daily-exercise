@@ -211,7 +211,7 @@ Page({
                 "title": "咨询须知"
             },
             {
-                "fun": "feedBack",
+                "fun": "getCommends",
                 "title": "客户反馈"
             },
             {
@@ -235,9 +235,14 @@ Page({
             url: 'memberList/memberList',
         });
     },
+    getCommends: function () {
+        wx.navigateTo({
+            url: 'comments/comments',
+        });
+    },
     memberList2: function () {
         wx.navigateTo({
-            url: 'memberList2/memberList2',
+            url: 'judge/judge',
         });
     },
     feedBack: function () {
