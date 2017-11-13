@@ -1,0 +1,45 @@
+@charset "UTF-8";
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+.flex1-center {
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.container-fluid {
+  width: 100%;
+}
+.text-hidden-one {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+body #banner > .swiper-wrapper .swiper-slide .swiper-containers {
+  width: 1200px;
+  margin: 0 auto;
+  position: absolute;
+  left: 100px;
+  top: 116px;
+  right: 0;
+  background-color: #f55053;
+}
+body #banner > .swiper-wrapper .swiper-slide .swiper-containers .swiper-des {
+  position: absolute;
+  left: 60px;
+  top: 0px;
+}
+body #banner > .swiper-wrapper .swiper-slide .swiper-containers .swiper-des h3 {
+  font-size: 60px;
+  font-family: "宋体";
+}
+body #banner > .swiper-wrapper .swiper-slide .swiper-containers .swiper-des p {
+  text-indent: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
