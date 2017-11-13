@@ -25,49 +25,44 @@ $(function () {
             }
             return newObj; //返回排好序的新对象
         },
-        getAjax: function (url, datas, fn) {
-            var dataCookies = JSON.parse(sessionStorage.getItem("handShake"));
-            var keyData = {};
-            for (var i in datas) {
-                keyData[i] = datas[i];
-            }
-            keyData['ts'] = Date.parse(new Date()) / 1000 - 0 + JSON.parse(sessionStorage.getItem("handShake")).data.ts;
-            keyData['key'] = JSON.parse(sessionStorage.getItem("handShake")).data.key;
-            var signData = {};
-            for (var i in keyData) {
-                signData[i] = keyData[i];
-            }
-            signData['sec'] = JSON.parse(sessionStorage.getItem("handShake")).data.secret;
-            $.ajax({
-                type: "get",
-                url: '' + this.site + '' + url + '' + $.param(keyData, true) + '&sign=' + _md5($.param(this.objKeySort(signData), true)) + '',
-                dataType: 'json',
-                success: fn
-            })
-        },
-        postAjax: function (url, datas, fn) {
-            var dataCookies = JSON.parse(sessionStorage.getItem("handShake"));
-            datas['ts'] = Date.parse(new Date()) / 1000 - 0 + dataCookies.data.ts;
-            var finallyDatas = datas, paramSign = '', signData = {};
-            finallyDatas['key'] = dataCookies.data.key;
-            finallyDatas['version'] = '2.0';
-            for (var i in finallyDatas) {
-                signData[i] = finallyDatas[i];
-            }
-            signData['sec'] = dataCookies.data.secret;
-            for (var i in this.objKeySort(signData)) {
-                paramSign += '&' + i + '=' + this.objKeySort(signData)[i];
-            }
-            finallyDatas['sign'] = _md5(paramSign.substring(1));
-            $.ajax({
-                type: 'post',
-                url: this.site + url,
-                data: finallyDatas,
-                dataType: 'json',
-                success: fn
-            })
-        },
+        // tab:function (eleHover,eleShow,activeClass) {
+        //     var index= $(eleHover).index();
+        //     $(eleShow).hide().eq(index).show();
+        // },
+        // clickTab:function (eleHover,eleShow,activeClass) {
+        //     var index= $(eleHover).index();
+        //     $(eleHover).addClass(activeClass).siblings().removeClass(activeClass);
+        //     $(eleShow).hide().eq(index).show();
+        // },
         init: function () {
+            var that = this;
+            $("#nav>ul>li").on('mouseover', function () {
+                var index = $(this).index();
+                $("#sub-nav>ul").hide().eq(index).show();
+            });
+            $("#nav>ul>li").on('click', function () {
+                var index = $(this).index();
+                $(this).addClass('nav-active').siblings().removeClass('nav-active');
+                $("#sub-nav>ul").hide().eq(index).show();
+            });
+            $(".news-all-panel-title>ul>li").on('mouseover', function () {
+                var index = $(this).index();
+                $(".news-all-tab>li").hide().eq(index).show();
+            });
+            $(".news-all-panel-title>ul>li").on('click', function () {
+                var index = $(this).index();
+                $(this).addClass('news-all-title-active').siblings().removeClass('news-all-title-active');
+                $(".news-all-tab>li").hide().eq(index).show();
+            });
+            $(".focus-us>ul>li").on('mouseover', function () {
+                var index = $(this).index();
+                $(".qrcode>li").hide().eq(index).show();
+            });
+            $(".focus-us>ul>li").on('click', function () {
+                var index = $(this).index();
+                // $(this).addClass('news-all-title-active').siblings().removeClass('news-all-title-active');
+                $(".qrcode>li").hide().eq(index).show();
+            });
             console.log('' +
                 '//                            _ooOoo_\n' +
                 '//                           o8888888o\n' +
@@ -91,11 +86,11 @@ $(function () {
                 '//         .............................................\n' +
                 '//                  佛祖镇楼                  BUG辟易');
             var that = this;
-            if (!sessionStorage.getItem('handShake')) {
-                that.handShake('id');
-            } else {
-                that.getInitData('id');
-            }
+            // if (!sessionStorage.getItem('handShake')) {
+            //     that.handShake('id');
+            // } else {
+            //     that.getInitData('id');
+            // }
         }
     };
     var browser = {

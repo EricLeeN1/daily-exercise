@@ -31,7 +31,7 @@ gulp.task('style', function () {
     gulp.src('src/styles/*.less')
         .pipe(rename({suffix: '.min'}))
         .pipe(less())
-        .pipe(cssnano())
+        // .pipe(cssnano())
         .pipe(gulp.dest('dist/styles'))
         .pipe(browserSync.reload({
             stream: true

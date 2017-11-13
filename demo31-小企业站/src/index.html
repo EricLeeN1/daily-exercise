@@ -7,38 +7,12 @@
     <link rel="icon" href="favicon.icon">
     <link rel="stylesheet" href="styles/index.min.css">
     <link rel="stylesheet" href="styles/swiper.min.css">
-    <script src="scripts/jquery.min.js"></script>
-    <script src="scripts/swiper.min.js"></script>
-    <script>
-        $(function () {
-            var mySwiper = new Swiper('.swiper-container', {
-//            direction:"vertical",
-                direction: "horizontal",
-                initialSlide: 0,
-                speed: 2000,
-                autoplay: true,
-                loop: true,
-//            分页器
-                pagination: {
-                    el: ".swiper-pagination"
-                },
-//            前进后退按钮
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-//            如果需要滚动条
-                scrollbar: {
-                    el: ".swiper-scrollbar"
-                }
-            });
-        });
-    </script>
+
 </head>
 <body>
 <header>
     <div class="header-logo">
-        <img src="images/logo.png" alt="logo">
+        <a href="/"><img src="images/logo.png" alt="logo"></a>
     </div>
     <div class="header-form">
         <ul>
@@ -58,12 +32,30 @@
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <img src="images/banner.png" alt="banner">
+            <div class="swiper-containers">
+                <div class="swiper-des">
+                    <h3>诚信 专业</h3>
+                    <p><span>Sincerity</span> <span>Professional</span></p>
+                </div>
+            </div>
         </div>
         <div class="swiper-slide">
             <img src="images/banner.png" alt="banner">
+            <div class="swiper-containers">
+                <div class="swiper-des">
+                    <h3>合作 共赢</h3>
+                    <p><span>Cooperation</span> <span>Win-win</span></p>
+                </div>
+            </div>
         </div>
         <div class="swiper-slide">
             <img src="images/banner.png" alt="banner">
+            <div class="swiper-containers">
+                <div class="swiper-des">
+                    <h3>追逐 开拓</h3>
+                    <p><span>Chast</span> <span>Extension</span></p>
+                </div>
+            </div>
         </div>
     </div>
     <!--分页器-->
@@ -79,22 +71,111 @@
     <!--</div>-->
 </section>
 <nav>
-    <div class="nav">
+    <div class="nav" id="nav">
         <ul>
-            <li class="nav-active"><a href="">首页</a></li>
-            <li><a href="">综合新闻</a></li>
-            <li><a href=""></a>协会</li>
-            <li><a href=""></a>资料信息</li>
-            <li><a href=""></a>钢结构企业</li>
-            <li><a href=""></a>钢结构材料商</li>
-            <li><a href=""></a>专家委员会</li>
-            <li><a href=""></a>钢结构奖</li>
-            <li><a href=""></a>诚信评估</li>
-            <li><a href=""></a>培训</li>
+            <li class="nav-active"><a href="/">首页</a></li>
+            <li><a href="news-list.html">综合新闻</a></li>
+            <li><a href="news-list.html"></a>协会</li>
+            <li><a href="news-list.html"></a>资料信息</li>
+            <li><a href="news-list.html"></a>钢结构企业</li>
+            <li><a href="news-list.html"></a>钢结构材料商</li>
+            <li><a href="news-list.html"></a>专家委员会</li>
+            <li><a href="news-list.html"></a>钢结构奖</li>
+            <li><a href="news-list.html"></a>诚信评估</li>
+            <li><a href="news-list.html"></a>培训</li>
         </ul>
     </div>
-    <div class="sub-nav">
-        <ul>
+    <div class="sub-nav" id="sub-nav">
+        <ul></ul>
+        <ul style="display: none">
+            <li class="sub-nav-active"><a href="">协会简介</a></li>
+            |
+            <li><a href="">服务范围</a></li>
+            |
+            <li><a href="">协会章程</a></li>
+            |
+            <li><a href="">组织架构</a></li>
+            |
+            <li><a href="">联系我们</a></li>
+        </ul>
+        <ul style="display: none">
+            <li class="sub-nav-active"><a href="">协会简介</a></li>
+            |
+            <li><a href="">服务范围</a></li>
+            |
+            <li><a href="">协会章程</a></li>
+            |
+            <li><a href="">组织架构</a></li>
+            |
+            <li><a href="">联系我们</a></li>
+        </ul>
+        <ul style="display: none">
+            <li class="sub-nav-active"><a href="">协会简介</a></li>
+            |
+            <li><a href="">服务范围</a></li>
+            |
+            <li><a href="">协会章程</a></li>
+            |
+            <li><a href="">组织架构</a></li>
+            |
+            <li><a href="">联系我们</a></li>
+        </ul>
+        <ul style="display: none">
+            <li class="sub-nav-active"><a href="">协会简介</a></li>
+            |
+            <li><a href="">服务范围</a></li>
+            |
+            <li><a href="">协会章程</a></li>
+            |
+            <li><a href="">组织架构</a></li>
+            |
+            <li><a href="">联系我们</a></li>
+        </ul>
+        <ul style="display: none">
+            <li class="sub-nav-active"><a href="">协会简介</a></li>
+            |
+            <li><a href="">服务范围</a></li>
+            |
+            <li><a href="">协会章程</a></li>
+            |
+            <li><a href="">组织架构</a></li>
+            |
+            <li><a href="">联系我们</a></li>
+        </ul>
+        <ul style="display: none">
+            <li class="sub-nav-active"><a href="">协会简介</a></li>
+            |
+            <li><a href="">服务范围</a></li>
+            |
+            <li><a href="">协会章程</a></li>
+            |
+            <li><a href="">组织架构</a></li>
+            |
+            <li><a href="">联系我们</a></li>
+        </ul>
+        <ul style="display: none">
+            <li class="sub-nav-active"><a href="">协会简介</a></li>
+            |
+            <li><a href="">服务范围</a></li>
+            |
+            <li><a href="">协会章程</a></li>
+            |
+            <li><a href="">组织架构</a></li>
+            |
+            <li><a href="">联系我们</a></li>
+        </ul>
+        <ul style="display: none">
+            <li class="sub-nav-active"><a href="">协会简介</a></li>
+            |
+            <li><a href="">服务范围</a></li>
+            |
+            <li><a href="">协会章程</a></li>
+            |
+            <li><a href="">组织架构</a></li>
+            |
+            <li><a href="">联系我们</a></li>
+        </ul>
+        <ul style="display: none">
             <li class="sub-nav-active"><a href="">协会简介</a></li>
             |
             <li><a href="">服务范围</a></li>
@@ -317,49 +398,42 @@
                             <a href="">
                                 <span></span>
                                 <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
+                                <time>10-23</time>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <span></span>
                                 <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
+                                <time>10-23</time>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <span></span>
                                 <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
+                                <time>10-23</time>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <span></span>
                                 <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
+                                <time>10-23</time>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <span></span>
                                 <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
+                                <time>10-23</time>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <span></span>
                                 <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span></span>
-                                <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
+                                <time>10-23</time>
                             </a>
                         </li>
                     </ul>
@@ -370,49 +444,42 @@
                             <a href="">
                                 <span></span>
                                 <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
+                                <time>10-23</time>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <span></span>
                                 <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
+                                <time>10-23</time>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <span></span>
                                 <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
+                                <time>10-23</time>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <span></span>
                                 <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
+                                <time>10-23</time>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <span></span>
                                 <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
+                                <time>10-23</time>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <span></span>
                                 <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span></span>
-                                <p>组织申报201年度东北振兴</p>
-                                <span>10-23</span>
+                                <time>10-23</time>
                             </a>
                         </li>
                     </ul>
@@ -527,8 +594,10 @@
     </div>
 </footer>
 </body>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/swiper.min.js"></script>
 <script>
-    window.onload = function () {
+    $(function () {
         var mySwiper = new Swiper('.swiper-container', {
 //            direction:"vertical",
             direction: "horizontal",
@@ -549,7 +618,8 @@
             scrollbar: {
                 el: ".swiper-scrollbar"
             }
-        })
-    };
+        });
+    });
 </script>
+<script src="scripts/index.min.js"></script>
 </html>
