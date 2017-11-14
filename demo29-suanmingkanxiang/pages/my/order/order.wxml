@@ -1,0 +1,38 @@
+<view class='body'>
+    <scroll-view scroll-x style='width:100%;' scroll-left="{{sliderOffset}}" scroll-into-view="{{type}}">
+        <view class='weui-navbar1'>
+            <block wx:for="{{tabs}}" wx:key="*this">
+                <view id="{{'id-'+index}}"
+                      class="weui-navbar__item1 {{activeIndex == index ? 'weui-navbar__item1_on' : ''}}"
+                      bindtap="tabClick" data-id='{{index}}'>
+                    <view class="weui-navbar__title">{{item}}</view>
+                </view>
+            </block>
+        </view>
+
+        <view class="weui-navbar__slider1"
+              style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </scroll-view>
+    <scroll-view hidden='{{activeIndex!=0}}' class='weui-navbar' scroll-x style='width:100%;'
+                 scroll-left="{{sliderOffset1}}" scroll-into-view="{{type}}">
+        <block wx:for="{{tabs2}}" wx:key="*this">
+            <view id="{{'id-'+index}}" class="weui-navbar__item {{activeIndex1 == index ? 'weui-navbar__item_on' : ''}}"
+                  bindtap="tabClick1" data-id='{{index}}'>
+                <view class="weui-navbar__title">{{item}}</view>
+            </view>
+        </block>
+        <view class="weui-navbar__slider"
+              style="left: {{sliderLeft1}}px; transform: translateX({{sliderOffset1}}px); -webkit-transform: translateX({{sliderOffset1}}px);"></view>
+    </scroll-view>
+    <scroll-view hidden='{{activeIndex!=1}}' class='weui-navbar' scroll-x style='width:100%;'
+                 scroll-left="{{sliderOffset1}}" scroll-into-view="{{type}}">
+        <block wx:for="{{tabs1}}" wx:key="*this">
+            <view id="{{'id-'+index}}" class="weui-navbar__item {{activeIndex1 == index ? 'weui-navbar__item_on' : ''}}"
+                  bindtap="tabClick1" data-id='{{index}}'>
+                <view class="weui-navbar__title">{{item}}</view>
+            </view>
+        </block>
+        <view class="weui-navbar__slider"
+              style="left: {{sliderLeft1}}px; transform: translateX({{sliderOffset1}}px); -webkit-transform: translateX({{sliderOffset1}}px);"></view>
+    </scroll-view>
+</view>

@@ -7,7 +7,8 @@ Page({
      */
     data: {
         icon: {
-            more: "../../images/icon/more.png"
+            more: "../../images/icon/more.png",
+            qrcode: "../../images/banner/banner6.jpg"
         },
         userColumns: [{
             url: 'myOrder/myOrder?type=1',
@@ -15,29 +16,29 @@ Page({
             title: "待付款",
             newNumber: 0
         },
-        {
-            url: 'myOrder/myOrder?type=2',
-            icon: '../../images/icon/daifahuo.png',
-            title: "待发货",
-            newNumber: 1
-        },
-        {
-            url: 'myOrder/myOrder?type=3',
-            icon: '../../images/icon/daishouhuo.png',
-            title: "待收货",
-            newNumber: 3
-        },
-        {
-            url: 'myOrder/myOrder?type=4',
-            icon: '../../images/icon/daipingjia.png',
-            title: "待评价",
-            newNumber: 10
-        },
-        // {
-        //     url: 'myTickets/myTickets',
-        //     icon: '../../images/icon/youhuiquan.png',
-        //     title: "我的优惠券"
-        // }
+            {
+                url: 'myOrder/myOrder?type=2',
+                icon: '../../images/icon/daifahuo.png',
+                title: "待发货",
+                newNumber: 1
+            },
+            {
+                url: 'myOrder/myOrder?type=3',
+                icon: '../../images/icon/daishouhuo.png',
+                title: "待收货",
+                newNumber: 3
+            },
+            {
+                url: 'myOrder/myOrder?type=4',
+                icon: '../../images/icon/daipingjia.png',
+                title: "待评价",
+                newNumber: 10
+            },
+            // {
+            //     url: 'myTickets/myTickets',
+            //     icon: '../../images/icon/youhuiquan.png',
+            //     title: "我的优惠券"
+            // }
         ],
         userRows: [
             {
@@ -114,7 +115,16 @@ Page({
     onShow: function () {
 
     },
-
+    toOrder: function () {
+        wx.navigateTo({
+            url: 'order/order',
+        });
+    },
+    toInfos: function () {
+        wx.navigateTo({
+            url: '../qAndA/changeInfos/changeInfos',
+        });
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */

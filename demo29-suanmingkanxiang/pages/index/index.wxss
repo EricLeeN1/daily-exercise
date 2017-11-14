@@ -1,3 +1,7 @@
+.body {
+  /* padding-bottom: 100rpx; */
+}
+
 .swiper {
   height: 360rpx;
 }
@@ -38,6 +42,7 @@
   line-height: 1.5;
   box-sizing: content-box;
 }
+
 .nav #contact-button {
   margin: 30rpx 0 0rpx 20rpx;
   padding: 10rpx 20rpx;
@@ -49,7 +54,7 @@
 
 .deal-number {
   margin: 30rpx 0;
-  border-top: 1px solid #f55053;
+  margin-top: -30rpx;
   border-bottom: 1px solid #f55053;
   font-size: 30rpx;
   height: 80rpx;
@@ -64,9 +69,10 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 30rpx;
+  margin-top: -30rpx;
 }
 
-.nav1 .nav1-item{
+.nav1 .nav1-item {
   flex: 0 0 20%;
   font-size: 30rpx;
   height: 180rpx;
@@ -74,15 +80,14 @@
   box-sizing: border-box;
 }
 
-.nav1-item  .nav1-item-img{
+.nav1-item  .nav1-item-img {
   width: 100rpx;
   height: 100rpx;
   margin-bottom: 20rpx;
 }
 
 #scroll-view {
-  /*transform: rotate(90deg);*/
-  /* background-color: #191939; */
+  /*transform: rotate(90deg);*//* background-color: #191939; */
   height: 258px;
   border-radius: 5px;
   color: #999;
@@ -91,9 +96,7 @@
   font-size: 24rpx;
   overflow: hidden;
   border-top: 1px solid #e1e1e1;
-  /* margin-bottom: 60rpx; */
-  /* position: absolute; */
-  /* top: 290rpx; */
+  /* margin-bottom: 60rpx; *//* position: absolute; *//* top: 290rpx; */
 }
 
 #scroll-view swiper-item {
@@ -107,6 +110,10 @@
   border-bottom: 1px dotted #e1e1e1;
   box-sizing: border-box;
   z-index: 0;
+}
+
+.alone-item-even {
+  background-color: #f7f8f9;
 }
 
 .alone-number {
@@ -134,4 +141,58 @@
 .read-beGet {
   margin-left: 5px;
   flex-basis: 100rpx;
+}
+
+#swiper2 {
+  height: 100rpx;
+  margin-bottom: 30rpx;
+  padding: 0 30rpx;
+  margin-top: -30rpx;
+  font-size: 30rpx;
+  color: #333;
+  border-bottom: 1px solid #f55053;
+}
+
+#swiper2 swiper-item {
+  justify-content: space-between;
+}
+
+#swiper2 .read-beGet {
+  margin-left: 5px;
+  flex-basis: 120rpx;
+  text-align: right;
+}
+
+.red-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+}
+.red-modal .modal-bg{
+  background-color: rgba(0, 0, 0, .4);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+.red-modal .red-ticket {
+  width: 549rpx;
+}
+
+.red-modal .red-panel {
+  position: relative;
+}
+
+.red-modal .get-now {
+  position: absolute;
+  /* top: 0; */
+  right: 0;
+  left: 50%;
+  margin-left: -136rpx;
+  width: 272rpx;
+  bottom: 108rpx;
 }

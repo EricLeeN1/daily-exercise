@@ -154,6 +154,18 @@
           "name": "判断",
           "pathName": "pages/index/judge/judge",
           "query": ""
+        },
+        {
+          "id": -1,
+          "name": "订单中心",
+          "pathName": "pages/my/order/order",
+          "query": "id=3"
+        },
+        {
+          "id": -1,
+          "name": "红包",
+          "pathName": "pages/index/red/red",
+          "query": ""
         }
       ]
     }

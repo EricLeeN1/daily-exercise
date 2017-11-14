@@ -7,6 +7,10 @@ Page({
         time: 100,
         loading: false,
         timer: null,
+        icon: {
+            red: "../../images/icon/red.png",
+            getNow: "../../images/icon/getNow.png",
+        },
         imgUrls: [
             'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
             'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
@@ -260,11 +264,28 @@ Page({
             url: '../notice/notice',
         });
     },
+    closeRedBg: function () {
+        this.setData({
+            showRedBg: false
+        });
+    },
     onLoad: function () {
         const that = this;
         that.setData({
             scrollTop: 0,
         });
+        wx.getStorage({
+            key: 'getRedTickets',
+            success: function (res) {
+                console.log(res);
+            },
+            fail: function (res) {
+                console.log(res);
+                that.setData({
+                    showRedBg: true
+        });
+            }
+        })
         setTimeout(function () {
             that.timer();
         }, 2000);
@@ -328,6 +349,11 @@ Page({
             })
         }
 
+    },
+    getRedTickets: function () {
+        wx.navigateTo({
+            url: 'red/red',
+        })
     },
     onShow: function () {
         this.setData({

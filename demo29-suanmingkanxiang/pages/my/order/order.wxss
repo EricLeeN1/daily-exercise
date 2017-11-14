@@ -1,0 +1,107 @@
+.body {
+  background-color: #f7f8f9;
+  min-height: 100vh;
+}
+
+.weui-navbar {
+  height: 100rpx;
+  line-height: 100rpx;
+  overflow: hidden;
+  display: flex;
+  background-color: #fff;
+  justify-content: center;
+  flex-direction: column;
+  white-space: nowrap;
+  position: relative;
+  border-bottom: 1px solid #e1e1e1;
+  margin-bottom: 20rpx;
+}
+
+.weui-navbar__item {
+  display: inline-block;
+  text-align: center;
+  color: #666;
+  width: 150rpx;
+  height: 100rpx;
+}
+
+.weui-navbar__slider {
+  position: absolute;
+  content: " ";
+  left: 0;
+  top: 94rpx;
+  width: 150rpx;
+  height: 6rpx;
+  background-color: #f55053;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.weui-navbar__title {
+  display: inline-block;
+  font-size: 14px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.weui-navbar .weui-navbar__item_on {
+  color: #f55053;
+}
+
+.weui-navbar1 {
+  height: 100rpx;
+  line-height: 100rpx;
+  overflow: hidden;
+  display: flex;
+  font-weight: bold;
+  background-color: #fff;
+  justify-content: center;
+  white-space: nowrap;
+  position: relative;
+  border-bottom: 1px solid #e1e1e1;
+  margin-bottom: 20rpx;
+}
+
+.weui-navbar__item1 {
+  /* display: inline-block; */
+  text-align: center;
+  color: #666;
+  width: 150rpx;
+  flex: 0 0 150rpx;
+  height: 100rpx;
+}
+
+.weui-navbar__slider1 {
+  position: absolute;
+  content: " ";
+  left: 0;
+  top: 50rpx;
+  width: 120rpx;
+  height: 30rpx;
+  /* background-color: #f55053; */
+  /* transform: rotate(-180deg); */
+  border-bottom: 6rpx solid #e1e1e1;
+  /* background-color: #f55053; */
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  border-radius: 50%;
+}
+
+.weui-navbar__title1 {
+   display: inline-block; 
+  font-size: 14px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.weui-navbar .weui-navbar__item1_on {
+  color: #f55053;
+}

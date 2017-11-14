@@ -1,49 +1,54 @@
 .body {
-    position: relative;
+  position: relative;
+  background-color: #f7f8f9;
+  min-height: 100vh;
+  padding: 0 30rpx;
 }
 
-.user-info {
+/* .user-info {
     height: 420rpx;
     background-color: #f55053;
-}
+} */
 
 .user-info-main {
-    flex-direction: column;
-    justify-content: center;
-    height: 300rpx;
+  flex-direction: column;
+  justify-content: center;
+  height: 260rpx;
 }
 
 .user-info-main view {
-    border: 10rpx solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 20rpx;
+  border: 10rpx solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 20rpx;
 }
 
 .user-info-main image {
-    width: 128rpx;
+  width: 180rpx;
 }
 
 .user-info-main text {
-    color: #fff;
-    font-size: 28rpx;
+  /* color: #fff; */
+  font-size: 28rpx;
 }
 
-/* 订单部分 */
+/* 订单部分 
 
-.order {
+/* .order {
     z-index: 2;
     width: 690rpx;
     /* height: 242rpx; */
-    margin: 0 auto;
+
+/* margin: 0 auto;
     margin-top: -120rpx;
      border-radius: 20rpx;
      /* overflow: hidden;  */
-     background-color: #fff;
-     box-shadow: 0 0 0 1rpx #f55053; 
-}
 
-.order-title {
+/* background-color: #fff;
+     box-shadow: 0 0 0 1rpx #f55053; 
+}   */
+
+/* .order-title {
     
     border-bottom: 1px solid #e1e1e1;
     padding: 0 30rpx;
@@ -63,9 +68,9 @@
 
 .user-column {
     margin-bottom: 30rpx;
-}
+}  */
 
-.user-column-item {
+/* .user-column-item {
     height: 150rpx;
     justify-content: center;
     width: 20%;
@@ -124,4 +129,55 @@
 .user-row button::after {
     border-radius: 0;
     border: none;
+} */
+
+.column {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+  padding: 0 30rpx;
+}
+
+.column1 {
+  justify-content: space-between;
+  height: 80rpx;
+}
+
+.column1 text {
+  margin-right: 150rpx;
+}
+
+.column2 {
+  height: 80rpx;
+}
+
+.column3 {
+  padding: 30rpx;
+  justify-content: space-between;
+  height: 300rpx;
+}
+
+.column3 image {
+  width: 200rpx;
+  margin: 0 auto;
+  margin-bottom: 20rpx;
+}
+
+.column3 .column3-left {
+  align-items: flex-start;
+  font-size: 30rpx;
+  height: 100%;
+}
+
+.column3-left, .column3-right {
+  flex: 1 1 50%;
+}
+
+.column3-left .column-header{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.column3 .column3-left view{
+  line-height: 50rpx;
 }

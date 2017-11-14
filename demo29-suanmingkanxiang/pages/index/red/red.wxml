@@ -1,0 +1,29 @@
+<view class='body'>
+    <view class='share-tips'>
+        成功邀请5人即可免费获取一次算命机会
+    </view>
+    <view class='share-panel'>
+        <view class='user-list flex-center'>
+            <view class='user-item' wx:for="{{usersList}}" wx:if="index">
+                <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+                <view class='label'>{{item.state}}</view>
+            </view>
+            <view class='user-item' wx:for="{{5-(usersList.length)}}" wx:if="index">
+                <!-- <view class='user-item-logo'></view> -->
+                <image src='{{icon.wenhao}}' mode='widthFix' lazy-load='true' class='user-item-logo'></image>
+                <view class='label'>代响应</view>
+            </view>
+        </view>
+        <view class='panel-tips'>
+            还差{{5-(usersList.length)}}人即可免费算命，快邀好友来帮忙吧
+        </view>
+        <view class='panel-times'>
+            {{clock}}后结束
+        </view>
+        <button id='btn' class='flex-center' open-type='share'>
+            <image src='{{icon.wechat}}' mode='widthFix' lazy-load='true'></image>
+            <text>邀请微信群好友获取免费算卦机会</text>
+        </button>
+    </view>
+    <image src='{{icon.bg}}' mode='widthFix' lazy-load='true' class='bg-image'></image>
+</view>
