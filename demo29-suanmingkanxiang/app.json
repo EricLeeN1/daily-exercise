@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/red/red",
     "pages/index/memberList/memberList",
     "pages/index/judge/judge",
     "pages/index/memberList2/memberList2",
@@ -18,6 +19,7 @@
     "pages/qAndA/writeAsk/writeAsk",
     "pages/qAndA/changeInfos/changeInfos",
     "pages/my/my",
+    "pages/my/order/order",
     "pages/pay/pay",
     "pages/my/myOrder/myOrder",
     "pages/my/address/address",

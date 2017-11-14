@@ -23,28 +23,52 @@
         <text>{{datas.countNumbers}}</text>
         人
     </view>
+    <swiper id='swiper2' autoplay="true" interval="5000" duration="1000" vertical="true">
+        <block wx:for="{{list}}">
+            <swiper-item class="flex-center">
+                <!-- <view class="alone-number">
+                  {{item.id}}
+                </view> -->
+                <view class="alone-text">
+                    {{item.text}}
+                </view>
+                <!-- <view class="alone-border">
+                  |
+                </view> -->
+                <view class="read-beGet">
+                    {{item.time}}
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
     <view class='nav1 flex-center'>
         <view class='nav1-item flex1-center' wx:for="{{nav1Datas}}" wx:key="index" catchtap='{{item.fun}}'>
             <image class='nav1-item-img' src='{{item.color}}' mode='widthFix' lazy-load='true'></image>
             <text>{{item.text}}</text>
         </view>
     </view>
-    <scroll-view bindscroll="scroll" id="scroll-view" class="alone-list" scroll-y="true" scroll-top="{{scrollTop}}"
-                 style="{{loading==true?'z-index:1;':'z-index:0;'}}">
-        <view class="alone-item" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" catchtap="memberList2"
-              data-ktvid="{{ktvId}}">
-            <view class="alone-number">
-                {{item.id}}
-            </view>
-            <view class="alone-text">
-                {{item.text}}
-            </view>
-            <view class="alone-border">
-                |
-            </view>
-            <view class="read-beGet">
-                {{item.time}}
-            </view>
+    <!-- <scroll-view bindscroll="scroll" id="scroll-view" class="alone-list" scroll-y="true" scroll-top="{{scrollTop}}" style="{{loading==true?'z-index:1;':'z-index:0;'}}">
+      <view class="alone-item {{index%2==0?'alone-item-even':''}}" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" catchtap="memberList2" data-index='{{index}}'>
+        <view class="alone-number">
+          {{item.id}}
         </view>
-    </scroll-view>
+        <view class="alone-text">
+          {{item.text}}
+        </view>
+        <view class="alone-border">
+          |
+        </view>
+        <view class="read-beGet">
+          {{item.time}}
+        </view>
+      </view>
+    </scroll-view> -->
+    <view class='red-modal flex-center' wx:if="{{showRedBg}}">
+        <view class='modal-bg' catchtap='closeRedBg'></view>
+        <view class='red-panel'>
+            <image src='{{icon.red}}' mode='widthFix' lazy-load='true' class='red-ticket'></image>
+            <image src='{{icon.getNow}}' mode='widthFix' lazy-load='true' class='get-now'
+                   catchtap='getRedTickets'></image>
+        </view>
+    </view>
 </view>

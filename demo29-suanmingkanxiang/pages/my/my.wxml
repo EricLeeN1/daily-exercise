@@ -8,43 +8,67 @@
             <view wx:if="{{hasUserInfo}}">
                 <image src='{{userInfo.avatarUrl}}' mode='widthFix'></image>
             </view>
-            <text wx:if="{{hasUserInfo}}">{{userInfo.nickName}}</text>
+            <!-- <text wx:if="{{hasUserInfo}}">{{userInfo.nickName}}</text> -->
         </view>
     </view>
-    <view class='order'>
-        <view class='order-title flex-center'>
-            我的订单
-            <navigator class='flex-center' url='myOrder/myOrder?type=0'>
-                全部订单
-                <image src='{{icon.more}}' mode='widthFix'></image>
-            </navigator>
-        </view>
-        <view class='user-column flex-center'>
-            <navigator class='user-column-item flex-center' wx:for="{{userColumns}}" wx:key="index" url='{{item.url}}'>
-                <image src='{{item.icon}}' mode='widthFix'></image>
-                <text>{{item.title}}</text>
-                <view class='flex-center' wx:if="{{item.newNumber>0}}">{{item.newNumber>99?99:item.newNumber}}</view>
-            </navigator>
-        </view>
+    <!-- <view class='order'>
+          <view class='order-title flex-center'>
+              我的订单
+              <navigator class='flex-center' url='myOrder/myOrder?type=0'>
+                  全部订单
+                  <image src='{{icon.more}}' mode='widthFix'></image>
+              </navigator>
+          </view>
+          <view class='user-column flex-center'>
+              <navigator class='user-column-item flex-center' wx:for="{{userColumns}}" wx:key="index" url='{{item.url}}'>
+                  <image src='{{item.icon}}' mode='widthFix'></image>
+                  <text>{{item.title}}</text>
+                  <view class='flex-center' wx:if="{{item.newNumber>0}}">{{item.newNumber>99?99:item.newNumber}}</view>
+              </navigator>
+          </view>
+      </view>
+      <view>
+          <view class='user-row'>
+              <view class='user-row-item flex-center' wx:for="{{userRows}}" wx:key="index" catchtap='{{item.fun}}'
+                    style="{{index==userRows.length-1?'border-bottom:none':''}}" data-index='{{index}}'
+                    wx:if="{{index<1}}">
+                  <image src='{{item.icon}}' mode='widthFix'></image>
+                  <text>{{item.title}}</text>
+              </view>
+              <button class='user-row-item flex-center' open-type='contact' catchtap='{{userRows[1].fun}}'>
+                  <image src='{{userRows[1].icon}}' mode='widthFix'></image>
+                  <text>{{userRows[1].title}}</text>
+              </button>
+              <view class='user-row-item flex-center' wx:for="{{userRows}}" wx:key="index" catchtap='{{item.fun}}'
+                    data-index='{{index}}'
+                    wx:if="{{index>1}}">
+                  <image src='{{item.icon}}' mode='widthFix'></image>
+                  <text>{{item.title}}</text>
+              </view>
+          </view>
+      </view> -->
+
+    <view class='column column1 flex-center'>
+        <view>余额：0卦币</view>
+        <text>积分：300</text>
     </view>
-    <view>
-        <view class='user-row'>
-            <view class='user-row-item flex-center' wx:for="{{userRows}}" wx:key="index" catchtap='{{item.fun}}'
-                  style="{{index==userRows.length-1?'border-bottom:none':''}}" data-index='{{index}}'
-                  wx:if="{{index<1}}">
-                <image src='{{item.icon}}' mode='widthFix'></image>
-                <text>{{item.title}}</text>
-            </view>
-            <button class='user-row-item flex-center' open-type='contact' catchtap='{{userRows[1].fun}}'>
-                <image src='{{userRows[1].icon}}' mode='widthFix'></image>
-                <text>{{userRows[1].title}}</text>
-            </button>
-            <view class='user-row-item flex-center' wx:for="{{userRows}}" wx:key="index" catchtap='{{item.fun}}'
-                  data-index='{{index}}'
-                  wx:if="{{index>1}}">
-                <image src='{{item.icon}}' mode='widthFix'></image>
-                <text>{{item.title}}</text>
-            </view>
+    <view catchtap='toOrder' class='column column2 flex-center'>
+        <view>订单中心</view>
+    </view>
+    <view catchtap='toInfos' class='column column2 flex-center'>
+        <view>个人资料</view>
+    </view>
+    <view class='column column3 flex-center'>
+        <view class='column3-left flex1-center'>
+            <view class='column-header'>找大师APP</view>
+            <view>官网：www.dashihao.com</view>
+            <view>手机号：18888888888</view>
+            <view>微信：18888888888</view>
+            <view>公众号：18888888888</view>
+        </view>
+        <view class='column4-right'>
+            <image src='{{icon.qrcode}}' mode='widthFix' lazy-load='true'></image>
+            <view>下载APP-首单免费</view>
         </view>
     </view>
 </view>
