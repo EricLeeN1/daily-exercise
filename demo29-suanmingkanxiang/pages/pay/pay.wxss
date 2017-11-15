@@ -43,6 +43,7 @@
 .order-title image {
   width: 60rpx;
   margin-right: 20rpx;
+  border-radius: 50%;
 }
 
 .order-title view {
@@ -154,6 +155,7 @@
   background-color: #fff;
   height: 100rpx;
   justify-content: center;
+  font-size: 30rpx;
 }
 
 .no-goods .to-buy {

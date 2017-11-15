@@ -9,24 +9,48 @@ body {
     justify-content: space-between;
     .header-form {
       .flex-center;
+      height: 24px;
       ul {
         .flex-center;
-        font-size: 12px;
+        font-size: 14px;
         li {
           margin-right: 10px;
           margin-left: 10px;
+          a {
+            .flex-center;
+            height: 24px;
+            line-height: 24px;
+          }
+          img {
+            width: 20px;
+            margin-right: 5px;
+          }
         }
       }
       form {
         .flex-center;
+        position: relative;
         input[type="text"] {
-          padding-left: 5px;
+          padding-left: 8px;
+          height: 21px;
+          border-width: 1px;
+          .rounded-corners(5px);
+          padding-top: 0;
+          font-size: 14px;
         }
-        input[type="submit"] {
+        button[type="submit"] {
+          position: absolute;
+          right: 3px;
           color: #fff;
-          font-size: 16px;
-          background-color: @base-blue-color;
-          border-color: @base-blue-color;
+          font-size: 14px;
+          background-color: transparent;
+          border: none;
+          height: 24px;
+          padding: 0 6px;
+          line-height: 24px;
+          img {
+            width: 20px;
+          }
         }
       }
     }

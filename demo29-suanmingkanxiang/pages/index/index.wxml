@@ -3,25 +3,15 @@
             duration="{{banner.duration}}" class='swiper'>
         <block wx:for="{{imgUrls}}" wx:key="index">
             <swiper-item>
-                <image src="{{item}}" class="slide-image" mode='widthFix' lazy-load='true'/>
+                <image src="{{item}}" class="slide-image" mode='aspectFill' lazy-load='true'/>
             </swiper-item>
         </block>
     </swiper>
-    <view class='nav flex-center'>
-        <view class='nav-item flex-center' wx:for="{{navDatas}}" wx:key="index" catchtap='{{item.fun}}'
-              wx:if="{{index<navDatas.length-2}}">{{item.title}}
+    <view class='nav1 flex-center'>
+        <view class='nav1-item flex1-center' wx:for="{{nav1Datas}}" wx:key="index" catchtap='{{item.fun}}'>
+            <image class='nav1-item-img' src='{{item.color}}' mode='widthFix' lazy-load='true'></image>
+            <text>{{item.text}}</text>
         </view>
-        <button id='share-button' class='nav-item flex-center' open-type="share">
-            {{navDatas[navDatas.length-2].title}}
-        </button>
-        <button id='contact-button' class='nav-item flex-center' open-type="contact">
-            {{navDatas[navDatas.length-1].title}}
-        </button>
-    </view>
-    <view class='deal-number flex-center'>
-        截至目前已成交客户数:
-        <text>{{datas.countNumbers}}</text>
-        人
     </view>
     <swiper id='swiper2' autoplay="true" interval="5000" duration="1000" vertical="true">
         <block wx:for="{{list}}">
@@ -41,12 +31,24 @@
             </swiper-item>
         </block>
     </swiper>
-    <view class='nav1 flex-center'>
-        <view class='nav1-item flex1-center' wx:for="{{nav1Datas}}" wx:key="index" catchtap='{{item.fun}}'>
-            <image class='nav1-item-img' src='{{item.color}}' mode='widthFix' lazy-load='true'></image>
-            <text>{{item.text}}</text>
+    <view class='nav flex-center'>
+        <view class='nav-item flex-center' wx:for="{{navDatas}}" wx:key="index" catchtap='{{item.fun}}'
+              wx:if="{{index<navDatas.length-2}}">{{item.title}}
         </view>
+        <button id='share-button' class='nav-item flex-center' open-type="share">
+            {{navDatas[navDatas.length-2].title}}
+        </button>
+        <button id='contact-button' class='nav-item flex-center' open-type="contact">
+            {{navDatas[navDatas.length-1].title}}
+        </button>
     </view>
+    <view class='deal-number flex-center'>
+        截至目前已成交客户数:
+        <text>{{datas.countNumbers}}</text>
+        人
+    </view>
+
+
     <!-- <scroll-view bindscroll="scroll" id="scroll-view" class="alone-list" scroll-y="true" scroll-top="{{scrollTop}}" style="{{loading==true?'z-index:1;':'z-index:0;'}}">
       <view class="alone-item {{index%2==0?'alone-item-even':''}}" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" catchtap="memberList2" data-index='{{index}}'>
         <view class="alone-number">

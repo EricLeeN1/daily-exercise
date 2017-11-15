@@ -5,35 +5,58 @@ $(function () {
         site: '',
         site2: '',
         default: '',
-        replyHtml: '<div class="reply-area"><textarea maxlength="140" name="reply-content" id="reply-content"></textarea><div id="btn-reply">回复</div></div>',
-        getQueryString: function (name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-            var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
-            var context = "";
-            if (r != null)
-                context = r[2];
-            reg = null;
-            r = null;
-            return context == null || context == "" || context == "undefined" ? "" : context;
-        },
-        objKeySort: function (arys) {
-            var newkey = Object.keys(arys).sort();
-            var newObj = {};
-            for (var i = 0; i < newkey.length; i++) {
-                newObj[newkey[i]] = arys[newkey[i]];
+        addBookmark: function (title, url) {
+
+            if (window.sidebar) {
+
+                window.sidebar.addPanel(title, url, "");
+
+            } else if (document.all) {
+
+                window.external.AddFavorite(url, title);
+
+            } else if (window.opera && window.print) {
+
+                return true;
 
             }
-            return newObj; //返回排好序的新对象
+
         },
-        // tab:function (eleHover,eleShow,activeClass) {
-        //     var index= $(eleHover).index();
-        //     $(eleShow).hide().eq(index).show();
-        // },
-        // clickTab:function (eleHover,eleShow,activeClass) {
-        //     var index= $(eleHover).index();
-        //     $(eleHover).addClass(activeClass).siblings().removeClass(activeClass);
-        //     $(eleShow).hide().eq(index).show();
-        // },
+        setHome: function (url) {
+
+            if (document.all) {
+
+                document.body.style.behavior = 'url(#default#homepage)';
+
+                document.body.setHomePage(url);
+
+            } else if (window.sidebar) {
+
+                if (window.netscape) {
+
+                    try {
+
+                        netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+
+                    } catch (e) {
+
+                        alert("该操作被浏览器拒绝，如果想启用该功能，请在地址栏内输入 about:config,然后将项 signed.applets.codebase_principal_support 值该为true");
+
+                    }
+
+            }
+
+                if (window.confirm("你确定要设置" + url + "为首页吗？") == 1) {
+
+                    var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+
+                    prefs.setCharPref('browser.startup.homepage', url);
+
+                }
+
+            }
+
+        },
         init: function () {
             var that = this;
             $("#nav>ul>li").on('mouseover', function () {
@@ -60,8 +83,13 @@ $(function () {
             });
             $(".focus-us>ul>li").on('click', function () {
                 var index = $(this).index();
-                // $(this).addClass('news-all-title-active').siblings().removeClass('news-all-title-active');
                 $(".qrcode>li").hide().eq(index).show();
+            });
+            $("#setHome").on('click', function () {
+                that.setHome('http://www.jb51.net');
+            });
+            $("#addBookmark").on('click', function () {
+                that.addBookmark('湖南钢结构', 'http://www.hngjg.com');
             });
             console.log('' +
                 '//                            _ooOoo_\n' +
@@ -91,6 +119,7 @@ $(function () {
             // } else {
             //     that.getInitData('id');
             // }
+
         }
     };
     var browser = {

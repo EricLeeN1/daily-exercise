@@ -13,7 +13,7 @@
                         <view class='goods-infos-price' catchtap='playThisVideo'>
                             {{"吉物价："+itemName.price}}
                         </view>
-                        <view class='goods-buy' catchtap='buyNow' hover-class='goods-buy-active'>
+                        <view class='goods-buy' data-index='{{idx}}' catchtap='buyNow' hover-class='goods-buy-active'>
                             立即购买
                         </view>
                     </view>
@@ -33,6 +33,39 @@
         <view class='video-nodal-panel'>
             <video src='{{activeUrl}}' poster='{{activeLogo}}' controls objectFit="cover"></video>
             <view catchtap='closeVideoBg'>关闭视频</view>
+        </view>
+    </view>
+    <!-- 弹窗 -->
+    <view class="goods-info-modal-bg flex-center" wx:if="{{showModal}}">
+        <view class="goods-info-bg" catchtap="closeModal"></view>
+        <view class="goods-info-modal">
+            <view class="goods-modal-title flex-center" catchtap="closeModal">
+                <text>商品详情</text>
+                <view class="goods-modal-close">
+                    ×
+                </view>
+            </view>
+            <image src="{{modalGoods.logo}}" mode="widthFix" class="goods-modal-logo"/>
+            <view class="goods-infos flex-center">
+                <view class="goods-name">{{modalGoods.name}}</view>
+                <view class="goods-infos-detail flex-center">
+                    <view class="goods-detail-left">
+                        <view class="goods-price-vip">{{modalGoods.price+' '+tips.price}}</view>
+                    </view>
+                    <view class="goods-number flex-center">
+                        <view class="goods-reduce" data-index="{{activeIndex}}" catchtap="goodsReduceModal">
+                            <image src="{{icon.reduce}}" mode="widthFix"></image>
+                        </view>
+                        <view class="number">{{modalGoods.number}}</view>
+                        <view class="goods-add" catchtap="goodsAddModal" data-index="{{activeIndex}}">
+                            <image src="{{icon.add}}" mode="widthFix"></image>
+                        </view>
+                    </view>
+                </view>
+                <view class="goods-ok-btn" catchtap="tobuy" hover-class="goods-ok-btn-active">
+                    选好了
+                </view>
+            </view>
         </view>
     </view>
 </view>

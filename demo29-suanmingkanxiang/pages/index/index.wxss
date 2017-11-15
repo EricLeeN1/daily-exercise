@@ -3,12 +3,12 @@
 }
 
 .swiper {
-  height: 360rpx;
+  height: 400rpx;
 }
 
 .swiper .slide-image {
   width: 100%;
-  height: 360rpx;
+  height: 400rpx;
 }
 
 .swiper .slide-image image {
