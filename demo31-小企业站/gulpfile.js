@@ -25,12 +25,17 @@ gulp.task('clean',
 
 var less = require('gulp-less');
 var cssnano = require('gulp-cssnano');
+var autoprefiexer = require('gulp-autoprefixer');
 
 gulp.task('style', function () {
     // 这里实在执行style任务时自动执行的
     gulp.src('src/styles/*.less')
         .pipe(rename({suffix: '.min'}))
         .pipe(less())
+        .pipe(autoprefiexer({
+            browsers: ['last 200 versions'],
+            cascade: false
+        }))
         // .pipe(cssnano())
         .pipe(gulp.dest('dist/styles'))
         .pipe(browserSync.reload({

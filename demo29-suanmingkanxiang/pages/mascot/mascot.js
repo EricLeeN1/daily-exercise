@@ -1,6 +1,7 @@
 const app = getApp();
 Page({
     data: {
+        showModal: false,
         icon: {
             hot: 'chaoshi_icon_rexiao@2x.png',
             reduce: 'chaoshi_icon_sub@2x.png',
@@ -126,12 +127,67 @@ Page({
     onShareAppMessage: function () {
 
     },
-    buyNow: function () {
-        wx.showToast({
-            title: '购买成功',
+    closeModal: function () {
+        this.setData({
+            showModal: false
         });
-        setTimeout(function () {
-            wx.hideLoading();
-        }, 1000);
+    },
+    buyNow: function (e) {
+        // buyNow
+        const that = this,
+            index = e.currentTarget.dataset.index,
+            list = that.data.shops,
+            modalGoods = list[index];
+        modalGoods.number = 1;
+        that.setData({
+            modalGoods: modalGoods,
+            showModal: true,
+            activeIndex: index
+        });
+        // wx.showToast({
+        //   title: '购买成功',
+        // });
+        // setTimeout(function () {
+        //   wx.hideLoading();
+        // }, 1000);
+    },
+    goodsReduceModal: function (e) {
+        const that = this,
+            index = e.currentTarget.dataset.index,
+            list = that.data.shops,
+            modal = that.data.modalGoods;
+        list[index].number--;
+        modal.number--;
+        list[index].number = Math.max(list[index].number - 1, 0);
+        modal.number = Math.max(modal.number - 1, 0);
+        if (modal.number) {
+            that.setData({
+                list: list,
+                modalGoods: modal
+            });
+        } else {
+            that.setData({
+                list: list,
+                modalGoods: modal,
+                showModal: false
+            });
+        }
+    },
+    goodsAddModal: function (e) {
+        const that = this,
+            index = e.currentTarget.dataset.index,
+            list = that.data.shops,
+            modal = that.data.modalGoods;
+        list[index].number++;
+        modal.number++;
+        that.setData({
+            list: list,
+            modalGoods: modal
+        });
+    },
+    tobuy: function () {
+        wx.navigateTo({
+            url: '../pay/pay',
+        })
     }
 });

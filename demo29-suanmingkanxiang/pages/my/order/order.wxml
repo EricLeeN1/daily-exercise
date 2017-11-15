@@ -21,8 +21,7 @@
                 <view class="weui-navbar__title">{{item}}</view>
             </view>
         </block>
-        <view class="weui-navbar__slider"
-              style="left: {{sliderLeft1}}px; transform: translateX({{sliderOffset1}}px); -webkit-transform: translateX({{sliderOffset1}}px);"></view>
+        <!-- <view class="weui-navbar__slider" style="left: {{sliderLeft1}}px; transform: translateX({{sliderOffset1}}px); -webkit-transform: translateX({{sliderOffset1}}px);"></view> -->
     </scroll-view>
     <scroll-view hidden='{{activeIndex!=1}}' class='weui-navbar' scroll-x style='width:100%;'
                  scroll-left="{{sliderOffset1}}" scroll-into-view="{{type}}">
@@ -32,7 +31,600 @@
                 <view class="weui-navbar__title">{{item}}</view>
             </view>
         </block>
-        <view class="weui-navbar__slider"
-              style="left: {{sliderLeft1}}px; transform: translateX({{sliderOffset1}}px); -webkit-transform: translateX({{sliderOffset1}}px);"></view>
+        <!-- <view class="weui-navbar__slider" style="left: {{sliderLeft1}}px; transform: translateX({{sliderOffset1}}px); -webkit-transform: translateX({{sliderOffset1}}px);"></view>  -->
     </scroll-view>
+    <view hidden='{{activeIndex!=0}}'>
+        <view class='order-list' hidden='{{activeIndex1!=0}}'>
+            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}">
+                <view class='order-title flex-center'>
+                    <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <text>{{item.name}}</text>
+                    <view wx:if="{{item.status==0}}">待付款</view>
+                    <view wx:elif="{{item.status==1}}">待发货</view>
+                    <view wx:elif="{{item.status==2}}">待收货</view>
+                    <view wx:else>待评价</view>
+                </view>
+                <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
+                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
+                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
+                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                        <view class='order-goods-des'>
+                            <view>{{iItem.name}}</view>
+                            <text>{{iItem.size}}</text>
+                        </view>
+                        <view class='order-goods-price'>
+                            <view>{{"¥"+iItem.price}}</view>
+                            <text>{{"x"+iItem.number}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class='order-price-all'>
+                    {{"实付:¥"+item.priceAll+"(免运费)"}}
+                </view>
+                <view class='order-operate flex-center'>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
+                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    </view>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
+                          data-id="{{item.id}}">去评价
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
+                          data-id="{{item.id}}">查看物流
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
+                          data-id='{{item.id}}'>
+                        再次购买
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
+                          data-id='{{item.id}}'>延长收货
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
+                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    </view>
+                </view>
+            </view>
+            <!-- loading -->
+            <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+                <text class='flex-center'>没有更多订单了</text>
+            </view>
+            <!-- 我也是有底线的 -->
+            <view class='loading-show flex-center' wx:if="{{noDatas}}">
+                <text class='flex-center'>我也是有底线的</text>
+            </view>
+        </view>
+        <view class='order-list' hidden='{{activeIndex1!=1}}'>
+            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==0}}">
+                <view class='order-title flex-center'>
+                    <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <text>{{item.name}}</text>
+                    <view wx:if="{{item.status==0}}">待付款</view>
+                    <view wx:elif="{{item.status==1}}">待发货</view>
+                    <view wx:elif="{{item.status==2}}">待收货</view>
+                    <view wx:else>待评价</view>
+                </view>
+                <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
+                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
+                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
+                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                        <view class='order-goods-des'>
+                            <view>{{iItem.name}}</view>
+                            <text>{{iItem.size}}</text>
+                        </view>
+                        <view class='order-goods-price'>
+                            <view>{{"¥"+iItem.price}}</view>
+                            <text>{{"x"+iItem.number}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class='order-price-all'>
+                    {{"实付:¥"+item.priceAll+"(免运费)"}}
+                </view>
+                <view class='order-operate flex-center'>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
+                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    </view>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
+                          data-id="{{item.id}}">去评价
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
+                          data-id="{{item.id}}">查看物流
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
+                          data-id='{{item.id}}'>
+                        再次购买
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
+                          data-id='{{item.id}}'>延长收货
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
+                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    </view>
+                </view>
+            </view>
+            <!-- loading -->
+            <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+                <text class='flex-center'>没有更多订单了</text>
+            </view>
+            <!-- 我也是有底线的 -->
+            <view class='loading-show flex-center' wx:if="{{noDatas}}">
+                <text class='flex-center'>我也是有底线的</text>
+            </view>
+        </view>
+        <view class='order-list' hidden='{{activeIndex1!=2}}'>
+            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==1}}">
+                <view class='order-title flex-center'>
+                    <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <text>{{item.name}}</text>
+                    <view wx:if="{{item.status==0}}">待付款</view>
+                    <view wx:elif="{{item.status==1}}">待发货</view>
+                    <view wx:elif="{{item.status==2}}">待收货</view>
+                    <view wx:else>待评价</view>
+                </view>
+                <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
+                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
+                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
+                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                        <view class='order-goods-des'>
+                            <view>{{iItem.name}}</view>
+                            <text>{{iItem.size}}</text>
+                        </view>
+                        <view class='order-goods-price'>
+                            <view>{{"¥"+iItem.price}}</view>
+                            <text>{{"x"+iItem.number}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class='order-price-all'>
+                    {{"实付:¥"+item.priceAll+"(免运费)"}}
+                </view>
+                <view class='order-operate flex-center'>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
+                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    </view>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
+                          data-id="{{item.id}}">去评价
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
+                          data-id="{{item.id}}">查看物流
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
+                          data-id='{{item.id}}'>
+                        再次购买
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
+                          data-id='{{item.id}}'>延长收货
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
+                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    </view>
+                </view>
+            </view>
+            <!-- loading -->
+            <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+                <text class='flex-center'>没有更多订单了</text>
+            </view>
+            <!-- 我也是有底线的 -->
+            <view class='loading-show flex-center' wx:if="{{noDatas}}">
+                <text class='flex-center'>我也是有底线的</text>
+            </view>
+        </view>
+        <view class='order-list' hidden='{{activeIndex1!=3}}'>
+            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==2}}">
+                <view class='order-title flex-center'>
+                    <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <text>{{item.name}}</text>
+                    <view wx:if="{{item.status==0}}">待付款</view>
+                    <view wx:elif="{{item.status==1}}">待发货</view>
+                    <view wx:elif="{{item.status==2}}">待收货</view>
+                    <view wx:else>待评价</view>
+                </view>
+                <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
+                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
+                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
+                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                        <view class='order-goods-des'>
+                            <view>{{iItem.name}}</view>
+                            <text>{{iItem.size}}</text>
+                        </view>
+                        <view class='order-goods-price'>
+                            <view>{{"¥"+iItem.price}}</view>
+                            <text>{{"x"+iItem.number}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class='order-price-all'>
+                    {{"实付:¥"+item.priceAll+"(免运费)"}}
+                </view>
+                <view class='order-operate flex-center'>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
+                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    </view>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
+                          data-id="{{item.id}}">去评价
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
+                          data-id="{{item.id}}">查看物流
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
+                          data-id='{{item.id}}'>
+                        再次购买
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
+                          data-id='{{item.id}}'>延长收货
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
+                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    </view>
+                </view>
+            </view>
+            <!-- loading -->
+            <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+                <text class='flex-center'>没有更多订单了</text>
+            </view>
+            <!-- 我也是有底线的 -->
+            <view class='loading-show flex-center' wx:if="{{noDatas}}">
+                <text class='flex-center'>我也是有底线的</text>
+            </view>
+        </view>
+        <view class='order-list' hidden='{{activeIndex1!=4}}'>
+            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==3}}">
+                <view class='order-title flex-center'>
+                    <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <text>{{item.name}}</text>
+                    <view wx:if="{{item.status==0}}">待付款</view>
+                    <view wx:elif="{{item.status==1}}">待发货</view>
+                    <view wx:elif="{{item.status==2}}">待收货</view>
+                    <view wx:else>待评价</view>
+                </view>
+                <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
+                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
+                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
+                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                        <view class='order-goods-des'>
+                            <view>{{iItem.name}}</view>
+                            <text>{{iItem.size}}</text>
+                        </view>
+                        <view class='order-goods-price'>
+                            <view>{{"¥"+iItem.price}}</view>
+                            <text>{{"x"+iItem.number}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class='order-price-all'>
+                    {{"实付:¥"+item.priceAll+"(免运费)"}}
+                </view>
+                <view class='order-operate flex-center'>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
+                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    </view>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
+                          data-id="{{item.id}}">去评价
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
+                          data-id="{{item.id}}">查看物流
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
+                          data-id='{{item.id}}'>
+                        再次购买
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
+                          data-id='{{item.id}}'>延长收货
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
+                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    </view>
+                </view>
+            </view>
+            <!-- loading -->
+            <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+                <text class='flex-center'>没有更多订单了</text>
+            </view>
+            <!-- 我也是有底线的 -->
+            <view class='loading-show flex-center' wx:if="{{noDatas}}">
+                <text class='flex-center'>我也是有底线的</text>
+            </view>
+        </view>
+    </view>
+    <view hidden='{{activeIndex!=1}}'>
+        <view class='order-list' hidden='{{activeIndex1!=0}}'>
+            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}">
+                <view class='order-title flex-center'>
+                    <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <text>{{item.name}}</text>
+                    <view wx:if="{{item.status==0}}">待付款</view>
+                    <view wx:elif="{{item.status==1}}">待发货</view>
+                    <view wx:elif="{{item.status==2}}">待收货</view>
+                    <view wx:else>待评价</view>
+                </view>
+                <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
+                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
+                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
+                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                        <view class='order-goods-des'>
+                            <view>{{iItem.name}}</view>
+                            <text>{{iItem.size}}</text>
+                        </view>
+                        <view class='order-goods-price'>
+                            <view>{{"¥"+iItem.price}}</view>
+                            <text>{{"x"+iItem.number}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class='order-price-all'>
+                    {{"实付:¥"+item.priceAll+"(免运费)"}}
+                </view>
+                <view class='order-operate flex-center'>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
+                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    </view>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
+                          data-id="{{item.id}}">去评价
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
+                          data-id="{{item.id}}">查看物流
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
+                          data-id='{{item.id}}'>
+                        再次购买
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
+                          data-id='{{item.id}}'>延长收货
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
+                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    </view>
+                </view>
+            </view>
+            <!-- loading -->
+            <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+                <text class='flex-center'>没有更多订单了</text>
+            </view>
+            <!-- 我也是有底线的 -->
+            <view class='loading-show flex-center' wx:if="{{noDatas}}">
+                <text class='flex-center'>我也是有底线的</text>
+            </view>
+        </view>
+        <view class='order-list' hidden='{{activeIndex1!=1}}'>
+            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==0}}">
+                <view class='order-title flex-center'>
+                    <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <text>{{item.name}}</text>
+                    <view wx:if="{{item.status==0}}">待付款</view>
+                    <view wx:elif="{{item.status==1}}">待发货</view>
+                    <view wx:elif="{{item.status==2}}">待收货</view>
+                    <view wx:else>待评价</view>
+                </view>
+                <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
+                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
+                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
+                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                        <view class='order-goods-des'>
+                            <view>{{iItem.name}}</view>
+                            <text>{{iItem.size}}</text>
+                        </view>
+                        <view class='order-goods-price'>
+                            <view>{{"¥"+iItem.price}}</view>
+                            <text>{{"x"+iItem.number}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class='order-price-all'>
+                    {{"实付:¥"+item.priceAll+"(免运费)"}}
+                </view>
+                <view class='order-operate flex-center'>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
+                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    </view>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
+                          data-id="{{item.id}}">去评价
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
+                          data-id="{{item.id}}">查看物流
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
+                          data-id='{{item.id}}'>
+                        再次购买
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
+                          data-id='{{item.id}}'>延长收货
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
+                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    </view>
+                </view>
+            </view>
+            <!-- loading -->
+            <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+                <text class='flex-center'>没有更多订单了</text>
+            </view>
+            <!-- 我也是有底线的 -->
+            <view class='loading-show flex-center' wx:if="{{noDatas}}">
+                <text class='flex-center'>我也是有底线的</text>
+            </view>
+        </view>
+        <view class='order-list' hidden='{{activeIndex1!=2}}'>
+            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==1}}">
+                <view class='order-title flex-center'>
+                    <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <text>{{item.name}}</text>
+                    <view wx:if="{{item.status==0}}">待付款</view>
+                    <view wx:elif="{{item.status==1}}">待发货</view>
+                    <view wx:elif="{{item.status==2}}">待收货</view>
+                    <view wx:else>待评价</view>
+                </view>
+                <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
+                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
+                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
+                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                        <view class='order-goods-des'>
+                            <view>{{iItem.name}}</view>
+                            <text>{{iItem.size}}</text>
+                        </view>
+                        <view class='order-goods-price'>
+                            <view>{{"¥"+iItem.price}}</view>
+                            <text>{{"x"+iItem.number}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class='order-price-all'>
+                    {{"实付:¥"+item.priceAll+"(免运费)"}}
+                </view>
+                <view class='order-operate flex-center'>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
+                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    </view>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
+                          data-id="{{item.id}}">去评价
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
+                          data-id="{{item.id}}">查看物流
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
+                          data-id='{{item.id}}'>
+                        再次购买
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
+                          data-id='{{item.id}}'>延长收货
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
+                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    </view>
+                </view>
+            </view>
+            <!-- loading -->
+            <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+                <text class='flex-center'>没有更多订单了</text>
+            </view>
+            <!-- 我也是有底线的 -->
+            <view class='loading-show flex-center' wx:if="{{noDatas}}">
+                <text class='flex-center'>我也是有底线的</text>
+            </view>
+        </view>
+        <view class='order-list' hidden='{{activeIndex1!=3}}'>
+            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==2}}">
+                <view class='order-title flex-center'>
+                    <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <text>{{item.name}}</text>
+                    <view wx:if="{{item.status==0}}">待付款</view>
+                    <view wx:elif="{{item.status==1}}">待发货</view>
+                    <view wx:elif="{{item.status==2}}">待收货</view>
+                    <view wx:else>待评价</view>
+                </view>
+                <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
+                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
+                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
+                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                        <view class='order-goods-des'>
+                            <view>{{iItem.name}}</view>
+                            <text>{{iItem.size}}</text>
+                        </view>
+                        <view class='order-goods-price'>
+                            <view>{{"¥"+iItem.price}}</view>
+                            <text>{{"x"+iItem.number}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class='order-price-all'>
+                    {{"实付:¥"+item.priceAll+"(免运费)"}}
+                </view>
+                <view class='order-operate flex-center'>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
+                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    </view>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
+                          data-id="{{item.id}}">去评价
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
+                          data-id="{{item.id}}">查看物流
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
+                          data-id='{{item.id}}'>
+                        再次购买
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
+                          data-id='{{item.id}}'>延长收货
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
+                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    </view>
+                </view>
+            </view>
+            <!-- loading -->
+            <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+                <text class='flex-center'>没有更多订单了</text>
+            </view>
+            <!-- 我也是有底线的 -->
+            <view class='loading-show flex-center' wx:if="{{noDatas}}">
+                <text class='flex-center'>我也是有底线的</text>
+            </view>
+        </view>
+        <view class='order-list' hidden='{{activeIndex1!=4}}'>
+            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==3}}">
+                <view class='order-title flex-center'>
+                    <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <text>{{item.name}}</text>
+                    <view wx:if="{{item.status==0}}">待付款</view>
+                    <view wx:elif="{{item.status==1}}">待发货</view>
+                    <view wx:elif="{{item.status==2}}">待收货</view>
+                    <view wx:else>待评价</view>
+                </view>
+                <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
+                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
+                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
+                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                        <view class='order-goods-des'>
+                            <view>{{iItem.name}}</view>
+                            <text>{{iItem.size}}</text>
+                        </view>
+                        <view class='order-goods-price'>
+                            <view>{{"¥"+iItem.price}}</view>
+                            <text>{{"x"+iItem.number}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class='order-price-all'>
+                    {{"实付:¥"+item.priceAll+"(免运费)"}}
+                </view>
+                <view class='order-operate flex-center'>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
+                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    </view>
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
+                          data-id="{{item.id}}">去评价
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
+                          data-id="{{item.id}}">查看物流
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
+                          data-id='{{item.id}}'>
+                        再次购买
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
+                          data-id='{{item.id}}'>延长收货
+                    </view>
+                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
+                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    </view>
+                </view>
+            </view>
+            <!-- loading -->
+            <view class='loading-show flex-center' wx:if="{{!noDatas}}">
+                <text class='flex-center'>没有更多订单了</text>
+            </view>
+            <!-- 我也是有底线的 -->
+            <view class='loading-show flex-center' wx:if="{{noDatas}}">
+                <text class='flex-center'>我也是有底线的</text>
+            </view>
+        </view>
+    </view>
 </view>

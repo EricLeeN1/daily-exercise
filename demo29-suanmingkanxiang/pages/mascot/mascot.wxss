@@ -147,3 +147,94 @@ image {
   margin-top: 30rpx;
   text-align: center;
 }
+
+
+/* 弹窗 */
+
+.goods-info-modal-bg {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  justify-content: center;
+}
+
+.goods-info-modal-bg .goods-info-bg {
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.goods-info-modal {
+  z-index: 100;
+  background-color: #fff;
+  width: 630rpx;
+  justify-content: space-between;
+  border-radius: 10rpx;
+}
+
+.goods-modal-title {
+  height: 80rpx;
+  padding: 0 30rpx;
+}
+
+.goods-modal-title text {
+   margin-right: auto; 
+  /* text-align: center; */
+  font-size: 30rpx;
+}
+
+.goods-modal-title .goods-modal-close {
+  height: 100%;
+  line-height: 80rpx;
+}
+
+.goods-info-modal .goods-modal-logo {
+  width: 100%;
+}
+
+.goods-info-modal .goods-infos {
+  padding: 0 30rpx;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.goods-info-modal .goods-number {
+  margin-left: auto;
+}
+
+.goods-info-modal .goods-number .number{
+  margin: 0 20px;
+}
+.goods-info-modal .goods-infos-detail {
+  width: 100%;
+}
+
+.goods-info-modal .goods-add  image,.goods-info-modal .goods-reduce  image{
+  width: 40rpx;
+}
+
+.goods-info-modal .goods-ok-btn {
+  margin: 30rpx 0 30rpx auto;
+  background-color: #f55053;
+  line-height: 60rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  padding: 0 30rpx;
+  border-radius: 10rpx;
+  color: #fff;
+}
+
+.goods-info-modal .goods-ok-btn-active {
+  border: 1px solid #f55053;
+  color: #f55053;
+  background-color: #fff;
+  box-sizing: border-box;
+}

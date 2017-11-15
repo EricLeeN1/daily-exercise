@@ -21,7 +21,7 @@ Page({
         },
         orderListAll:
             {
-                logo: "../../../images/icon/logo.png",
+                logo: "../../../images/banner/banner6.jpg",
                 id: 1,
                 name: "吉物开光专卖",
                 status: 0,
@@ -33,20 +33,20 @@ Page({
                         price: 66.66,
                         number: 1
                     },
-                    {
-                        logo: '../mascot/logo1.png',
-                        name: '好运缘开光黑曜石貔貅(手链+吊坠)组合，采用几近失传的貔貅手链选料经方——天然招财辟邪制煞防小人黑曜石材质,其极度辟邪，强力化解驱除各种负能量，是所有宝石之中吸纳性最强的宝石；',
-                        size: "灰色 礼盒装",
-                        price: 66.66,
-                        number: 1
-                    },
-                    {
-                        logo: '../mascot/logo1.png',
-                        name: '好运缘开光黑曜石貔貅(手链+吊坠)组合，采用几近失传的貔貅手链选料经方——天然招财辟邪制煞防小人黑曜石材质,其极度辟邪，强力化解驱除各种负能量，是所有宝石之中吸纳性最强的宝石；',
-                        size: "灰色 礼盒装",
-                        price: 66.66,
-                        number: 1
-                    }
+                    // {
+                    //     logo: '../mascot/logo1.png',
+                    //     name: '好运缘开光黑曜石貔貅(手链+吊坠)组合，采用几近失传的貔貅手链选料经方——天然招财辟邪制煞防小人黑曜石材质,其极度辟邪，强力化解驱除各种负能量，是所有宝石之中吸纳性最强的宝石；',
+                    //     size: "灰色 礼盒装",
+                    //     price: 66.66,
+                    //     number: 1
+                    // },
+                    // {
+                    //     logo: '../mascot/logo1.png',
+                    //     name: '好运缘开光黑曜石貔貅(手链+吊坠)组合，采用几近失传的貔貅手链选料经方——天然招财辟邪制煞防小人黑曜石材质,其极度辟邪，强力化解驱除各种负能量，是所有宝石之中吸纳性最强的宝石；',
+                    //     size: "灰色 礼盒装",
+                    //     price: 66.66,
+                    //     number: 1
+                    // }
                 ],
                 priceAll: 66.66 * 3
             }
@@ -70,7 +70,7 @@ Page({
     },
     changeAddress: function () {
         wx.navigateTo({
-            url: '../../address/address',
+            url: '../my/address/address',
         });
     },
     getChoiceNumber: function (e) {
@@ -95,7 +95,7 @@ Page({
                 title: '温馨提示',
                 content: '您将删除此商品？确定删除吗',
                 confirmText: "确定删除",
-                confirmColor: "#f65314",
+                confirmColor: "#f55053",
                 cancelText: "留着吧",
                 success: function () {
                     console.log(111);
@@ -182,8 +182,8 @@ Page({
 
     },
     toDetail: function () {
-        wx.navigateTo({
-            url: '../../goodslists/goodslists?type=1',
+        wx.switchTab({
+            url: "/pages/mascot/mascot",
         })
     }
 })
