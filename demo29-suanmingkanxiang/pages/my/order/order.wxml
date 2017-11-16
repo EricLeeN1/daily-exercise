@@ -330,54 +330,51 @@
             </view>
         </view>
     </view>
-    <view hidden='{{activeIndex!=1}}'>
+    <view class='activeIndex2' hidden='{{activeIndex!=1}}'>
         <view class='order-list' hidden='{{activeIndex1!=0}}'>
-            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
+            <view class='order-item' wx:for="{{orderListAll1}}" data-id='{{item.id}}'
                   style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}">
                 <view class='order-title flex-center'>
                     <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
                     <text>{{item.name}}</text>
-                    <view wx:if="{{item.status==0}}">待付款</view>
-                    <view wx:elif="{{item.status==1}}">待发货</view>
-                    <view wx:elif="{{item.status==2}}">待收货</view>
-                    <view wx:else>待评价</view>
+                    <view wx:if="{{item.status==0}}">未完成</view>
+                    <view wx:elif="{{item.status==1}}">已成功</view>
+                    <view wx:elif="{{item.status==2}}">投诉中</view>
+                    <view wx:elif="{{item.status==3}}">投诉成功</view>
+                    <view wx:else>投诉失败</view>
                 </view>
                 <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
-                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
-                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
-                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <view class='order-goods-item flex-center'
+                          style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
                         <view class='order-goods-des'>
-                            <view>{{iItem.name}}</view>
-                            <text>{{iItem.size}}</text>
+                            <view>{{item.question}}</view>
                         </view>
                         <view class='order-goods-price'>
-                            <view>{{"¥"+iItem.price}}</view>
-                            <text>{{"x"+iItem.number}}</text>
+                            <view>{{"¥"+item.price}}</view>
                         </view>
+                        <text>{{item.time}}</text>
                     </view>
-                </view>
-                <view class='order-price-all'>
-                    {{"实付:¥"+item.priceAll+"(免运费)"}}
                 </view>
                 <view class='order-operate flex-center'>
-                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
-                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==0}}" catchtap='readyToPay'
+                          data-id="{{item.id}}" data-index="{{index}}">去付款
                     </view>
-                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
-                          data-id="{{item.id}}">去评价
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==1}}" catchtap='askOnce'
+                          data-id="{{item.id}}" data-index="{{index}}">再次提问
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
-                          data-id="{{item.id}}">查看物流
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==2}}" catchtap='tousuzhong'
+                          data-id="{{item.id}}" data-index="{{index}}">投诉中
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
-                          data-id='{{item.id}}'>
-                        再次购买
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}"
+                          catchtap='tousuchenggong' data-id="{{item.id}}" data-index="{{index}}">投诉成功
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
-                          data-id='{{item.id}}'>延长收货
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==4}}" catchtap='tousushibai'
+                          data-id="{{item.id}}" data-index="{{index}}">投诉失败
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
-                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    <view class='order-operate-item' catchtap='lookDetail' data-id="{{item.id}}">查看详情
+                    </view>
+                    <view data-index='{{index}}' class='order-operate-item' catchtap='delyToVioce'
+                          data-id='{{item.id}}'>删除订单
                     </view>
                 </view>
             </view>
@@ -391,52 +388,49 @@
             </view>
         </view>
         <view class='order-list' hidden='{{activeIndex1!=1}}'>
-            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
-                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==0}}">
+            <view class='order-item' wx:for="{{orderListAll1}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==1}}">
                 <view class='order-title flex-center'>
                     <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
                     <text>{{item.name}}</text>
-                    <view wx:if="{{item.status==0}}">待付款</view>
-                    <view wx:elif="{{item.status==1}}">待发货</view>
-                    <view wx:elif="{{item.status==2}}">待收货</view>
-                    <view wx:else>待评价</view>
+                    <view wx:if="{{item.status==0}}">未完成</view>
+                    <view wx:elif="{{item.status==1}}">已成功</view>
+                    <view wx:elif="{{item.status==2}}">投诉中</view>
+                    <view wx:elif="{{item.status==3}}">投诉成功</view>
+                    <view wx:else>投诉失败</view>
                 </view>
                 <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
-                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
-                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
-                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <view class='order-goods-item flex-center'
+                          style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
                         <view class='order-goods-des'>
-                            <view>{{iItem.name}}</view>
-                            <text>{{iItem.size}}</text>
+                            <view>{{item.question}}</view>
                         </view>
                         <view class='order-goods-price'>
-                            <view>{{"¥"+iItem.price}}</view>
-                            <text>{{"x"+iItem.number}}</text>
+                            <view>{{"¥"+item.price}}</view>
                         </view>
+                        <text>{{item.time}}</text>
                     </view>
-                </view>
-                <view class='order-price-all'>
-                    {{"实付:¥"+item.priceAll+"(免运费)"}}
                 </view>
                 <view class='order-operate flex-center'>
-                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
-                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==0}}" catchtap='readyToPay'
+                          data-id="{{item.id}}" data-index="{{index}}">去付款
                     </view>
-                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
-                          data-id="{{item.id}}">去评价
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==1}}" catchtap='askOnce'
+                          data-id="{{item.id}}" data-index="{{index}}">再次提问
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
-                          data-id="{{item.id}}">查看物流
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==2}}" catchtap='tousuzhong'
+                          data-id="{{item.id}}" data-index="{{index}}">投诉中
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
-                          data-id='{{item.id}}'>
-                        再次购买
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}"
+                          catchtap='tousuchenggong' data-id="{{item.id}}" data-index="{{index}}">投诉成功
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
-                          data-id='{{item.id}}'>延长收货
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==4}}" catchtap='tousushibai'
+                          data-id="{{item.id}}" data-index="{{index}}">投诉失败
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
-                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    <view class='order-operate-item' catchtap='lookDetail' data-id="{{item.id}}">查看详情
+                    </view>
+                    <view data-index='{{index}}' class='order-operate-item' catchtap='delyToVioce'
+                          data-id='{{item.id}}'>删除订单
                     </view>
                 </view>
             </view>
@@ -450,52 +444,49 @@
             </view>
         </view>
         <view class='order-list' hidden='{{activeIndex1!=2}}'>
-            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
-                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==1}}">
+            <view class='order-item' wx:for="{{orderListAll1}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==2}}">
                 <view class='order-title flex-center'>
                     <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
                     <text>{{item.name}}</text>
-                    <view wx:if="{{item.status==0}}">待付款</view>
-                    <view wx:elif="{{item.status==1}}">待发货</view>
-                    <view wx:elif="{{item.status==2}}">待收货</view>
-                    <view wx:else>待评价</view>
+                    <view wx:if="{{item.status==0}}">未完成</view>
+                    <view wx:elif="{{item.status==1}}">已成功</view>
+                    <view wx:elif="{{item.status==2}}">投诉中</view>
+                    <view wx:elif="{{item.status==3}}">投诉成功</view>
+                    <view wx:else>投诉失败</view>
                 </view>
                 <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
-                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
-                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
-                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <view class='order-goods-item flex-center'
+                          style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
                         <view class='order-goods-des'>
-                            <view>{{iItem.name}}</view>
-                            <text>{{iItem.size}}</text>
+                            <view>{{item.question}}</view>
                         </view>
                         <view class='order-goods-price'>
-                            <view>{{"¥"+iItem.price}}</view>
-                            <text>{{"x"+iItem.number}}</text>
+                            <view>{{"¥"+item.price}}</view>
                         </view>
+                        <text>{{item.time}}</text>
                     </view>
-                </view>
-                <view class='order-price-all'>
-                    {{"实付:¥"+item.priceAll+"(免运费)"}}
                 </view>
                 <view class='order-operate flex-center'>
-                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
-                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==0}}" catchtap='readyToPay'
+                          data-id="{{item.id}}" data-index="{{index}}">去付款
                     </view>
-                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
-                          data-id="{{item.id}}">去评价
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==1}}" catchtap='askOnce'
+                          data-id="{{item.id}}" data-index="{{index}}">再次提问
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
-                          data-id="{{item.id}}">查看物流
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==2}}" catchtap='tousuzhong'
+                          data-id="{{item.id}}" data-index="{{index}}">投诉中
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
-                          data-id='{{item.id}}'>
-                        再次购买
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}"
+                          catchtap='tousuchenggong' data-id="{{item.id}}" data-index="{{index}}">投诉成功
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
-                          data-id='{{item.id}}'>延长收货
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==4}}" catchtap='tousushibai'
+                          data-id="{{item.id}}" data-index="{{index}}">投诉失败
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
-                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    <view class='order-operate-item' catchtap='lookDetail' data-id="{{item.id}}">查看详情
+                    </view>
+                    <view data-index='{{index}}' class='order-operate-item' catchtap='delyToVioce'
+                          data-id='{{item.id}}'>删除订单
                     </view>
                 </view>
             </view>
@@ -509,52 +500,49 @@
             </view>
         </view>
         <view class='order-list' hidden='{{activeIndex1!=3}}'>
-            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
-                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==2}}">
+            <view class='order-item' wx:for="{{orderListAll1}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==3}}">
                 <view class='order-title flex-center'>
                     <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
                     <text>{{item.name}}</text>
-                    <view wx:if="{{item.status==0}}">待付款</view>
-                    <view wx:elif="{{item.status==1}}">待发货</view>
-                    <view wx:elif="{{item.status==2}}">待收货</view>
-                    <view wx:else>待评价</view>
+                    <view wx:if="{{item.status==0}}">未完成</view>
+                    <view wx:elif="{{item.status==1}}">已成功</view>
+                    <view wx:elif="{{item.status==2}}">投诉中</view>
+                    <view wx:elif="{{item.status==3}}">投诉成功</view>
+                    <view wx:else>投诉失败</view>
                 </view>
                 <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
-                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
-                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
-                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <view class='order-goods-item flex-center'
+                          style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
                         <view class='order-goods-des'>
-                            <view>{{iItem.name}}</view>
-                            <text>{{iItem.size}}</text>
+                            <view>{{item.question}}</view>
                         </view>
                         <view class='order-goods-price'>
-                            <view>{{"¥"+iItem.price}}</view>
-                            <text>{{"x"+iItem.number}}</text>
+                            <view>{{"¥"+item.price}}</view>
                         </view>
+                        <text>{{item.time}}</text>
                     </view>
-                </view>
-                <view class='order-price-all'>
-                    {{"实付:¥"+item.priceAll+"(免运费)"}}
                 </view>
                 <view class='order-operate flex-center'>
-                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
-                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==0}}" catchtap='readyToPay'
+                          data-id="{{item.id}}" data-index="{{index}}">去付款
                     </view>
-                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
-                          data-id="{{item.id}}">去评价
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==1}}" catchtap='askOnce'
+                          data-id="{{item.id}}" data-index="{{index}}">再次提问
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
-                          data-id="{{item.id}}">查看物流
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==2}}" catchtap='tousuzhong'
+                          data-id="{{item.id}}" data-index="{{index}}">投诉中
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
-                          data-id='{{item.id}}'>
-                        再次购买
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}"
+                          catchtap='tousuchenggong' data-id="{{item.id}}" data-index="{{index}}">投诉成功
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
-                          data-id='{{item.id}}'>延长收货
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==4}}" catchtap='tousushibai'
+                          data-id="{{item.id}}" data-index="{{index}}">投诉失败
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
-                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    <view class='order-operate-item' catchtap='lookDetail' data-id="{{item.id}}">查看详情
+                    </view>
+                    <view data-index='{{index}}' class='order-operate-item' catchtap='delyToVioce'
+                          data-id='{{item.id}}'>删除订单
                     </view>
                 </view>
             </view>
@@ -568,52 +556,49 @@
             </view>
         </view>
         <view class='order-list' hidden='{{activeIndex1!=4}}'>
-            <view class='order-item' wx:for="{{orderListAll}}" data-id='{{item.id}}'
-                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==3}}">
+            <view class='order-item' wx:for="{{orderListAll1}}" data-id='{{item.id}}'
+                  style="{{index==orderListAll.length-1?'margin-bottom:0;':''}}" wx:if="{{item.status==4}}">
                 <view class='order-title flex-center'>
                     <image src='{{item.logo}}' mode='widthFix' lazy-load='true'></image>
                     <text>{{item.name}}</text>
-                    <view wx:if="{{item.status==0}}">待付款</view>
-                    <view wx:elif="{{item.status==1}}">待发货</view>
-                    <view wx:elif="{{item.status==2}}">待收货</view>
-                    <view wx:else>待评价</view>
+                    <view wx:if="{{item.status==0}}">未完成</view>
+                    <view wx:elif="{{item.status==1}}">已成功</view>
+                    <view wx:elif="{{item.status==2}}">投诉中</view>
+                    <view wx:elif="{{item.status==3}}">投诉成功</view>
+                    <view wx:else>投诉失败</view>
                 </view>
                 <view class='order-goods-list' data-id='{{item.id}}' catchtap='lookOrderDetail'>
-                    <view class='order-goods-item flex-center' wx:for="{{item.goods}}" wx:if="index" wx:for-item="iItem"
-                          wx:for-index="iIndex" style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
-                        <image src='{{iItem.logo}}' mode='widthFix' lazy-load='true'></image>
+                    <view class='order-goods-item flex-center'
+                          style="{{iIndex==item.goods.length-1?'border-bottom:none;':''}}">
                         <view class='order-goods-des'>
-                            <view>{{iItem.name}}</view>
-                            <text>{{iItem.size}}</text>
+                            <view>{{item.question}}</view>
                         </view>
                         <view class='order-goods-price'>
-                            <view>{{"¥"+iItem.price}}</view>
-                            <text>{{"x"+iItem.number}}</text>
+                            <view>{{"¥"+item.price}}</view>
                         </view>
+                        <text>{{item.time}}</text>
                     </view>
-                </view>
-                <view class='order-price-all'>
-                    {{"实付:¥"+item.priceAll+"(免运费)"}}
                 </view>
                 <view class='order-operate flex-center'>
-                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status<3}}"
-                          catchtap='readyToReceive' data-id="{{item.id}}" data-index="{{index}}">确认收货
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==0}}" catchtap='readyToPay'
+                          data-id="{{item.id}}" data-index="{{index}}">去付款
                     </view>
-                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}" catchtap='toComments'
-                          data-id="{{item.id}}">去评价
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==1}}" catchtap='askOnce'
+                          data-id="{{item.id}}" data-index="{{index}}">再次提问
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='lookForLogistics'
-                          data-id="{{item.id}}">查看物流
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==2}}" catchtap='tousuzhong'
+                          data-id="{{item.id}}" data-index="{{index}}">投诉中
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='buyAgain'
-                          data-id='{{item.id}}'>
-                        再次购买
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==3}}"
+                          catchtap='tousuchenggong' data-id="{{item.id}}" data-index="{{index}}">投诉成功
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status<3}}" catchtap='delyToReceive'
-                          data-id='{{item.id}}'>延长收货
+                    <view class='order-operate-item order-operate-ok' wx:if="{{item.status==4}}" catchtap='tousushibai'
+                          data-id="{{item.id}}" data-index="{{index}}">投诉失败
                     </view>
-                    <view class='order-operate-item' wx:if="{{item.status==3}}" catchtap='deleteThisOrder'
-                          data-id='{{item.id}}' data-index="{{index}}">删除订单
+                    <view class='order-operate-item' catchtap='lookDetail' data-id="{{item.id}}">查看详情
+                    </view>
+                    <view data-index='{{index}}' class='order-operate-item' catchtap='delyToVioce'
+                          data-id='{{item.id}}'>删除订单
                     </view>
                 </view>
             </view>

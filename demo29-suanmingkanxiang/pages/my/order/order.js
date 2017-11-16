@@ -101,6 +101,89 @@ Page({
                 ],
                 priceAll: 66.66 * 2
             }
+        ],
+        orderListAll1: [
+            {
+                status: 0,
+                id: 1,
+                name: "向问天",
+                logo: "../../../images/banner/banner6.jpg",
+                question: "什么时候结婚，什么时候有孩子",
+                price: 66.66,
+                time: "2017-11-16"
+            },
+            {
+                status: 1,
+                id: 1,
+                name: "向问天",
+                logo: "../../../images/banner/banner6.jpg",
+                question: "什么时候结婚，什么时候有孩子",
+                price: 66.66,
+                time: "2017-11-16"
+            },
+            {
+                status: 2,
+                id: 1,
+                name: "向问天",
+                logo: "../../../images/banner/banner6.jpg",
+                question: "什么时候结婚，什么时候有孩子",
+                price: 66.66,
+                time: "2017-11-16"
+            },
+            {
+                status: 3,
+                id: 1,
+                name: "向问天",
+                logo: "../../../images/banner/banner6.jpg",
+                question: "什么时候结婚，什么时候有孩子",
+                price: 66.66,
+                time: "2017-11-16"
+            },
+            {
+                status: 4,
+                id: 1,
+                name: "向问天",
+                logo: "../../../images/banner/banner6.jpg",
+                question: "什么时候结婚，什么时候有孩子",
+                price: 66.66,
+                time: "2017-11-16"
+            },
+            {
+                status: 1,
+                id: 1,
+                name: "向问天",
+                logo: "../../../images/banner/banner6.jpg",
+                question: "什么时候结婚，什么时候有孩子",
+                price: 66.66,
+                time: "2017-11-16"
+            },
+            {
+                status: 0,
+                id: 1,
+                name: "令狐冲",
+                logo: "../../../images/banner/banner6.jpg",
+                question: "什么时候结婚，什么时候有孩子",
+                price: 66.66,
+                time: "2017-11-16"
+            },
+            {
+                status: 0,
+                id: 1,
+                name: "东方不败",
+                logo: "../../../images/banner/banner6.jpg",
+                question: "什么时候结婚，什么时候有孩子",
+                price: 66.66,
+                time: "2017-11-16"
+            },
+            {
+                status: 0,
+                id: 1,
+                name: "岳不群",
+                logo: "../../../images/banner/banner6.jpg",
+                question: "什么时候结婚，什么时候有孩子",
+                price: 66.66,
+                time: "2017-11-16"
+            }
         ]
     },
     toComments: function (e) {
@@ -108,6 +191,52 @@ Page({
             id = e.currentTarget.dataset.id;
         wx.navigateTo({
             url: '../toComments/toComments?id=' + id,
+        });
+    },
+    askOnce: function () {
+        wx.navigateTo({
+            url: '../../qAndA/ask/ask',
+        })
+    },
+    readyToPay: function () {
+        wx.requestPayment({
+            'timeStamp': '',
+            'nonceStr': '',
+            'package': '',
+            'signType': 'MD5',
+            'paySign': '',
+            'success': function (res) {
+            },
+            'fail': function (res) {
+            }
+        })
+    },
+    tousuzhong: function () {
+        wx.showModal({
+            title: '温馨提示',
+            content: '您的订单处于投诉中，有任何问题请联系客服',
+            success: function () {
+                wx.switchTab({
+                    url: '/pages/index/index',
+                })
+            }
+        })
+    },
+    tousuchenggong: function () {
+        wx.showModal({
+            title: '温馨提示',
+            content: '您的订单投诉成功，近期内将有客服联系您，请保持电话畅通',
+        })
+    },
+    tousushibai: function () {
+        wx.showModal({
+            title: '温馨提示',
+            content: '您的订单投诉失败，有任何问题请联系客服',
+            success: function () {
+                wx.switchTab({
+                    url: '/pages/index/index',
+                })
+            }
         });
     },
     lookForLogistics: function (e) {
@@ -184,6 +313,32 @@ Page({
             }
         });
     },
+    delyToVioce: function (e) {
+        let that = this,
+            // id = e.currentTarget.dataset.id,
+            index = e.currentTarget.dataset.index,
+            datas = that.data.orderListAll1;
+        wx.showModal({
+            title: '平台提示',
+            content: '是否删除此订单?',
+            confirmColor: "#f55053",
+            confirmText: "确定",
+            success: function (res) {
+                datas.splice(index, 1);
+                that.setData({
+                    orderListAll1: datas
+                });
+            },
+            fail: function (res) {
+
+            }
+        });
+    },
+    lookDetail: function (e) {
+        wx.navigateTo({
+            url: '../../qAndA/answer/answer',
+        });
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -192,7 +347,7 @@ Page({
             type = options.type;
         that.setData({
             type: type,
-            activeIndex: type ? type : 0,
+            activeIndex: type ? type : 1,
             activeIndex1: type ? type : 0,
             sliderOffset: 120,
             sliderOffset1: 0

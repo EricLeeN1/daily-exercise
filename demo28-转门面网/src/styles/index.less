@@ -2,6 +2,46 @@
 @import "normalize.less";
 @import "base.less";
 body {
- 
+
+  > header {
+    background: url('../images/banner.jpg') no-repeat;
+    height: 534px;
+    > nav {
+      .container;
+      color: #fff;
+      overflow: hidden;
+      > a {
+        float: left;
+        margin-top: 36px;
+      }
+      > .nav-address {
+        float: left;
+      }
+      .nav-details {
+        float: right;
+        .nav-topbar {
+          line-height: 54px;
+          .flex-center;
+          font-size: 14px;
+          .nav-login {
+
+          }
+          .nav-app {
+            margin-left: 30px;
+            margin-right: 30px;
+          }
+        }
+      }
+    }
+    > h1 {
+      .container;
+    }
+    > h2 {
+      .container;
+    }
+    > .header-form {
+      .container;
+    }
+  }
 
 }

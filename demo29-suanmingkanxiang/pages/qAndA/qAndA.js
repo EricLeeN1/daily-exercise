@@ -16,10 +16,11 @@ Page({
                 logo: "../myShare/1.jpg",
                 question: "我的另一半和我是什么关系，在哪里认识,我的另一半和我是什么关系，在哪里认识，我的另一半和我是什么关系，在哪里认识",
                 price: "5元",
-                number: 7
+                number: 7,
             },
             {
                 id: 2,
+
                 logo: "../myShare/2.jpg",
                 question: "我的另一半和我是什么关系，在哪里认识",
                 price: "免费",
@@ -27,6 +28,7 @@ Page({
             },
             {
                 id: 3,
+
                 logo: "../myShare/3.jpg",
                 question: "我的另一半和我是什么关系，在哪里认识",
                 price: "10元",
@@ -34,6 +36,7 @@ Page({
             },
             {
                 id: 4,
+
                 logo: "../myShare/4.jpg",
                 question: "我的另一半和我是什么关系，在哪里认识",
                 price: "20元",
@@ -41,6 +44,7 @@ Page({
             },
             {
                 id: 5,
+
                 logo: "../myShare/1.jpg",
                 question: "我的另一半和我是什么关系，在哪里认识",
                 price: "5元",
@@ -48,6 +52,7 @@ Page({
             },
             {
                 id: 6,
+
                 logo: "../myShare/2.jpg",
                 question: "我的另一半和我是什么关系，在哪里认识",
                 price: "免费",
