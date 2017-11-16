@@ -8,12 +8,78 @@ Page({
         loading: false,
         timer: null,
         icon: {
+            banner: "../../../images/banner/banner2.png",
+            level: "../../../images/icon/level.png",
+            levelpurple: "../../../images/icon/levelpurple.png",
+            levelblue: "../../../images/icon/levelblue.png",
+            levelgreen: "../../../images/icon/levelgreen.png",
+            levelred: "../../../images/icon/level.png",
+            busyTrue: "../../../images/icon/busy.png",
+            busyFalse: "../../../images/icon/busyFalse.png",
+            edit: "../../../images/icon/edit.png",
             red: "../../images/icon/red.png",
             getNow: "../../images/icon/getNow.png",
+            look: "../../images/icon/more1.png"
         },
         imgUrls: [
             '../../images/banner/banner2.png',
             '../../images/banner/banner3.png'
+        ],
+        lists1: [
+            {
+                id: 1,
+                name: "欧阳锋",
+                provice: "天津",
+                logo: "../myShare/1.jpg",
+                question: "我的另一半和我是什么关系，在哪里认识,我的另一半和我是什么关系，在哪里认识，我的另一半和我是什么关系，在哪里认识",
+                price: "5元",
+                number: 7
+            },
+            {
+                id: 2,
+                provice: "重庆",
+                name: "黄蓉",
+                logo: "../myShare/2.jpg",
+                question: "我的另一半和我是什么关系，在哪里认识",
+                price: "免费",
+                number: 7
+            },
+            {
+                id: 3,
+                name: "郭靖",
+                provice: "大连",
+                logo: "../myShare/3.jpg",
+                question: "我的另一半和我是什么关系，在哪里认识",
+                price: "10元",
+                number: 7
+            },
+            {
+                id: 4,
+                provice: "尼斯",
+                name: "洪七公",
+                logo: "../myShare/4.jpg",
+                question: "我的另一半和我是什么关系，在哪里认识",
+                price: "20元",
+                number: 7
+            },
+            {
+                id: 5,
+                name: "黄老邪",
+                provice: "上海",
+                logo: "../myShare/1.jpg",
+                question: "我的另一半和我是什么关系，在哪里认识",
+                price: "5元",
+                number: 7
+            },
+            {
+                id: 6,
+                name: "段智兴",
+                provice: "北京",
+                logo: "../myShare/2.jpg",
+                question: "我的另一半和我是什么关系，在哪里认识",
+                price: "免费",
+                number: 7
+            }
         ],
         list: [
             {
@@ -142,6 +208,52 @@ Page({
                 time: "1分钟前",
             }
         ],
+        memberLists: [
+            {
+                id: 1,
+                logo: "../../../images/banner/banner6.jpg",
+                level: 1,
+                name: "炳坤专业算命，起名馆 起名 算命",
+                des: "专业就是用心起好每个名字，专业就是给你最优的指导,专业就是用心起好每个名字，专业就是给你最优的指导",
+                busy: 1,
+                price: 15,
+                active: 556,
+                orderNumber: 666
+            },
+            {
+                id: 2,
+                logo: "../../../images/banner/banner6.jpg",
+                level: 2,
+                name: "炳坤专业算命，起名馆 起名 算命",
+                des: "专业就是用心起好每个名字，专业就是给你最优的指导,专业就是用心起好每个名字，专业就是给你最优的指导",
+                busy: 0,
+                price: 15,
+                active: 556,
+                orderNumber: 666
+            },
+            {
+                id: 3,
+                logo: "../../../images/banner/banner6.jpg",
+                level: 3,
+                name: "炳坤专业算命，起名馆 起名 算命",
+                des: "专业就是用心起好每个名字，专业就是给你最优的指导,专业就是用心起好每个名字，专业就是给你最优的指导",
+                busy: 0,
+                price: 15,
+                active: 556,
+                orderNumber: 666
+            },
+            {
+                id: 3,
+                logo: "../../../images/banner/banner6.jpg",
+                level: 4,
+                name: "炳坤专业算命，起名馆 起名 算命",
+                des: "专业就是用心起好每个名字，专业就是给你最优的指导,专业就是用心起好每个名字，专业就是给你最优的指导",
+                busy: 1,
+                price: 15,
+                active: 556,
+                orderNumber: 666
+            }
+        ],
         banner: {
             indicatorDots: false,
             autoplay: false,
@@ -268,11 +380,40 @@ Page({
             showRedBg: false
         });
     },
+    setName: function () {
+        let that = this, list = that.data.lists1, length = list.length, showOrder = that.data.showOrder,
+            time = parseInt(Math.random() * 30 + 10), index = parseInt(Math.random() * length);
+        console.log(time);
+        if (that.data.showOrder) {
+            that.setData({
+                showOrder: true,
+                activeDatas: list[index]
+            });
+            setTimeout(function () {
+                that.setData({
+                    showOrder: false,
+                });
+                setTimeout(function () {
+                    that.setName();
+                }, time + 20000);
+            }, 3000);
+        } else {
+            setTimeout(function () {
+                that.setData({
+                    showOrder: true,
+                    activeDatas: list[index],
+                    time: time
+                });
+                that.setName();
+            }, time);
+        }
+    },
     onLoad: function () {
         const that = this;
         that.setData({
             scrollTop: 0,
         });
+
         wx.getStorage({
             key: 'getRedTickets',
             success: function (res) {
@@ -281,12 +422,13 @@ Page({
             fail: function (res) {
                 console.log(res);
                 that.setData({
-                    showRedBg: true
+                    showRedBg: false
         });
             }
         })
         setTimeout(function () {
             that.timer();
+            that.setName();
         }, 2000);
         if (app.globalData.userInfo) {
             this.setData({
