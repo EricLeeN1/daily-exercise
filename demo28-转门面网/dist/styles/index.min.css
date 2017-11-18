@@ -476,10 +476,22 @@ body > section .transfer-list li {
   overflow: hidden;
   margin-top: 14px;
 }
-body > section .transfer-list li > a > img {
+body > section .transfer-list li > a .transfer-list-img {
   width: 100%;
   height: 213px;
   overflow: hidden;
+}
+body > section .transfer-list li > a .transfer-list-img > img {
+  width: 100%;
+  height: 213px;
+  overflow: hidden;
+}
+body > section .transfer-list li > a .transfer-list-img > img:hover {
+  -webkit-transform: scale(1.2, 1.2);
+  -moz-transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  -o-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
 }
 body > section .transfer-list li > a .transfer-list-des {
   position: relative;
@@ -546,4 +558,98 @@ body > section .transfer-list li > a .transfer-list-des .transfer-discount span 
   background: url('../images/sprits.png') no-repeat;
   background-position: 0 0;
   margin-right: 10px;
+}
+body > section .brand-list {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+body > section .brand-list li {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 280px;
+  -moz-box-flex: 0;
+  -ms-flex: 0 0 280px;
+  flex: 0 0 280px;
+  width: 280px;
+}
+body > section .brand-list .ih-item.square.effect3 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  width: 115px;
+  height: 92px;
+  border: 1px solid #e6e6e6;
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+body > section .brand-list .ih-item.square.effect3 .info {
+  background: #fff;
+}
+body > section .brand-list .ih-item.square.effect3 .img {
+  width: 115px;
+  height: 92px;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+  overflow: hidden;
+}
+body > section .brand-list .ih-item.square.effect3 .info {
+  height: 65px;
+  background: #333333;
+  opacity: 0;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+body > section .brand-list .ih-item.square.effect3 .info h3 {
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  font-size: 17px;
+  padding: 10px 10px 0 4px;
+  margin: 4px 0 0 0;
+}
+body > section .brand-list .ih-item.square.effect3 .info p {
+  font-style: italic;
+  font-size: 12px;
+  position: relative;
+  color: #bbb;
+  padding: 5px;
+  text-align: center;
+}
+body > section .brand-list .ih-item.square.effect3 a:hover .info {
+  visibility: visible;
+  opacity: 1;
+}
+body > section .brand-list .ih-item.square.effect3.bottom_to_top .info {
+  top: auto;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%);
+}
+body > section .brand-list .ih-item.square.effect3.bottom_to_top a:hover .img {
+  -webkit-transform: translateY(-50px);
+  -moz-transform: translateY(-50px);
+  -ms-transform: translateY(-50px);
+  -o-transform: translateY(-50px);
+  transform: translateY(-50px);
+}
+body > section .brand-list .ih-item.square.effect3.bottom_to_top a:hover .info {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
 }
