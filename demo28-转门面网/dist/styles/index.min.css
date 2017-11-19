@@ -335,11 +335,19 @@ body > header h2 {
   align-items: center;
   width: 100%;
 }
+body > header > h1:hover,
+body > header h2:hover {
+  -webkit-transform: scale(1.01, 1.01);
+  -moz-transform: scale(1.01, 1.01);
+  -ms-transform: scale(1.01, 1.01);
+  -o-transform: scale(1.01, 1.01);
+  transform: scale(1.01, 1.01);
+}
 body > header > h2 {
   top: 270px;
 }
 body > header > .header-form {
-  line-height: 44px;
+  line-height: 42px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -387,21 +395,36 @@ body > header > .header-form form button {
   font-size: 18px;
   background-color: #db322b;
   padding: 0 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-border-top-right-radius: 5px;
   -moz-border-radius-topright: 5px;
   border-top-right-radius: 5px;
+  border: 1px solid #db322b;
   -webkit-border-bottom-right-radius: 5px;
   -moz-border-radius-bottomright: 5px;
   border-bottom-right-radius: 5px;
 }
+body > header > .header-form form button:hover {
+  border: 1px solid #db322b;
+  color: #db322b;
+  background-color: #fff;
+}
 body > header > .header-form > a {
   background-color: #fff;
-  color: #666;
+  color: #666666;
   padding: 0 10px;
+  border: 1px solid #fff;
   font-size: 18px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
+}
+body > header > .header-form > a:hover {
+  border: 1px solid #db322b;
+  background-color: #db322b;
+  color: #fff;
 }
 body > section {
   width: 1200px;
@@ -428,6 +451,13 @@ body > section .title h2 {
   font-size: 22px;
   margin-right: 10px;
 }
+body > section .title span {
+  width: 83px;
+  height: 18px;
+  background: url("../images/sprits.png") no-repeat;
+  background-position: -14px 0;
+  margin-right: 10px;
+}
 body > section .title small {
   color: #ff6773;
   margin-right: auto;
@@ -435,14 +465,19 @@ body > section .title small {
 body > section .title a {
   font-size: 14px;
   color: #808080;
-  width: 94px;
+  min-width: 80px;
   height: 26px;
   line-height: 26px;
+  padding: 0 10px;
   border: 1px solid #e1e1e1;
   text-align: center;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
+}
+body > section .title a:hover {
+  background-color: #e1e1e1;
+  color: #fff;
 }
 body > section .list {
   display: -webkit-box;
@@ -474,7 +509,7 @@ body > section .transfer-list li {
   -ms-flex: 0 0 284px;
   flex: 0 0 284px;
   overflow: hidden;
-  margin-top: 14px;
+  margin-top: 15px;
 }
 body > section .transfer-list li > a .transfer-list-img {
   width: 100%;
@@ -571,26 +606,168 @@ body > section .brand-list li {
   -ms-flex: 0 0 280px;
   flex: 0 0 280px;
   width: 280px;
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
-body > section .brand-list .ih-item.square.effect3 {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+body > section .brand-list li .brand-des {
+  font-size: 14px;
+  color: #808080;
+  margin-left: 10px;
+  width: 150px;
+  overflow: hidden;
+}
+body > section .brand-list li .brand-des h3 {
+  font-size: 16px;
+  color: #4c4c4c;
+  line-height: 26px;
+  height: 26px;
+  overflow: hidden;
+  width: 100%;
+}
+body > section .brand-list li .brand-des div {
+  line-height: 24px;
+  height: 24px;
+  width: 100%;
+  overflow: hidden;
+}
+body > section#rental .container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 15px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+body > section#rental .container .rental-number {
+  border: 1px solid #e6e6e6;
+}
+body > #invest {
+  margin-top: 30px;
+  padding-bottom: 20px;
+  background-color: #f5f5f5;
+  width: 100%;
+}
+body > #invest .invest-list li {
+  background-color: #fff;
+  width: 284px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 284px;
+  -moz-box-flex: 0;
+  -ms-flex: 0 0 284px;
+  flex: 0 0 284px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+body > #invest .invest-list li > .ih-item {
+  width: 284px;
+  height: 213px;
+  border: none;
+  overflow: hidden;
+}
+body > #invest .invest-list li > .ih-item .img img {
+  overflow: hidden;
+  width: 284px;
+  height: 213px;
+}
+body > #invest .invest-list li > .ih-item .info {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 50px;
+}
+body > #invest .invest-list li > h3 {
+  font-size: 16px;
+  line-height: 28px;
+  text-align: left;
+  height: 50px;
+  padding: 10px;
+  color: #4c4c4c;
+  border-bottom: 1px solid #e6e6e6;
+}
+body > #invest .invest-list li > .invest-des {
+  padding: 0 10px;
+  line-height: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  color: #4c4c4c;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  font-size: 12px;
+}
+body > #invest .invest-list li > .invest-des > div:last-child {
+  font-size: 18px;
+  color: #db322b;
+}
+.ih-item.square {
   position: relative;
   overflow: hidden;
   width: 115px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   height: 92px;
-  border: 1px solid #e6e6e6;
+  border: 2px solid #e6e6e6;
   -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
-body > section .brand-list .ih-item.square.effect3 .info {
-  background: #fff;
+.ih-item.square .info {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
-body > section .brand-list .ih-item.square.effect3 .img {
-  width: 115px;
-  height: 92px;
+.ih-item.square.effect3 .img {
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
@@ -600,10 +777,14 @@ body > section .brand-list .ih-item.square.effect3 .img {
   -moz-transition: all 0.35s ease-in-out;
   -o-transition: all 0.35s ease-in-out;
   transition: all 0.35s ease-in-out;
-  overflow: hidden;
 }
-body > section .brand-list .ih-item.square.effect3 .info {
-  height: 65px;
+.ih-item.square.effect3 .img img {
+  overflow: hidden;
+  width: 115px;
+  height: 92px;
+}
+.ih-item.square.effect3 .info {
+  height: 42px;
   background: #333333;
   opacity: 0;
   -webkit-transition: all 0.35s ease-in-out;
@@ -611,27 +792,34 @@ body > section .brand-list .ih-item.square.effect3 .info {
   -o-transition: all 0.35s ease-in-out;
   transition: all 0.35s ease-in-out;
 }
-body > section .brand-list .ih-item.square.effect3 .info h3 {
+.ih-item.square.effect3 .info h3 {
   text-transform: uppercase;
   color: #fff;
+  width: 100%;
+  height: 22px;
+  line-height: 22px;
   text-align: center;
-  font-size: 17px;
-  padding: 10px 10px 0 4px;
-  margin: 4px 0 0 0;
+  font-size: 14px;
+  padding: 0 2px;
+  overflow: hidden;
 }
-body > section .brand-list .ih-item.square.effect3 .info p {
+.ih-item.square.effect3 .info p {
   font-style: italic;
   font-size: 12px;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
   position: relative;
+  overflow: hidden;
   color: #bbb;
-  padding: 5px;
+  padding: 0 2px;
   text-align: center;
 }
-body > section .brand-list .ih-item.square.effect3 a:hover .info {
+.ih-item.square.effect3 a:hover .info {
   visibility: visible;
   opacity: 1;
 }
-body > section .brand-list .ih-item.square.effect3.bottom_to_top .info {
+.ih-item.square.effect3.bottom_to_top .info {
   top: auto;
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
@@ -639,14 +827,36 @@ body > section .brand-list .ih-item.square.effect3.bottom_to_top .info {
   -o-transform: translateY(100%);
   transform: translateY(100%);
 }
-body > section .brand-list .ih-item.square.effect3.bottom_to_top a:hover .img {
+.ih-item.square.effect3.bottom_to_top a:hover .img {
   -webkit-transform: translateY(-50px);
   -moz-transform: translateY(-50px);
   -ms-transform: translateY(-50px);
   -o-transform: translateY(-50px);
   transform: translateY(-50px);
 }
-body > section .brand-list .ih-item.square.effect3.bottom_to_top a:hover .info {
+.ih-item.square.effect3.bottom_to_top a:hover .info {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+.ih-item.square.effect3.top_to_bottom .info {
+  bottom: auto;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.ih-item.square.effect3.top_to_bottom a:hover .img {
+  -webkit-transform: translateY(50px);
+  -moz-transform: translateY(50px);
+  -ms-transform: translateY(50px);
+  -o-transform: translateY(50px);
+  transform: translateY(50px);
+}
+.ih-item.square.effect3.top_to_bottom a:hover .info {
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
