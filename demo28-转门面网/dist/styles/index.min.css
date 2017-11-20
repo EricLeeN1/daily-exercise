@@ -656,9 +656,125 @@ body > section#rental .container {
   -moz-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -moz-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
 }
 body > section#rental .container .rental-number {
+  padding: 30px 20px;
   border: 1px solid #e6e6e6;
+  width: 222px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 222px;
+  -moz-box-flex: 0;
+  -ms-flex: 0 0 222px;
+  flex: 0 0 222px;
+  margin-right: 20px;
+}
+body > section#rental .container .rental-number h3 {
+  font-size: 33px;
+  color: #db322b;
+}
+body > section#rental .container .rental-number p {
+  color: #4c4c4c;
+}
+body > section#rental .container .rental-number .line {
+  margin: 30px 0;
+  height: 1px;
+  background-color: #e1e1e1;
+}
+body > section#rental .container .rental-number > ul li {
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 30px;
+}
+body > section#rental .container .rental-number > ul li a {
+  float: left;
+}
+body > section#rental .container .rental-number > ul li span {
+  float: right;
+}
+body > section#rental .container .rental-list {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+body > section#rental .container .rental-list li {
+  width: 284px;
+  position: relative;
+  height: 203px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+body > section#rental .container .rental-list li::before {
+  content: '进行中...';
+  position: absolute;
+  color: #fff;
+  font-size: 14px;
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+  padding: 0 20px;
+  line-height: 24px;
+  top: 1px;
+  left: -15px;
+  background-color: #db322b;
+}
+body > section#rental .container .rental-list li > a .rental-des {
+  border: 1px solid #e1e1e1;
+  height: 150px;
+  padding: 15px 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-top-right-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  border-top-right-radius: 6px;
+  -webkit-border-top-left-radius: 6px;
+  -moz-border-radius-topleft: 6px;
+  border-top-left-radius: 6px;
+}
+body > section#rental .container .rental-list li > a .rental-des h3 {
+  font-size: 18px;
+  text-align: center;
+  line-height: 36px;
+}
+body > section#rental .container .rental-list li > a .rental-des div {
+  line-height: 26px;
+  font-size: 16px;
+}
+body > section#rental .container .rental-list li > a .rental-des div span {
+  color: #db322b;
+}
+body > section#rental .container .rental-list li > a .rental-btn {
+  background-color: #f5f5f5;
+  padding: 0 20px;
+  font-size: 14px;
+  overflow: hidden;
+  height: 52px;
+  line-height: 52px;
+}
+body > section#rental .container .rental-list li > a .rental-btn p {
+  float: left;
+}
+body > section#rental .container .rental-list li > a .rental-btn p i {
+  color: #db322b;
+}
+body > section#rental .container .rental-list li > a .rental-btn span {
+  float: right;
+  background-color: #db322b;
+  width: 70px;
+  text-align: center;
+  line-height: 24px;
+  margin-top: 14px;
+  color: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
 }
 body > #invest {
   margin-top: 30px;

@@ -265,8 +265,107 @@ body {
         .flex-center;
         margin-top: 15px;
         justify-content: space-between;
+        align-items: flex-start;
         .rental-number {
+          padding: 30px 20px;
           border: 1px solid @base-border-small-color;
+          width: 222px;
+          flex: 0 0 222px;
+          margin-right: 20px;
+          h3 {
+            font-size: 33px;
+            color: @base-red-color;
+          }
+          p {
+            color: @base-four-color;
+          }
+          .line {
+            margin: 30px 0;
+            height: 1px;
+            background-color: @base-border-color;
+          }
+          > ul {
+            li {
+              overflow: hidden;
+              font-size: 12px;
+              line-height: 30px;
+              a {
+                float: left;
+              }
+              span {
+                float: right;
+              }
+            }
+          }
+        }
+        .rental-list {
+          flex-wrap: wrap;
+          li {
+            width: 284px;
+            position: relative;
+            height: 203px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            &::before {
+              content: '进行中...';
+              position: absolute;
+              color: #fff;
+              font-size: 14px;
+              transform: rotate(-30deg);
+              padding: 0 20px;
+              line-height: 24px;
+              top: 1px;
+              left: -15px;
+              background-color: @base-red-color;
+            }
+            > a {
+              .rental-des {
+                border: 1px solid @base-border-color;
+                height: 150px;
+                padding: 15px 20px;
+                box-sizing: border-box;
+                border-top-right-radius: 6px;
+                border-top-left-radius: 6px;
+                h3 {
+                  font-size: 18px;
+                  text-align: center;
+                  line-height: 36px;
+                }
+                div {
+                  line-height: 26px;
+                  font-size: 16px;
+                  span {
+                    color: @base-red-color;
+                  }
+                }
+              }
+              .rental-btn {
+                background-color: @base-bg-color;
+                overflow: hidden;
+                padding: 0 20px;
+                font-size: 14px;
+                overflow: hidden;
+                height: 52px;
+                line-height: 52px;
+                p {
+                  float: left;
+                  i {
+                    color: @base-red-color;
+                  }
+                }
+                span {
+                  float: right;
+                  background-color: @base-red-color;
+                  width: 70px;
+                  text-align: center;
+                  line-height: 24px;
+                  margin-top: 14px;
+                  color: #fff;
+                  .rounded-corners(5px);
+                }
+              }
+            }
+          }
         }
       }
     }

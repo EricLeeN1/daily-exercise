@@ -33,7 +33,7 @@ gulp.task('style', function () {
         .pipe(rename({suffix: '.min'}))
         .pipe(less())
         .pipe(autoprefiexer({
-            browsers: ['last 200 versions'],
+            browsers: ['last 500 versions'],
             cascade: false
         }))
         // .pipe(cssnano())
