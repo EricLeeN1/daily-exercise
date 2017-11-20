@@ -351,9 +351,9 @@ body #news .news-panel .news-panel-top ul.news-img-list li .news-img-item-title 
 }
 body #news .news-panel .news-panel-top .news-text-list {
   height: 360px;
-  width: -webkit-calc(324px);
-  width: -moz-calc(324px);
-  width: calc(324px);
+  width: -webkit-calc(1200 px-200px-36px-640px);
+  width: -moz-calc(1200 px-200px-36px-640px);
+  width: calc(1200 px-200px-36px-640px);
   border: 12px solid #f5f5f5;
   padding: 0 12px;
   -webkit-box-sizing: border-box;
