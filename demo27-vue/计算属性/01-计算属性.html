@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+<div id="app">
+    <h1>原始值：{{message}}</h1>
+    <h1>翻转值：{{message}}</h1>
+    <h2>函数调用:{{reverseStr()}}</h2>
+    <h2>计算属性:{{reverseMes}}</h2>
+</div>
+<script src="../vue.min.js"></script>
+<script>
+    //1. 创建Vue的实例
+    let app = new Vue({
+        el: "#app",
+        data: {
+            message: "Rose Jack"
+        },
+        methods: {
+            reverseStr: function () {
+                return this.message.split('').reverse().join('')
+            }
+        },
+        computed: {
+            //get方法
+            reverseMes: function () {
+                return this.message.split('').reverse().join('')
+            }
+        }
+    });
+</script>
+</body>
+</html>

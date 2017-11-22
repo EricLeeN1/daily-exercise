@@ -335,8 +335,8 @@ body > header h2 {
   align-items: center;
   width: 100%;
 }
-body > header > h1:hover,
-body > header h2:hover {
+body > header > h1:hover img,
+body > header h2:hover img {
   -webkit-transform: scale(1.01, 1.01);
   -moz-transform: scale(1.01, 1.01);
   -ms-transform: scale(1.01, 1.01);
