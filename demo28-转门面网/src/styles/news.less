@@ -4,11 +4,11 @@
 
 body {
   > header {
-    height: 534px;
     position: relative;
+    .container;
     > nav {
       .container;
-      color: #fff;
+      //color: #fff;
       overflow: hidden;
       > a {
         float: left;
@@ -41,6 +41,7 @@ body {
           font-size: 18px;
           font-weight: bold;
           line-height: 1;
+          color: @base-four-color;
           li {
             padding-left: 30px;
             float: left;
@@ -51,62 +52,223 @@ body {
         }
       }
     }
-    > .header-form {
-      line-height: 42px;
-      .flex-center;
-      width: 100%;
-      position: absolute;
-      bottom: 118px;
-      justify-content: center;
-      form {
-        overflow: hidden;
-        margin-right: 10px;
-        input {
-          float: left;
-          background-color: #fff;
-          height: 44px;
-          width: 630px;
-          padding-left: 10px;
-          border-top-left-radius: 5px;
-          border-bottom-left-radius: 5px;
-          &::-moz-placeholder {
-            color: #999;
-          }
-          &::-webkit-input-placeholder {
-            color: #999;
-          }
+    > form {
+      padding: 45px 0;
+      margin-bottom: 45px;
+      overflow: hidden;
+      border-bottom: 1px solid @base-border-color;
+      input {
+        padding-left: 5px;
+        height: 44px;
+        float: left;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+        border: 1px solid #aaa;
+        width: 640px;
+        box-sizing: border-box;
+        line-height: 42px;
+        &::placeholder {
+          font-size: 16px;
+          line-height: 42px;
         }
-        button {
-          color: #fff;
-          font-size: 18px;
-          background-color: @base-red-color;
-          padding: 0 10px;
-          box-sizing: border-box;
-          border-top-right-radius: 5px;
-          border: 1px solid @base-red-color;
-          border-bottom-right-radius: 5px;
+      }
+      button {
+        width: 80px;
+        height: 44px;
+        float: left;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        background-color: @base-red-color;
+        position: absolute;
+        .icon {
+          background-position: -97px 0;
+          width: 31px;
+          height: 31px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          margin-left: -16px;
+          margin-top: -16px;
+        }
+      }
+    }
+  }
+  > section {
+    .container;
+    margin-bottom: 50px;
+    overflow: hidden;
+    background-color: #68d8fe;
+    padding-top: 2px;
+    height: calc(500 px-2px);
+    .aside {
+      width: 260px;
+      float: left;
+      color: #fff;
+      h2 {
+        font-size: 30px;
+        line-height: 39px;
+        position: relative;
+        margin: 20px 0 12px 60px;
+        .icon {
+          width: 35px;
+          position: absolute;
+          height: 39px;
+          background-position: -128px 0;
+          top: 0;
+          margin-left: -50px;
           &:hover {
-            border: 1px solid @base-red-color;
-            // border-left: 3px solid @base-red-color;
-            color: @base-red-color;
-            background-color: #fff;
+            transform: rotate(90deg);
           }
         }
       }
-      > a {
-        background-color: #fff;
-        color: @base-six-color;
-        // margin-top: -1px;
-        padding: 0 10px;
-        border: 1px solid #fff;
-        font-size: 18px;
-        .rounded-corners(5px);
+      .aside-list {
+        width: 100%;
+        overflow: hidden;
+        li {
+          line-height: 46px;
+          font-size: 22px;
+          float: left;
+          margin-left: 10px;
+          margin-right: 20px;
+          &:hover {
+            color: @base-red-color;
+          }
+        }
+      }
+      .aside-button {
+        width: 192px;
+        border: 3px solid #fff;
+        line-height: 36px;
+        font-size: 22px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-top: 26px;
+        .rounded-corners(10px);
+        margin-left: 10px;
         &:hover {
-          border: 1px solid @base-red-color;
           background-color: @base-red-color;
+          border-color: @base-red-color;
           color: #fff;
         }
       }
     }
+    .main {
+      width: 938px;
+      border: 1px solid @base-border-small-color;
+      float: right;
+    }
+  }
+  > #banner {
+    background-color: @base-bg-color;
+    padding-top: 45px;
+    padding-bottom: 30px;
+    .container-fluid;
+    .container {
+      overflow: hidden;
+      .banner {
+        width: 750px;
+        height: 430px;
+        float: left;
+        overflow: hidden;
+        position: relative;
+        .banner-dot {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          margin-left: -40px;
+          height: 30px;
+          overflow: hidden;
+          li {
+            float: left;
+            margin-right: 8px;
+            margin-top: 11px;
+            background-color: @base-border-color;
+            height: 8px;
+            width: 8px;
+            .rounded-corners(50%);
+          }
+        }
+        .banner-main {
+          width: 750px;
+          height: 430px;
+          overflow: hidden;
+          .banner-item {
+            float: left;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            img {
+              width: 750px;
+              height: 430px;
+            }
+          }
+        }
+        .banner-arrow {
+          a {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -30px;
+            img {
+              width: 30px;
+              height: 60px;
+            }
+            &:last-child {
+              right: 0;
+              left: auto;
+            }
+          }
+        }
+      }
+      > ul {
+        overflow: hidden;
+        float: right;
+        width: 450px;
+        height: 430px;
+        li {
+          float: left;
+          width: 140px;
+          height: 100px;
+          margin-left: 10px;
+          margin-bottom: 10px;
+          overflow: hidden;
+          a {
+            position: relative;
+            display: block;
+            p {
+              display: none;
+              background-color: @base-four-color;
+              text-align: center;
+              line-height: 100px;
+              .text-hidden-one;
+              padding: 0 3px;
+              color: #ffffff;
+            }
+            img {
+              width: 140px;
+              height: 100px;
+            }
+            &:hover {
+              img {
+                display: none;
+              }
+              p {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  > .ad-bar {
+    .container-fluid;
+    margin: 45px 0;
+    img {
+      width: 100%;
+    }
+  }
+  > #brand {
+
   }
 }

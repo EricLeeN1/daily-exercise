@@ -61,7 +61,7 @@ gulp.task('scripts', function () {
 
 // 3.img 复制
 gulp.task('images', function () {
-    gulp.src('src/images/*.*')
+    gulp.src('src/images/*/*.*')
         .pipe(gulp.dest('dist/images'))
         .pipe(browserSync.reload({
             stream: true
