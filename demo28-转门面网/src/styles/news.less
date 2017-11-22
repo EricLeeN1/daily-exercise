@@ -99,7 +99,7 @@ body {
     overflow: hidden;
     background-color: #68d8fe;
     padding-top: 2px;
-    height: calc(500 px-2px);
+    height: 498px;
     .aside {
       width: 260px;
       float: left;
@@ -153,7 +153,7 @@ body {
       }
     }
     .main {
-      width: 938px;
+      width: 937px;
       border: 1px solid @base-border-small-color;
       float: right;
     }
@@ -269,6 +269,202 @@ body {
     }
   }
   > #brand {
-
+    .brand-main {
+      overflow: hidden;
+      border-bottom: none;
+      li {
+        background-color: #fff;
+        width: 468px;
+        float: left;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 46px;
+        border-bottom: 1px solid @base-border-color;
+        &:nth-of-type(odd) {
+          border-right: 1px solid @base-border-color;
+        }
+        img {
+          margin-left: 13px;
+          float: left;
+          width: 260px;
+          height: 123px;
+        }
+        h3 {
+          float: right;
+          text-align: right;
+          max-width: 170px;
+          .text-hidden-one;
+          color: @base-red-color;
+          line-height: 20px;
+          margin: 24px 18px 24px 0;
+        }
+        p {
+          margin-right: 18px;
+          float: right;
+          max-width: 170px;
+          .text-hidden-one;
+        }
+      }
+    }
+  }
+  > #enjoy {
+    background-color: #4ddfcc;
+    .aside {
+      .icon {
+        width: 38px;
+        position: absolute;
+        height: 40px;
+        background-position: -163px 0;
+        top: 0;
+        margin-left: -50px;
+        &:hover {
+          transform: rotate(90deg);
+        }
+      }
+    }
+    .enjoy-main {
+      overflow: hidden;
+      border-bottom: none;
+      background-color: #fff;
+      li {
+        border: 1px solid @base-border-small-color;
+        margin-bottom: 8px;
+        width: 230px;
+        float: right;
+        margin-right: 2px;
+        font-weight: bold;
+        &:nth-child(n+5) {
+          margin-bottom: 0;
+        }
+        img {
+          width: 230px;
+          height: 180px;
+        }
+        h3 {
+          font-size: 20px;
+          height: 58px;
+          padding-top: 4px;
+          text-align: center;
+          max-width: 232px;
+          color: @base-red-color;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+  > #recruit {
+    background-color: #ffa664;
+    .recruit-main {
+      overflow: hidden;
+      border-bottom: none;
+      li {
+        height: 123px;
+        background-color: #fff;
+        width: 468px;
+        float: left;
+        color: #535353;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 46px;
+        text-align: right;
+        border-bottom: 1px solid @base-border-color;
+        &:nth-of-type(odd) {
+          border-right: 1px solid @base-border-color;
+        }
+        img {
+          margin-left: 13px;
+          margin-top: 25px;
+          float: left;
+          width: 278px;
+          height: 65px;
+        }
+        h3 {
+          float: right;
+          width: 150px;
+          .text-hidden-one;
+          color: @base-red-color;
+          line-height: 20px;
+          margin: 24px 18px 24px 0;
+        }
+        p {
+          margin-right: 18px;
+          float: right;
+          width: 150px;
+          .text-hidden-one;
+        }
+      }
+    }
+  }
+  > #decorate {
+    background-color: #d481c7;
+    margin-bottom: 0;
+    .aside {
+      .icon {
+        width: 38px;
+        position: absolute;
+        height: 40px;
+        background-position: -163px 0;
+        top: 0;
+        margin-left: -50px;
+        &:hover {
+          transform: rotate(90deg);
+        }
+      }
+    }
+    .decorate-main {
+      overflow: hidden;
+      border-bottom: none;
+      background-color: #fff;
+      li {
+        border: 1px solid @base-border-small-color;
+        margin-bottom: 8px;
+        width: 230px;
+        float: right;
+        margin-right: 2px;
+        font-weight: bold;
+        &:nth-child(n+5) {
+          margin-bottom: 0;
+        }
+        img {
+          width: 160px;
+          height: 160px;
+          margin: 10px auto;
+        }
+        h3 {
+          font-size: 20px;
+          height: 58px;
+          padding-top: 4px;
+          text-align: center;
+          max-width: 232px;
+          color: #333;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+  > #brand-area {
+    .container;
+    overflow: hidden;
+    h1 {
+      height: 50px;
+      line-height: 50px;
+      font-size: 22px;
+      color: #535353;
+    }
+    ul {
+      overflow: hidden;
+      li {
+        overflow: hidden;
+        float: left;
+        width: 289px;
+        height: 128px;
+        margin-left: 6px;
+        margin-right: 5px;
+        img {
+          width: 289px;
+          height: 128px;
+        }
+      }
+    }
   }
 }

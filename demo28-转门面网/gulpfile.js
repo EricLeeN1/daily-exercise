@@ -9,6 +9,8 @@
 //在gulpfile中先载入gulp的包，因为这个包提供了一些API
 var gulp = require('gulp');
 var rename = require('gulp-rename');
+var rev = require('gulp-rev'); //对文件名加MD5后缀
+var revCollector = require('gulp-rev-collector'); //路径替换
 var clean = require('gulp-clean'); //- 用于删除文件
 
 
@@ -36,8 +38,11 @@ gulp.task('style', function () {
             browsers: ['last 200 versions'],
             cascade: false
         }))
+        // .pipe(rev())    //- 文件名加MD5后缀
         // .pipe(cssnano())
         .pipe(gulp.dest('dist/styles'))
+        // .pipe(rev.manifest())                     //- 生成一个rev-manifest.json
+        // .pipe(gulp.dest('./rev'))                  //- 将 rev-manifest.json 保存到 rev
         .pipe(browserSync.reload({
             stream: true
         }));
@@ -61,7 +66,7 @@ gulp.task('scripts', function () {
 
 // 3.img 复制
 gulp.task('images', function () {
-    gulp.src('src/images/*/*.*')
+    gulp.src(['src/images/*.*', 'src/images/*/*.*'])
         .pipe(gulp.dest('dist/images'))
         .pipe(browserSync.reload({
             stream: true
@@ -71,7 +76,7 @@ gulp.task('images', function () {
 // 4.html 压缩
 var htmlmin = require('gulp-htmlmin');
 gulp.task('html', function () {
-    gulp.src('src/*.html')
+    gulp.src(['./rev/*.json', 'src/*.html'])
         .pipe(htmlmin({
             // collapseWhitespace:true,                //清除空格
             removeComments: true,                    //清除注释
@@ -80,6 +85,10 @@ gulp.task('html', function () {
             removeScriptTypeAttributes: true,        //清除script的type
             useShortDoctype: true                    //替换为html5文档类型
         }))
+        //- 读取 rev-manifest.json 文件以及需要进行css名替换的文件
+
+        // .pipe(revCollector())
+        //- 执行文件内css名的替换
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.reload({
             stream: true
@@ -97,6 +106,6 @@ gulp.task('serve', function () {
     });
     gulp.watch('src/styles/*.less', ['style']);
     gulp.watch('src/scripts/*.js', ['scripts']);
-    gulp.watch('src/images/*.*', ['images']);
+    gulp.watch(['src/images/*.*', 'src/images/*/*.*'], ['images']);
     gulp.watch('src/*.html', ['html']);
 });
