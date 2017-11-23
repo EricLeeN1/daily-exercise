@@ -1,0 +1,353 @@
+@charset "UTF-8";
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary,
+img {
+  display: block;
+}
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],
+template {
+  display: none;
+}
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: 700;
+}
+dfn {
+  font-style: italic;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 1em 40px;
+}
+hr {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+pre {
+  overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+button {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+input {
+  line-height: normal;
+}
+input[type=checkbox],
+input[type=radio] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0;
+  padding: 0;
+}
+textarea {
+  overflow: auto;
+}
+optgroup {
+  font-weight: 700;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+img,
+ul,
+ol,
+dl {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: none;
+  list-style: none;
+}
+.flex-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.flex1-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.container-fluid {
+  width: 100%;
+}
+.text-hidden-one {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.icon {
+  background: url("../images/sprits.png") no-repeat;
+  background-position: 0 0;
+  display: inline-block;
+}
+body > footer {
+  background: url("../images/web/footer-bg.png") no-repeat;
+  padding-bottom: 20px;
+  color: #fff;
+}
+body > footer .about-us {
+  overflow: hidden;
+  padding: 30px 0;
+}
+body > footer .about-us ul {
+  float: left;
+  font-size: 14px;
+  font-weight: bold;
+}
+body > footer .about-us ul li {
+  float: left;
+  margin-right: 13px;
+}
+body > footer .about-us p {
+  float: right;
+  color: #e17e13;
+}
+body > footer .help-center {
+  overflow: hidden;
+}
+body > footer .help-center dl {
+  float: left;
+  width: 150px;
+}
+body > footer .help-center dl dt {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 56px;
+}
+body > footer .help-center dl dd {
+  margin-left: 0;
+  font-size: 14px;
+  line-height: 32px;
+}
+body > footer .help-center ul {
+  float: right;
+}
+body > footer .help-center ul li {
+  float: left;
+  width: 90px;
+  height: 112px;
+  overflow: hidden;
+  margin-left: 12px;
+}
+body > footer .help-center ul li img {
+  width: 90px;
+  height: 90px;
+}
+body > footer .help-center ul li p {
+  line-height: 22px;
+  width: 100%;
+  font-size: 14px;
+  height: 30px;
+  overflow: hidden;
+  text-align: center;
+}
+body > footer .footer-declare {
+  margin-top: 40px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #e6e6e6;
+}
+body > footer .footer-tips {
+  font-size: 12px;
+  line-height: 20px;
+  color: #e6e6e6;
+  margin-top: 14px;
+  margin-bottom: 50px;
+}
+body > footer .footer-copyrights {
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+  color: #e6e6e6;
+}
+body > footer .footer-copyrights .footer-record {
+  margin-top: 26px;
+  margin-bottom: 20px;
+}
+body > footer .footer-copyrights ul {
+  overflow: hidden;
+  width: 402px;
+  margin: 0 auto;
+}
+body > footer .footer-copyrights ul li {
+  float: left;
+  width: 129px;
+  height: 39px;
+  overflow: hidden;
+  margin-left: 2px;
+  margin-right: 3px;
+}
+body > footer .footer-copyrights ul li img {
+  width: 129px;
+  height: 39px;
+}
