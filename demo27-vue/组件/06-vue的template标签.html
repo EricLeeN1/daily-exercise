@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>template标签</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+<div id="app">
+    <my-div></my-div>
+</div>
+<template id="my-div">
+    <div>
+        <div>我是MT!</div>
+        <input type="date">
+        <img src="../img/2.png" alt="">
+    </div>
+</template>
+<script src="../vue.min.js"></script>
+<script>
+    //1.实例化组件
+    Vue.component('my-div', {
+        template: '#my-div'
+    });
+    let app = new Vue({
+        el: "#app",
+        data: {
+            message: "这次我一定要把Vue掌握了"
+        },
+        methods: {},
+
+    });
+</script>
+</body>
+</html>

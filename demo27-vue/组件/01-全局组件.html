@@ -5,19 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>组件</title>
+    <title>Vue的全局组件</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 <div id="app">
-    <h1 v-once>原始值：{{message}}</h1>
-    <h1>原始值：{{message}}</h1>
+    <my-date></my-date>
+</div>
+<div id="app1">
+    <my-date></my-date>
 </div>
 <script src="../vue.min.js"></script>
 <script>
-    //    1.创建组件构造器
+    //  1.创建组件构造器
     let Profile = Vue.extend({
-//   1.1末班选项
+        //   1.1模版选项
         template: `
         <div>
             <input type="date">
@@ -25,14 +27,21 @@
         </div>
         `
     });
-    //1. 创建Vue的实例
+    //  2.注册一个全局的组件
+    Vue.component('my-date', Profile);
     let app = new Vue({
         el: "#app",
         data: {
             message: "这次我一定要把Vue掌握了"
         },
-        methods: {},
-
+        methods: {}
+    });
+    let app1 = new Vue({
+        el: "#app1",
+        data: {
+            message: "这次我一定要把Vue掌握了"
+        },
+        methods: {}
     });
 </script>
 

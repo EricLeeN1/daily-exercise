@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Vue中自定义事件</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+    <div id="app">
+        <my-slot>
+            <!-- <img src="../img/1.png" alt="" width="200">
+            <p>这个姑娘好美啊</p> -->
+            <input type="date">
+        </my-slot>
+    </div>
+    <template id="my_slot">
+        <div id="panel">
+            <h2 class="panel-header">
+                slot插槽头部
+            </h2>
+            <!-- 预留一个插槽 -->
+            <slot>可以替换任何标签，默认显示提示的内容</slot>
+            <footer>插槽的尾部</footer>
+        </div>
+    </template>
+    <script src="../vue.min.js"></script>
+    <script>
+        Vue.component('my-slot',{
+            template:"#my_slot"
+        })
+        Vue.component('my-btn', {
+            template: "#my-btn",
+            data() {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                total() {
+                    this.counter++;
+                    this.$emit('total');
+                    //通知外界，我调用了这个方法
+                }
+            }
+        })
+        let app = new Vue({
+            el: "#app",
+            data: {
+                totalCounter: 0
+            },
+            methods: {
+                allCounter() {
+                    this.totalCounter++;
+                }
+            },
+        });
+    </script>
+
+</body>
+
+</html>

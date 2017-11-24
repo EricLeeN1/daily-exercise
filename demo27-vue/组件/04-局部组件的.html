@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Vue的全局组件</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+<div id="app">
+    <my-date></my-date>
+</div>
+<script src="../vue.min.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            message: "这次我一定要把Vue掌握了"
+        },
+        components: {
+            'my-date': {
+                template: `
+                <div>
+                <input type="date">
+                <p>今天已经是冬天了</p>
+                </div>
+                `
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
