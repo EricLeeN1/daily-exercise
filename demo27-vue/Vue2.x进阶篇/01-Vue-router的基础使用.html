@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>01-Vue-router的基础使用</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="bs/css/bootstrap.css">
+    <style>
+        body{
+            background-color: #181818;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+
+        </div>
+    </div>
+</div>
+<template id="h5">
+    <div>
+        <h2>HTML5</h2>
+        <p>面向未来神技能</p>
+        <img src="img/1.png" width="100px" alt="">
+    </div>
+</template>
+<template id="css3">
+    <div>
+        <h2>CSS3</h2>
+        <p>新一代样式语言</p>
+        <img src="img/2.png" width="100px" alt="">
+    </div>
+</template>
+<template id="JavaScript">
+    <div>
+        <h2>JavaScript</h2>
+        <p>新功能，新世界</p>
+        <img src="img/1.png" width="100px" alt="">
+    </div>
+</template>
+<script src="js/vue.min.js"></script>
+<script src="js/vue-router.js"></script>
+<script>
+    //1. 创建组件
+    const Html5 = Vue.extend({
+        template:'#h5'
+    });
+    const Css3 = Vue.extend({
+        template:'#css3'
+    });
+    const JavaScript = Vue.extend({
+        template:'#javascript'
+    });
+    //2. 定义路由
+    const routes = [
+        {path:'/h5',component:Html5},
+        {path:'/css3',component:Css3},
+        {path:'/js',component:JavaScript},
+    ];
+    //3.创建路由实例
+    const router = new VueRouter({
+        routes
+    });
+    //4.创建Vue实例，并挂载
+    new Vue({
+
+    }).$mount('#app');
+</script>
+</body>
+</html>

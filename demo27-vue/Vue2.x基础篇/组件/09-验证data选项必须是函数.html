@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>09-验证data选项必须是函数</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+<div id="app">
+    <my-btn></my-btn>
+    <my-btn></my-btn>
+    <my-btn></my-btn>
+    <my-btn></my-btn>
+    <my-btn></my-btn>
+    <my-btn></my-btn>
+</div>
+<!--注册一个组件-->
+<template id="my-btn">
+    <button @click="counter+=1">点击的次数:{{counter}}</button>
+</template>
+<script src="../../vue.min.js"></script>
+<script>
+    let data = {
+        counter: 0
+    };
+    //1.实例化组件
+    Vue.component('my-btn', {
+        template: '#my-btn',
+        data() {
+            return {
+                counter: 0
+            }//单个互不影响
+//            return data //被共享了
+        }
+    });
+    let app = new Vue({
+        el: "#app",
+        data: {
+            message: "这次我一定要把Vue掌握了"
+        },
+        methods: {},
+
+    });
+</script>
+</body>
+</html>

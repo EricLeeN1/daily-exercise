@@ -330,7 +330,7 @@ Page({
                 "title": "客户反馈"
             },
             {
-                "fun": "",
+              "fun": "getRedTickets",
                 "title": "免费算卦"
             },
             {

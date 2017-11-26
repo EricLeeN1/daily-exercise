@@ -621,10 +621,6 @@ body > nav .sub-nav ul > li:hover {
 body > nav .sub-nav ul > li.sub-nav-active {
   color: #2567c0;
 }
-body #banner > .swiper-wrapper {
-  overflow: hidden;
-  max-height: 360px;
-}
 body #banner > .swiper-wrapper .swiper-slide .swiper-containers {
   width: 1200px;
   margin: 0 auto;

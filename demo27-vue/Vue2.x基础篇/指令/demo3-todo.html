@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Vue</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <script src="../../vue.min.js"></script>
+    <style>
+        .todoState {
+            text-decoration: line-through;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <span>剩下{{todoCounts()}}项工作，共{{todos.length}}项工作</span>
+    <ul>
+        <li v-for="item in todos"><input type="checkbox" v-model="item.done"><span :class="{todoState:item.done}">{{item.text}}</span>
+        </li>
+    </ul>
+    <input type="text" v-model="toDoText" placeholder="请输入待办">
+    <input type="submit" value="添加" v-on:click="addtodo">
+</div>
+<script>
+    var options = {
+        el: "#app",
+        data: {
+            toDoText: '',
+            todoState: '',
+            todos: [
+                {text: "学习Vue", done: true},
+                {text: "学习React", done: false},
+                {text: "学习Node", done: true}
+            ]
+        },
+        methods: {
+            todoCounts: function () {
+                var count = 0;
+                this.todos.forEach(function (ele, index, arr) {
+                    count += ele.done ? 0 : 1;
+                });
+                return count;
+            },
+            addtodo: function () {
+                this.todos.push({
+                    text: this.toDoText,
+                    done: false
+                });
+                this.toDoText = '';
+            }
+        }
+    };
+    var app = new Vue(options);
+</script>
+</body>
+</html>

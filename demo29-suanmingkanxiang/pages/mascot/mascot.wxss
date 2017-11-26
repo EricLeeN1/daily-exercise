@@ -76,7 +76,7 @@ image {
 
 .goods-infos .goods-infos-detail {
   justify-content: space-between;
-  font-size: 30rpx;
+  font-size: 28rpx;
   width: 100%;
   margin-top: 20rpx;
 }
@@ -89,7 +89,8 @@ image {
   color: #f55053;
   background-color: #fff;
   border-radius: 10rpx;
-  padding: 10rpx 20rpx;
+  font-size: 26rpx;
+  padding: 5rpx 15rpx;
   border: 1px solid #f55053;
   box-sizing: border-box;
 }

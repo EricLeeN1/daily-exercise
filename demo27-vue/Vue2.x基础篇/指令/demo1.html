@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Vue</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <script src="../../vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{message}}<input type="text" v-model="message"></h1>
+    <div v-if="ok">我是if true</div>
+    <div v-else>我是else false</div>
+    <div v-if="type==='A'">A</div>
+    <div v-else-if="type==='B'">B</div>
+    <div v-else-if="type==='C'">C</div>
+    <div v-else>不是A/B/C</div>
+    <ul>
+        <li v-for="(item,index) in lists">
+            {{item.name+'-'+index}}
+        </li>
+    </ul>
+    <p v-show="ok">show 哈哈哈哈哈</p>
+    <button v-on:click="doThis">点击我把</button>
+</div>
+<script>
+    var options = {
+        el: "#app",
+        data: {
+            "message": "hello world",
+            "ok": true,
+            "type": "A",
+            "lists": [
+                {
+                    "name": '赵'
+                },
+                {
+                    "name": '钱'
+                },
+                {
+                    "name": '孙'
+                }
+            ],
+            "arr": [
+                ""
+            ]
+        },
+        methods: {
+            doThis: function () {
+                console.log(this.message);
+                this.message = "666666";
+            }
+        }
+    };
+    var app = new Vue(options);
+</script>
+</body>
+</html>

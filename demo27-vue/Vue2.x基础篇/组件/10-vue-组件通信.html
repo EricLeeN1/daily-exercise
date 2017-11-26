@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>组件通信</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+<div id="app">
+    <my-div message="这美女真好看" imgsrc="../img/2.png"></my-div>
+    <my-div message="是的真好看" imgsrc="../img/1.png"></my-div>
+</div>
+<template id="my-div">
+    <div>
+        <h1>{{message}}</h1>
+        <img :src="imgsrc" width="200" alt="">
+    </div>
+</template>
+<script src="../../vue.min.js"></script>
+<script>
+    //1. 创建组件
+    Vue.component('my-div',{
+        template:"#my-div",
+        props: ['message','imgsrc']
+    });
+    let app = new Vue({
+        el:"#app",
+        data:{
+            message:"这次我一定要把Vue掌握了"
+        },
+        methods:{
+
+        },
+
+    });
+</script>
+
+</body>
+</html>

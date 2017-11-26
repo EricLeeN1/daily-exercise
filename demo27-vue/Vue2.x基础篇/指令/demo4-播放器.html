@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Vue</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <script src="../../vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <audio autoplay controls v-bind:src="currentSrc" v-on:ended="next"></audio>
+    <ul>
+        <li v-for="(item,index) in songs" v-on:click="playThis(item,index)">
+            <h2>{{item.name}}</h2>
+        </li>
+    </ul>
+    <input type="button" value="Previous" v-on:click="previous">
+    <input type="button" value="Next" v-on:click="next">
+</div>
+<script>
+    var songs = [{
+        src: "./music/lady.mp3",
+        name: "小倩"
+    }, {
+        src: "./music/lady1.mp3",
+        name: "小倩1"
+    }];
+    var options = {
+        el: "#app",
+        data: {
+            songs: songs,
+            currentSrc: '',
+            currentIndex: 0
+        },
+        methods: {
+            playThis: function (item, index) {
+                this.currentSrc = item.src;
+                this.currentIndex = index;
+            },
+            previous: function () {
+                //播放上一首
+                this.currentIndex--;
+                this.currentIndex = Math.max(0, this.currentIndex);
+                this.currentSrc = this.songs[this.currentIndex].src;
+                console.log(this.currentSrc, this.currentIndex);
+            },
+            next: function () {
+                //播放下一首
+                this.currentIndex++;
+                this.currentIndex = Math.min(this.songs.length - 1, this.currentIndex);
+                this.currentSrc = this.songs[this.currentIndex].src;
+                console.log(this.currentSrc, this.currentIndex);
+            }
+        }
+    };
+    var app = new Vue(options);
+</script>
+</body>
+</html>

@@ -1,179 +1,179 @@
 {
-  "description": "项目配置文件。",
-  "setting": {
-    "urlCheck": true,
-    "es6": true,
-    "postcss": true,
-    "minified": true,
-    "newFeature": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "1.6.4",
-  "appid": "wx91eb2abb680f62d4",
-  "projectname": "%E9%A3%8E%E6%B0%B4%E5%85%AB%E5%8D%A6",
-  "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "current": -1,
-      "list": [
-        {
-          "id": -1,
-          "name": "讲座",
-          "pathName": "pages/lecture/lecture",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "成员列表",
-          "pathName": "pages/index/memberList/memberList",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "成员详情",
-          "pathName": "pages/index/memberDetail/memberDetail",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "客户反馈",
-          "pathName": "pages/feedBack/feedBack",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "吉祥物购买",
-          "pathName": "pages/mascot/mascot",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "个人中心",
-          "pathName": "pages/my/my",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "地址",
-          "pathName": "pages/address/address",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "分享",
-          "pathName": "pages/myShare/myShare",
-          "query": ""
-        },
-        {
-          "id": 8,
-          "name": "通知详情",
-          "pathName": "pages/my/msg/msgDetail/msgDetail",
-          "query": "id=3"
-        },
-        {
-          "id": -1,
-          "name": "我的订单",
-          "pathName": "pages/my/myOrder/myOrder",
-          "query": "id=3"
-        },
-        {
-          "id": -1,
-          "name": "评价",
-          "pathName": "pages/my/toComments/toComments",
-          "query": "id=3"
-        },
-        {
-          "id": -1,
-          "name": "物流",
-          "pathName": "pages/my/toLogistics/toLogistics",
-          "query": "id=3"
-        },
-        {
-          "id": -1,
-          "name": "支付",
-          "pathName": "pages/pay/pay",
-          "query": "id=3"
-        },
-        {
-          "id": -1,
-          "name": "吉物",
-          "pathName": "pages/mascot/mascot",
-          "query": "id=3"
-        },
-        {
-          "id": -1,
-          "name": "须知",
-          "pathName": "pages/notice/notice",
-          "query": "id=3"
-        },
-        {
-          "id": -1,
-          "name": "问答",
-          "pathName": "pages/qAndA/qAndA",
-          "query": "id=3"
-        },
-        {
-          "id": -1,
-          "name": "问问题",
-          "pathName": "pages/qAndA/ask/ask",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "写问题",
-          "pathName": "pages/qAndA/writeAsk/writeAsk",
-          "query": "ask=2017年我的财运好不好"
-        },
-        {
-          "id": -1,
-          "name": "改变信息",
-          "pathName": "pages/qAndA/changeInfos/changeInfos",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "大师回复",
-          "pathName": "pages/qAndA/answer/answer",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "大师列表2",
-          "pathName": "pages/index/memberList2/memberList2",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "判断",
-          "pathName": "pages/index/judge/judge",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "订单中心",
-          "pathName": "pages/my/order/order",
-          "query": "id=3"
-        },
-        {
-          "id": -1,
-          "name": "红包",
-          "pathName": "pages/index/red/red",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "购买",
-          "pathName": "pages/pay/pay",
-          "query": ""
-        }
-      ]
-    }
-  }
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.6.4",
+	"appid": "wx91eb2abb680f62d4",
+	"projectname": "%E9%A3%8E%E6%B0%B4%E5%85%AB%E5%8D%A6",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "讲座",
+					"pathName": "pages/lecture/lecture",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "成员列表",
+					"pathName": "pages/index/memberList/memberList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "成员详情",
+					"pathName": "pages/index/memberDetail/memberDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "客户反馈",
+					"pathName": "pages/feedBack/feedBack",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "吉祥物购买",
+					"pathName": "pages/mascot/mascot",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "地址",
+					"pathName": "pages/address/address",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "分享",
+					"pathName": "pages/myShare/myShare",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "通知详情",
+					"pathName": "pages/my/msg/msgDetail/msgDetail",
+					"query": "id=3"
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/my/myOrder/myOrder",
+					"query": "id=3"
+				},
+				{
+					"id": -1,
+					"name": "评价",
+					"pathName": "pages/my/toComments/toComments",
+					"query": "id=3"
+				},
+				{
+					"id": -1,
+					"name": "物流",
+					"pathName": "pages/my/toLogistics/toLogistics",
+					"query": "id=3"
+				},
+				{
+					"id": -1,
+					"name": "支付",
+					"pathName": "pages/pay/pay",
+					"query": "id=3"
+				},
+				{
+					"id": -1,
+					"name": "吉物",
+					"pathName": "pages/mascot/mascot",
+					"query": "id=3"
+				},
+				{
+					"id": -1,
+					"name": "须知",
+					"pathName": "pages/notice/notice",
+					"query": "id=3"
+				},
+				{
+					"id": -1,
+					"name": "问答",
+					"pathName": "pages/qAndA/qAndA",
+					"query": "id=3"
+				},
+				{
+					"id": -1,
+					"name": "问问题",
+					"pathName": "pages/qAndA/ask/ask",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "写问题",
+					"pathName": "pages/qAndA/writeAsk/writeAsk",
+					"query": "ask=2017年我的财运好不好"
+				},
+				{
+					"id": -1,
+					"name": "改变信息",
+					"pathName": "pages/qAndA/changeInfos/changeInfos",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "大师回复",
+					"pathName": "pages/qAndA/answer/answer",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "大师列表2",
+					"pathName": "pages/index/memberList2/memberList2",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "判断",
+					"pathName": "pages/index/judge/judge",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单中心",
+					"pathName": "pages/my/order/order",
+					"query": "id=3"
+				},
+				{
+					"id": -1,
+					"name": "红包",
+					"pathName": "pages/index/red/red",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "购买",
+					"pathName": "pages/pay/pay",
+					"query": ""
+				}
+			]
+		}
+	}
 }

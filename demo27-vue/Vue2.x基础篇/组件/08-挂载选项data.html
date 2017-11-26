@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>挂载选项data</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+<div id="app">
+    <my-div></my-div>
+</div>
+<template id="my-div">
+    <div>
+        <img src="../../img/2.png" alt="" width="160">
+        <p>美女真好看</p>
+        <p>{{message}}</p>
+    </div>
+</template>
+<script src="../../vue.min.js"></script>
+<script>
+    //1.实例化组件
+    Vue.component('my-div', {
+        template: "#my-div",
+        data() {
+            return {
+                message: "真好看"
+            }
+        }
+    });
+    let app = new Vue({
+        el: "#app",
+        methods: {},
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>vue</title>
+    <style>
+        .active {
+            background-color: #f55053;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        li {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(college,index) in colleges" :class="index === activeIndex?'active':''">{{college}}</li>
+    </ul>
+    <p :style="{color:fontColor}">{{message}}</p>
+    <button v-on:click="changeContent">click</button>
+</div>
+<script src="../../vue.min.js"></script>
+<script>
+    //1. 创建Vue的实例
+    let app = new Vue({
+        el: "#app",
+        data: {
+            message: "我一定要学会vue",
+            colleges: [
+                "北京大学",
+                "清华大学",
+                "浙江大学",
+                "南开大学",
+                "四川大学",
+            ],
+            activeIndex: 1,
+            fontColor: 'blue'
+        },
+        methods: {
+            changeContent: function () {
+                this.message = "我一定会努力的";
+            }
+        },
+    });
+</script>
+</body>
+</html>
