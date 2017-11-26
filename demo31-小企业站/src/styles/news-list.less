@@ -11,7 +11,7 @@ body {
     #container {
       box-sizing: border-box;
       .container;
-      justify-content: space-between;
+      overflow: hidden;
       padding: 30px;
       -moz-box-shadow: 0px 5px 5px #999;
       -webkit-box-shadow: 0px 5px 5px #999;
@@ -19,10 +19,9 @@ body {
       background: #fff;
       //background-color: @base-bg-color;
       border: 1px solid #00b3ee;
-      .flex-center;
       > aside {
+        float: left;
         width: 220px;
-        align-self: flex-start;
         > h2 {
           position: relative;
           height: 101px;
@@ -64,15 +63,20 @@ body {
             margin-bottom: 5px;
             box-sizing: border-box;
             a {
-              .flex-center;
-              justify-content: space-between;
+              overflow: hidden;
+              display: block;
               padding: 0 10px;
+              span {
+                float: left;
+              }
               img {
+                margin-top: 10px;
+                float: right;
                 width: 20px;
-                &:nth-child(2) {
-                  display: flex;
+                &.img1 {
+                  display: block;
                 }
-                &:nth-child(3) {
+                &.img2 {
                   display: none;
                 }
               }
@@ -82,13 +86,11 @@ body {
               color: #fff;
               border: 1px solid #999;
               a {
-                img {
-                  &:nth-child(2) {
-                    display: none;
-                  }
-                  &:nth-child(3) {
-                    display: flex;
-                  }
+                .img1 {
+                  display: none;
+                }
+                .img2 {
+                  display: block;
                 }
               }
             }
@@ -147,6 +149,7 @@ body {
               border-bottom: 1px dashed @base-bg-color;
               overflow: hidden;
               width: 100%;
+              font-size: 14px;
               &:hover {
                 color: @base-blue-color;
               }
@@ -155,8 +158,8 @@ body {
         }
       }
       > main {
+        float: right;
         width: 875px;
-        align-self: flex-start;
         .main-title {
           overflow: hidden;
           position: relative;
@@ -173,16 +176,20 @@ body {
             bottom: 0;
             left: 0;
             right: 0;
-            .flex-center;
+            overflow: hidden;
             color: #999;
             line-height: 12px;
             p {
+              float: left;
               margin-right: 10px;
             }
             span {
-              flex: 1;
+              display: inline-block;
+              width: 660px;
+              float: right;
               height: 1px;
               background-color: #e1e1e1;
+              margin-top: -5px;
             }
           }
         }
@@ -203,6 +210,7 @@ body {
               a {
                 width: 160px;
                 height: 120px;
+                overflow: hidden;
                 padding: 4px;
                 border: 1px @base-bg-color solid;
                 display: block;
@@ -215,10 +223,10 @@ body {
             }
             dd {
               width: 620px;
-              height: 120px;
+              height: 130px;
               overflow: hidden;
               float: left;
-              .flex1-center;
+              overflow: hidden;
               h4 {
                 font-size: 12px;
                 font-weight: normal;
@@ -247,49 +255,59 @@ body {
                 padding-top: 10px;
               }
               > a {
+                float: right;
+                text-align: center;
                 background-color: @base-blue-color;
                 color: #fff;
-                .flex-center;
+                overflow: hidden;
                 padding: 5px;
                 border-radius: 5px;
                 width: 70px;
                 font-size: 12px;
-                align-self: flex-end;
-                justify-content: center;
+                display: block;
                 margin-top: 10px;
                 img {
+                  float: right;
                   width: 12px;
-                  margin-left: 2px;
+                  margin-top: 2px;
                 }
               }
             }
           }
         }
         > div.pages-list {
-          width: 100%;
-          .flex-center;
-          justify-content: center;
+          width: 490px;
+          margin: 0 auto;
+          overflow: hidden;
           span {
+            float: left;
             color: #666;
+            padding: 5px 0;
             margin: 0 2px;
             margin-right: 5px;
           }
           em {
+            padding: 5px 0;
+            float: left;
             font-style: normal;
             color: #666;
             margin: 0 2px;
             margin-right: 5px;
           }
           > a {
+            float: left;
             color: #666;
             border: 1px solid #ccc;
             padding: 5px;
             margin-right: 5px;
           }
           > ul {
-            .flex-center;
+            overflow: hidden;
+            float: left;
             li {
+              float: left;
               a {
+                display: block;
                 color: #666;
                 border: 1px solid #ccc;
                 padding: 5px;
@@ -302,7 +320,7 @@ body {
                 a {
                   background-color: @base-blue-color;
                   color: #fff;
-                  border: none;
+                  border-color: @base-blue-color;
                 }
               }
             }

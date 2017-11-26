@@ -7,23 +7,20 @@ body {
   > #banner {
     width: 100%;
   }
-
-  .icon {
-    background: url('../images/icon.png') no-repeat;
-    background-position: 0 0;
-
-  }
   .section-header {
-    .flex-center;
+    overflow: hidden;
     margin-top: 10px;
     margin-bottom: 30px;
     border-bottom: 2px solid @base-border-color;
     .icon {
       width: 30px;
       height: 30px;
+      margin-top: 10px;
       margin-right: 10px;
+      float: left;
     }
     h1 {
+      float: left;
       font-size: 22px;
       line-height: 50px;
       color: @base-icon-blue-color;
@@ -38,8 +35,9 @@ body {
     }
     .news-panel {
       .news-panel-top {
-        .flex-center;
+        overflow: hidden;
         .swiper-container {
+          float: left;
           width: 640px;
           flex: 1 0 640px;
           height: 360px;
@@ -52,16 +50,19 @@ body {
           }
         }
         ul.news-img-list {
-          .flex1-center;
-          margin: 0 18px;
-          height: 360px;
-          justify-content: space-around;
-          flex: 1 1 200px;
+          float: left;
+          margin: 8px 18px;
+          //height: 360px;
           li {
+            margin-top: 18px;
             position: relative;
-            //width: 200px;
-
+            width: 200px;
+            overflow: hidden;
             height: 144px;
+            img {
+              width: 200px;
+              height: 144px;
+            }
             .news-img-item-title {
               position: absolute;
               left: 0;
@@ -77,25 +78,29 @@ body {
         }
         //
         .news-text-list {
+          float: left;
           height: 360px;
-          width: calc(1200 px-200px-36px-640px);
+          width: 324px;
           border: 12px solid @base-bg-color;
           padding: 0 12px;
           box-sizing: border-box;
           .news-text-list-title {
-            .flex-center;
+            overflow: hidden;
             padding: 20px 0;
             line-height: 20px;
             .title-border-img {
+              float: left;
               width: 6px;
               background-color: @base-blue-color;
               margin-right: 6px;
               height: 20px;
             }
             h2 {
+              float: left;
               font-size: 16px;
             }
             a {
+              float: right;
               font-size: 12px;
               margin-left: auto;
             }
@@ -104,7 +109,7 @@ body {
             li {
               position: relative;
               height: 61px;
-              .flex-center;
+              overflow: hidden;
               justify-content: center;
               box-sizing: border-box;
               &:nth-child(1) {
@@ -135,6 +140,7 @@ body {
                 }
               }
               a {
+                display: block;
                 //height: 60px;
                 line-height: 60px;
                 margin-left: 10px;
@@ -155,27 +161,35 @@ body {
         }
       }
       .news-panel-bottom {
-        .flex-center;
+        overflow: hidden;
         margin-top: 30px;
-        justify-content: space-between;
         .about-us {
-          .flex-center;
+          overflow: hidden;
           height: 116px;
+          //width: 640px;
+          float: left;
           .about-us-title {
+            float: left;
+            line-height: 116px;
             background-color: @base-icon-blue-color;
             height: 100%;
             width: 160px;
-            .flex-center;
+            overflow: hidden;
             justify-content: center;
             color: #fff;
             span {
+              float: left;
               width: 30px;
               height: 30px;
+              margin: 43px 14px 43px 27px;
               background-position: 0 -96px;
-              margin-right: 10px;
+            }
+            p {
+              float: left;
             }
           }
           .about-us-content {
+            float: left;
             background-color: @base-bg-color;
             height: 100%;
             width: 480px;
@@ -194,19 +208,21 @@ body {
           }
         }
         .other-columns {
-          .flex-center;
-          flex: 1;
+          float: right;
+          overflow: hidden;
           height: 116px;
           margin-left: 20px;
+          width: 540px;
           background-color: @base-bg-color;
           li {
-            flex: 1;
-            .flex1-center;
-            align-items: center;
+            float: left;
+            width: 25%;
+            text-align: center;
             span {
+              display: block;
               width: 30px;
               height: 30px;
-              margin-bottom: 10px;
+              margin: 25px auto 15px auto;
             }
             &:nth-child(2) {
               span {
@@ -238,12 +254,14 @@ body {
       }
     }
     .goods-projects {
-      .flex-center;
+      overflow: hidden;
       height: 240px;
-      justify-content: space-between;
       li {
         position: relative;
         width: 220px;
+        float: left;
+        margin-left: 10px;
+        margin-right: 10px;
         img {
           width: 100%;
         }
@@ -283,12 +301,13 @@ body {
         width: 570px;
         padding-right: 30px;
         .news-all-panel-title {
-          .flex-center;
+          overflow: hidden;
           margin-top: -20px;
-          justify-content: space-between;
           ul {
-            .flex-center;
+            float: left;
+            overflow: hidden;
             li {
+              float: left;
               margin-right: 40px;
               font-size: 18px;
               line-height: 40px;
@@ -304,6 +323,8 @@ body {
             }
           }
           a {
+            float: right;
+            line-height: 42px;
             font-size: 14px;
             &:hover {
               color: @base-icon-blue-color;
@@ -317,18 +338,26 @@ body {
             > ul.news-all-tab-item {
               li {
                 a {
-                  .flex-center;
+                  line-height: 54px;
+                  overflow: hidden;
+                  display: block;
                   span {
+                    margin-top: 22px;
                     width: 6px;
                     height: 6px;
+                    float: left;
                     .rounded-corners(50%);
                     background-color: #fff;
                     border: 2px solid #333;
                     margin-right: 14px;
                   }
                   p {
-                    line-height: 54px;
+                    float: left;
+
                     margin-right: auto;
+                  }
+                  time {
+                    float: right;
                   }
                 }
                 &:hover {
@@ -353,35 +382,34 @@ body {
         float: right;
         width: 566px;
         height: 340px;
+        overflow: hidden;
         background-color: @base-bg-color;
-        .flex1-center;
-        align-items: center;
-        justify-content: space-around;
         h2 {
           color: @base-icon-blue-color;
           font-size: 20px;
-          line-height: 40px;
+          line-height: 56px;
+          text-align: center;
         }
         ul {
-          .flex-center;
-          flex-wrap: wrap;
-          padding: 0 70px;
-          justify-content: space-between;
+          overflow: hidden;
+          padding: 0 78px;
+          margin-left: -78px;
           li {
+            float: left;
+            margin-left: 78px;
             width: 166px;
             height: 116px;
             background-color: #ffffff;
             margin-bottom: 20px;
             a {
-              .flex1-center;
-              align-items: center;
-              justify-content: center;
+              text-align: center;
               height: 100%;
+              display: block;
               span {
                 width: 36px;
                 height: 36px;
-                margin-bottom: 10px;
                 background-position: -36px -30px;
+                margin: 26px auto 10px auto;
               }
             }
             &:nth-child(2) {

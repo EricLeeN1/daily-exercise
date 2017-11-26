@@ -1,4 +1,9 @@
 @charset "UTF-8";
+.icon {
+  display: block;
+  background: url('../images/icon.png') no-repeat;
+  background-position: 0 0;
+}
 .flex-center {
   display: -webkit-box;
   display: -webkit-flex;
@@ -25,6 +30,9 @@
   -ms-flex-direction: column;
   flex-direction: column;
 }
+.clear-fix {
+  clear: both;
+}
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -38,6 +46,50 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+#chrome-Tip.chrometips {
+  width: 100%;
+  background: #fff8d4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+}
+#chrome-Tip .btntips-close {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #837955;
+  font-size: 30px;
+}
+#chrome-Tip .inner-chrometips {
+  width: 910px;
+  margin: 0 auto;
+  padding: 20px 0;
+  background: url(../images/warning.png) 0px 20px no-repeat;
+  color: #837955;
+  font-size: 14px;
+}
+#chrome-Tip .chrm-word1 {
+  padding-left: 90px;
+  padding-top: 5px;
+}
+#chrome-Tip .chrm-word2 {
+  padding-left: 90px;
+  padding-top: 10px;
+}
+#chrome-Tip .chrm-word2 a {
+  display: inline-block;
+  /*width: 26px;*/
+  height: 26px;
+  padding-left: 30px;
+  background: url(../images/icons.png) 5px -90px no-repeat;
+  color: #837955;
+}
 body > footer {
   background-color: #1e1e1e;
   color: #fff;
@@ -46,40 +98,14 @@ body > footer {
 body > footer #footer-about-us {
   width: 1200px;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -moz-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  overflow: hidden;
 }
 body > footer #footer-about-us .footer-column {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -moz-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  overflow: hidden;
+  float: left;
 }
 body > footer #footer-about-us .footer-column dl {
+  float: left;
   min-width: 128px;
 }
 body > footer #footer-about-us .footer-column dl dt {
@@ -98,6 +124,7 @@ body > footer #footer-about-us .footer-column dl dd:hover {
   color: #fff;
 }
 body > footer #footer-about-us > ul.qrcode {
+  float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -113,6 +140,7 @@ body > footer #footer-about-us > ul.qrcode li {
   height: 100%;
   background-color: #ffffff;
   float: left;
+  overflow: hidden;
 }
 body > footer #footer-about-us > ul.qrcode li img {
   width: 116px;
@@ -130,25 +158,20 @@ body > footer #footer-about-us > ul.qrcode li p {
 body > footer #footer-about-us > ul.qrcode li:nth-child(1) {
   display: block;
 }
+body > footer #footer-about-us .focus-us {
+  float: left;
+}
 body > footer #footer-about-us .focus-us h2 {
   font-size: 18px;
   text-align: center;
 }
 body > footer #footer-about-us .focus-us ul li {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   position: relative;
   line-height: 32px;
 }
 body > footer #footer-about-us .focus-us ul li span {
+  float: left;
+  margin-top: 6px;
   width: 20px;
   height: 20px;
   background-position: 0 -126px;
@@ -176,6 +199,7 @@ body > footer #footer-about-us .focus-us ul li:hover ul.qrcode li:nth-child(1) {
   display: block;
 }
 body > footer #footer-about-us .contact-ways {
+  float: right;
   height: 100%;
   width: 288px;
   margin-left: auto;

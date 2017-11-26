@@ -4,7 +4,6 @@ $(function () {
     Base = {
         site: '',
         site2: '',
-        default: '',
         addBookmark: function (title, url) {
 
             if (window.sidebar) {
@@ -141,4 +140,49 @@ $(function () {
         language: (navigator.browserLanguage || navigator.language).toLowerCase()
     };
     Base.init();
+});
+$(function () {
+    function IETester(userAgent) {
+        var UA = userAgent || navigator.userAgent;
+        if (/msie/i.test(UA)) {
+            return UA.match(/msie (\d+\.\d+)/i)[1];
+        } else if (~UA.toLowerCase().indexOf('trident') && ~UA.indexOf('rv')) {
+            return UA.match(/rv:(\d+\.\d+)/)[1];
+        }
+        return false;
+    }
+
+    //不传参数返回当前IE版本，如果不是IE内核浏览器，返回false
+    console.log(IETester())
+    if (IETester()) {
+        $('#chrome-Tip').show();
+    } else {
+        $('#chrome-Tip').hide();
+    }
+    $('#chromeTipCloseBtn').click(function () {
+        $('#chrome-Tip').hide();
+    });
+});
+$(function () {
+    var mySwiper = new Swiper('.swiper-container', {
+//            direction:"vertical",
+        direction: "horizontal",
+        initialSlide: 0,
+        speed: 2000,
+        autoplay: true,
+        loop: true,
+//            分页器
+        pagination: {
+            el: ".swiper-pagination"
+        },
+//            前进后退按钮
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+//            如果需要滚动条
+        scrollbar: {
+            el: ".swiper-scrollbar"
+        }
+    });
 });

@@ -1,4 +1,9 @@
 @charset "UTF-8";
+.icon {
+  display: block;
+  background: url('../images/icon.png') no-repeat;
+  background-position: 0 0;
+}
 .flex-center {
   display: -webkit-box;
   display: -webkit-flex;
@@ -25,6 +30,9 @@
   -ms-flex-direction: column;
   flex-direction: column;
 }
+.clear-fix {
+  clear: both;
+}
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -38,88 +46,90 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-body > header {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+#chrome-Tip.chrometips {
+  width: 100%;
+  background: #fff8d4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+}
+#chrome-Tip .btntips-close {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #837955;
+  font-size: 30px;
+}
+#chrome-Tip .inner-chrometips {
+  width: 910px;
+  margin: 0 auto;
+  padding: 20px 0;
+  background: url(../images/warning.png) 0px 20px no-repeat;
+  color: #837955;
+  font-size: 14px;
+}
+#chrome-Tip .chrm-word1 {
+  padding-left: 90px;
+  padding-top: 5px;
+}
+#chrome-Tip .chrm-word2 {
+  padding-left: 90px;
+  padding-top: 10px;
+}
+#chrome-Tip .chrm-word2 a {
+  display: inline-block;
+  /*width: 26px;*/
+  height: 26px;
+  padding-left: 30px;
+  background: url(../images/icons.png) 5px -90px no-repeat;
+  color: #837955;
+}
+body > #header {
   width: 1200px;
   margin: 0 auto;
   height: 112px;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
 }
-body > header .header-form {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+body > #header .header-logo {
+  float: left;
+  margin-top: 15px;
+}
+body > #header .header-form {
+  float: right;
+  line-height: 112px;
   height: 24px;
 }
-body > header .header-form ul {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+body > #header .header-form ul {
+  overflow: hidden;
+  float: left;
   font-size: 14px;
 }
-body > header .header-form ul li {
+body > #header .header-form ul li {
+  float: left;
   margin-right: 10px;
   margin-left: 10px;
 }
-body > header .header-form ul li a {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+body > #header .header-form ul li a {
   height: 24px;
+  overflow: hidden;
   line-height: 24px;
 }
-body > header .header-form ul li img {
+body > #header .header-form ul li a img {
   width: 20px;
   margin-right: 5px;
+  float: left;
+  margin-top: 46px;
 }
-body > header .header-form form {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+body > #header .header-form form {
+  float: right;
   position: relative;
 }
-body > header .header-form form input[type="text"] {
+body > #header .header-form form input[type="text"] {
   padding-left: 8px;
   height: 21px;
   border-width: 1px;
@@ -129,7 +139,7 @@ body > header .header-form form input[type="text"] {
   padding-top: 0;
   font-size: 14px;
 }
-body > header .header-form form button[type="submit"] {
+body > #header .header-form form button[type="submit"] {
   position: absolute;
   right: 3px;
   color: #fff;
@@ -138,8 +148,9 @@ body > header .header-form form button[type="submit"] {
   border: none;
   height: 24px;
   padding: 0 6px;
+  top: 45px;
   line-height: 24px;
 }
-body > header .header-form form button[type="submit"] img {
+body > #header .header-form form button[type="submit"] img {
   width: 20px;
 }

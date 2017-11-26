@@ -9,10 +9,11 @@ body {
       line-height: 50px;
       ul {
         .container;
-        .flex-center;
+        overflow: hidden;
         color: #ffffff;
         > li {
-          flex: 1;
+          float: left;
+          width: 120px;
           text-align: center;
           &:hover {
             background-color: @base-active-blue-color;
@@ -28,11 +29,13 @@ body {
       .container-fluid;
       line-height: 50px;
       ul {
-        .container;
-        .flex-center;
+        width: 770px;
+        text-align: center;
         color: #666666;
-        justify-content: center;
+        margin: 0 auto;
+        overflow: hidden;
         > li {
+          float: left;
           padding-left: 24px;
           padding-right: 24px;
           text-align: center;

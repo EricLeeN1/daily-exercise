@@ -1,4 +1,9 @@
 @charset "UTF-8";
+.icon {
+  display: block;
+  background: url('../images/icon.png') no-repeat;
+  background-position: 0 0;
+}
 .flex-center {
   display: -webkit-box;
   display: -webkit-flex;
@@ -25,6 +30,9 @@
   -ms-flex-direction: column;
   flex-direction: column;
 }
+.clear-fix {
+  clear: both;
+}
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -38,6 +46,50 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+#chrome-Tip.chrometips {
+  width: 100%;
+  background: #fff8d4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+}
+#chrome-Tip .btntips-close {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #837955;
+  font-size: 30px;
+}
+#chrome-Tip .inner-chrometips {
+  width: 910px;
+  margin: 0 auto;
+  padding: 20px 0;
+  background: url(../images/warning.png) 0px 20px no-repeat;
+  color: #837955;
+  font-size: 14px;
+}
+#chrome-Tip .chrm-word1 {
+  padding-left: 90px;
+  padding-top: 5px;
+}
+#chrome-Tip .chrm-word2 {
+  padding-left: 90px;
+  padding-top: 10px;
+}
+#chrome-Tip .chrm-word2 a {
+  display: inline-block;
+  /*width: 26px;*/
+  height: 26px;
+  padding-left: 30px;
+  background: url(../images/icons.png) 5px -90px no-repeat;
+  color: #837955;
+}
 body > nav .nav {
   background-color: #2567c0;
   width: 100%;
@@ -46,24 +98,12 @@ body > nav .nav {
 body > nav .nav ul {
   width: 1200px;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  overflow: hidden;
   color: #ffffff;
 }
 body > nav .nav ul > li {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  float: left;
+  width: 120px;
   text-align: center;
 }
 body > nav .nav ul > li:hover {
@@ -78,26 +118,14 @@ body > nav .sub-nav {
   line-height: 50px;
 }
 body > nav .sub-nav ul {
-  width: 1200px;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  width: 770px;
+  text-align: center;
   color: #666666;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  margin: 0 auto;
+  overflow: hidden;
 }
 body > nav .sub-nav ul > li {
+  float: left;
   padding-left: 24px;
   padding-right: 24px;
   text-align: center;

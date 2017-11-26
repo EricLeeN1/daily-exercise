@@ -12,6 +12,11 @@
   -moz-border-radius: @radius;
 }
 
+.icon {
+  display: block;
+  background: url('../images/icon.png') no-repeat;
+  background-position: 0 0;
+}
 .flex-center {
   display: flex;
   align-items: center;
@@ -22,6 +27,9 @@
   flex-direction: column;
 }
 
+.clear-fix {
+  clear: both;
+}
 .box-shadow (@x: 0, @y: 0, @blur: 1px, @color: #000) {
   box-shadow: @arguments;
   -moz-box-shadow: @arguments;
@@ -41,4 +49,55 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+#chrome-Tip {
+  &.chrometips {
+    width: 100%;
+    background: #fff8d4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+  }
+  .btntips-close {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #837955;
+    font-size: 30px;
+  }
+
+  .inner-chrometips {
+    width: 910px;
+    margin: 0 auto;
+    padding: 20px 0;
+    background: url(../images/warning.png) 0px 20px no-repeat;
+    color: #837955;
+    font-size: 14px;
+  }
+
+  .chrm-word1 {
+    padding-left: 90px;
+    padding-top: 5px;
+  }
+
+  .chrm-word2 {
+    padding-left: 90px;
+    padding-top: 10px;
+  }
+
+  .chrm-word2 a {
+    display: inline-block;
+    /*width: 26px;*/
+    height: 26px;
+    padding-left: 30px;
+    background: url(../images/icons.png) 5px -90px no-repeat;
+    color: #837955;
+  }
 }

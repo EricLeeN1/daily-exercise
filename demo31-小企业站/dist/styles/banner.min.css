@@ -1,4 +1,9 @@
 @charset "UTF-8";
+.icon {
+  display: block;
+  background: url('../images/icon.png') no-repeat;
+  background-position: 0 0;
+}
 .flex-center {
   display: -webkit-box;
   display: -webkit-flex;
@@ -25,6 +30,9 @@
   -ms-flex-direction: column;
   flex-direction: column;
 }
+.clear-fix {
+  clear: both;
+}
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -37,6 +45,54 @@
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+#chrome-Tip.chrometips {
+  width: 100%;
+  background: #fff8d4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+}
+#chrome-Tip .btntips-close {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #837955;
+  font-size: 30px;
+}
+#chrome-Tip .inner-chrometips {
+  width: 910px;
+  margin: 0 auto;
+  padding: 20px 0;
+  background: url(../images/warning.png) 0px 20px no-repeat;
+  color: #837955;
+  font-size: 14px;
+}
+#chrome-Tip .chrm-word1 {
+  padding-left: 90px;
+  padding-top: 5px;
+}
+#chrome-Tip .chrm-word2 {
+  padding-left: 90px;
+  padding-top: 10px;
+}
+#chrome-Tip .chrm-word2 a {
+  display: inline-block;
+  /*width: 26px;*/
+  height: 26px;
+  padding-left: 30px;
+  background: url(../images/icons.png) 5px -90px no-repeat;
+  color: #837955;
+}
+body #banner > .swiper-wrapper {
+  overflow: hidden;
+  max-height: 360px;
 }
 body #banner > .swiper-wrapper .swiper-slide .swiper-containers {
   width: 1200px;

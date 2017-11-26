@@ -2,33 +2,40 @@
 @import "base.less";
 
 body {
-  > header {
-    .flex-center;
+  > #header {
     .container;
+    .header-logo {
+      float: left;
+      margin-top: 15px;
+    }
     height: 112px;
-    justify-content: space-between;
     .header-form {
-      .flex-center;
+      float: right;
+      line-height: 112px;
       height: 24px;
       ul {
-        .flex-center;
+        overflow: hidden;
+        float: left;
         font-size: 14px;
         li {
+          float: left;
           margin-right: 10px;
           margin-left: 10px;
           a {
-            .flex-center;
             height: 24px;
+            overflow: hidden;
             line-height: 24px;
-          }
-          img {
-            width: 20px;
-            margin-right: 5px;
+            img {
+              width: 20px;
+              margin-right: 5px;
+              float: left;
+              margin-top: 46px;
+            }
           }
         }
       }
       form {
-        .flex-center;
+        float: right;
         position: relative;
         input[type="text"] {
           padding-left: 8px;
@@ -47,6 +54,7 @@ body {
           border: none;
           height: 24px;
           padding: 0 6px;
+          top: 45px;
           line-height: 24px;
           img {
             width: 20px;
