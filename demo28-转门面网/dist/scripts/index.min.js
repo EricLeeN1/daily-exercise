@@ -1,4 +1,26 @@
 $(function () {
+    function IETester(userAgent) {
+        var UA = userAgent || navigator.userAgent;
+        if (/msie/i.test(UA)) {
+            return UA.match(/msie (\d+\.\d+)/i)[1];
+        } else if (~UA.toLowerCase().indexOf('trident') && ~UA.indexOf('rv')) {
+            return UA.match(/rv:(\d+\.\d+)/)[1];
+        }
+        return false;
+    }
+
+    //不传参数返回当前IE版本，如果不是IE内核浏览器，返回false
+    console.log(IETester())
+    if (IETester()) {
+        $('#chrome-Tip').show();
+    } else {
+        $('#chrome-Tip').hide();
+    }
+    $('#chromeTipCloseBtn').click(function () {
+        $('#chrome-Tip').hide();
+    });
+});
+$(function () {
     jQuery.support.cors = true;
     var Base = window.Base || {};
     Base = {
