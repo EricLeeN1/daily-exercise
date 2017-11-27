@@ -22,19 +22,14 @@
                 <h1>Eric加油</h1>
             </div>
         </div>
-        <div class="clearfix">
-
-        </div>
+        <div class="clearfix"></div>
     </div>
     <div class="row">
         <div class="col-xs-2 col-xs-offset-2">
             <div class="list-group">
-                <!--<router-link class="list-group-item" name="h5">Html5</router-link>-->
-                <!--<router-link class="list-group-item" name="css3">Css3</router-link>-->
-                <!--<router-link class="list-group-item" name="js">JavaScript</router-link>-->
-                <router-link class="list-group-item" to="/h5">Html5</router-link>
-                <router-link class="list-group-item" to="/css3">Css3</router-link>
-                <router-link class="list-group-item" to="/js">JavaScript</router-link>
+                <router-link class="list-group-item" :to="{name:'h5'}">Html5</router-link>
+                <router-link class="list-group-item" :to="{name:'css3'}">Css3</router-link>
+                <router-link class="list-group-item" :to="{name:'js'}">JavaScript</router-link>
             </div>
         </div>
         <div class="col-xs-6">
@@ -51,6 +46,27 @@
         <h2>HTML5</h2>
         <p>面向未来神技能</p>
         <img src="img/1.png" width="200px" alt="">
+        <ul class="nav nav-tabs">
+            <router-link to="/h5/basic">Html5基础入门</router-link>
+            <router-link to="/h5/big">Html5高级进阶</router-link>
+        </ul>
+        <div class="tab-content">
+            <router-view></router-view>
+        </div>
+    </div>
+</template>
+<template id="basic">
+    <div>
+        <h3>HTML5基础入门</h3>
+        <p>快速入门HTML5的学习</p>
+        <img src="img/4.png" width="150px" alt="">
+    </div>
+</template>
+<template id="big">
+    <div>
+        <h3>HTML5高级进阶</h3>
+        <p>精通HTML5的学习</p>
+        <img src="img/5.png" width="150px" alt="">
     </div>
 </template>
 <template id="css3">
@@ -64,7 +80,7 @@
     <div>
         <h2>JavaScript</h2>
         <p>新功能，新世界</p>
-        <img src="img/4.png" width="200px" alt="">
+        <img src="img/3.png" width="200px" alt="">
     </div>
 </template>
 <script src="js/vue.min.js"></script>
@@ -72,7 +88,13 @@
 <script>
     //1. 创建组件
     const Html5 = Vue.extend({
-        template: '#h5'
+        template: '#h5',
+    });
+    const Basic = Vue.extend({
+        template: '#basic'
+    });
+    const Big = Vue.extend({
+        template: '#big'
     });
     const Css3 = Vue.extend({
         template: '#css3'
@@ -82,20 +104,20 @@
     });
     //2. 定义路由
     const routes = [
-        {path: '/h5', component: Html5},
-        {path: '/css3', component: Css3},
-        {path: '/js', component: JavaScript},
+        {
+            path: '/h5',
+            name: 'h5',
+            component: Html5,
+            children: [
+                {path: 'basic', component: Basic},
+                {path: 'big', component: Big},
+                //配置根路由
+                {path: '/', redirect: 'basic'},
+            ]
+        },
+        {path: '/css3', component: Css3, name: 'css3',},
+        {path: '/js', component: JavaScript, name: 'js',},
         {path: '/', redirect: '/h5'},
-        //配置根路由
-//        {
-//            path: '/',
-//            components: {
-//                default: Html5,
-//                h5: Html5,
-//                css3: Css3,
-//                js: JavaScript
-//            }
-//        }
     ];
     //3.创建路由实例
     const router = new VueRouter({
