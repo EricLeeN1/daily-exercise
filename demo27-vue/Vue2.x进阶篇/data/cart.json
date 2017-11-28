@@ -1,0 +1,42 @@
+{
+  "allShops": {
+    "totalMoney": 0,
+    "shopList": [
+      {
+        "shopId": "1001",
+        "shopName": "林静敏 林静敏 林静敏 林静敏 林静敏  林静敏",
+        "shopPrice": 299.00,
+        "shopNumber": 1,
+        "shopImage": "../img/1.png"
+      },
+      {
+        "shopId": "1002",
+        "shopName": "林静敏 林静敏 林静敏 林静敏 林静敏  林静敏",
+        "shopPrice": 299.00,
+        "shopNumber": 1,
+        "shopImage": "../img/2.png"
+      },
+      {
+        "shopId": "1003",
+        "shopName": "林静敏 林静敏 林静敏 林静敏 林静敏  林静敏",
+        "shopPrice": 299.00,
+        "shopNumber": 1,
+        "shopImage": "../img/3.png"
+      },
+      {
+        "shopId": "1004",
+        "shopName": "林静敏 林静敏 林静敏 林静敏 林静敏  林静敏",
+        "shopPrice": 299.00,
+        "shopNumber": 1,
+        "shopImage": "../img/4.png"
+      },
+      {
+        "shopId": "1005",
+        "shopName": "林静敏 林静敏 林静敏 林静敏 林静敏  林静敏",
+        "shopPrice": 299.00,
+        "shopNumber": 1,
+        "shopImage": "../img/5.png"
+      }
+    ]
+  }
+}
