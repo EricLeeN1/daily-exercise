@@ -1,0 +1,21 @@
+{
+  "name": "webpack-my-app",
+  "version": "1.0.0",
+  "description": "应用于webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack",
+    "打包工具",
+    "webpack-dev-server"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.28.7",
+    "jquery": "^3.2.1",
+    "style-loader": "^0.19.0"
+  }
+}
