@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>音频</title>
+</head>
+<body>
+    <audio id="music">
+        <source src="../audio/lady.mp3" type="audio/mpeg">
+        <source src="../audio/lady.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        window.onload = function () {
+          new Audio('../audio/lady.mp3').play();  //载入并播放声音//
+        //   Audio()构造函数的返回值===通过从文档中查询<audio>元素===document.createElemet('audio')新创建一个元素都是同一类对象
+        //   Audio()是音频元素特有的API视频元素是没有Video()这样的构造函数的。
+        };
+    </script>
+</body>
+</html>

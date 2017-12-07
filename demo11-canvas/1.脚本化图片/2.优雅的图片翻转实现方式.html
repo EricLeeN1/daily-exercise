@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>优雅的图片翻转实现方式</title>
+    <script src="../js/rollover.js"></script>
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        a {
+            width: 200px;
+            height: 288px;
+            overflow: hidden;
+            display: block;
+            float: left;
+            margin-right: 20px;
+            border: 2px solid skyblue;
+        }
+
+        a>img {
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="">
+        <img src="../img/2.png" alt="" data-rollover="../img/4.png">
+    </a>
+    <a href="">
+        <img src="../img/1.png" alt="" data-rollover="../img/2.png">
+    </a>
+    <a href="">
+        <img src="../img/3.png" alt="" data-rollover="../img/5.png">
+    </a>
+</body>
+
+</html>

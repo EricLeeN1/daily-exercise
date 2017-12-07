@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>视频</title>
+</head>
+
+<body>
+    <video id="news" width="640" height="360" controls preload="">
+        <!-- 火狐谷歌支持WeBM格式 -->
+        <source src="news.webm" type="video/webm;codecs='vp8,vorbis'">
+        <!-- IE和safari支持的H.264格式 -->
+        <source src="news.mp4" type="video/mp4;codecs='avc1.42E01E,mp4a.40.2'">
+        <!-- Flash插件作为后备方案 -->
+        <object data="news.swf" width="640" height="360" type="application/x-shockwave-flash">
+        <!-- 这里的参数元素用于配置flash视频播放器 -->
+        <!-- 文本是最终的后备内容 -->
+        <div>Video不支持,flash插件没有安装呢</div>
+        </object>
+    </video>
+</body>
+
+</html>
