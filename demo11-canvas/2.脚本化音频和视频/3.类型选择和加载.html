@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>类型选择和加载</title>
 </head>
+
 <body>
-    
+    <script>
+        let a = new Audio();
+        console.log(a); //<audio preload="auto"></audio>
+        if (a.canPlayType('audio/wav')) {
+            a.src = "soundeffect.wav";//设置媒体的src属性时候，加载媒体的过程就开始了(除非将preload设置成'auto');如果有其他的媒体文件正在加载或者播放，则会终止他们的加载或者播放过程。
+            a.play();
+        }
+    </script>
 </body>
+
 </html>
