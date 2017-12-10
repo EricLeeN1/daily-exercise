@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue文本与html</title>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <h1>{{}}</h1>
+        <p>Message:{{msg}}</p>
+    </div>
+    <div id='app1'>
+        <h1>v-once</h1>
+        <p v-once>Message:{{msg}}</p>
+        <!-- v-once一次性的插值 -->
+    </div>
+    <div id="app2">
+        <h1>v-html</h1>
+        <div v-html="msg"></div>
+    </div>
+    <div id="app3">
+        <h1>属性</h1>
+        <div v-bind:id="dynamicid">动态id</div>
+        <button v-bind:disabled="use">禁用</button>
+    </div>
+    <div id="app4">
+        <h1>使用JavaScript表达式</h1>
+        <div>
+            {{number+1}}
+        </div>
+        <div>
+            {{use?'能用':'不能用'}}
+        </div>
+        <div>
+            {{msg.split('').reverse().join('')}}
+        </div>
+        <div v-bind:id="'list-'+id">
+            {{id}}
+        </div>
+    </div>
+    <div id="app5">
+        
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: "Hello World"
+            }
+        });
+        var vm1 = new Vue({
+            el: '#app1',
+            data: {
+                msg: "Hello World"
+            }
+        });
+        var vm2 = new Vue({
+            el: '#app2',
+            data: {
+                // 注意，你不能使用 v-html 来复合局部模板，因为 Vue 不是基于字符串的模板引擎。
+                msg: "<h3>不要用来复合局部模版哦,你的站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，对用户提供的内容插值。 </h3>"
+            }
+        });
+        var vm3 = new Vue({
+            el: '#app3',
+            data: {
+                dynamicid: "Hello World",
+                use: true
+            }
+        });
+        var vm4 = new Vue({
+            el: '#app4',
+            data: {
+                number: 1,
+                msg: "Hello World",
+                use: true,
+                id:188
+            }
+        });
+    </script>
+</body>
+
+</html>

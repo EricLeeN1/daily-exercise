@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件</title>
+    <script src="../../vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <todo-item></todo-item>
+        </ul>
+    </div>
+    <!-- <div id="app1">
+        <ol>
+            <todo-item v-for="todo in todos" v-bind:todo="todo"></todo-item>
+        </ol>
+    </div> -->
+    <script>
+        // 定义一个新的组件叫做todo-item,放在声明的app结点里面就好
+        Vue.component('todo-item', {
+            template: '<li>This is a todo!</li>'
+        });
+        var app = new Vue({
+            el: "#app",
+        });
+    </script>
+</body>
+
+</html>

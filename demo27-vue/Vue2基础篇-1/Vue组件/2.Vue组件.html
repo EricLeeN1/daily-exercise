@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue组件2</title>
+    <script src="../../vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ol>
+            <!-- 遍历todos对象并给其绑定内容，这样的话内容就是是动态的了 -->
+            <todo-item v-for="todo in todos" v-bind:todo="todo"></todo-item>
+        </ol>
+    </div>
+    <script>
+        // 定义一个新的组件叫做todo-item,放在声明的app结点里面就好
+        Vue.component('todo-item', {
+            //prop像一个自定义属性
+            props: ['todo'],
+            template: '<li>{{todo.text}}</li>'
+        });
+        var app = new Vue({
+            el: "#app",
+            data:{
+                todos:[
+                    {
+                        text:"Learn JavaScript"
+                    },
+                    {
+                        text:"Learn Vue"
+                    },
+                    {
+                        text:"Learn ReactNative"
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>

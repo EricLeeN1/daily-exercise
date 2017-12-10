@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实例声明周期</title>
+</head>
+
+<body>
+    <script src="../../vue.min.js"></script>
+    <div id="app">
+        <p>{{a}}</p>
+    </div>
+    <script>
+        var data = {
+            a: 1
+        }
+        var vm = new Vue({
+            //挂载元素
+            el: "#app",
+            //数据
+            data: data,
+            //方法
+            methods: {
+
+            },
+            // 计算属性
+            computed: {
+
+            },
+            //生命周期钩子
+            beforeCreate() {
+                console.log('beforeCreate');
+                console.log('组件实例刚被创建，组件属性计算之前，如data属性等,此时a没有被定义呢');
+                console.log('a is:' + this.a); //a is:undefined 
+            },
+            created() {
+                console.log('created');
+                console.log('组件实例创建完成，属性已绑定，但DOM还未生成，$el属性还不存在');
+                console.log('a is:' + this.a);
+                console.log('$el: ' + this.$el); //$el: undefined
+            },
+            beforeMount() {
+                console.log('befoteMonnt');
+                console.log('模版编译/挂载之前，仍未挂载DOM');
+                console.log('$el: ' + this.$el); //$el: [object HTMLDivElement]
+            },
+            mounted() {
+                console.log('mounted');
+                console.log('模版编译/挂载之后，此时应该已经挂载DOM如果有的话');
+                console.log('$el: ' + this.$el); //$el: [object HTMLDivElement]
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate');
+                console.log('组件更新之前');
+            },
+            updated() {
+                console.log('updated');
+                console.log('组件更新之后');
+            },
+            activated() {
+                console.log('activated');
+                console.log('for keep-alive，组件被激活时调用');
+            },
+            deactivated() {
+                console.log('deactivated');
+                console.log('for keep-alive,组件被移除时调用');
+            },
+            beforeDestroy() {
+                console.log('beforeDestroy');
+                console.log('组件销毁前调用');
+            },
+            destroyed() {
+                console.log('destroyed');
+                console.log('组件销毁后调用');
+            }
+        })
+    </script>
+</body>
+
+</html>

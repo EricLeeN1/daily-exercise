@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue构造器</title>
+    <script src="../../vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        // 每个 Vue.js 应用都是通过构造函数 Vue 创建一个 启动的
+        // 在实例化 Vue 时，需要传入一个，它可以包含数据、模板、挂载元素、方法、生命周期钩子等选项。
+        var vm = new Vue({
+            //选项
+        });
+        var MyComponent = Vue.extend({
+            //扩展选项
+        });
+        // 所有的 `MyComponent` 实例都将以预定义的扩展选项被创建
+        var myComponentInstance = new myComponentInstance();
+    </script>
+</body>
+
+</html>
