@@ -44,7 +44,10 @@
         </div>
     </div>
     <div id="app5">
-        
+        <h1>filters</h1>
+        <div>
+            {{msg|capitalize(msg)}}
+        </div>
     </div>
     <script>
         var vm = new Vue({
@@ -79,7 +82,23 @@
                 number: 1,
                 msg: "Hello World",
                 use: true,
-                id:188
+                id: 188
+            }
+        });
+        var vm5 = new Vue({
+            el: '#app5',
+            data: {
+                msg: "hello world",
+                use: true
+            },
+            filters: {
+                capitalize: function (value) {
+                    if (!value) {
+                        return '';
+                    }
+                    value = value.toString();
+                    return value.charAt(0).toUpperCase() + value.slice(1);
+                }
             }
         });
     </script>
