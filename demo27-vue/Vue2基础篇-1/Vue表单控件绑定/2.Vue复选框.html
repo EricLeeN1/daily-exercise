@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>复选框</title>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <input type="checkbox" name="" id="" v-model="toggle" v-bind:true-value="a" v-bind:false-value="b">
+        <span>{{toggle}}</span>
+        <br>
+        <input v-model="pick" type="radio" name="" id="" v-bind:value="a">
+        <span>{{pick}}</span>
+        <br>
+        <select name="" id="" v-model="selected">
+            <option v-bind:value="{number:123}">123</option>
+        </select>
+        <span>{{selected}}</span>
+        <br>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                a: "呵呵哒",
+                b: "么么哒",
+                toggle: '',
+                pick: '',
+                selected: ''
+            }
+        });
+    </script>
+</body>
+
+</html>

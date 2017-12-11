@@ -36,7 +36,17 @@
         <div v-bind:class="[activeClass,errorClass]">激活了</div>
     </div>
     <div id="app4">
-        <div v-bind:class="[isActive ? activeClass : '', errorClass]">激活了</div>
+        <div v-bind:class="[isActive? activeClass :'',errorClass]">激活了</div>
+    </div>
+    <div id="app5">
+        <div v-bind:class="[{activeClass:isActive},errorClass]">激活了</div>
+    </div>
+    <div id="app6">
+        <h1>绑定内联样式</h1>
+        <div v-bind:style="{color:activeColor,fontSize:fontSize+'px'}">激活了</div>
+    </div>
+    <div id="app7">
+        <div v-bind:style="[styleObject,style1Object]">激活了</div>
     </div>
     <script>
         var vm = new Vue({
@@ -79,7 +89,35 @@
             data: {
                 isActive: false,
                 activeClass: 'active',
-                // errorClass: 'text-danger'
+                errorClass: 'text-danger'
+            }
+        });
+        var vm5 = new Vue({
+            el: '#app5',
+            data: {
+                isActive: false,
+                activeClass: 'active',
+                errorClass: 'text-danger'
+            }
+        });
+        var vm6 = new Vue({
+            el: '#app6',
+            data: {
+                activeColor: 'red',
+                fontSize: 30
+            }
+        });
+        var vm7 = new Vue({
+            el: '#app7',
+            data: {
+                styleObject: {
+                    color: "blue",
+                    'font-size': "20px",
+                    backgroundColor:"#f55053"
+                },
+                style1Object: {
+                    lineHeight:"50px"
+                }
             }
         });
     </script>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单控件绑定</title>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <h3>文本</h3>
+        <input type="text" placeholder="请输入" v-model="msg">
+        <p>{{msg}}</p>
+    </div>
+    <div id='app1'>
+        <h3>多行文本</h3>
+        <span>多行信息:</span>
+        <p style="white-space:pre">{{msg}}</p>
+        <br>
+        <textarea name="" id="" cols="30" rows="10" v-model="msg" placeholder="添加多行文字"></textarea>
+    </div>
+    <div id="app2">
+        <h3>复选框单个</h3>
+        <input type="checkbox" name="" id="checkbox" v-model="checked">
+        <label for="checkbox">{{checked}}</label>
+    </div>
+    <div id="app3">
+        <h3>复选框多个</h3>
+        <input type="checkbox" name="" id="jack" value="jack" v-model="checkedNames">
+        <label for="jack">jack</label>
+        <input type="checkbox" name="" id="john" value="john" v-model="checkedNames">
+        <label for="jack">john</label>
+        <input type="checkbox" name="" id="Eric" value="Eric" v-model="checkedNames">
+        <label for="jack">Eric</label>
+        <br>
+        <span>选中的名字:{{checkedNames}}</span>
+    </div>
+    <div id="app4">
+        <h3>单选按钮</h3>
+        <input type="radio" name="" id="one" value="One" v-model="picked">
+        <label for="One">One</label>
+        <br>
+        <input type="radio" name="" id="two" value="Two" v-model="picked">
+        <label for="Two">Two</label>
+        <br>
+        <span>选中的:{{picked}}</span>
+    </div>
+    <div id="app5">
+        <h3>选择列表-单选</h3>
+        <select name="" id="" v-model="selected">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select>
+        <span>选择的:{{selected}}</span>
+    </div>
+    <div id="app6">
+        <h3>选择列表-多选</h3>
+        <select name="" id="" v-model="selected" multiple>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select>
+        <span>选择的:{{selected}}</span>
+    </div>
+    <div id="app7">
+        <h3>选择列表-动态选项</h3>
+        <select name="" id="" v-model="selected">
+            <option v-for="(item,index) in items" v-bind:value="item.value">{{item.text}}</option>
+        </select>
+        <span>选择的:{{selected}}</span>
+    </div>
+    <div id="app8">
+        <input type="radio" v-model="picked" value="a">
+        <br>
+        <input type="checkbox" name="" id="" v-model="toggle">
+        <br>
+        <select name="" id="" v-model="selected">
+            <option value="abc">ABC</option>
+        </select>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: "Hello World"
+            }
+        });
+        var vm1 = new Vue({
+            el: '#app1',
+            data: {
+                msg: "有一个姑娘她有一些任性 她还有一些嚣张有一个姑娘她有一些叛逆她还有一些疯狂没事 吵吵小架反正醒著也是醒著没事 说说小谎反正闲著也是闲著有一个姑娘她有一些任性她还有一些嚣张有一个姑娘她有一些叛逆她还有一些疯狂喔 是哪个姑娘呀 "
+            }
+        });
+        var vm2 = new Vue({
+            el: "#app2",
+            data: {
+                checked: false
+            }
+        });
+        var vm3 = new Vue({
+            el: "#app3",
+            data: {
+                checkedNames: []
+            }
+        });
+        var vm4 = new Vue({
+            el: "#app4",
+            data: {
+                picked: ''
+            }
+        });
+        var vm5 = new Vue({
+            el: "#app5",
+            data: {
+                selected: 'A'
+            }
+        });
+        var vm6 = new Vue({
+            el: "#app6",
+            data: {
+                selected: []
+            }
+        });
+        var vm7 = new Vue({
+            el: "#app7",
+            data: {
+                selected: 'A',
+                items: [{
+                    text: 'One',
+                    value: "A"
+                }, {
+                    text: 'Two',
+                    value: "B"
+                }, {
+                    text: 'Three',
+                    value: "C"
+                }]
+            }
+        });
+        var vm8 = new Vue({
+            el: "#app7",
+            data: {
+                selected: 'A',
+                items: [{
+                    text: 'One',
+                    value: "A"
+                }, {
+                    text: 'Two',
+                    value: "B"
+                }, {
+                    text: 'Three',
+                    value: "C"
+                }]
+            }
+        });
+    </script>
+</body>
+
+</html>

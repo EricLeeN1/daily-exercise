@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>监听事件</title>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <button v-on:click="counter+=1">增加一次</button>
+        <p>这个按钮总共被点击了{{counter}}次</p>
+    </div>
+    <div id="app1">
+        <button v-on:click="greet">Greet</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                counter: 0
+            }
+        });
+        var vm1 = new Vue({
+            el: '#app1',
+            data: {
+                name: "Eric"
+            },
+            methods: {
+                greet(event) {
+                    alert('Hello ' + this.name + "!");
+                    console.log(event.target.tagName);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
