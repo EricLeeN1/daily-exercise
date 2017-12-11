@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue对象语法</title>
+    <style>
+        .static {
+            background-color: #e1e1e1;
+        }
+
+        .active {
+            background-color: skyblue;
+        }
+
+        .text-danger {
+            color: #f55053;
+        }
+    </style>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <div v-bind:class="{active:isActive}">激活了</div>
+    </div>
+    <div id='app1'>
+        <div class="static" v-bind:class="{active: isActive, 'text-danger': hasError }">激活了</div>
+    </div>
+    <div id="app2">
+        <div v-bind:class="classObject">激活了</div>
+    </div>
+    <div id="app3">
+        <div v-bind:class="[activeClass,errorClass]">激活了</div>
+    </div>
+    <div id="app4">
+        <div v-bind:class="[isActive ? activeClass : '', errorClass]">激活了</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                isActive: '111'
+            }
+        });
+        var vm1 = new Vue({
+            el: '#app1',
+            data: {
+                isActive: false,
+                hasError: true
+            }
+        });
+        var vm2 = new Vue({
+            el: '#app2',
+            data: {
+                isActive: true,
+                hasError: true
+            },
+            computed: {
+                classObject: function () {
+                    return {
+                        active: this.isActive,
+                        'text-danger': this.hasError
+                    }
+                }
+            }
+        });
+        var vm3 = new Vue({
+            el: '#app3',
+            data: {
+                activeClass: 'active',
+                errorClass: 'text-danger'
+            }
+        });
+        var vm4 = new Vue({
+            el: '#app4',
+            data: {
+                isActive: false,
+                activeClass: 'active',
+                // errorClass: 'text-danger'
+            }
+        });
+    </script>
+</body>
+
+</html>
