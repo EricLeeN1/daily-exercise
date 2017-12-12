@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件命名约定</title>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <p>kebab-case短横线式组件</p>
+        <p>camelCase小驼峰式组件</p>
+        <p>TitleCase大驼峰式组件</p>
+        <p>当注册组件（或者 props）时，可以使用 kebab-case ，camelCase ，或 TitleCase这三种任意一个 </p>
+        <p>在HTML模版中，请始终使用短横线形式组件</p>
+        <p>当使用字符串模式时，可以不受 HTML 的 case-insensitive 限制。这意味实际上在模版中， 你可以使用 camelCase 、 PascalCase 或者 kebab-case 来引用你的组件和 prop： </p>
+        <p>如果组件未经 slot 元素传递内容，你甚至可以在组件名后使用 / 使其自闭合,只在字符串模版中有效</p>
+        <h3>递归组件
+            <small>组件在它的模板内可以递归地调用自己，不过，只有当它有 name 选项时才可以</small>
+        </h3>
+        <code>name: 'stack-overflow', template: '
+            <div>
+                <stack-overflow></stack-overflow>
+            </div>'</code>
+        <p>所以要确保递归调用有终止条件 (比 如递归调用时使用 v-if 并让他最终返回 false )。 </p>
+        <h3>内联模版 <small>如果子组件有 inline-template 特性，组件将把它的内容当作它的模板，而不是把它当作分发内容。这让模板更灵活。</small></h3>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {}
+        });
+    </script>
+</body>
+
+</html>
