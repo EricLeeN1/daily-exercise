@@ -22,7 +22,7 @@
         </p>
     </div>
     <div id="app1">
-
+        <my-component v-on:click.native="alert(123)"></my-component>
     </div>
     <script>
         Vue.component('button-counter', {
@@ -38,7 +38,10 @@
                     this.$emit('increment');
                 }
             }
-        })
+        });
+        Vue.component('my-component', {
+            template: "<h3>某个组件的根元素上监听一个原生事件,使用.native修饰</h3>"
+        });
         var vm = new Vue({
             el: '#app',
             data: {
@@ -53,9 +56,8 @@
         var vm1 = new Vue({
             el: "#app1",
             data: {
-
             }
-        })
+        });
     </script>
 </body>
 

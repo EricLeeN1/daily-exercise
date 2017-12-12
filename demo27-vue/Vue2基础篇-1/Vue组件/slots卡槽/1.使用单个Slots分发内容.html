@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用Slots分发内容-单个Slot</title>
+</head>
+
+<body>
+    <script src='../../../vue.min.js'></script>
+    <div id='app'>
+        <p>父组件模板的内容在父组件作用域内编译；子组件模板的内容在子组件作用域内编译。一个常见错误是试图在父组件模板内将一个指令绑定到子组件的属性/方法： </p>
+        <div>
+            <h1>父组件标题</h1>
+            <child-component>
+                <p>这是一些原始内容</p>
+                <p>这是一些其他的原始内容</p>
+            </child-component>
+        </div>
+    </div>
+    <script>
+        // 实例化一个子组件模版
+        Vue.component('child-component', {
+            template: '<div><h3>子组件的标题</h3><slot>如果没有分发内容则显示我。</slot></div>'
+        });
+        Vue.component('parent-component', {
+
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {}
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用自定义事件的表单输入组件</title>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <p>{{message}}</p>
+        <my-input label="Message" v-model="message"></my-input>
+    </div>
+    <script>
+        Vue.component('my-input', {
+            template: "<div class='form-group'><label v-bind:for='randomId'>{{label}}</label><input v-bind:id='randomId' v-bind:value='value' v-on:input='onInput' type='text'></div>",
+            props: ['value', 'label'],
+            data: function () {
+                return {
+                    randomId: "input-" + Math.random()
+                }
+            },
+            methods: {
+                onInput(event) {
+                    this.$emit('input', event.target.value);
+                }
+            }
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Eric'
+            }
+        });
+    </script>
+</body>
+
+</html>

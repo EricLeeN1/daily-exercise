@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用具名Slots分发内容</title>
+</head>
+
+<body>
+    <script src='../../../vue.min.js'></script>
+    <div id='app'>
+        <app-layout>
+            <h1 slot="header">这里放页头</h1>
+            <!-- <p>关于主要内容的一个描述</p> -->
+            <!-- <p>另一个描述</p> -->
+            <p slot="footer">这里放联系信息</p>
+        </app-layout>
+    </div>
+    <template id="app-layout">
+        <div class="container">
+            <header>
+                <slot name="header"></slot>
+            </header>
+            <main>
+                <slot>main标签里如果啥都没写的话就显示了</slot>
+            </main>
+            <footer>
+                <slot name="footer"></slot>
+            </footer>
+        </div>
+    </template>
+    <script>
+        Vue.component('app-layout', {
+            template: '#app-layout'
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {}
+        });
+    </script>
+</body>
+
+</html>
