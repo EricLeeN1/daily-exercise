@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>事件修饰符</title>
 </head>
+
 <body>
-    
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <a href="" v-on:click.stop="doThis">.stop阻止单机事件冒泡</a>
+        <br>
+        <form action="" v-on:submit.prevent="onSubmit">提交事件不再重载页面</form>
+        <a href="" v-on:click.stop.prevent="doThat">修饰符可以串联</a>
+        <form action="" v-on:submit.prevent="doThis">只有修饰符</form>
+        <div v-on:click.capture="doThis">添加事件侦听器时使用时间捕获模式</div>
+        <div v-on:click.self="doThat">只当事件在该元素本身（而不是子元素）触发时触发回调</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {}
+        });
+    </script>
 </body>
+
 </html>

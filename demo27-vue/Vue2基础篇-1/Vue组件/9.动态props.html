@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动态props</title>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <p>
+            <input type="text" v-model="parentMsg">
+        </p>
+        <p>
+            如果想传递一个实际的 JavaScript 数字，需要使用 v-bind ，从而让它的值被当作 JavaScript 表达式计算：
+            <child v-bind:my-message="parentMsg"></child>
+        </p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                parentMsg: "来自爸爸的信息"
+            },
+            components: {
+                child: {
+                    props: ['myMessage'],
+                    template: '<span>{{myMessage}}</span>'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

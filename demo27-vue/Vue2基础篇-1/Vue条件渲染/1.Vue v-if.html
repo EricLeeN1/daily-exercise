@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-if条件渲染</title>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <h1 v-if="ok">Yes</h1>
+        <h1 v-else>No</h1>
+        <template>
+            <h1>Title</h1>
+            <p>段落 1</p>
+            <p>段落 2</p>
+        </template>
+        <div v-if="Math.random()>0.5">&gt;0.5</div>
+        <div v-else>&lt;0.5</div>
+        <div v-show="!ok">Hello!v-show简单的切换元素的CSS属性display</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                ok: false
+            }
+        });
+    </script>
+</body>
+
+</html>
