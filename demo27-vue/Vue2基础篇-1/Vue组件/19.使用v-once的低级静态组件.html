@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>使用v-once的低级静态组件</title>
+</head>
+<body>
+<div id="app">
+    <h1>{{message}}</h1>
+    <terms-of-service></terms-of-service>
+</div>
+<script src="../../vue.min.js"></script>
+<script>
+    Vue.component('terms-of-service', {
+        template: '<div v-once><h1>一些静态文件</h1></div>'
+    });
+    //1. 创建Vue的实例
+    let app = new Vue({
+        el: "#app",
+        data: {
+            message: "这次我一定要把Vue掌握了"
+        },
+        methods: {},
+
+    });
+</script>
+</body>
+</html>
