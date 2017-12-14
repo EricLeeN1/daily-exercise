@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3.自定义过渡类名.html</title>
+    <link href="https://unpkg.com/animate.css@3.5.1/animate.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <h3>{{title}}</h3>
+        <ol>
+            <li v-for="(item,index) in items">{{item}}</li>
+        </ol>
+        <button v-on:click="show=!show">Toggle Render</button>
+        <transition name="custom-classes-transition" mode="" enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
+            <p v-if="show">Hello</p>
+        </transition>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                title: "我们可以通过以下特性来自定义过渡类名：",
+                show: true,
+                items: [
+                    "enter-class", "enter-active-class", "leave-class", "leave-active-class"
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>

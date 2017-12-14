@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Render函数完整示例</title>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <anchored1-heading v-bind:level="1">hello World</anchored1-heading>
+    </div>
+    <script>
+        var getChildrenTextContent = function (children) {
+            return children.map(function (node) {
+                return node.children ? getChildrenTextContent(node.children) : node.text;
+            }).join('');
+        };
+        Vue.component('anchored1-heading', {
+            render: function (createElement, context) {
+                //创建驼峰id
+                var headingId = getChildrenTextContent(this.$slots.default).toLowerCase().replace(/\W+/g,
+                    '-').replace(/(^\-|\-$)/g, '');
+                return createElement(
+                    'h' + this.level, [
+                        createElement('a', {
+                            attrs: {
+                                name: headingId,
+                                href: "#" + headingId
+                            }
+                        }, this.$slots.default)
+                    ]
+                )
+            },
+            props: {
+                level: {
+                    type: Number,
+                    required: true
+                }
+            }
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {}
+        });
+    </script>
+</body>
+
+</html>

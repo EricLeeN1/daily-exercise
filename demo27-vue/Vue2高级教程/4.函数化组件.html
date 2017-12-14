@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数化组件</title>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <p>组件需要的一切都是通过上下文传递，包括：</p>
+        <ol>
+            <li v-for="(value,key) of items">{{key}}-{{value}}</li>
+        </ol>
+        <my-component v-bind:level="1">hello World</my-component>
+    </div>
+    <script>
+        var getChildrenTextContent = function (children) {
+            return children.map(function (node) {
+                return node.children ? getChildrenTextContent(node.children) : node.text;
+            }).join('');
+        };
+        Vue.component('my-component', {
+            functional: true,
+            //为了弥补缺少的实例，提供第二个参数作为上下文
+            render: function (createElement, context) {
+                //创建驼峰id
+                var headingId = getChildrenTextContent(context.children).toLowerCase().replace(/\W+/g,
+                    '-').replace(/(^\-|\-$)/g, '');
+                return createElement(
+                    'h' + context.props.level, [
+                        createElement('a', {
+                            attrs: {
+                                name: headingId,
+                                href: "#" + headingId
+                            }
+                        }, context.children)
+                    ]
+                )
+            },
+            props: {
+                level: {
+                    type: Number,
+                    required: true
+                }
+            }
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                items: {
+                    props: '提供 props 的对象',
+                    children: 'VNode 子节点的数组',
+                    slots: 'slots 对象',
+                    data: '传递给组件的 data 对象',
+                    parent: '对父组件的引用'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

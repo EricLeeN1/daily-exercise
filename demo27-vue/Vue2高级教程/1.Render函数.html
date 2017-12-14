@@ -1,27 +1,87 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Render函数</title>
 </head>
+
 <body>
-<div id="app">
-<h1>{{message}}</h1>
-</div>
-<script src="../vue.min.js"></script>
-<script>
-    //1. 创建Vue的实例
-    let app = new Vue({
-        el:"#app",
-        data:{
-            message:"这次我一定要把Vue掌握了"
-        },
-        methods:{
+    <div id="app">
+        <h1>{{message}}</h1>
+        <anchored-heading v-bind:level="3">Hello world!</anchored-heading>
+    </div>
+    <div id="app1">
+        <anchored1-heading v-bind:level="1">Hello world!</anchored1-heading>
+    </div>
+    <script type="text/x-template" id="anchored-heading-template">
+        <div>
+            <h1 v-if="level===1">
+                <slot></slot>
+            </h1>
+            <h2 v-if="level===2">
+                <slot></slot>
+            </h2>
+            <h3 v-if="level===3">
+                <slot></slot>
+            </h3>
+            <h4 v-if="level===4">
+                <slot></slot>
+            </h4>
+            <h5 v-if="level===5">
+                <slot></slot>
+            </h5>
+            <h6 v-if="level===6">
+                <slot></slot>
+            </h6>
+        </div>
+    </script>
+    <script src="../vue.min.js"></script>
+    <script>
+        Vue.component('anchored-heading', {
+            template: "#anchored-heading-template",
+            props: {
+                level: {
+                    type: Number,
+                    required: true
+                }
+            }
+        });
+        //1. 创建Vue的实例
+        let app = new Vue({
+            el: "#app",
+            data: {
+                message: "这次我一定要把Vue掌握了"
+            },
+            methods: {
 
-        },
+            },
 
-    });
-</script>
+        });
+        Vue.component('anchored1-heading', {
+            render: function (createElement, context) {
+                console.log(
+                    "// @returns {VNode} createElement( // {String | Object | Function} // 一个 HTML 标签，组件设置，或一个函数 // 必须 Return 上述其中一个 'div', // {Object} // 一个对应属性的数据对象 // 您可以在 template 中使用.可选项.  {  // (下一章，将详细说明相关细节)  },  // {String | Array}  // 子节点(VNodes). 可选项.  [  createElement('h1', 'hello world'),  createElement(MyComponent, {  props: {  someProp: 'foo'  }  }),  'bar'  ]  )"
+                );
+                return createElement(
+                    'h' + this.level, //tag name 标签名字
+                    this.$slots.default //子组件中的阵列
+                );
+
+            },
+            props: {
+                level: {
+                    type: Number,
+                    required: true
+                }
+            }
+        });
+        let app1 = new Vue({
+            el: "#app1",
+            data: {}
+        });
+    </script>
 </body>
+
 </html>
