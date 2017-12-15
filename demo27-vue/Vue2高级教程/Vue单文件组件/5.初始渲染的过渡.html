@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>初始渲染的过渡</title>
+    <style>
+        .no-mode-fade-enter-active,
+        .no-mode-fade-leave-active {
+            transition: opacity .5s
+        }
+
+        .no-mode-fade-enter,
+        .no-mode-fade-leave-active {
+            opacity: 0
+        }
+
+        .no-mode-absolute-demo-wrapper {
+            position: relative;
+            height: 18px;
+        }
+
+        .no-mode-absolute-demo-wrapper button {
+            position: absolute;
+        }
+
+        .no-mode-absolute-fade-enter-active,
+        .no-mode-absolute-fade-leave-active {
+            transition: opacity .5s;
+        }
+
+        .no-mode-absolute-fade-enter,
+        .no-mode-absolute-fade-leave-active {
+            opacity: 0;
+        }
+
+        .no-mode-translate-demo-wrapper {
+            position: relative;
+            height: 18px;
+        }
+
+        .no-mode-translate-demo-wrapper button {
+            position: absolute;
+        }
+
+        .no-mode-translate-fade-enter-active,
+        .no-mode-translate-fade-leave-active {
+            transition: all 1s;
+        }
+
+        .no-mode-translate-fade-enter,
+        .no-mode-translate-fade-leave-active {
+            opacity: 0;
+        }
+
+        .no-mode-translate-fade-enter {
+            transform: translateX(31px);
+        }
+
+        .no-mode-translate-fade-leave-active {
+            transform: translateX(-31px);
+        }
+
+        .component-fade-enter-active,
+        .component-fade-leave-active {
+            transition: opacity .3s ease;
+        }
+
+        .component-fade-enter,
+        .component-fade-leave-active {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <p>可以通过appear特性设置结点的再初始渲染的过渡</p>
+        <transition name="" mode="" appear appear-class="custom-appear-class" appear-active-class="custom-appear-active-class">
+        </transition>
+        <p>默认进入和离开过度一样，同时也可以自定义css类名</p>
+        <p>自定义JavaScript钩子</p>
+        <transition name="" mode="" appear @before-appear="customBeforeAppearHook" @appear="customAppearHook" @after-appear="customAfterAppearHook">
+        </transition>
+        <p>多个元素的过渡</p>
+        <transition name="" mode="">
+            <table v-if="items.length>0"></table>
+            <p v-else>对不起，数组没有文件</p>
+        </transition>
+        <p>当有的元素切换时，需要通过 key 特性设置唯一的值来标记以让 Vue 区分它们，否则 Vue 为了效率只会替换相同标签内部的内容。即使在技术上没有必要，
+        </p>
+        <transition name="" mode="">
+            <button v-if="isEditing" key="save">Save</button>
+            <button v-else key="edit">Edit</button>
+            <p>
+                <button v-bind:key="isEditing">
+                    {{isEditing?'Save1':'Edit1'}}
+                </button>
+            </p>
+        </transition>
+        <transition name="" mode="">
+            <button :key="docState">
+                {{buttonMessage}}
+            </button>
+        </transition>
+        <p>过渡模式</p>
+        <transition name="no-mode-fade" mode="out-in">
+            <button v-if="on" key="on" @click="on =false">on</button>
+            <button v-else key="off" v-on:click="on=true">off</button>
+        </transition>
+        <p>在元素绝对定位在彼此之上的时候运行正常</p>
+        <div class="no-mode-absolute-demo-wrapper">
+            <transition name="no-mode-absolute-fad" mode="out-in">
+                <button v-if="on" key="on" @click="on =false">on</button>
+                <button v-else key="off" v-on:click="on=true">off</button>
+            </transition>
+        </div>
+        <p>加上 translate 让它们运动像滑动过渡：</p>
+        <div class="no-mode-translate-demo-wrapper">
+            <transition name="no-mode-translate-fade" mode="out-in">
+                <button v-if="on" key="on" @click="on = false">
+                    on
+                </button>
+                <button v-else="" key="off" @click="on = true">
+                    off
+                </button>
+            </transition>
+        </div>
+        <p>多个组件的过渡</p>
+        <input v-model="view" type="radio" value="v-a" id="a" name="view"><label for="a">A</label>
+        <input v-model="view" type="radio" value="v-b" id="b" name="view"><label for="b">B</label>
+        <transition name="component-fade" mode="out-in">
+            <component v-bind:is="view"></component>
+        </transition>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                on: false,
+                items: [],
+                isEditing: false,
+                docState: 'saved',
+                view: 'v-a'
+            },
+            components: {
+                'v-a': {
+                    template: "<div>Component A</div>"
+                },
+                'v-b': {
+                    template: "<div>Component B</div>"
+                },
+                'v-c': {
+                    template: "<div>Component C</div>"
+                }
+            },
+            computed: {
+                buttonMessage() {
+                    switch (this.docState) {
+                        case 'saved':
+                            return 'Edit Case';
+                        case 'edited':
+                            return 'Save Case';
+                        case 'editing':
+                            return 'Cancel Case';
+                        default:
+                            break;
+                    }
+                }
+            },
+            methods: {
+                customBeforeAppearHook() {
+
+                },
+                customAppearHook() {
+
+                },
+                customAfterAppearHook() {}
+            }
+        });
+    </script>
+</body>
+
+</html>
