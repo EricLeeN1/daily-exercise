@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mixins选项合并</title>
+</head>
+
+<body>
+<script src='../../vue.min.js'></script>
+<div id='app'>
+    <p></p>
+</div>
+<script>
+    var mixin = {
+        created: function () {
+            console.log('混合对象的钩子被调用');
+        },
+        methods: {
+            foo() {
+                console.log('foo');
+            },
+            conflicting() {
+                console.log('from mixin');
+            }
+        }
+    }
+    var vm = new Vue({
+        mixins: [mixin],
+        el: '#app',
+        data: {},
+        created: function () {
+            console.log('组件钩子被调用');
+        },
+        methods: {
+            bar() {
+                console.log('bar');
+            },
+            conflicting() {
+                console.log('from self');
+            }
+        }
+    });
+    // => "混合对象的钩子被调用"
+    // => "组件钩子被调用"
+    vm.foo(); // foo
+    vm.bar(); // bar
+    vm.conflicting(); // from self
+    //Vue.extend() 也使用同样的策略进行合并。
+</script>
+</body>
+
+</html>

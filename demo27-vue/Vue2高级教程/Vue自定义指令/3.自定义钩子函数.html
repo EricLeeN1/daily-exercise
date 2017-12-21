@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义钩子函数</title>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <p>{{msg}}</p>
+        <div v-demo:foo.a.b="msg"></div>
+    </div>
+    <script>
+        Vue.directive('demo', {
+            bind(el, binding, vnode) {
+                var s = JSON.stringify;
+                el.innerHTML =
+                    'Name: ' + s(binding.name) + "<br>" +
+                    'Value: ' + s(binding.value) + "<br>" +
+                    'Expression: ' + s(binding.expression) + "<br>" +
+                    'Arguments: ' + s(binding.arg) + "<br>" +
+                    'Modifiers: ' + s(binding.modifiers) + "<br>" +
+                    'Vnode Keys: ' + Object.keys(vnode).join(', ');
+            }
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg:"这次一定要把Vue学好！"
+            }
+        });
+    </script>
+</body>
+
+</html>
