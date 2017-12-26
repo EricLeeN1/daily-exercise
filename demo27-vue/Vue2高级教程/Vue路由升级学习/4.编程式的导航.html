@@ -16,6 +16,9 @@
         <p>{{msg}}</p>
         <p>{{msgAdd}}</p>
         <p v-on:click="goFoo">goFoo</p>
+        <p v-on:click="backTo">后退十步</p>
+        <p v-on:click="replaceTo">代替当前</p>
+        <p v-on:click="forwardTo">前进五步</p>
         <p v-on:click="goHome2">goHome</p>
         <p v-on:click="goBar">goBar</p>
         <p>
@@ -59,6 +62,7 @@
         const router = new VueRouter({
             routes: [{
                 path: '/user/:id',
+                name: 'user',
                 component: User,
                 children: [
                     profileRouter,
@@ -72,7 +76,9 @@
                     }
                 ]
             }]
-        })
+        });
+        const userId = 123;
+
         const vm = new Vue({
             // el: '#app',
             router,
@@ -81,40 +87,74 @@
                     //字符串
                     router.push('/user/');
                 },
+                replaceTo(){
+                    router.replace('/user/Banana',()=>{
+                        console.log('替换路径成功');
+                    },()=>{
+                        console.log('替换终止，因为重复');
+                    })
+                },
                 goHome1() {
                     // 对象
                     router.push({
                         path: '/user/Banana',
                         query: {
                             months: 11,
-                            week: [1,2,3]
+                            week: [1, 2, 3]
                         }
                     });
                 },
                 goHome2() {
                     // 命名的路由
                     console.log(router);
+                    // router.push({
+                    //     name: 'user',
+                    //     params: {
+                    //         userId
+                    //     }
+                    // });
+                    // router.push({
+                    //     path:`/user/${userId}`
+                    // });
+                    // 如果提供了 path，params 会被忽略，上述例子中的 query 并不属于这种情况。取而代之的是下面例子的做法，你需要提供路由的 name 或手写完整的带有参数的 path：
+                    // 这里的 params 不生效
                     router.push({
-                        name: '/user/',
-                        params: {
-                            id: 'jane'
-                        }
-                    });
+                        path:`/user/${userId}`,
+                        // params:{
+                        //     userId
+                        // }
+                    },()=>{
+                        console.log('导航成功');
+                        console.log('在所有的异步钩子被解析之后');
+                    },()=>{
+                        console.log('导航终止');
+                        console.log('导航到相同的路由、或在当前导航完成之前导航到另一个不同的路由');
+                    })
                 },
                 goFoo() {
                     router.push('/user/foo');
+                },
+                backTo(){
+                    router.go(-10);
+                    // 后退十步记录
+                    // 如果一步的话，同history.back()
+                },
+                forwardTo(){
+                    router.go(10);
+                    // 前进五步
+                    // 如果一步的话，同history.forward()
                 },
                 goBar() {
                     router.push('/user/bar');
                 },
             },
             computed: {
-              msgAdd(){
-                  return this.msg+'--Eric!';
-              }  
+                msgAdd() {
+                    return this.msg + '--Eric!';
+                }
             },
-            data:{
-                msg:'这次我一定要把vue学会'
+            data: {
+                msg: '这次我一定要把vue学会'
             }
         }).$mount('#app');
     </script>
