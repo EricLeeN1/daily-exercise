@@ -13,13 +13,15 @@
     <script src='../../vue-router.js'></script>
     <div id='app'>
         <h2>编程式的导航</h2>
+        <p>{{msg}}</p>
+        <p>{{msgAdd}}</p>
         <p v-on:click="goFoo">goFoo</p>
-        <p v-on:click="goHome">goHome</p>
+        <p v-on:click="goHome2">goHome</p>
         <p v-on:click="goBar">goBar</p>
         <p>
-            <router-link to="/user/">Home</router-link>
-            <router-link to="/user/foo">foo</router-link>
-            <router-link to="/user/bar">bar</router-link>
+            <router-link to="/user/eric">用户个人主页</router-link>
+            <router-link to="/user/eric/profile">用户个人资料页</router-link>
+            <router-link to="/user/eric/sign">用户个人签名</router-link>
         </p>
         <router-view></router-view>
     </div>
@@ -27,7 +29,7 @@
         const User = {
             template: `
             <div class="user">
-                <h2>User {{$route.params.id}}</h2>
+                <h2>用户名称: {{$route.params.id}}</h2>
                 <router-view></router-view>  
             </div>`,
             watch: {
@@ -39,32 +41,34 @@
             },
         }
         const UserHome = {
-            template: '<div>Home</div>'
+            template: '<div>{{$route.params.id}}的主页</div>'
         };
 
-        const UserFoo = {
-            template: '<div>Foo</div>'
+        const UserProfile = {
+            template: '<div>{{$route.params.id}}的资料页</div>'
         }
 
-        const UserBar = {
-            template: '<div>Bar</div>'
+        const UserSign = {
+            template: '<div>{{$route.params.id}}的签名页</div>'
         }
 
+        const profileRouter = {
+            path: 'profile',
+            component: UserProfile
+        };
         const router = new VueRouter({
             routes: [{
-                path: '/:id',
+                path: '/user/:id',
                 component: User,
-                children: [{
-                        path: 'foo',
-                        component: UserFoo
-                    },
+                children: [
+                    profileRouter,
                     {
-                        path: '',
+                        path: '/',
                         component: UserHome
                     },
                     {
-                        path: 'bar',
-                        component: UserBar
+                        path: 'sign',
+                        component: UserSign
                     }
                 ]
             }]
@@ -74,14 +78,43 @@
             router,
             methods: {
                 goHome() {
-                    router.push('/');
+                    //字符串
+                    router.push('/user/');
+                },
+                goHome1() {
+                    // 对象
+                    router.push({
+                        path: '/user/Banana',
+                        query: {
+                            months: 11,
+                            week: [1,2,3]
+                        }
+                    });
+                },
+                goHome2() {
+                    // 命名的路由
+                    console.log(router);
+                    router.push({
+                        name: '/user/',
+                        params: {
+                            id: 'jane'
+                        }
+                    });
                 },
                 goFoo() {
-                    router.push('/foo');
+                    router.push('/user/foo');
                 },
                 goBar() {
-                    router.push('/bar');
+                    router.push('/user/bar');
                 },
+            },
+            computed: {
+              msgAdd(){
+                  return this.msg+'--Eric!';
+              }  
+            },
+            data:{
+                msg:'这次我一定要把vue学会'
             }
         }).$mount('#app');
     </script>
