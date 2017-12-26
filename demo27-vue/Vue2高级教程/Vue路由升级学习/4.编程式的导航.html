@@ -13,6 +13,9 @@
     <script src='../../vue-router.js'></script>
     <div id='app'>
         <h2>编程式的导航</h2>
+        <p v-on:click="goFoo">goFoo</p>
+        <p v-on:click="goHome">goHome</p>
+        <p v-on:click="goBar">goBar</p>
         <p>
             <router-link to="/user/">Home</router-link>
             <router-link to="/user/foo">foo</router-link>
@@ -68,7 +71,18 @@
         })
         const vm = new Vue({
             // el: '#app',
-            router
+            router,
+            methods: {
+                goHome() {
+                    router.push('/');
+                },
+                goFoo() {
+                    router.push('/foo');
+                },
+                goBar() {
+                    router.push('/bar');
+                },
+            }
         }).$mount('#app');
     </script>
 </body>
