@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>history模式</title>
+</head>
+
+<body>
+    <script src="../../vue.min.js"></script>
+    <script src="../../vue-router.js"></script>
+    <div id="app">
+        <h2>{{msg}}</h2>
+        <ul>
+            <li>
+                <router-link to="/user/index">Home</router-link>
+            </li>
+            <li>
+                <router-link to="/user/bar">Bar</router-link>
+            </li>
+            <li>
+                <router-link to="/user/foo">Foo</router-link>
+            </li>
+        </ul>
+        <router-view></router-view>
+    </div>
+    <script>
+        console.log('vue-router 默认 hash 模式 —— 使用 URL 的 hash 来模拟一个完整的 URL，于是当 URL 改变时，页面不会重新加载。');
+        console.log('如果不想要很丑的 hash，我们可以用路由的 history 模式，这种模式充分利用 history.pushState API 来完成 URL 跳转而无须重新加载页面。');
+        const User = {
+            props: ['id'],
+            template: '<div>User {{id}}</div>'
+        };
+        // const User = {
+        //     template: '<div>User {{$route.params.id}}</div>'
+        // };
+        const router = new VueRouter({
+            routes: [{
+                path: '/user/:id',
+                component: User,
+                props: true
+            }]
+        });
+        // 对于包含命名视图的路由，你必须分别为每个命名视图添加props选项：
+        const vm = new Vue({
+            router,
+            data: {
+                msg: '这次一定要把Vue学好'
+            }
+        }).$mount('#app');
+    </script>
+</body>
+
+</html>
