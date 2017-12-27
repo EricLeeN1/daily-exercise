@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>向路由组件传递参数</title>
+</head>
+
+<body>
+    <script src="../../vue.min.js"></script>
+    <script src="../../vue-router.js"></script>
+    <div id="app">
+        <h2>{{msg}}</h2>
+        <ul>
+            <li>
+                <router-link to="/user/index">Home</router-link>
+            </li>
+            <li>
+                <router-link to="/user/bar">Bar</router-link>
+            </li>
+            <li>
+                <router-link to="/user/foo">Foo</router-link>
+            </li>
+        </ul>
+        <router-view></router-view>
+    </div>
+    <script>
+        console.log('使用props将组件和路由解耦');
+        const User = {
+            props: ['id'],
+            template: '<div>User {{id}}</div>'
+        };
+        // const User = {
+        //     template: '<div>User {{$route.params.id}}</div>'
+        // };
+        const router = new VueRouter({
+            routes: [{
+                path: '/user/:id',
+                component: User,
+                props: true
+            }]
+        });
+        // 对于包含命名视图的路由，你必须分别为每个命名视图添加props选项：
+        const vm = new Vue({
+            router,
+            data: {
+                msg: '这次一定要把Vue学好'
+            }
+        }).$mount('#app');
+    </script>
+</body>
+
+</html>
