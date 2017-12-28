@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过渡动效</title>
+</head>
+
+<body>
+    <h2>'router-view'是基本的动态组件，所以我们可以用transition组件给他添加一些过渡效果</h2>
+    <transition name="" mode="">
+        <router-view name="path"></router-view>
+    </transition>
+    <div id="app">
+        <transition :name="transitionName" mode="">
+            <router-view></router-view>
+        </transition>
+    </div>
+    <script src="../../vue.min.js"></script>
+    <script src="../../vue-router.js"></script>
+    <script>
+        // 单个路由的过渡
+        const Foo = {
+            template: `
+            <transition name='slide'>
+                <div class='foo'>Foo</div>
+            </transition>
+            `
+        };
+        const Bar = {
+            template: `
+            <transition name='fade'>
+                <div class='bar'>Bar</div>
+            </transition>
+            `
+        };
+        // 基于路由的动态过渡=>基于当前路由与目标路由的变化关系，动态设置过渡效果
+        const vm = 123;
+    </script>
+</body>
+
+</html>

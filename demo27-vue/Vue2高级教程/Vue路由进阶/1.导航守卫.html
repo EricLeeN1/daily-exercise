@@ -14,6 +14,10 @@
     <div id="app">
         <h2>{{msg}}</h2>
         <h3>{{tips}}</h3>
+        <h4>{{itemsHead}}</h4>
+        <ol>
+            <li v-for="item in items">{{item}}</li>
+        </ol>
         <ul>
             <li>
                 <router-link to="/foo">Foo</router-link>
@@ -31,6 +35,38 @@
         const Bar = {
             template: '<div>Bar</div>',
             // 5.组件内的守卫
+            beforeRouteEnter: (to, from, next) => {
+                // 在渲染该组件的对应路由被 confirm 前调用
+                // 不！能！获取组件实例 `this`
+                // 因为当守卫执行前，组件实例还没被创建
+                console.log(to);
+                console.log(from);
+                next(
+                    vm => {
+                        //通过vm访问组件实例
+                        // console.log(this);//window
+                        console.log(vm); //window
+                    }
+                )
+            },
+            beforeRouteUpdate: (to, from, next) => {
+                // 在当前路由改变，但是该组件被复用时调用
+                // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，
+                // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。
+                // 可以访问组件实例 `this`
+                console.log(to);
+                console.log(from);
+            },
+            beforeRouteLeave(to, from, next) {
+                // 导航离开该组件的对应路由时调用
+                // 可以访问组件实例 `this`
+                console.log(to);
+                console.log(from);
+                console.log('====================================');
+                console.log('你可以 在 beforeRouteLeave 中直接访问 this。这个离开守卫通常用来禁止用户在还未保存修改前突然离开。可以通过 next(false) 来取消导航。');
+                console.log('====================================');
+                console.log(this); //?用箭头函数的时候为啥还是window，因为我用了箭头函数，之后别再方法外面用了、
+            }
         }
         const router = new VueRouter({
             // mode: 'history',
@@ -76,7 +112,22 @@
             router,
             data: {
                 msg: '这次一定要把Vue学会',
-                tips: '导航守卫主要用来通过跳转或取消的方式守卫导航。有多种机会植入路由导航过程中：全局的, 单个路由独享的, 或者组件级的。'
+                tips: '导航守卫主要用来通过跳转或取消的方式守卫导航。有多种机会植入路由导航过程中：全局的, 单个路由独享的, 或者组件级的。',
+                itemsHead: '完整的导航解析流程',
+                items: [
+                    '导航被触发',
+                    '在失活的组件里调用离开守卫',
+                    '调用全局的 beforeEach 守卫',
+                    '在重用的组件里调用 beforeRouteUpdate 守卫(2.2 + )',
+                    '在路由配置里调用 beforeEnter',
+                    '解析异步路由组件',
+                    '在被激活的组件里调用 beforeRouteEnter',
+                    '调用全局的 beforeResolve 守卫(2.5 + )',
+                    '导航被确认',
+                    '调用全局的 afterEach 钩子',
+                    '触发 DOM 更新',
+                    '用创建好的实例调用 beforeRouteEnter 守卫中传给 next 的回调函数',
+                ]
             },
             methods: {
                 log() {
