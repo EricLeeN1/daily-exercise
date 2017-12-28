@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全选</title>
+</head>
+
+<body>
+    <script src='../../vue.min.js'></script>
+    <div id='app'>
+        <table>
+            <thead>
+                <tr>
+                    <td>商品名</td>
+                    <td>商品价格</td>
+                    <td>商品数量</td>
+                    <td>全选
+                        <input type="checkbox" v-model="checkedAll" v-on:click="checkedAllGoods">
+                        <!-- <input type="checkbox" v-model="checkedAll" v-on:click="checkedAllGoods1"> -->
+                    </td>
+                </tr>
+            </thead>
+            <tr v-for="(item,index) in list" :data-id='index' :key="item.id">
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.count}}</td>
+                <td>
+                    <!-- 0 -->
+                    <input type="checkbox" v-model="checkBox" :id="item.id" :value='item.id'>
+                    
+                    <!-- <input type="checkbox" v-model="item.checked" :id="item.id" :value='item.id'> -->
+                    <!-- 1 -->
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                checkedAll: false,
+                list: [{
+                        id: 1,
+                        name: 'iphone 7',
+                        price: '6188',
+                        count: 1,
+                        checked: false
+                    },
+                    {
+                        id: 2,
+                        name: 'iPad pro',
+                        price: '5888',
+                        count: 1,
+                        checked: false
+                    },
+                    {
+                        id: 3,
+                        name: 'MacBook Pro',
+                        price: '6188',
+                        count: 1,
+                        checked: false
+                    }
+                ],
+                checkBox: []
+            },
+            methods: {
+                checkedAllGoods() {
+                    const that = this;
+                    if (that.checkedAll) {
+                        that.checkBox = [];
+                    } else {
+                        that.checkBox = [];
+                        that.list.forEach(element => {
+                            that.checkBox.push(element.id);
+                        });
+                    }
+                },
+                checkedAllGoods1() {
+                    const that = this;
+                    if (that.checkedAll) {
+                        that.list.forEach(element => {
+                            element.checked = false;
+                        });
+                    } else {
+                        that.list.forEach(element => {
+                            element.checked = true;
+                        });
+                    }
+                },
+            },
+
+        });
+    </script>
+</body>
+
+</html>
