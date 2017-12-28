@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>重定向 和 别名</title>
+</head>
+
+<body>
+    <script src="../../vue.min.js"></script>
+    <script src="../../vue-router.js"></script>
+    <div id="app">
+        <h2>{{msg}}</h2>
+        <ul>
+            <li>
+                <router-link to="/">Home</router-link>
+            </li>
+            <li>
+                <router-link to="/sign">Sign</router-link>
+            </li>
+            <li>
+                <router-link to="/profiles">Profiles</router-link>
+            </li>
+            <li>
+                <router-link to="/index">Index</router-link>
+            </li>
+            <li>
+                <router-link to="/toindex">to Index</router-link>
+            </li>
+            <li>
+                <router-link to="/aaa">to AAA</router-link>
+            </li>
+        </ul>
+        <router-view></router-view>
+    </div>
+    <script>
+        const Home = {
+            template: '<div>Eric的Home</div>'
+        };
+        const Sign = {
+            template: '<div>Eric的Sign</div>'
+        };
+        const Profiles = {
+            template: '<div>Eric的Profiles</div>'
+        };
+        //重定向
+        // const router = new VueRouter({
+        //     routes: [{
+        //             path: '/',
+        //             component: Home,
+        //             name: 'a'
+        //         },
+        //         {
+        //             path: '/sign',
+        //             name: 'sign',
+        //             component: Sign
+        //         },
+        //         {
+        //             path: '/profiles',
+        //             name:"profiles",
+        //             component: Profiles
+        //         },
+        //         {
+        //             // 重定向字符串
+        //             path: '/index',
+        //             redirect: '/'
+        //         }, {
+        //             //重定向的目标也可以是一个命名的路由
+        //             path: '/toindex',
+        //             redirect: {
+        //                 name: 'sign'
+        //             }
+        //         }, {
+        //             // 甚至是一个方法，动态返回重定向目标
+        //             path: '/aaa',
+        //             redirect: to => {
+        //                 //方法接受目标路由作为参数
+        //                 // return 重定向的字符串路径/路径对象
+        //                 // return {
+        //                 //     name:"profiles"
+        //                 // }
+        //                 return '/profiles'
+        //             }
+        //         }
+        //     ]
+        // });
+
+        // 别名
+        const router = new VueRouter({
+            routes: [{
+                    path: '/',
+                    component: Home,
+                    name: 'a',
+                    alias: '/index'
+                },
+                {
+                    path: '/sign',
+                    name: 'sign',
+                    component: Sign,
+                    alias: '/toindex'
+                },
+                {
+                    path: '/profiles',
+                    name: "profiles",
+                    component: Profiles,
+                    alias: '/aaa'
+                }
+            ]
+        });
+        const vm = new Vue({
+            router,
+            data: {
+                msg: '这一次一定要把Vue学好!'
+            }
+        }).$mount('#app');
+    </script>
+</body>
+
+</html>

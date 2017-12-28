@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>命名视图</title>
+    <style>
+        .view {
+            color: #f55053;
+        }
+
+        .one {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .two {
+            background-color: #f55053;
+            color: #fff;
+        }
+
+        .three {
+            background-color: skyblue;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../../vue.min.js"></script>
+    <script src="../../vue-router.js"></script>
+    <div id="app">
+        <h2>命名视图</h2>
+        <ul>
+            <li>
+                <router-link to="/">/</router-link>
+            </li>
+            <li>
+                <router-link to="/other">/other</router-link>
+            </li>
+        </ul>
+        <router-view class="view one"></router-view>
+        <router-view class="view two" name="a"></router-view>
+        <router-view class="view three" name="b"></router-view>
+    </div>
+    <script>
+        //定义组件
+        const Foo = {
+            template: '<div>foo</div>'
+        }
+        const Bar = {
+            template: '<div>bar</div>'
+        }
+        const Baz = {
+            template: '<div>baz</div>'
+        }
+        //定义路由
+        const router = new VueRouter({
+            mode: 'history',
+            routes: [{
+                path: '/',
+                components: {
+                    default: Foo,
+                    a: Bar,
+                    b: Baz
+                }
+            }, {
+                path: '/other',
+                components: {
+                    default: Baz,
+                    a: Bar,
+                    b: Foo
+                }
+            }]
+        });
+
+        //挂载dom
+        new Vue({
+            router,
+            el: "#app"
+        })
+    </script>
+</body>
+
+</html>
