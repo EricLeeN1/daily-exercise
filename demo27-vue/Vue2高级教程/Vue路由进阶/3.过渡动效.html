@@ -10,40 +10,47 @@
 
 <body>
     <h2>'router-view'是基本的动态组件，所以我们可以用transition组件给他添加一些过渡效果</h2>
-    <transition name="" mode="">
+    <!-- <transition name="" mode="">
         <router-view name="path"></router-view>
-    </transition>
+    </transition> -->
     <div id="app">
-        <transition :name="transitionName" mode="">
+        <!-- 2.基于路由的动态过渡
+        2-1使用动态的transition name -->
+        <!-- <transition :name="transitionName" mode="">
             <router-view></router-view>
-        </transition>
+        </transition> -->
     </div>
     <script src="../../vue.min.js"></script>
     <script src="../../vue-router.js"></script>
     <script>
-        // 单个路由的过渡
-        const Foo = {
-            template: `
-            <transition name='slide'>
-                <div class='foo'>Foo</div>
-            </transition>
-            `
-        };
-        const Bar = {
-            template: `
-            <transition name='fade'>
-                <div class='bar'>Bar</div>
-            </transition>
-            `
-        };
-        // 基于路由的动态过渡=>基于当前路由与目标路由的变化关系，动态设置过渡效果
-        const vm = 123;
-
-
-        import Vue from 'vue'
-        import VueRouter from 'vue-router'
-
-        Vue.use(VueRouter)
+        // 1.单个路由的过渡
+        // const Foo = {
+        //     template: `
+        //     <transition name='slide'>
+        //         <div class='foo'>Foo</div>
+        //     </transition>
+        //     `
+        // };
+        // const Bar = {
+        //     template: `
+        //     <transition name='fade'>
+        //         <div class='bar'>Bar</div>
+        //     </transition>
+        //     `
+        // };
+        // 2.基于路由的动态过渡=>基于当前路由与目标路由的变化关系，动态设置过渡效果
+        // 2.2 接着在父组件内 watch $route 决定使用哪种过渡
+        // var User = {
+        //     template: '<div>User </div>',
+        //     watch: {
+        //         '$route' (to, from) {
+        //             //对路由变化做出响应
+        //             const toDepth = to.path.split('/').length
+        //             const fromDepth = from.path.split('/').length
+        //             this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+        //         }
+        //     }
+        // }
 
         const Home = {
             template: `
@@ -90,7 +97,7 @@
 
         const router = new VueRouter({
             mode: 'history',
-            base: __dirname,
+            // base: __dirname,
             routes: [{
                     path: '/',
                     component: Home
