@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滚动行为</title>
+</head>
+<body>
+    使用前端路由，当切换到新路由时，想要页面滚到顶部，或者是保持原先的滚动位置，就像重新加载页面那样。 vue-router 能做到，而且更好，它让你可以自定义路由切换时页面如何滚动。
+    <h1>注意: 这个功能只在 HTML5 history 模式下可用。</h1>
+    <script src="../../vue.min.js"></script>
+    <script src="../../vue-router.js"></script>
+    <div id="app"></div>
+    <script>
+    const router = new VueRouter({
+        routes: [],
+        scrollBehavior (to, from, savedPosition) {
+            // ...//
+            // return 期望滚动到那个位置
+        }
+    })
+    </script>
+</body>
+</html>
