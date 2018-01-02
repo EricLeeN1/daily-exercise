@@ -144,3 +144,159 @@
             })
 
 ### 路由信息对象的属性
+
+    1. $route.path
+    类型: string
+    字符串，对应当前路由的路径，总是解析为绝对路径，如 "/foo/bar"。
+    
+    2. $route.params
+    类型: Object
+    一个 key/value 对象，包含了 动态片段 和 全匹配片段，如果没有路由参数，就是一个空对象。
+
+    3. $route.query
+    类型: Object
+    一个 key/value 对象，表示 URL 查询参数。例如，对于路径 /foo?user=1，则有 $route.query.user == 1，如果没有查询参数，则是个空对象。
+
+    4. $route.hash
+    类型: string
+    当前路由的 hash 值 (带 #) ，如果没有 hash 值，则为空字符串。
+
+    5. $route.fullPath
+    类型: string
+    完成解析后的 URL，包含查询参数和 hash 的完整路径。
+
+    6. $route.matched
+    类型: Array<RouteRecord>
+    一个数组，包含当前路由的所有嵌套路径片段的 路由记录 。路由记录就是 routes 配置数组中的对象副本（还有在 children 数组）。
+    const router = new VueRouter({
+        routes: [
+            // 下面的对象就是 route record
+            { path: '/foo', component: Foo,
+            children: [
+                // 这也是个 route record
+                { path: 'bar', component: Bar }
+            ]}
+        ]
+    })
+    当 URL 为 /foo/bar，$route.matched 将会是一个包含从上到下的所有对象（副本）。
+
+    7. $route.name
+    当前路由的名称，如果有的话
+
+## 4. 对组件注入
+
+    1. 注入的属性
+        通过在Vue根实例的router配置传入router实例，下面这些属性成员会被注入到每个子组件
+        $router
+            router实例
+        $route
+            当前激活的路由信息对象。这个属性是只读的。里面属性是不可变的，不过可以watch（检测变化它）
+
+    2.允许的额外配置
+
+-  beforeRouteEnter
+-  beforeRouteUpdate
+-  beforeRouteLeave
+
+## 5.<router-link>
+
+    1. 无论是 HTML5 history 模式还是 hash 模式，它的表现行为一致，所以，当你要切换路由模式，或者在 IE9 降级使用 hash 模式，无须作任何变动。
+    2. 在 HTML5 history 模式下，router-link 会守卫点击事件，让浏览器不再重新加载页面。
+    3. 当你在 HTML5 history 模式下使用 base 选项之后，所有的 to 属性都不需要写（基路径）了。
+
+    Props
+
+        1. to
+        类型: string | Location
+        required
+        表示目标路由的链接。当被点击后，内部会立刻把 to 的值传到 router.push()，所以这个值可以是一个字符串或者是描述目标位置的对象。
+        <!-- 字符串 -->
+        <router-link to="home">Home</router-link>
+        <!-- 渲染结果 -->
+        <a href="home">Home</a>
+
+        <!-- 使用 v-bind 的 JS 表达式 -->
+        <router-link v-bind:to="'home'">Home</router-link>
+
+        <!-- 不写 v-bind 也可以，就像绑定别的属性一样 -->
+        <router-link :to="'home'">Home</router-link>
+
+        <!-- 同上 -->
+        <router-link :to="{ path: 'home' }">Home</router-link>
+
+        <!-- 命名的路由 -->
+        <router-link :to="{ name: 'user', params: { userId: 123 }}">User</router-link>
+
+        <!-- 带查询参数，下面的结果为 /register?plan=private -->
+        <router-link :to="{ path: 'register', query: { plan: 'private' }}">Register</router-link>
+
+        2. replace
+        类型: boolean
+        默认值: false
+        设置 replace 属性的话，当点击时，会调用 router.replace() 而不是 router.push()，于是导航后不会留下 history 记录。
+        <router-link :to="{ path: '/abc'}" replace></router-link>
+
+        3. append
+        类型: boolean
+        默认值: false
+        设置 append 属性后，则在当前（相对）路径前添加基路径。例如，我们从 /a 导航到一个相对路径 b，如果没有配置 append，则路径为 /b，如果配了，则为 /a/b
+        <router-link :to="{ path: 'relative/path'}" append></router-link>
+
+        4. tag
+        类型: string
+        默认值: "a"
+        有时候想要 <router-link> 渲染成某种标签，例如 <li>。 于是我们使用 tag prop 类指定何种标签，同样它还是会监听点击，触发导航。
+        <router-link to="/foo" tag="li">foo</router-link>
+            <!-- 渲染结果 -->
+        <li>foo</li>
+
+        5. active-class
+        类型: string
+        默认值: "router-link-active"
+        设置 链接激活时使用的 CSS 类名。默认值可以通过路由的构造选项 linkActiveClass 来全局配置。
+
+        6. exact
+        类型: boolean
+        默认值: false
+        "是否激活" 默认类名的依据是 inclusive match （全包含匹配）。 举个例子，如果当前的路径是 /a 开头的，那么 <router-link to="/a"> 也会被设置 CSS 类名。
+        按照这个规则，<router-link to="/"> 将会点亮各个路由！想要链接使用 "exact 匹配模式"，则使用 exact 属性：
+         <!-- 这个链接只会在地址为 / 的时候被激活 -->
+        <router-link to="/" exact>
+
+        7. event
+        类型: string | Array<string>
+        默认值: 'click'
+        声明可以用来触发导航的事件。可以是一个字符串或是一个包含字符串的数组。
+
+        8. exact-active-class
+        类型: string
+        默认值: "router-link-exact-active"
+        配置当链接被精确匹配的时候应该激活的 class。注意默认值也是可以通过路由构造函数选项 linkExactActiveClass 进行全局配置的。
+
+    将激活 class 应用在外层元素
+    有时候我们要让激活 class 应用在外层元素，而不是 <a> 标签本身，那么可以用 <router-link> 渲染外层元素，包裹着内层的原生 <a> 标签：
+    <router-link tag="li" to="/foo">
+        <a>/foo</a>
+    </router-link>
+    在这种情况下，<a> 将作为真实的链接（它会获得正确的 href 的），而 "激活时的CSS类名" 则设置到外层的 <li>。
+
+##6. <router-view>
+
+    <router-view> 组件是一个 functional 组件，渲染路径匹配到的视图组件。<router-view> 渲染的组件还可以内嵌自己的 <router-view>，根据嵌套路径，渲染嵌套组件。
+
+    属性
+        name
+        类型: string
+        默认值: "default"
+        如果 <router-view>设置了名称，则会渲染对应的路由配置中 components 下的相应组件。查看 命名视图 中的例子。
+
+    行为表现
+
+    其他属性（非 router-view 使用的属性）都直接传给渲染的组件， 很多时候，每个路由的数据都是包含在路由参数中。
+
+    因为它也是个组件，所以可以配合 <transition> 和 <keep-alive> 使用。如果两个结合一起用，要确保在内层使用 <keep-alive>：
+    <transition>
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
+    </transition>
