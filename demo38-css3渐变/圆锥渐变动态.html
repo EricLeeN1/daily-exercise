@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圆锥渐变动态</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            display: block;
+        }
+        #app{
+            background-color: #f55053;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        #app img{
+            position: absolute;
+            top: 50%;
+            margin-top: -800px;
+            left: 50%;
+            margin-left: -800px;
+            
+            animation: imgRotate 5s linear 2s infinite;
+        }
+        @keyframes imgRotate{
+            0%{
+                transform: rotate(0);
+                transform-origin: 50% 50%;
+            }
+            50%{
+                transform: rotate(180deg);
+                transform-origin: 50% 50%;
+            }
+            100%{
+                transform: rotate(360deg);
+                transform-origin: 50% 50%;
+            }
+        }
+    </style>
+    <script src="./js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app" style="background-color:{{color1}}">
+        <img src="./images/bg.png" alt="">
+    </div> 
+    <script src="./js/changeColor.js"></script>
+</body>
+
+</html>
