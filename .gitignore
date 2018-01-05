@@ -2,6 +2,7 @@
 .idea/
 demo10-websocket/node_modules/
 demo12-企业后台/node_modules/
+demo14-sass/node_modules/
 demo12-企业后台/src/
 demo13-重拾express/node_modules/
 demo22-搜索文件小案例/

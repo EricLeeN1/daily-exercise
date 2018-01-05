@@ -1,0 +1,29 @@
+{
+  "name": "sharepages",
+  "version": "1.0.0",
+  "description": "1. 命令行创建npm的配置文件\r   a. npm init\r 2. 添加一个gulp的依赖\r   npm install gulp --save-dev\r 3. 在项目根目录下添加一个gulpfile.js文件，这个是gulp的主文件，这个文件名是固定的\r 4. 在gulpfile中抽象我们需要做的任务",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^3.3.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-cssnano": "^2.1.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-connect": "^5.0.0",
+    "gulp-connect-proxy": "^0.3.1",
+    "gulp-rename": "^1.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "live-server ./ --port=9090"
+  },
+  "author": "Eric",
+  "license": "ISC"
+}
