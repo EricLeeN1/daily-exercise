@@ -22,10 +22,10 @@ gulp.task('clean',
     });
 
 // 1.less 编译 压缩 合并  --合并没有必要，一般预处理css都可以导包
+// 1.sass 编译 压缩 合并  --合并没有必要，一般预处理css都可以导包
 
 var less = require('gulp-less');
-var sass = require('gulp-sass');
-var stripCssComments = require('gulp-strip-css-comments');  
+var stripCssComments = require('gulp-strip-css-comments'); //去除注释
 var cssnano = require('gulp-cssnano');
 var autoprefiexer = require('gulp-autoprefixer');
 
@@ -46,20 +46,26 @@ var autoprefiexer = require('gulp-autoprefixer');
 //         }));
 // });
 
+var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+
 //sass版本
 gulp.task('style', function () {
     // 这里实在执行style任务时自动执行的
-    gulp.src('css/*.sass')
+    gulp.src('src/styles/*.scss')
+        .pipe(sourcemaps.init())
+        //重命名
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(stripCssComments())
         .pipe(autoprefiexer({
             browsers: ['last 20 versions'],
             cascade: false
         }))
         // .pipe(cssnano())
+        .pipe(sourcemaps.write('../maps',{addComment:true}))
         .pipe(gulp.dest('dist/styles'))
         .pipe(browserSync.reload({
             stream: true
@@ -120,7 +126,7 @@ gulp.task('serve', function () {
     }, function (err, bs) {
         console.log(bs.options.getIn(["urls", "local"]));
     });
-    gulp.watch('src/styles/*.less', ['style']);
+    gulp.watch('src/styles/*.scss', ['style']);
     gulp.watch('src/scripts/*.js', ['scripts']);
     gulp.watch('src/images/*.*', ['images']);
     gulp.watch('src/*.html', ['html']);

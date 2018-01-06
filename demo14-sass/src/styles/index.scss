@@ -1,0 +1,26 @@
+@charset 'utf-8';
+$plain-font: Myriad Pro、Myriad、Helvetica Neue、Helvetica、Liberation Sans、Arial、sans-serif;
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: skyblue;
+    font-family: $plain-font;
+    h1 {
+        color: #fff;
+        font-size: 30px; //应该就行了
+    }
+    ul {
+        list-style: none;
+        li {
+          line-height: 36px;
+          a{
+            color: #fff;
+            text-decoration: none;
+          }
+          &:even{
+            background-color: orange
+          }
+        }
+    }
+}
