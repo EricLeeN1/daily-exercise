@@ -1,0 +1,36 @@
+@charset 'utf-8';
+$plain-font: Myriad Pro、Myriad、Helvetica Neue、Helvetica、Liberation Sans、Arial、sans-serif;
+$nav-color:#f90;
+$h2-color:#f55053;
+$base-height:20px;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: skyblue;
+    font-family: $plain-font;
+    h1 {
+        color: $nav-color;
+        font-size: $base-height;
+    }
+    h2 {
+        color: $h2-color;
+        font-size: $base-height;
+        a {
+            color: aliceblue;
+            &:hover {
+                color: red;
+            }
+        }
+    }
+    h1,h2,h3{
+        margin-left: 5px;;
+    }
+}
+
+h2 {
+    a {
+        body.fireFox & {
+            color: blue;
+        }
+    }
+}
