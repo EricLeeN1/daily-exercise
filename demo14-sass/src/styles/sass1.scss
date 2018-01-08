@@ -8,29 +8,25 @@ body {
     padding: 0;
     background-color: skyblue;
     font-family: $plain-font;
-    h1 {
-        color: $nav-color;
-        font-size: $base-height;
-    }
-    h2 {
-        color: $h2-color;
-        font-size: $base-height;
-        a {
-            color: aliceblue;
-            &:hover {
-                color: red;
-            }
-        }
-    }
-    h1,h2,h3{
-        margin-left: 5px;;
-    }
 }
 
+h1 {
+    color: $nav-color;
+    font-size: $base-height;
+}
 h2 {
+    color: $h2-color;
+    font-size: $base-height;
     a {
-        body.fireFox & {
+        color: aliceblue;
+        &:hover {
             color: blue;
         }
+    }
+}
+h1,h2,h3{
+    margin-left: 5px;;
+    body.fireFox & {
+        color: #f55053;
     }
 }
