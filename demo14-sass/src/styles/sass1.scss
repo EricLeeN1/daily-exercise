@@ -8,12 +8,30 @@ body {
     padding: 0 15px;
     background-color: skyblue;
     font-family: $plain-font;
+    >header {
+        width: 80%;
+        margin: 0 auto
+    }
+    h2 {
+        background-color: #f55053;
+        height: 100px;
+        margin-top: 10px;
+        color: #fff;
+    }
+    header+h2 {
+        margin-top: 0;
+        background-color: #f90;
+    }
+    h2~h2{
+        border-top: 1px dashed #ccc
+    }
 }
 
 h1 {
     color: $nav-color;
     font-size: $base-height;
 }
+
 h2 {
     color: $h2-color;
     font-size: $base-height;
@@ -23,10 +41,17 @@ h2 {
             color: blue;
         }
     }
+    header + &{
+        font-size: 30px;
+    }
 }
-h1,h2,h3{
-    margin-left: 5px;;
+
+h1,
+h2,
+h3 {
+    margin-left: 5px;
+    ;
     body.fireFox & {
-        color: #f55053;
+        color: blue;
     }
 }

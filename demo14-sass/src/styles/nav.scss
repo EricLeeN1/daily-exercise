@@ -1,0 +1,9 @@
+nav {
+    border: 1px solid #ccc {
+        left: 0;
+        right: 0;
+    }
+    header+& {
+        margin-top: 0;
+    }
+}
