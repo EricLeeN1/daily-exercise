@@ -55,9 +55,9 @@ gulp.task('style', function () {
     gulp.src('src/styles/*.scss')
         .pipe(sourcemaps.init())
         //重命名
-        // .pipe(rename({
-        //     suffix: '.min'
-        // }))
+        .pipe(rename({
+            suffix: '.min'
+        }))
         .pipe(sass({
             outputStyle: 'compressed'
         }).on('error', sass.logError))

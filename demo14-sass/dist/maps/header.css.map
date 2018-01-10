@@ -1,0 +1,1 @@
+{"version":3,"sources":["header.scss"],"names":[],"mappings":"AAAA,OACI,wBAAyB,CAC5B","file":"../styles/header.css","sourcesContent":["header{\r\n    background-color: skyblue;\r\n}"]}
