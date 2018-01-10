@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sass - 使用Sass部分文件</title>
+    <link rel="stylesheet" href="./styles/sass4.min.css">
 </head>
 <body>
-    
+    <h1>3-1,使用SASS部分文件 _</h1>
+    <h3>那些专门为@import命令而编写的sass文件，并不需要生成对应的独立css文件，这样的sass文件称为局部文件。以_开头，这些scss文件不会被编译，</h3>
+    <h4>当你@import一个局部文件时，还可以不写文件的全名，即省略文件名开头的下划线。举例来说，你想导入themes/_night-sky.scss这个局部文件里的变量，你只需在样式表中写@import "themes/night-sky";。</h4>
+    <h1>
+        <a href="./Sass4-2.html">默认变量值</a>
+    </h1>
 </body>
 </html>

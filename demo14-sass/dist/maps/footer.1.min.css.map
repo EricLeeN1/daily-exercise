@@ -1,0 +1,1 @@
+{"version":3,"sources":["footer.1.min.scss"],"names":[],"mappings":"AAAA,OACI,aACA,kBACA,aAAc,CACjB","file":"../styles/footer.1.min.css","sourcesContent":["footer{\r\n    height: 100px;\r\n    line-height: 100px;\r\n    color: #f55053;\r\n}"]}
