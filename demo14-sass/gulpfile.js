@@ -55,17 +55,21 @@ gulp.task('style', function () {
     gulp.src('src/styles/*.scss')
         .pipe(sourcemaps.init())
         //重命名
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        // .pipe(rename({
+        //     suffix: '.min'
+        // }))
+        .pipe(sass({
+            outputStyle: 'compressed'
+        }).on('error', sass.logError))
         .pipe(stripCssComments())
         .pipe(autoprefiexer({
             browsers: ['last 20 versions'],
             cascade: false
         }))
         // .pipe(cssnano())
-        .pipe(sourcemaps.write('../maps',{addComment:true}))
+        .pipe(sourcemaps.write('../maps', {
+            addComment: true
+        }))
         .pipe(gulp.dest('dist/styles'))
         .pipe(browserSync.reload({
             stream: true
@@ -80,10 +84,10 @@ var uglify = require('gulp-uglify');
 gulp.task('scripts', function () {
     gulp.src('src/scripts/*.js')
         //.pipe(concat('all.js'))拼接
-        //     .pipe(uglify())
-        .pipe(rename({
-            suffix: '.min'
-        }))
+        // .pipe(uglify())
+        // .pipe(rename({
+        //     suffix: '.min'
+        // }))
         .pipe(gulp.dest('dist/scripts'))
         .pipe(browserSync.reload({
             stream: true
