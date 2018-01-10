@@ -1,0 +1,6 @@
+@import './_default.scss';
+$link-color:black !default;//  此时还是red
+// !default用于变量，含义是：如果这个变量被声明赋值了，那就用它声明的值，否则就用这个默认值。
+a {
+    color: $link-color;
+}

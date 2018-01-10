@@ -1,26 +1,3 @@
-header {
-    background-color: skyblue
-}
-
-nav {
-    border: 1px solid #ccc;
-    border-left: 0;
-    border-right: 0
-}
-
-header+nav {
-    margin-top: 0
-}
-
-footer {
-    height: 100px;
-    line-height: 100px;
-    color: #f55053
-}
-
-body {
-    background-color: aqua
-}
-
+header{background-color:skyblue}nav{border:1px solid #ccc;border-left:0;border-right:0}header+nav{margin-top:0}footer{height:100px;line-height:100px;color:#f55053}body{background-color:aqua}
 
 /*# sourceMappingURL=../maps/sass4.min.css.map */
