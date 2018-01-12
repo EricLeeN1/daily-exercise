@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用选择器继承来精简CSS</title>
+    <link rel="stylesheet" href="./styles/sass7.min.css">
+</head>
+<body>
+    <h2 class="error">使用sass的时候,最后一个减少重复的主要特性就是选择器继承。</h2>
+    <h3 class="seriousError">基于面向对象的CSS理念，选择器继承是说一个选择器可以继承为另一个选择器定义的所有样式。通过@extend语法实现</h3>
+    <h3 class="seriousError">
+        .seriousError不仅会继承.error自身的所有样式，任何跟.error有关的组合选择器样式也会被.seriousError以组合选择器的形式继承，
+        <a href="">哈哈哈</a>
+    </h3>
+    <h1 class="error">
+        文字
+    </h1>
+    <ol>
+        <li><a href="Sass7-1.html">何时使用继承</a></li>
+        <li><a href="./Sass7-2.html">继承的高级用法</a></li>
+        <li></li>
+    </ol>
+</body>
+</html>

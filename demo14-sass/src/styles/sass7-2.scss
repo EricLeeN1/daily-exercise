@@ -1,0 +1,7 @@
+a{
+    line-height: 10px;
+}
+.disabled{
+    color: gray;
+    @extend a;
+}
