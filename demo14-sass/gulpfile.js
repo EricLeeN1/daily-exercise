@@ -60,6 +60,7 @@ gulp.task('style', function () {
         }))
         .pipe(sass({
             outputStyle: 'compressed'
+            // nested:嵌套；compact:紧凑;expanded:扩展;compressed:压缩
         }).on('error', sass.logError))
         .pipe(stripCssComments())
         .pipe(autoprefiexer({
