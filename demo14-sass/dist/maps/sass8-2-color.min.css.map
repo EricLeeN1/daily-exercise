@@ -1,0 +1,1 @@
+{"version":3,"sources":["sass8-2-color.min.scss"],"names":[],"mappings":"AAAA;EACI,0BAAoC;CACvC","file":"../styles/sass8-2-color.min.css","sourcesContent":["body{\r\n    background-color: rgb(255, 120, 50%);\r\n}"]}
