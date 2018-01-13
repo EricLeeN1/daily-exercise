@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sass8-2-string</title>
+</head>
+
+<body>
+    <h3>数据类型-字符串</h3>
+    <ol>
+        <li>带引号字符串 vs 不带引号字符串</li>
+        <li>'eric' + lee = 'eric lee'</li>
+        <li>eric + 'lee' = eric lee</li>
+        <li>'ericlee' + 8080 = 'ericlee8080'</li>
+        <li>eric - lee = 'eric-lee'</li>
+        <li>eric / lee = 'eric/lee'</li>
+        <li>eric * lee = error</li>
+    </ol>
+    <h3>字符串函数</h3>
+    <h6>参数: $greeting:'Hello Eric'</h6>
+    <ol>
+        <li>to-upper-case($greeting) = 'HELLO ERIC'</li>
+        <li>to-lower-case($greeting) = 'hello eric'</li>
+        <li>str-length($greeting) = 10</li>
+        <li>str-index($greeting,'Hello') = 1 索引值从1开始</li>
+        <li>str-index($greeting,'Eric') = 7 索引值从1开始</li>
+        <li>str-insert($greeting,'.net',10) = 'Hello Eric.net'</li>
+    </ol>
+</body>
+
+</html>
