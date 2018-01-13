@@ -1,0 +1,10 @@
+$version:'0.0.1';
+/*!当前版本是：#{$version}*/
+
+$name:'primary';
+body{
+    background-color: #fff;
+}
+.btn-#{$name}{
+    color: #fff;
+}
