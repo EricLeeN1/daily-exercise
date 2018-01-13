@@ -1,3 +1,23 @@
-html{font-size:20px}.error,.seriousError{border:1px solid red;background-color:#fdd}.seriousError{border-width:3px}.error a,.seriousError a{color:red;font-weight:100}h1.error,h1.seriousError{font-size:1.2rem}
+html {
+  font-size: 20px;
+}
+
+.error, .seriousError {
+  border: 1px solid red;
+  background-color: #fdd;
+}
+
+.seriousError {
+  border-width: 3px;
+}
+
+.error a, .seriousError a {
+  color: red;
+  font-weight: 100;
+}
+
+h1.error, h1.seriousError {
+  font-size: 1.2rem;
+}
 
 /*# sourceMappingURL=../maps/sass7.min.css.map */

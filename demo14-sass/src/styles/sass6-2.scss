@@ -1,12 +1,29 @@
-@mixin no-bullets{
+@mixin no-bullets {
     list-style: none;
-    li{
+    li {
         list-style-image: none;
         list-style-type: none;
         margin-left: 0px;
     }
 }
-ul.plain{
+
+@mixin alert($text-color, $background) {
+    color: $text-color;
+    background-color: $background;
+    &:hover {
+        color: darken($text-color, 10%);
+    }
+}
+
+ul.plain {
     color: #666;
     @include no-bullets;
+    // @include alert(#f55053, skyblue)
+}
+
+.alert-warning{
+    @include alert(#8a6d3b, #fcf8e3);
+}
+.alert-info{
+    @include alert($background:#d9edf7, $text-color:#31708f);
 }

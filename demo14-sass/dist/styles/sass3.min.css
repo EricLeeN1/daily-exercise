@@ -1,3 +1,21 @@
-header{background-color:skyblue}nav{border:1px solid #ccc;border-left:0;border-right:0}header+nav{margin-top:0}footer{height:100px;line-height:100px;color:#f55053}
+header {
+  background-color: skyblue;
+}
+
+nav {
+  border: 1px solid #ccc;
+  border-left: 0;
+  border-right: 0;
+}
+
+header + nav {
+  margin-top: 0;
+}
+
+footer {
+  height: 100px;
+  line-height: 100px;
+  color: #f55053;
+}
 
 /*# sourceMappingURL=../maps/sass3.min.css.map */

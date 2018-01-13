@@ -59,8 +59,8 @@ gulp.task('style', function () {
             suffix: '.min'
         }))
         .pipe(sass({
-            outputStyle: 'compressed'
-            // nested:嵌套；compact:紧凑;expanded:扩展;compressed:压缩
+            outputStyle: 'expanded'
+            // nested:嵌套(默认)；compact:紧凑;expanded:扩展;compressed:压缩
         }).on('error', sass.logError))
         .pipe(stripCssComments())
         .pipe(autoprefiexer({

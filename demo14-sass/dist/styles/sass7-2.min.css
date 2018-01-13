@@ -1,3 +1,9 @@
-a,.disabled{line-height:10px}.disabled{color:gray}
+a, .disabled {
+  line-height: 10px;
+}
+
+.disabled {
+  color: gray;
+}
 
 /*# sourceMappingURL=../maps/sass7-2.min.css.map */

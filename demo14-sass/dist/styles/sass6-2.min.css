@@ -1,3 +1,30 @@
-ul.plain{color:#666;list-style:none}ul.plain li{list-style-image:none;list-style-type:none;margin-left:0px}
+ul.plain {
+  color: #666;
+  list-style: none;
+}
+
+ul.plain li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+}
+
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+}
+
+.alert-warning:hover {
+  color: #66512c;
+}
+
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+}
+
+.alert-info:hover {
+  color: #245269;
+}
 
 /*# sourceMappingURL=../maps/sass6-2.min.css.map */
