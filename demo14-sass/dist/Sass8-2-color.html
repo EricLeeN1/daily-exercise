@@ -24,14 +24,24 @@
     </ol>
     <h5>颜色函数:</h5>
     <ol>
-        <li>rgb(0-255,0-100%,0-255/0-100% )</li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>rgba(0-255,0-100%,0-255/0-100%,0-1)</li>
+        <li>hsla(60, 100%, 50%,.5)</li>
+        <li>
+            <span>$base-color-hsl:hsl(0,100,50%);</span>
+            adjust-hue($base-color-hsl,137deg) -> hsl(137,100,50%)</li>
+        <li>
+            $light-color:lighten($base-color-hsl,30%) ->hsl(0,100,80%) </li>
+        <li>
+            $dark-color:darken($base-color-hsl,30%); ->hsl(0,100,20%) </li>
+        <li>
+            saturate($base-color-hsl,20%) -> hsl(0, 100%, 50%)</li>
+        <li>
+            desaturate($base-color-hsl,20%) -> hsl(0, 80%, 50%)</li>
+        <li>
+            <span>$base-color1-hsl:hsla(0,100%,50%,0.5)</span>
+            transparentize($base-color1-hsl,0.2)-> hsla(0,100%,50%,0.3)</li>
+        <li>
+            opacify($base-color1-hsl,0.2)-> hsla(0,100%,50%,0.7)</li>
     </ol>
 </body>
 

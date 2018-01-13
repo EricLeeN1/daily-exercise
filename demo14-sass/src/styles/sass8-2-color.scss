@@ -1,3 +1,30 @@
+$base-color:#ff0000;
+$light-color:lighten($base-color,30%);
+$dark-color:darken($base-color,30%);
+
+
+$base-color-hsl:hsl(0,100%,50%);
+$base-color1-hsl:hsla(0,100%,50%,0.5);
+$dark1-color:saturate($base-color-hsl,20%);//增加饱和度
+$dark2-color:desaturate($base-color-hsl,20%);//降低饱和度
+
+$transparentize-color:transparentize($base-color1-hsl,0.2);//降低不透明度alpha
+$opacify-color:opacify($base-color1-hsl,0.2);//降低不透明度alpha
 body{
-    background-color: rgb(255, 120, 50%);
+    // background-color: rgb(255, 120, 50%);
+    // background-color: hsla(60, 100%, 50%,0.5);
+    // background-color: adjust-hue($base-color-hsl,137deg);
+ol{
+    background-color: $light-color;
+    border: 1px solid $base-color;
+    color: $dark1-color;
+}
+h3{
+    background-color: $light-color;
+    border: 1px solid $dark2-color;
+    // color: $base-color;
+    // color: $opacify-color;
+    color: $transparentize-color;
+}
+
 }
