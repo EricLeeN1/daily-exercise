@@ -1,0 +1,6 @@
+$icons:success error warning;
+@each $icon in $icons{
+    .icon-#{$icon}{
+        background-image: url('./images/icon/icon-#{$icon}.png');
+    }
+}
