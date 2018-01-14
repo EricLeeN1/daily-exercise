@@ -1,0 +1,23 @@
+$use-prefixes:true;
+$theme: 'dark';
+body {
+    @if $theme==dark {
+        background-color: black;
+    }
+    @else if $theme==light {
+        background-color: #fff;
+    }
+    @else {
+        background-color: gray;
+    }
+}
+
+.rounded {
+    @if $use-prefixes {
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+    border-radius: 5px;
+}
