@@ -40,6 +40,9 @@ gulp.task('styles', () => {
             addComment: true
         })) //map文件命名
         .pipe(gulp.dest('dist/styles')) //指定输出路径
+        .pipe(browserSync.reload({
+            stream: true
+        }));
 });
 // .. / dist / styles目录下会生成 对应的 * .css 和 * .css.map
 
@@ -51,7 +54,10 @@ gulp.task('scripts', () => {
         .pipe($.sourcemaps.init())
         .pipe($.babel()) //靠这个插件编译
         .pipe($.sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/scripts'));
+        .pipe(gulp.dest('dist/scripts'))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
 });
 
 // ../dist/scripts目录下会生成 对应的 *.js 和 *.js.map
@@ -92,17 +98,19 @@ gulp.task('html', ['styles', 'scripts'], () => { //先执行styles scripts任务
         })) //将页面上 <!--endbuild--> 根据上下顺序合并
         .pipe($.if('*.js', $.uglify()))
         .pipe($.if('*.css', $.cssnano()))
-        .pipe($.if('*.html', $.htmlmin(options)))
         .pipe(rev())       //为引用添加版本号
         .pipe($.if('*.html', $.htmlmin(options))) 
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist'))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
 });
 
 
 // gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
 gulp.task('serve', ['styles', 'scripts'], () => {
     browserSync({
-        notify: false,
+        notify: true,
         port: 3000, //端口号
         server: {
             baseDir: ['dist'], //确定根目录
@@ -110,6 +118,8 @@ gulp.task('serve', ['styles', 'scripts'], () => {
                 '/bower_components': 'bower_components'
             }
         }
+    }, function (err, bs) {
+        console.log(bs.options.getIn(["urls", "local"]));
     });
 
     gulp.watch([ //监测文件变化 实行重新加载
