@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ch-zn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+    <!-- build:css styles/index_main.css -->   
+    <!-- //这个注释的意思是 将两个css合并成一个index_main.css 注意顺序
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/main.css"> -->
+    <!-- endbuild -->
+    <link rel="stylesheet" href="./styles/index.css?rev=@@hash">
+</head>
+<body>
+    
+
+    <!-- build:js scripts/vendor.js?rev=@@hash --> //将以下js合并成一个，并更名为vendor.js
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js?rev=@@hash --> //注意一下这里 待会会按照顺序变成一个plugins.js文件
+     //是否遇到过这么多的插件引用，Ctrl+c Ctrl+v 还要细致的修改  请留意 wiredep 任务  留意下面的<!-- bower:js --><!-- endbower -->注释，这可不是随随便便的注释
+    <!-- bower:js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/index_main.js?rev=@@hash -->   
+    <script src="scripts/index.js"></script>
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

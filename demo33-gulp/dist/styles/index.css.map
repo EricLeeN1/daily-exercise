@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.scss"],"names":[],"mappings":"AAAA;EACI,sBAAqB;EACrB,YAAU;EACV,kBAAiB;CACpB","file":"index.css","sourcesContent":["body{\r\n    background-color: red;\r\n    color:#fff;\r\n    line-height: 00px;\r\n}"]}
