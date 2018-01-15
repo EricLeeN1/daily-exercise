@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":["console","log"],"mappings":";;AAAAA,QAAQC,GAAR,CAAY,sCAAZ;AACAD,QAAQC,GAAR,CAAY,KAAZ;AACAD,QAAQC,GAAR,CAAY,sCAAZ","file":"index.js","sourcesContent":["console.log('====================================');\r\nconsole.log('111');\r\nconsole.log('====================================');"]}

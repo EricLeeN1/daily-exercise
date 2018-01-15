@@ -64,12 +64,15 @@ gulp.task('scripts', () => {
 
 gulp.task('images', () => {
     return gulp.src('src/images/**/*')
-        .pipe($.cache($.imagemin({
+        .pipe(($.cache($.imagemin({
             //使用cache只压缩改变的图片
-            optimizationLevel: 6, //压缩级别
+            optimizationLevel: 5, //压缩级别
             progressive: true,
             interlaced: true
-        }))).pipe(gulp.dest('dist/images'));
+        })))).pipe(gulp.dest('dist/images'))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
 });
 // 通过对比图片大小，可以看出压缩了多少
 
@@ -80,7 +83,6 @@ gulp.task('images', () => {
 // // ../dist/fonts目录下会生成 对应的文件
 
 gulp.task('html', ['styles', 'scripts'], () => { //先执行styles scripts任务
-    var version = (new Date).valueOf() + '';
     var options = {
         removeComments: false, //清除HTML注释
         // collapseWhitespace: true, //压缩HTML
@@ -98,8 +100,8 @@ gulp.task('html', ['styles', 'scripts'], () => { //先执行styles scripts任务
         })) //将页面上 <!--endbuild--> 根据上下顺序合并
         .pipe($.if('*.js', $.uglify()))
         .pipe($.if('*.css', $.cssnano()))
-        .pipe(rev())       //为引用添加版本号
-        .pipe($.if('*.html', $.htmlmin(options))) 
+        .pipe(rev())       //为引用添加版本号 
+        .pipe($.if('*.html', $.htmlmin(options)))
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.reload({
             stream: true
@@ -128,6 +130,7 @@ gulp.task('serve', ['styles', 'scripts'], () => {
     ]).on('change', reload);
 
     gulp.watch(['src/styles/**/*.scss','src/styles/*.scss'], ['styles']); //监测变化 执行styles任务
+    gulp.watch('src/images/**/*', ['images']); //监测变化 执行styles任务
     gulp.watch('src/*.html', ['html']); //监测变化 执行html任务
     gulp.watch('src/scripts/**/*.js', ['scripts']);
     gulp.watch('src/fonts/**/*', ['fonts']);
