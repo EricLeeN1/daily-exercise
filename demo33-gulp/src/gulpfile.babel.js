@@ -1,15 +1,30 @@
 /**
  * Created by Eric on 2017/4/8.
  */
-// 1.less 编译 压缩 合并
+// 1.less/sass 编译 压缩 合并
 // 2.js 合并 压缩 混淆
 // 3.img 复制
 // 4.html 压缩
 
 //在gulpfile中先载入gulp的包，因为这个包提供了一些API
 var gulp = require('gulp');
-var rename = require('gulp-rename');
-var clean = require('gulp-clean'); //- 用于删除文件
+var rename = require('gulp-rename');// 重命名
+var clean = require('gulp-clean'); // 用于删除文件
+
+// 1.less 编译 压缩 合并  --合并没有必要，一般预处理css都可以导包
+// 1.sass 编译 压缩 合并  --合并没有必要，一般预处理css都可以导包
+
+// var less = require('gulp-less');// 识别less
+var stripCssComments = require('gulp-strip-css-comments'); // 去除注释
+var cssnano = require('gulp-cssnano');// 压缩css
+var autoprefiexer = require('gulp-autoprefixer');// 自动补足前缀
+var sass = require('gulp-sass'); //识别sass
+var sourcemaps = require('gulp-sourcemaps');// 生成map资源确保纠错查看位置
+
+// 2.js 合并 压缩 混淆
+
+var concat = require('gulp-concat');// 合并
+var uglify = require('gulp-uglify');// 压缩 混淆
 
 
 // /*清理文件*/
@@ -18,16 +33,10 @@ gulp.task('clean',
         //删除dist目录下的所有文件
         gulp.src('dist/*', {
             read: false
-        }).pipe(clean);
+        }).pipe($.clean());
     });
 
-// 1.less 编译 压缩 合并  --合并没有必要，一般预处理css都可以导包
-// 1.sass 编译 压缩 合并  --合并没有必要，一般预处理css都可以导包
 
-var less = require('gulp-less');
-var stripCssComments = require('gulp-strip-css-comments'); //去除注释
-var cssnano = require('gulp-cssnano');
-var autoprefiexer = require('gulp-autoprefixer');
 
 // less版本
 // gulp.task('style', function () {
@@ -46,8 +55,7 @@ var autoprefiexer = require('gulp-autoprefixer');
 //         }));
 // });
 
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
+
 
 //sass版本
 gulp.task('style', function () {
@@ -64,7 +72,7 @@ gulp.task('style', function () {
         }).on('error', sass.logError))
         .pipe(stripCssComments())
         .pipe(autoprefiexer({
-            browsers: ['last 20 versions'],
+            browsers: ['last 50 versions'],
             cascade: false
         }))
         // .pipe(cssnano())
@@ -77,10 +85,7 @@ gulp.task('style', function () {
         }));
 });
 
-// 2.js 合并 压缩 混淆
 
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
 
 gulp.task('scripts', function () {
     gulp.src('src/scripts/*.js')
@@ -106,10 +111,8 @@ gulp.task('images', function () {
 
 // 4.html 压缩
 var htmlmin = require('gulp-htmlmin');
-var rev = require('gulp-rev-append');
 gulp.task('html', function () {
     gulp.src('src/*.html')
-        .pipe(rev())
         .pipe(htmlmin({
             // collapseWhitespace:true,                //清除空格
             removeComments: true, //清除注释

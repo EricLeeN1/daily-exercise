@@ -1,0 +1,1 @@
+{"version":3,"sources":["sass9.min.scss"],"names":[],"mappings":"AAKA;EACI,0BANkB;CAOrB","file":"../styles/sass9.min.css","sourcesContent":["$colors:(light:#ffffff, dark:#000000);\r\n@function color ($key) {\r\n    @return map-get($colors, $key);\r\n}\r\n\r\nbody {\r\n    background-color: color(light);\r\n}"]}

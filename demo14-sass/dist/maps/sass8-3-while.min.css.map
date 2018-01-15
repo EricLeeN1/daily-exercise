@@ -1,0 +1,1 @@
+{"version":3,"sources":["sass8-3-while.min.scss"],"names":[],"mappings":"AAII;EACI,YAAe;CAClB;;AAFD;EACI,YAAe;CAClB;;AAFD;EACI,YAAe;CAClB","file":"../styles/sass8-3-while.min.css","sourcesContent":["// @while 条件{\r\n// }\r\n$i:6;\r\n@while $i > 0 {\r\n    .item-#{$i} {\r\n        width: 5px * $i;\r\n    }\r\n    $i: $i - 2;\r\n}"]}

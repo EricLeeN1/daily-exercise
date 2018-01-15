@@ -1,0 +1,12 @@
+@charset 'utf-8';
+$colors:(light:#ffffff, dark:#000000);
+@function color ($key) {
+    @if map-has-key($map: $colors, $key: $key){
+        @warn '在$colors里没找到 #{$key} 这个key';
+    }
+    @return map-get($colors, $key);
+}
+
+body {
+    background-color: color(dark);
+}
