@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sass8-2-map</title>
+</head>
+
+<body>
+    <h3>数据类型 - map(key:value)</h3>
+    <ol>
+        <li>$colors:(light:#ffffff,dark:#000000)</li>
+        <li>length($colors) -> 2</li>
+        <li>map-get($colors,dark) -> #000000</li>
+        <li>map-get($colors,light) -> #ffffff</li>
+        <li>map-keys($colors) -> ('ligth','dark') </li>
+        <li>map-values($colors) -> ($ffffff,#000000) </li>
+        <li>map-has-key($colors,light) -> true</li>
+        <li>map-has-key($colors,red) -> false</li>
+        <li>map-merge($colors,(light-gray:#e5e5e5)) -> (light:#ffffff,dark:#000000,light-gray:#e5e5e5)</li>
+        <li>map-remove($colors,light,dark) -> (light-gray:#e5e5e5)</li>
+    </ol>
+</body>
+
+</html>
