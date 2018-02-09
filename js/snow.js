@@ -4,7 +4,7 @@ var newOn = 200;//单位是毫秒
 var flakeColor = "#fff";
 
 var flake = $("<div></div>").css({"position": "absolute", "top": "-50px"}).html("❅").addClass("snow");
-// var flake = $("<div class='snow'></div>").css({"position": "absolute", "top": "-50px",}).html("<img src='img/100.jpg' style='width: 200px'>");
+// var flake = $("<div class='snow'></div>").css({"position": "absolute", "top": "-50px",}).html("<img src='./img/2.png' style='width: 200px'>");
 //此处换一张钞票即可
 $(function () {
     var documentHeight = $(document).height();
