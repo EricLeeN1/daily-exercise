@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>北京时间</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <div id="app">
+        <p>北京时间 {{date}}</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                date: new Date()
+            },
+            mounted() {
+                let that = this; //声明一个变量指向Vue实例this，保证作用域一致。
+                that.timer = setInterval(() => {
+                    that.date = new Date();
+                }, 1000);
+            },
+            beforeDestroy () {
+                if (this.timer) {
+                    clearInterval(this.timer);//在实例销毁前，清除我们的定时器。
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
