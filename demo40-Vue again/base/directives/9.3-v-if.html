@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-if</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <div id="app">
+        <p v-if="status === 1">status===1</p>
+        <p v-else-if="status === 2">status===2</p>
+        <p v-else>status!=1&&status!=2</p>
+        <template v-if="status ===1">
+            <p>这是一段文本</p>
+        </template>
+        <template v-if="type==='name'">
+                <label>用户名:</label>
+                <input type="text" placeholder="输入用户名">
+            </template>
+            <template v-else>
+                <label>邮箱:</label>
+                <input type="text" placeholder="输入邮箱">
+            </template>
+        <template v-if="type==='name'">
+            <label>用户名:</label>
+            <input key="name-input" type="text" placeholder="输入用户名">
+        </template>
+        <template v-else>
+            <label>邮箱:</label>
+            <input key="mail-input" type="text" placeholder="输入邮箱">
+        </template>
+        <button @click="handleToggleClick">切换输入类型</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                status:1,
+                type:name
+            },
+            methods: {
+                handleToggleClick(){
+                   this.type = this.type==='name'?'mail':'name'; 
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
