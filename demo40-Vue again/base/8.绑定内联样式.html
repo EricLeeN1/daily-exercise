@@ -11,13 +11,30 @@
 <body>
     <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
     <div id="app">
-        <p></p>
+        <div :style="{'color':color,'fontSize':fontSize+'px'}">文本</div>
+    </div>
+    <div id="app1">
+        <div :style="styles">
+            文本
+        </div>
     </div>
     <script>
         var vm = new Vue({
             el: "#app",
-            data: {}
+            data: {
+                color: 'red',
+                fontSize: 14
+            }
         });
+        let vm1 = new Vue({
+            el: "#app1",
+            data: {
+                styles: {
+                    color: "red",
+                    fontSize: 14 + 'px'
+                }
+            }
+        })
     </script>
 </body>
 
