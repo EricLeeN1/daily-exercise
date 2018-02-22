@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>v-show</title>
 </head>
+
 <body>
-    
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <div id="app">
+        <p v-show="status === 1">当status为1时显示该行</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                status:2
+            }
+        });
+    </script>
 </body>
+
 </html>

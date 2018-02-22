@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <div id="app">
+        <ul>
+            <li v-for="(book,index) in books">{{index+'-'+book.name}}</li>
+        </ul>
+        <ul>
+            <template v-for="(book,index) in books">
+                <li>书名：{{book.name}}</li>
+                <li>作者：{{book.author}}</li>
+            </template>
+        </ul>
+        <ul>
+            <li v-for="(value,key,index) in user">{{value}}-{{key}}-{{index}}</li>
+        </ul>
+        <ul>
+            <li v-for="(item,index) in filterBooks">{{item.name}}</li>
+        </ul>
+        <ul>
+            <li v-for="(item,index) in sortedBooks">{{item.name}}</li>
+        </ul>
+        <button @click="pushInto">填充数据</button>
+        <button @click="filters">过滤数据</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                books: [{
+                        name: 'Vue.js实战',
+                        author: '梁灏'
+                    },
+                    {
+                        name: 'JavaScript语言精粹',
+                        author: 'XXX1'
+                    },
+                    {
+                        name: 'JavaScript高级程序设计',
+                        author: 'XXX2'
+                    },
+                ],
+                user: {
+                    name: 'Eric',
+                    gender: '男',
+                    age: 25
+                }
+            },
+            methods: {
+                pushInto() {
+                    this.books.push({
+                        name: 'CSS揭秘',
+                        author: 'Lea Verou'
+                    });
+                },
+                filters() {
+                    this.books = this.books.filter(function (item) {
+                        return item.name.match('/JavaScript/');
+                    });
+                }
+            },
+            computed: {
+                filterBooks() {
+                    return this.books.filter(function (book) {
+                        return book.name.match(/JavaScript/);
+                    });
+                },
+                sortedBooks() {
+                    return this.books.sort(function (a, b) {
+                        return a.name.length > b.name.length;
+                    });
+                }
+            }
+        })
+        // 解决方法1.
+        // 1.
+        // Vue.set(vm.books,3,{
+        //     name:'CSS揭秘',
+        //     author:'Lea Verou'
+        // });
+        // 1.2
+        vm.books.splice(3, 1, {
+            name: 'CSS揭秘',
+            author: 'Lea Verou'
+        });
+    </script>
+</body>
+
+</html>
