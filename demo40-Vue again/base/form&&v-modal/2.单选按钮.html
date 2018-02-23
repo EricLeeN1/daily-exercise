@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.单选按钮.html</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <div id="app">
+        <input type="radio" :checked="picked">
+        <label>单选按钮</label>
+        <div>
+            <input type="radio" name="html" id="html" v-model="picksed" value="html">
+            <label for="html">html</label>
+        </div>
+        <div>
+            <input type="radio" name="js" id="js" v-model="picksed" value="js">
+            <label for="js">js</label>
+        </div>
+        <div>
+            <input type="radio" name="css" id="css" value="css" v-model="picksed">
+            <label for="css">css</label>
+        </div>
+        <p>选择的项是：{{picksed}}</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                picked: true,
+                picksed: 'js'
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -11,12 +11,25 @@
 <body>
     <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
     <div id="app">
-        <p></p>
+        <input type="text" v-model="msg" placeholder="说点什么吧...">
+        <p style="white-space:pre">说的内容是:{{msg}}</p>
+        <input type="text" @input="bindInput" placeholder="说点什么吧...">
+        <p>第二个input说的是:{{message}}</p>
+        <textarea cols="30" rows="10" v-model="msg" placeholder="说点什么吧..."></textarea>
     </div>
     <script>
         var vm = new Vue({
             el: "#app",
-            data: {}
+            data: {
+                msg:'',
+                message:''
+            },
+            methods: {
+                bindInput(e){
+                    console.log(e);
+                    this.message = e.target.value;
+                }
+            }
         });
     </script>
 </body>

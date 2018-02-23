@@ -182,4 +182,6 @@ event.preventDefault()也可以用Vue事件的修饰符来实现，在@绑定的
     2. Ctrl + Click -> `<div  @click.ctrl =” doSomething ”> Do  something</div>`
 ## 五、第六章 表单与v-modal ##
 ### 6.1 基本用法 ###
-**v-modal**指令用于在表单类元素上双向绑定数据。-> case input[type='text']
+1. **v-modal**指令用于在表单类元素上双向绑定数据。-> case input[type='text']
+2. **单选按钮**在单独使用时，不需要v-model,直接使用v-bind绑定一个布尔类型的值，为真时选中，为否时不选。在组合使用时就需要v-model配合value来使用
+3. **复选框**单独使用时用v-model来绑定一个布尔值。在勾选时数据checked的值变为了true，label中渲染的内容也会更新。组合使用时，也是v-model与value一起，多个勾选框都绑定到同一个数组类型的数据，value的值在数组当中，就会选中这一项。这一过程也是双向的，在勾选时，value的值也会自动push到这个数组中。
