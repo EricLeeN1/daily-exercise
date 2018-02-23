@@ -1,6 +1,6 @@
 let vm = new Vue({
     el: "#app",
     data: {
-        msg: "hahahaha"
+        msg: "111"
     }
 });
