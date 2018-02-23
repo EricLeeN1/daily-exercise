@@ -2,33 +2,46 @@ let vm = new Vue({
     el: "#app",
     data: {
         msg: "11",
+        cart:[],
         list: [{
                 id: 1,
                 name: 'iPhone 7',
                 price: 6188,
-                count: 1
+                count: 1,
+                selected:false
             },
             {
                 id: 2,
                 name: 'iPad Pro',
                 price: 5888,
-                count: 1
+                count: 1,
+                selected:false
             },
             {
                 id: 3,
                 name: 'MackBook Pro',
                 price: 21488,
-                count: 1
+                count: 1,
+                selected:false
             }
         ]
     },
     computed: {
         totalPrice() {
             let total = 0;
-            this.list.forEach(element => {
-                total += element.price * element.count;
+            this.cart.forEach(element => {
+                if (element.selected) {
+                    total += element.price * element.count; 
+                }
             });
             return total.toString().replace(/\B(?=(\d{3})+$)/g, ',');
+        },
+        cart(){
+            this.list.forEach(element => {
+                if (element.selected) {
+                    this.cart.push(element);
+                }
+            });
         }
     },
     methods: {

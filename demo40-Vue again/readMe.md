@@ -180,3 +180,6 @@ event.preventDefault()也可以用Vue事件的修饰符来实现，在@绑定的
 12. 11举例
     1. Shift + S -> `<input  @keyup.shift .83 =” handleSave ”>`
     2. Ctrl + Click -> `<div  @click.ctrl =” doSomething ”> Do  something</div>`
+## 五、第六章 表单与v-modal ##
+### 6.1 基本用法 ###
+**v-modal**指令用于在表单类元素上双向绑定数据。-> case input[type='text']
