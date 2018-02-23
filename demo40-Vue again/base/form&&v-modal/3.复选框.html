@@ -11,14 +11,36 @@
 <body>
     <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
     <div id="app">
-        <input type="checkbox" name="checked" id="checked" v-model="checked">
-        <label for="checked">选择状态: {{checked}}</label>
+        <input type="checkbox" name="checksed" id="checksed" v-model="checksed">
+        <label for="checksed">选择状态: {{checksed}}</label>
+        <div>
+            <input type="checkbox" name="html" id="html" v-model="checked" value="html">
+            <label for="html">html</label>
+        </div>
+        <div>
+            <input type="checkbox" name="js" id="js" v-model="checked" value="js">
+            <label for="js">js</label>
+        </div>
+        <div>
+            <input type="checkbox" name="css" id="css" v-model="checked" value="css">
+            <label for="css">css</label>
+        </div>
+        <div>{{checked}}</div>
+        <input type="checkbox" v-model="toggle" :true-value="value1" :false-value="value2">
+        <label>复选框</label>
+        <p>{{toggle}}</p>
+        <p>{{value1}}</p>
+        <p>{{value2}}</p>
     </div>
     <script>
         var vm = new Vue({
             el: "#app",
             data: {
-                checked: true
+                checksed: true,
+                checked: [],
+                toggle: false,
+                value1: 'a',
+                value2: 'b'
             }
         });
     </script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>select</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <div id="app">
+        <select v-model="selected">
+            <option value="html">html</option>
+            <option value="javascript">JavaScript</option>
+            <option value="css">css</option>
+        </select>
+        <p>选择的项是：{{selected}}</p>
+        <select multiple v-model="selecteds">
+            <option value="html">html</option>
+            <option value="javascript">JavaScript</option>
+            <option value="css">css</option>
+        </select>
+        <p>选择的项是：{{selecteds}}</p>
+        <select v-model="selected1">
+            <option :value="item.value" v-for="(item,index) in options">{{item.text}}</option>
+        </select>
+        <p>选择的项是：{{selected1}}</p>
+        <select v-model="selected2">
+            <option :value="{number:123}">123</option>
+        </select>
+        {{selected2.number}}
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                selected: "html",
+                selecteds: [],
+                selected1: "",
+                selected2: '',
+                options: [{
+                        text: "HTML",
+                        value: "html"
+                    },
+                    {
+                        text: "JavaScript",
+                        value: "js"
+                    },
+                    {
+                        text: "CSS",
+                        value: "css"
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>
