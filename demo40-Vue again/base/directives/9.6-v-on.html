@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-on</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <div id="app">
+        <p>点击次数：{{counter}}</p>
+        <button @click="counter++">+1</button>
+        <button @click="handleAdd()">+1</button>
+        <button @click="handleAdd(10)">+10</button>
+        <a href="http://www.baidu.com" @click="handleClick('禁止打开',$event)">百度一下</a>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                counter: 0
+            },
+            methods: {
+                handleAdd(count) {
+                    count = count || 1;
+                    this.counter += count;
+                },
+                handleClick(msg, event) {
+                    event.preventDefault();
+                    window.alert(msg);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
