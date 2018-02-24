@@ -205,5 +205,10 @@ event.preventDefault()也可以用Vue事件的修饰符来实现，在@绑定的
     - 要在父实例中使用这个组件，必须要在实例创建前注册，之后就可以用<my-componen></my-componen>的形式来使用组件了。
 2. 局部注册
     - 在Vue实例中，使用components选项可以局部注册组件，注册后的组件只有在该实例作用域下有效，组件中也可以使用components选项来注册组件，使组件可以嵌套。
-3. 在组件选项中添加template就可以显示组件内容了
+    - Vue组件的模版在某些情况下会受到HTML的限制，比如<table>内直接使用组件是无效的。这种情况下，可以使用特殊的is属性来挂载组件。
+    - 上述情况下tbody在渲染时，会被替换为组件的内容，常见的限制元素还有'ul/ol/select'。
+3. template
+    - 在组件选项中添加template就可以显示组件内容了
     - template的DOM结构必须被一个元素包含，如果直接写成’这里是组件的内容‘，不带“<div></div>”是无法渲染的。
+4. tips
+    - 除了template选项外，组件中还可以像Vue实例那样使用其他的选项，比如data，computed、methods等。但是在使用data时，和实例稍有区别，data必须是函数，然后将数据return出去。
