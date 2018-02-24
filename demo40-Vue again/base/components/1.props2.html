@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>props2</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <div id="app">
+        <input type="text" v-model="msg">
+        <my-component :warning-text="msg"></my-component>
+        <my1-component message="[1,2,3]"></my1-component>
+        <my1-component :message="[1,2,3]"></my1-component>
+        <my2-component :init-count="1"></my2-component>
+        <my3-component :width="100"></my3-component>
+    </div>
+    <script>
+        Vue.component('my-component', {
+            props: ['warningText'],
+            template: "<div>{{warningText}}</div>"
+        });
+        Vue.component('my1-component', {
+            props: ['message'],
+            template: "<div>{{message.length}}</div>"
+        });
+        Vue.component('my2-component', {
+            props: ['initCount'],
+            template: "<div>{{count}}</div>",
+            data() {
+                return {
+                    count: this.initCount
+                }
+            }
+        });
+        Vue.component('my3-component', {
+            props: ['width'],
+            template: `<div :style="style">组件内容</div>`,
+            computed: {
+                style() {
+                    return {
+                        width: this.width + "px"
+                    }
+                }
+            }
+        });
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "呵呵哒"
+            }
+        });
+    </script>
+</body>
+
+</html>
