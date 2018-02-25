@@ -5,21 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>2.slot用法-单个slot.html</title>
+    <title>4.slot用法-作用域插槽.html</title>
 </head>
 
 <body>
     <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
     <div id="app">
-        <child-component>
-            <p>分发的内容</p>
-            <p>更多分发的内容</p>
-            <p>更多分发的内容</p>
-        </child-component>
+        <my-component>
+            <template scope="props">
+                <p>来自父组件的内容</p>
+                <p>{{props.msg}}</p>
+            </template>
+        </my-component>
     </div>
     <script>
-        Vue.component("child-component", {
-            template: `<div><slot><p>如果父组件没有插入内容，我将作为默认出现。</p></slot></div>`
+        Vue.component("my-component",{
+            template:`
+            <div class="container">
+                <slot msg="来自子组件的内容"></slot>
+            </div>`
         })
         var vm = new Vue({
             el: "#app",
