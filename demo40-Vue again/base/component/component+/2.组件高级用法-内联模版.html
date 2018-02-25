@@ -11,12 +11,27 @@
 <body>
     <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
     <div id="app">
-        <p></p>
+        <child-component inline-template>
+            <div>
+                <h2>在父组件中定义子组件的模版</h2>
+                <p>{{message}}</p>
+                <p>{{msg}}</p>
+            </div>
+        </child-component>
     </div>
     <script>
+        Vue.component("child-component", {
+            data() {
+                return {
+                    msg: "在子组件声明的数据"
+                }
+            }
+        })
         var vm = new Vue({
             el: "#app",
-            data: {}
+            data: {
+                message: "在父组件声明的数据"
+            }
         });
     </script>
 </body>
