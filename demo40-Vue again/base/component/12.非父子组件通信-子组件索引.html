@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12.非父子组件通信-子组件索引.html</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <div id="app">
+        <button @click="handleRef">同过ref获取子组件实例</button>
+        <p>{{ msg }}</p>
+        <my-component ref="comA"></my-component>
+    </div>
+    <script>
+        Vue.component("my-component", {
+            template: `<div>子组件</div>`,
+            data() {
+                return {
+                    message: "子组件内容"
+                }
+            }
+        });
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg:''
+            },
+            methods: {
+                handleRef(){
+                    // 通过$refs来访问指定的实例。
+                    let msg = this.$refs.comA.message;
+                    console.log(msg);
+                    this.msg = msg;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

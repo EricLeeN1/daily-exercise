@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10.非父子组件通信.html</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <div id="app">
+        <p>{{message}}</p>
+        <my-component></my-component>
+    </div>
+    <script>
+        let bus = new Vue();
+        Vue.component("my-component",{
+            template:`<button @click="handleEvent">传递事件</button>`,
+            methods: {
+                handleEvent(){
+                    bus.$emit("on-message","来自组件component-a的数据");
+                }
+            }
+        })
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                message:""
+            },
+            mounted () {
+                let _this = this;
+                // 在实例初始化时，监听来自bus实例的事件
+                bus.$on("on-message",function (msg) {
+                    _this.message = msg;
+                })
+            }
+        });
+    </script>
+</body>
+
+</html>

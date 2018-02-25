@@ -13,6 +13,9 @@
     <div id="app">
         <p>总数：{{total}}</p>
         <my-component v-model="total"></my-component>
+        <my-component @input="handleGetTotal"></my-component>
+        <my1-component v-model="total"></my1-component>
+        <button @click="handleReduce">-1</button>
     </div>
     <script>
         Vue.component('my-component', {
@@ -30,11 +33,28 @@
                     this.$emit('input', this.counter);
                 }
             }
+        });
+        Vue.component('my1-component', {
+            props: ['value'],
+            template: `<input :value="value" @input="updateValue">`,
+            methods: {
+                updateValue: function (event) {
+                    this.$emit('input', event.target.value);
+                }
+            }
         })
         let vm = new Vue({
             el: "#app",
             data: {
-                total: 0
+                total: 10
+            },
+            methods: {
+                handleGetTotal(total) {
+                    this.total = total;
+                },
+                handleReduce() {
+                    this.total--;
+                }
             }
         })
     </script>
