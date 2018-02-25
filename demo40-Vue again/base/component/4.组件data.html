@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件data</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <div id="app">
+        <my-component></my-component>
+        <my1-component></my1-component>
+        <my1-component></my1-component>
+        <my1-component></my1-component>
+        <my2-component></my2-component>
+        <my2-component></my2-component>
+        <my2-component></my2-component>
+    </div>
+    <script>
+        let data = {
+            counter:0
+        }
+        Vue.component('my-component', {
+            template: "<div>{{message}}</div>",
+            data() {
+                return {
+                    message: "组件内容"
+                }
+            }
+        });
+        Vue.component('my1-component', {
+            template: `
+            <button @click="counter++">{{counter}}</button>`,
+            data() {
+                return {
+                    counter: 0
+                }
+            }
+        });
+        Vue.component('my2-component', {
+            template: `
+            <button @click="counter++">{{counter}}</button>`,
+            data() {
+                return data;
+            }
+        });
+        var vm = new Vue({
+            el: "#app",
+            data: {}
+        });
+    </script>
+</body>
+
+</html>
