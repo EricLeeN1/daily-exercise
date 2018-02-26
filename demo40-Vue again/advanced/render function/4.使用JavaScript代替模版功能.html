@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4.使用JavaScript代替模版功能.html</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <div id="app">
+        <ele :show="show"></ele>
+        <button @click="show =! show">Toggle show</button>
+        <ele1 :list="list"></ele1>
+        <ele2 :list1="list1"></ele2>
+        <button @click="handleClick">显示列表</button>
+    </div>
+    <script>
+        Vue.component("ele", {
+            render: function (createElement) {
+                if (this.show) {
+                    return createElement("p", "show的值为true");
+                } else {
+                    return createElement("p", "show的值为false");
+                }
+            },
+            props: {
+                show: {
+                    type: Boolean,
+                    default: false
+                }
+            }
+        });
+        Vue.component("ele1", {
+            render: function (createElement) {
+                let nodes = [];
+                for (let i = 0; i < this.list.length; i++) {
+                    nodes.push(createElement("li", this.list[i]));
+                }
+                return createElement("ol", nodes);
+            },
+            props: {
+                list: {
+                    type: Array
+                }
+            }
+        });
+        Vue.component("ele2", {
+            render: function (createElement) {
+                // let nodes = [];
+                // for (let i = 0; i < this.list.length; i++) {
+                //     nodes.push(createElement("li", this.list[i]));
+                // }
+                // return createElement("ol", nodes);
+                if (this.list1.length) {
+                    return createElement("ol", this.list1.map((element) => {
+                        return createElement("li", element);
+                    }));
+                } else {
+                    return createElement("p", "列表为空");
+                }
+            },
+            props: {
+                list1: {
+                    type: Array,
+                    default: function () {
+                        return [];
+                    }
+                }
+            }
+        });
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                show: false,
+                list: [
+                    'Vue.js实战',
+                    'JavaScript高级程序设计',
+                    'JavaScript语言精粹'
+                ],
+                list1: []
+            },
+            methods: {
+                handleClick() {
+                    this.list1 = [
+                        'Vue.js实战',
+                        'JavaScript高级程序设计',
+                        'JavaScript语言精粹'
+                    ];
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
