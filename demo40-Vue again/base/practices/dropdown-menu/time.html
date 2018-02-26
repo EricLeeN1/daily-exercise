@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>time</title>
 </head>
+
 <body>
-    
+    <div id="app" v-cloak>
+        <input type="date" name="" id="" v-model="timeNow">
+        <div v-time="timeNow"></div>
+        <div v-time="timeBefore"></div>
+    </div>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <script src="./js/time.js"></script>
+    <script src="./js/timeCheck.js"></script>
 </body>
+
 </html>
