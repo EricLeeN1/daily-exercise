@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>contains介绍</title>
+</head>
+
+<body>
+    <h3>contains方法是用来判断元素A是否包含了元素B，包含则返回true，不包含返回false。</h3>
+    <div id="parent">
+        父元素
+        <div id="children">子元素</div>
+    </div>
+    <script>
+        let A = document.getElementById("parent");
+        let B = document.getElementById("children");
+        console.log(A.contains(B));//true
+        console.log(B.contains(A));//false
+    </script>
+</body>
+
+</html>
