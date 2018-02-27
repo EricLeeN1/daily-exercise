@@ -242,10 +242,11 @@ event.preventDefault()也可以用Vue事件的修饰符来实现，在@绑定的
 8. 执行下面的命令进行打包 -> `webpack --progress --hide-modules` 生成一个*/dist/main.js文件。
 ### 10.2 webpack配置逐步完善 ###
 
-    1. 包
-    style-loader -> npm install style-loader --save-dev
-    css-loader -> npm install css-loader --save-dev
-    2. 配置loader(加载器)
+1. 包
+    - **style-loader** 解析css -> npm install style-loader --save-dev
+    - **css-loader** 解析css -> npm install css-loader --save-dev
+    - **extract-text-webpack-plugin** 用来把散落各地的css提取出来 -> npm install extract-text-webpack-plugin --save-dev
+2. 配置loader(加载器)
     `module: {
         rules: [{
             test: /\.css$/,

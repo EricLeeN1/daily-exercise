@@ -1,4 +1,6 @@
 var path = require('path');
+// 导入插件
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var config = {
     entry: {
         main: './main'
@@ -11,11 +13,18 @@ var config = {
     module: {
         rules: [{
             test: /\.css$/,
-            use:[
-                'style-loader',
-                'css-loader'
-            ]
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use:"css-loader"
+            })
+            // use: [
+            //     'style-loader',
+            //     'css-loader'
+            // ]
         }]
-    }
+    },
+    plugins: [
+        new ExtractTextPlugin("styles.css")
+    ]
 };
 module.exports = config;
