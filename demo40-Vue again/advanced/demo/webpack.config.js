@@ -12,19 +12,34 @@ var config = {
     },
     module: {
         rules: [{
-            test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use:"css-loader"
-            })
+            test: /\.vue$/,
+            loader: "vue-loader",
+            options: {
+                loaders: {
+                    css: ExtractTextPlugin.extract({
+                        fallback: "vue-style-loader",
+                        use: "css-loader"
+                    })
+                }
+            },
             // use: [
             //     'style-loader',
             //     'css-loader'
             // ]
+        }, {
+            test: /\.js$/,
+            loader: "babel-loader",
+            exclude: /node_modules/
+        }, {
+            test: /\.css$/,
+            use: ExtractTextPlugin.extract({
+                use: "css-loader",
+                fallback: "style-loader"
+            })
         }]
     },
     plugins: [
-        new ExtractTextPlugin("styles.css")
+        new ExtractTextPlugin("main.css")
     ]
 };
 module.exports = config;
