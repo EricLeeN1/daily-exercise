@@ -216,3 +216,43 @@ event.preventDefault()也可以用Vue事件的修饰符来实现，在@绑定的
 ### 7.2 使用props传递数据 ###
 #### 7.2.1 基本用法 ####
 父组件正向地向子组件传递数据或参数的过程就是通过props来实现的。在组件中，使用选项props来声明需要从父级接受的数据，props的值可以是两种，一种是字符串数组，一种是对象。
+
+## 第10章 使用webpack ##
+### 10.1 webpack基础配置 ###
+
+1. 使用npm初始化配置 -> `npm init`
+2. 本地局部安装webpack -> `npm  install  webpack  --save-dev`
+3. 本地局部安装webpack-dev-server -> `npm  install  webpack-dev  server  --sav e -dev`
+4. 在目录下创建一个js文件,并初始化它的内容。 -> 'webpack.config.js'
+    `var config = {};
+    module.exports = config;`
+5. 然后在package.json的scripts里增加一个快速启动webpack-dev-server服务的脚本 ->
+    
+    `”dev”：”webpack-dev-server --open --config  webpack.config.js ”`  
+    可以设置默认打开地址和端口号 -> `webpack-dev-server --host 127.0.0.1 --port 8888 --open --config webpack.config.js` (默认地址是：127.0.0.1:8080)
+6. 配置entry和output入口和出口
+
+    - **entry：**入口是告诉webpack从哪里开始寻找依赖，并且翻译。
+    - **output：**出口则用来配置编译后的文件存储位置和文件名。
+    - **entry中的main:**就是我们配置的单入口。
+    - **output中的path:**用来存放打包后的文件的输出目录，是必填项。
+    - **output中的publicPath:**指定资源文件引用的目录，如果放在cdn上也可以填CDN的网址。
+    - **output中的filename:**用于指定输出文件的名称。
+7. 运行命令 -> `npm run dev` 
+8. 执行下面的命令进行打包 -> `webpack --progress --hide-modules` 生成一个*/dist/main.js文件。
+### 10.2 webpack配置逐步完善 ###
+
+    1. 包
+    style-loader -> npm install style-loader --save-dev
+    css-loader -> npm install css-loader --save-dev
+    2. 配置loader(加载器)
+    `module: {
+        rules: [{
+            test: /\.css$/,
+            use:[
+                'style-loader',
+                'css-loader'
+            ]
+        }]
+    }`。
+    在module对象的rules属性中可以指定一系列的loaders,每一个loader都必须包含test和use两个选项。上面这句话意思是，当webpack编译过程中遇到require()或import语句导入一个后缀名为.css的文件时，先将它通过css-loader转换，在通过style-loader转换，然后继续打包。use选项的值可以是数组或字符串，如果是数组，它的编译顺序就是从后往前。
