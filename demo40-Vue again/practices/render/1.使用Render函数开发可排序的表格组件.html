@@ -11,7 +11,8 @@
 
 <body>
     <div id="app" v-cloak>
-        <v-table></v-table>
+        <v-table :data="data" :columns="columns"></v-table>
+        <button @click="handleAddData">添加数据</button>
     </div>
     <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
     <script src="./js/table.js"></script>
