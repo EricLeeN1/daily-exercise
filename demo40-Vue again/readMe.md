@@ -287,4 +287,13 @@ event.preventDefault()也可以用Vue事件的修饰符来实现，在@绑定的
 
 3. 为了方便开发和生产环境的切换，新建一个用于生产环境的配置文件 -> `webpack.prod.config.js`
 4. 在package.json中，再加入一个build的快捷脚本用来打包。 -> `"build":"webpack --progress --hide-modules --config webpack.prod.config.js"`
-5. 
+
+## 第11章 插件 ##
+
+### 11.1 插件 ###
+### 11.2 前端路由与vue-router ###
+#### 11.2.2 vue-router基本用法 ####
+
+1. 包：
+    `npm install --save vue-router`
+2. 
