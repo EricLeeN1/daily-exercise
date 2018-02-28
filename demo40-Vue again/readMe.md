@@ -275,3 +275,16 @@ event.preventDefault()也可以用Vue事件的修饰符来实现，在@绑定的
     `npm install --save-dev babel-runtime`
 3. 配置一个.babelrc的文件
 
+### 10.4 用于生产环境 ###
+
+1. 需要安装的包
+    `npm install --save-dev url-loader`
+    `npm install --save-dev file-loader`
+2. 由于已经在webpack的output选项里已经指定了path和publicPath，打包完后，所有的资源都会保存在demo/dist目录下/打包会用到下面两个依赖:
+
+    `npm install --save-dev webpack-merge`
+    `npm install --save-dev html-webpack-plugin`
+
+3. 为了方便开发和生产环境的切换，新建一个用于生产环境的配置文件 -> `webpack.prod.config.js`
+4. 在package.json中，再加入一个build的快捷脚本用来打包。 -> `"build":"webpack --progress --hide-modules --config webpack.prod.config.js"`
+5. 

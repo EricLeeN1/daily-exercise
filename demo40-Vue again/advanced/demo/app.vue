@@ -2,6 +2,9 @@
   <div>
       <v-title title="Vue组件化"></v-title>
       <v-button @click="handleClick">点击按钮</v-button>
+      <p>
+        <img src="./images/vuejs.png" style="width:200px;" alt="">
+      </p>
   </div>
 </template>
 <script>
