@@ -257,3 +257,21 @@ event.preventDefault()也可以用Vue事件的修饰符来实现，在@绑定的
         }]
     }`。
     在module对象的rules属性中可以指定一系列的loaders,每一个loader都必须包含test和use两个选项。上面这句话意思是，当webpack编译过程中遇到require()或import语句导入一个后缀名为.css的文件时，先将它通过css-loader转换，在通过style-loader转换，然后继续打包。use选项的值可以是数组或字符串，如果是数组，它的编译顺序就是从后往前。
+
+### 10.3 单文件组件与vue-loader ###
+
+1. .vue文件一般包括3个部分，即<template>/<script>/<style>
+2. 需要安装的包
+    `npm install --save vue`
+    `npm install --save-dev vue-loader`
+    `npm install --save-dev vue-style-loader`
+    `npm install --save-dev vue-template-compiler`
+    `npm install --save-dev vue-hot-reload-api`
+    `npm install --save-dev babel`
+    `npm install --save-dev babel-loader`
+    `npm install --save-dev babel-core`
+    `npm install --save-dev babel-plugin-transform-runtime`
+    `npm install --save-dev babel-preset-es2015`
+    `npm install --save-dev babel-runtime`
+3. 配置一个.babelrc的文件
+
