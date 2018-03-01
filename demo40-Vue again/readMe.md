@@ -305,4 +305,6 @@ Vuex作为Vue的一个插件来使用，可以更好的管理和维护整个项�
 
 1. **Vuex基本用法：**包 -> `npm install --save vuex`
 2. 仓库store包含了应用的数据（状态）和操作过程。Vuex里的数据都是响应式的，任何组件使用同一store的数据时，只要store的数据变化，对应的组件也会立即更新。
-
+    1. 数据保存在Vuex选项的state字段内 -> 在任何组件内，可以直接通过$store.state.count读取 -> 直接写在template里显得有点乱，可以用一个计算属性来显示。
+    2. mutations是Vuex的第二个选项，用来直接修改state里的数据，我们给计数器增加2个mutations，用来加1和减1；-> 在组件内，通过this.$store.commit方法来执行mutations。
+        1. mutations还可以接受第二个参数，可以是数组、字符串、或对象等类型。

@@ -8,34 +8,34 @@ Vue.use(Vuex);
 
 //路由配置
 const Routers = [{
-    path: '/',
-    meta: {
-        title: "首页"
+        path: '/',
+        meta: {
+            title: "首页"
+        },
+        component: (resolve) => require(['./index.vue'], resolve)
     },
-    component: (resolve) => require(['./index.vue'], resolve)
-}, 
-// {
-//     path: '/about',
-//     meta: {
-//         title: "关于"
-//     },
-//     component: (resolve) => require(['./views/about.vue'], resolve)
-// }, {
-//     path: '/user/:id',
-//     meta: {
-//         title: "个人主页"
-//     },
-//     component: (resolve) => require(['./views/user.vue'], resolve)
-// }, {
-//     path: '/login',
-//     meta: {
-//         title: "登录页面"
-//     },
-//     component: (resolve) => require(['./views/login.vue'], resolve)
-// }, {
-//     path: '*',
-//     redirect: "./index"
-// }
+    // {
+    //     path: '/about',
+    //     meta: {
+    //         title: "关于"
+    //     },
+    //     component: (resolve) => require(['./views/about.vue'], resolve)
+    // }, {
+    //     path: '/user/:id',
+    //     meta: {
+    //         title: "个人主页"
+    //     },
+    //     component: (resolve) => require(['./views/user.vue'], resolve)
+    // }, {
+    //     path: '/login',
+    //     meta: {
+    //         title: "登录页面"
+    //     },
+    //     component: (resolve) => require(['./views/login.vue'], resolve)
+    // }, {
+    //     path: '*',
+    //     redirect: "./index"
+    // }
 ];
 
 const RouterConfig = {
@@ -61,8 +61,16 @@ router.afterEach((to, from, next) => {
 
 const store = new Vuex.Store({
     //vuex的配置
-    state:{
-        count:0
+    state: {
+        count: 0
+    },
+    mutations: {
+        increment(state, n = 1) {
+            state.count += n;
+        },
+        decrease(state, n = 1) {
+            state.count -= n;
+        }
     }
 });
 
