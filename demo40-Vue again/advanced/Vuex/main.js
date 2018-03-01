@@ -59,18 +59,48 @@ router.afterEach((to, from, next) => {
     window.scrollTo(0, 0);
 });
 
-const store = new Vuex.Store({
+const moduleA = {
     //vuex的配置
     state: {
-        count: 0
+        count: 0,
+        list: [1, 5, 8, 10, 30, 50]
     },
     mutations: {
         increment(state, n = 1) {
             state.count += n;
         },
-        decrease(state, n = 1) {
-            state.count -= n;
+        decrease(state, params) {
+            state.count -= params.count;
         }
+    },
+    getters: {
+        filteredList(state) {
+            return state.list.filter(item => item < 10);
+        },
+        listCount(state, getters) {
+            return getters.filteredList.length;
+        },
+        sumCount(state, getters, rootState) {
+            return state.count + rootState.count;
+        }
+    },
+    actions: {
+        increment(context) {
+            context.commit('increment');
+        },
+        asyncIncrement(context) {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    context.commit('increment');
+                    resolve();
+                }, 1000);
+            });
+        }
+    }
+}
+const store = new Vuex.Store({
+    modules: {
+        a: moduleA
     }
 });
 
