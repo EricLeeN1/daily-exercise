@@ -1,0 +1,45 @@
+{
+    "name": "zhihu",
+    "version": "1.0.0",
+    "description": "Eric practices",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "webpack-dev-server --host 127.0.0.1 --port 3000 --open --history-api-fallback --config webpack.config.js",
+      "build": "webpack --progress --hide-modules --config webpack.prod.config.js"
+    },
+    "keywords": [
+      "eric",
+      "webpack"
+    ],
+    "author": "Eric",
+    "license": "ISC",
+    "devDependencies": {
+      "babel": "^6.23.0",
+      "babel-core": "^6.26.0",
+      "babel-loader": "^7.1.3",
+      "babel-plugin-transform-runtime": "^6.23.0",
+      "babel-preset-es2015": "^6.24.1",
+      "babel-runtime": "^6.26.0",
+      "css-loader": "^0.28.10",
+      "extract-text-webpack-plugin": "^2.1.0",
+      "file-loader": "^1.1.10",
+      "html-webpack-plugin": "^2.30.1",
+      "style-loader": "^0.20.2",
+      "url-loader": "^0.6.2",
+      "vue-hot-reload-api": "^2.3.0",
+      "vue-loader": "^14.1.1",
+      "vue-style-loader": "^4.0.2",
+      "vue-template-compiler": "^2.5.13",
+      "webpack": "^3.11.0",
+      "webpack-cli": "^2.0.9",
+      "webpack-dev-server": "^2.11.2",
+      "webpack-merge": "^4.1.0"
+    },
+    "dependencies": {
+      "vue": "^2.5.13",
+      "vue-router": "^3.0.1",
+      "vuex": "^3.0.1"
+    }
+  }
+  
