@@ -320,3 +320,9 @@ Vuex作为Vue的一个插件来使用，可以更好的管理和维护整个项�
 	2. actions：actions里面提交的是mutation，并且可以异步操作业务逻辑。在组件内通过$store.dispatch触发。
 	3. modules：用来将store分割到不同模块。类似于小程序分包，每个module都拥有自己的state、getters、mutations、actions。而且可以多层嵌套。除了state中要用modules名字以外，别的不需要。类似于同一环境内。 -> store.state.a //moduleA的状态
 	4. module的mutation和getter接收的第一个参数state是当前模块的状态。在actions和getters中，还可以接收一个参数rootState,来访问根节点的状态。
+
+#### 11.3 实战：中央事件总线插件vue-bus ####
+1. 使用vue-bus有两点需要注意，
+    1. 第一是$bus.on应该在created钩子内使用，如果在mounted使用，你可能接收不到其他组件来自created钩子内发出的事件；
+    2. 第二点是使用了$bus.on，在beforeDestory钩子里应该再使用$bus.off解除，因为组件销毁后，就没必要把监听的句柄存储在vue-bus里了。
+
