@@ -326,3 +326,10 @@ Vuex作为Vue的一个插件来使用，可以更好的管理和维护整个项�
     1. 第一是$bus.on应该在created钩子内使用，如果在mounted使用，你可能接收不到其他组件来自created钩子内发出的事件；
     2. 第二点是使用了$bus.on，在beforeDestory钩子里应该再使用$bus.off解除，因为组件销毁后，就没必要把监听的句柄存储在vue-bus里了。
 
+## 第12章 iView经典组件剖析 ##
+### 12.1 级联选择组件 Cascader ###
+
+1. 包
+    `npm install iview --save`
+
+## 第13章 实战：知乎日报项目开发 ##
