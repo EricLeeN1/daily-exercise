@@ -1,21 +1,56 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/swiper.min.css">
 </head>
+
 <body>
-    <section id="index-title">
-        <a href="./">公司新闻</a>
-        <a href="./">总部动态</a>
-        <a href="./">商业服务</a>
-    </section>
+    <header id="index-title">
+        <ul class="index-title-group">
+            <li class="active">
+                <a href="./">公司新闻</a>
+            </li>
+            <li>
+                <a href="./">总部动态</a>
+            </li>
+            <li>
+                <a href="./">商业服务</a>
+            </li>
+        </ul>
+    </header>
     <section id="index-banner">
-        
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./images/banner1@2x.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/banner1@2x.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/banner1@2x.png" alt="">
+                </div>
+            </div>
+            <!--分页器-->
+            <div class="swiper-pagination"></div>
+            <!--导航按钮-->
+            <div class="swiper-button-prev">
+            </div>
+            <div class="swiper-button-next">
+            </div>
+            <!--滚动条-->
+            <!--<div class="swiper-scrollbar">-->
+
+            <!--</div>-->
+        </div>
     </section>
-    <section id="nav1">
+    <section id="index-nav1">
         <ul>
             <li>
                 <a href="">
@@ -31,12 +66,155 @@
             </li>
             <li>
                 <a href="">
-                    <img src="./images/brand@2x.png" alt="" srcset="/">
+                    <img src="./images/brand@2x.png" alt="" srcset="./images/brand@2x.png 2x,./images/brand@3x.png 3x">
                     <p>品牌服务</p>
                 </a>
             </li>
         </ul>
     </section>
+    <section id="index-nav2">
+        <ul class="index-nav2-tabbar">
+            <li class="active">加盟服务</li>
+            <li>旅居服务</li>
+            <li>扩展服务</li>
+        </ul>
+        <ul class="index-nav2-panel">
+            <li>
+                <ul class="index-nav2-list">
+                    <li>
+                        <a href="">
+                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
+                            <span class="item-infos">
+                                <h3>百度-经验</h3>
+                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
+                            </span>
+                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
+                            <span class="item-infos">
+                                <h3>百度-经验</h3>
+                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
+                            </span>
+                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
+                            <span class="item-infos">
+                                <h3>百度-经验</h3>
+                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
+                            </span>
+                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li style="display:none">
+                <ul class="index-nav2-list">
+                    <li>
+                        <a href="">
+                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
+                            <span class="item-infos">
+                                <h3>百度-经验</h3>
+                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
+                            </span>
+                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
+                            <span class="item-infos">
+                                <h3>百度-经验</h3>
+                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
+                            </span>
+                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
+                            <span class="item-infos">
+                                <h3>百度-经验</h3>
+                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
+                            </span>
+                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li style="display:none">
+                <ul class="index-nav2-list">
+                    <li>
+                        <a href="">
+                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
+                            <span class="item-infos">
+                                <h3>百度-经验</h3>
+                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
+                            </span>
+                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
+                            <span class="item-infos">
+                                <h3>百度-经验</h3>
+                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
+                            </span>
+                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
+                            <span class="item-infos">
+                                <h3>百度-经验</h3>
+                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
+                            </span>
+                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <footer>
+        <ul>
+            <li class="active">
+                <a href="./">
+                    <img src="./images/icon-index-active@2x.png" alt="">
+                    <p>首页</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="./images/icon-phone@2x.png" alt="">
+                    <p>在线留言</p>
+                </a>
+            </li>
+            <li>
+                <a href="tel:18839893536">
+                    <img src="./images/icon-call@2x.png" alt="">
+                    <p>电话咨询</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="./images/icon-map@2x.png" alt="">
+                    <p>查看地图</p>
+                </a>
+            </li>
+        </ul>
+    </footer>
+    <script src="./scripts/fontsize.js"></script>
     <script src="./scripts/vendor.js"></script>
+    <script src="./scripts/swiper.min.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
+
 </html>

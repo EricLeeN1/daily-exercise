@@ -6,16 +6,49 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/swiper.min.css">
 </head>
 
 <body>
     <header id="index-title">
-        <a href="./">公司新闻</a>
-        <a href="./">总部动态</a>
-        <a href="./">商业服务</a>
+        <ul class="index-title-group">
+            <li class="active">
+                <a href="./">公司新闻</a>
+            </li>
+            <li>
+                <a href="./">总部动态</a>
+            </li>
+            <li>
+                <a href="./">商业服务</a>
+            </li>
+        </ul>
     </header>
     <section id="index-banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./images/banner1@2x.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/banner1@2x.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/banner1@2x.png" alt="">
+                </div>
+            </div>
+            <!--分页器-->
+            <div class="swiper-pagination"></div>
+            <!--导航按钮-->
+            <div class="swiper-button-prev">
+            </div>
+            <div class="swiper-button-next">
+            </div>
+            <!--滚动条-->
+            <!--<div class="swiper-scrollbar">-->
 
+            <!--</div>-->
+        </div>
     </section>
     <section id="index-nav1">
         <ul>
@@ -41,7 +74,7 @@
     </section>
     <section id="index-nav2">
         <ul class="index-nav2-tabbar">
-            <li>加盟服务</li>
+            <li class="active">加盟服务</li>
             <li>旅居服务</li>
             <li>扩展服务</li>
         </ul>
@@ -80,7 +113,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            <li style="display:none">
                 <ul class="index-nav2-list">
                     <li>
                         <a href="">
@@ -114,7 +147,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            <li style="display:none">
                 <ul class="index-nav2-list">
                     <li>
                         <a href="">
@@ -152,34 +185,36 @@
     </section>
     <footer>
         <ul>
-            <li>
+            <li class="active">
                 <a href="./">
-                    <img src="" alt="">
-                    <p></p>
+                    <img src="./images/icon-index-active@2x.png" alt="">
+                    <p>首页</p>
                 </a>
             </li>
             <li>
                 <a href="">
-                    <img src="" alt="">
-                    <p></p>
+                    <img src="./images/icon-phone@2x.png" alt="">
+                    <p>在线留言</p>
+                </a>
+            </li>
+            <li>
+                <a href="tel:18839893536">
+                    <img src="./images/icon-call@2x.png" alt="">
+                    <p>电话咨询</p>
                 </a>
             </li>
             <li>
                 <a href="">
-                    <img src="" alt="">
-                    <p></p>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="" alt="">
-                    <p></p>
+                    <img src="./images/icon-map@2x.png" alt="">
+                    <p>查看地图</p>
                 </a>
             </li>
         </ul>
     </footer>
     <script src="./scripts/fontsize.js"></script>
     <script src="./scripts/vendor.js"></script>
+    <script src="./scripts/swiper.min.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>
