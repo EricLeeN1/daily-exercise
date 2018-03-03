@@ -11,18 +11,19 @@ var config = {
         filename: 'main.js'
     },
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
                     loaders: {
-                        css: ExtractTextPlugin.extract({
-                            use: ['css-loader', 'less-loader'],
+                        less: ExtractTextPlugin.extract({
+                            use: ['css-loader','less-loader'],
                             fallback: 'vue-style-loader'
                         }),
-                        less: ExtractTextPlugin.extract({
-                            use: ['css-loader', 'less-loader'],
-                            fallback: "vue-style-loader"
+                        css: ExtractTextPlugin.extract({
+                            use: ['css-loader','less-loader'],
+                            fallback: 'vue-style-loader'
                         })
                     }
                 }
@@ -40,8 +41,8 @@ var config = {
                 })
             },
             {
-                test: '/\.less$/',
-                loader: ExtractTextPlugin.extract({
+                test: /\.less$/,
+                use: ExtractTextPlugin.extract({
                     use: ['less-loader'],
                     fallback: 'style-loader'
                 })
@@ -51,13 +52,6 @@ var config = {
                 loader: 'url-loader?limit=1024'
             }
         ]
-    },
-    vue: {
-        loaders: {
-            js: "babel",
-            css: ExtractTextPlugin.extract("css"),
-            sass: ExtractTextPlugin.extract("css!scss")
-        }
     },
     plugins: [
         new ExtractTextPlugin({
