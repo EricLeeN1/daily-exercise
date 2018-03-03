@@ -335,5 +335,6 @@ Vuex作为Vue的一个插件来使用，可以更好的管理和维护整个项�
 ## 第13章 实战：知乎日报项目开发 ##
 
 1. 包
-	`npm install request --save-dev`
+    `npm install request --save-dev`
+    `npm install axios -save-dev`
 2. 使用基于Node.js的request库来做代理，通过NPM安装request；
