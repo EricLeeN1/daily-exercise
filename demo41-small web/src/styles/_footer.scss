@@ -4,6 +4,7 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
+    background-color: #fff;
     height: 1.2rem;
     ul {
         @include flex-center(0);
