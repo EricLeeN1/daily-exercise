@@ -5,7 +5,7 @@ import Vuex from 'vuex';
 import App from './app.vue';
 import './style.css';
 
-import product_data from './product';
+// import product_data from './product';
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
