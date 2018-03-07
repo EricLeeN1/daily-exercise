@@ -56,6 +56,7 @@ const store = new Vuex.Store({
     state: {
         site: 'http://60.205.111.27:801',
         imgSite: 'http://60.205.111.27:807',
+        handShake:null
     },
     getters: {
         handShakeData: function (state) {
@@ -64,8 +65,9 @@ const store = new Vuex.Store({
     },
     mutations: {
         handShakeDatas(state, data) {
+            console.log(data);
             state.handShake = data;
-            state.version = data.version;
+            console.log(state);
         }
 
     },
@@ -87,6 +89,7 @@ const store = new Vuex.Store({
                         iv: iv,
                         padding: CryptoJS.pad.Pkcs7
                     }).toString(CryptoJS.enc.Utf8);
+                    context.commit('handShakeDatas', r.data);
                 }
             }, r => {
                 console.log(r.msg);
