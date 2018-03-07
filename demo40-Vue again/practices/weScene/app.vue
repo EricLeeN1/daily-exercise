@@ -1,6 +1,7 @@
 <template>
   <div>
       <h3 class="compare">
+        {{key}}
       </h3>
       <TabQrcode></TabQrcode>
       <router-link class="list-a" :to="item" v-for="(item,index) in tabList" :key="index">{{item}}</router-link>
@@ -20,6 +21,9 @@ export default {
   computed: {
     img() {
       return this.$store.state.imgSite;
+    },
+    key() {
+      return this.$store.state.handShake;
     }
   },
   components: {
