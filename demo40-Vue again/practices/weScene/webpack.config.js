@@ -24,6 +24,10 @@ var config = {
                         css: ExtractTextPlugin.extract({
                             use: ['css-loader','less-loader'],
                             fallback: 'vue-style-loader'
+                        }),
+                        sass:ExtractTextPlugin.extract({
+                            use:['css-loader','sass-loader'],
+                            fallback:'vue-style-loader'
                         })
                     }
                 }

@@ -1,8 +1,37 @@
 <template>
   <div>
       <h3 class="compare">
-哈哈哈
       </h3>
-      <router-link to="./tab1">tab1</router-link>
+      <TabQrcode></TabQrcode>
+      <router-link class="list-a" :to="item" v-for="(item,index) in tabList" :key="index">{{item}}</router-link>
+      {{img}}
   </div>
 </template>
+<script>
+import TabQrcode from "./components/tab-qrcode.vue";
+export default {
+  data() {
+    return {
+      tabList: ["tab1", "tab2", "tab3", "tab4", "tab5", "tab6", "tab7", "tab8"]
+    };
+  },
+  computed: {
+    img(){
+      return this.$store.state.imgSite;
+    }
+  },
+  components: {
+    TabQrcode: TabQrcode
+  },
+  mounted () {
+    this.$store.dispatch('handShakes');
+  }
+};
+</script>
+<style lang="scss" scoped>
+.list-a {
+  display: block;
+}
+</style>
+
+
