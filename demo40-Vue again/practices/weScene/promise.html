@@ -6,36 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>promise</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
+aaa
 
 <body>
 
     <script>
-        function ajax(url, fnsuss, fnfail) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', url, true);
-            xhr.send();
-            xhr.onload = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    fnsuss(xhr.responseText);
-                } else {
-                    fnfail(xhr.status);
-                }
-            }
-        }
+        // function ajax(url, fnsuss, fnfail) {
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.open('GET', url, true);
+        //     xhr.send();
+        //     xhr.onload = function () {
+        //         if (xhr.readyState == 4 && xhr.status == 200) {
+        //             fnsuss(xhr.responseText);
+        //         } else {
+        //             fnfail(xhr.status);
+        //         }
+        //     }
+        // }
         window.onload = function () {
-            new Promise((resolve, reject) => {
-                ajax('./package.json',function(str){
-                    console.log(str);
-                    resolve(str);
-                },function (str) {
-                    reject(str);
+            // new Promise((resolve, reject) => {
+            //     ajax('./package.json',function(str){
+            //         console.log(str);
+            //         resolve(str);
+            //     },function (str) {
+            //         reject(str);
+            //     })
+            // }).then(function (res) {
+            //     console.log(res);
+            // }, function (res) {
+            //     console.log(res);
+            // });
+            // 
+
+            axios({
+                    method: 'post',
+                    url: 'http://60.205.111.27:801/WebService.asmx/AcquireSecretKey',
+                    data: {
+                        type: 3,
+                        ts: Date.parse(new Date()) / 1000
+                    },
+                    responseType: 'json',
+                    headers: {
+                        'Content-Type': 'charset=UTF-8'
+                    },
                 })
-            }).then(function (res) {
-                console.log(res);
-            }, function (res) {
-                console.log(res);
-            });
+                .then(function (response) {
+                    console.log(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error.data);
+                });
         };
     </script>
 </body>

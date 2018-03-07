@@ -1,19 +1,28 @@
-const routers = [{
+const Routers = [{
         path: './',
         meta: {
-            title: "歌匣子微现场"
+            title: "微现场活动"
         },
         component: (resolve) => require(['./app.vue'], resolve)
     },
     {
-        path: './tab:id',
+        path: './tab1',
         meta: {
             title: "Tab1"
         },
         component: (resolve) => require(['./views/tab.vue'], resolve)
+    },
+    {
+        path: './tab',
+        component: (resolve) => require(['./views/tab.vue'], resolve)
+    },
+    {
+        path: "./404",
+        component: (resolve) => require(['./views/404.vue'], resolve)
     }
 ];
-export default routers;
+export default Routers;
+
 // $(function () {
 //     jQuery.support.cors = true;
 //     var Base = window.Base || {};

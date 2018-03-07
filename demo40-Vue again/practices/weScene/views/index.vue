@@ -3,14 +3,13 @@
       <h3 class="compare">
       </h3>
       <TabQrcode></TabQrcode>
-      <router-link class="list-a" :to="item" v-for="(item,index) in tabList" :key="index">{{item}}</router-link>
-      <router-link to="./tab">tab</router-link>
+      <!-- <router-link class="list-a" :to="item" v-for="(item,index) in tabList" :key="index">{{item}}</router-link> -->
       <h1>首页</h1>
       {{img}}
   </div>
 </template>
 <script>
-import TabQrcode from "./components/tab-qrcode.vue";
+import TabQrcode from "../components/tab-qrcode.vue";
 export default {
   data() {
     return {
