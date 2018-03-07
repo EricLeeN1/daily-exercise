@@ -2,17 +2,18 @@ const http = require('http');
 const request = require('request');
 
 const hostname = '127.0.0.1';
-const port = 801;
-const imgPort = 807;
+const port = 8010;
+const imgPort = 8011;
 
 // 创建一个 API 代理服务
 const apiServer = http.createServer((req, res) => {
-    const url = 'http://60.205.111.27' + req.url;
+    const url = 'http://60.205.111.27:801' + req.url;
+    console.log(url);
     const options = {
         url: url
     };
 
-    function callback (error, response, body) {
+    function callback(error, response, body) {
         if (!error && response.statusCode === 200) {
             // 设置编码类型，否则中文会显示为乱码
             res.setHeader('Content-Type', 'text/plain;charset=UTF-8');
@@ -30,13 +31,13 @@ apiServer.listen(port, hostname, () => {
 });
 // 创建一个图片代理服务
 const imgServer = http.createServer((req, res) => {
-    const url = req.url.split('/img/')[1];
+    const url = 'https://img.gexiazi.com/' + req.url;
     const options = {
         url: url,
         encoding: null
     };
 
-    function callback (error, response, body) {
+    function callback(error, response, body) {
         if (!error && response.statusCode === 200) {
             const contentType = response.headers['content-type'];
             res.setHeader('Content-Type', contentType);

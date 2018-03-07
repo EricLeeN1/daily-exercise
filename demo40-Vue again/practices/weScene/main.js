@@ -3,11 +3,14 @@ import VueRouter from 'vue-router';
 import Routers from './router';
 import Vuex from 'vuex';
 import App from './app.vue';
-import './style.css';
-import api from './static/scripts/axios.js';
-let qs = require('qs');
+import CryptoJS from 'crypto-js';
+import AES from 'crypto-js/aes';
+import _md5 from 'crypto-js/md5';
 
-// import product_data from './product';
+
+import './style.css';
+import api from './libs/util.js';
+
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
@@ -17,7 +20,6 @@ Vue.config.productionTip = false;
 
 // 路由配置
 const RouterConfig = {
-    // 使用 HTML5 的 History 路由模式
     mode: 'history',
     routes: Routers
 };
@@ -69,14 +71,26 @@ const store = new Vuex.Store({
     },
     actions: {
         handShakes(context) {
-            api.post('/WebService.asmx/AcquireSecretKey',{
+            api.post('WebService.asmx/AcquireSecretKey', {
                 type: 3,
                 ts: Date.parse(new Date()) / 1000
             }, r => {
                 console.log(r);
+                if (r.msgcode == 1) {
+                    var key = CryptoJS.enc.Latin1.parse('l@j#g=c!w*)8(^5$');
+                    var iv = CryptoJS.enc.Latin1.parse('L+*df5,Ir)b$=pkf');
+                    r.data.key = CryptoJS.AES.decrypt(r.data.key, key, {
+                        iv: iv,
+                        padding: CryptoJS.pad.Pkcs7
+                    }).toString(CryptoJS.enc.Utf8);
+                    r.data.secret = CryptoJS.AES.decrypt(r.data.secret, key, {
+                        iv: iv,
+                        padding: CryptoJS.pad.Pkcs7
+                    }).toString(CryptoJS.enc.Utf8);
+                }
             }, r => {
-                console.log(r);
-            })
+                console.log(r.msg);
+            });
         }
     }
 });
