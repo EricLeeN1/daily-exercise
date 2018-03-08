@@ -69,7 +69,6 @@ const store = new Vuex.Store({
             state.handShake = data;
             console.log(state);
         }
-
     },
     actions: {
         handShakes(context) {

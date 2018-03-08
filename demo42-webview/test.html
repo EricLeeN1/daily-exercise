@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>交互</title>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+    <style>
+        #app {
+            background-color: #f55053;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            color: #fff;
+            border-radius: 50%;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        返回首页
+    </div>
+    <script>
+        window.onload = function () {
+            var app = document.getElementById('app');
+            app.onclick = function () {
+                console.log('1111');
+                wx.miniProgram.getEnv(function (res) {
+                    alert(res.miniprogram); // true
+                    // wx.miniProgram.navigateBack({
+                    //     delta: 5
+                    // });
+                    wx.miniProgram.postMessage({
+                        data: {
+                            show: false
+                        }
+                    })
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>

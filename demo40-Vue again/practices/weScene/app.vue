@@ -16,13 +16,13 @@ export default {
   data() {
     return {
       tabList: ["tab1", "tab2", "tab3", "tab4", "tab5", "tab6", "tab7", "tab8"],
-      key:this.$store.state.handShake
+      key: this.$store.state.handShake
     };
   },
   computed: {
     img() {
       return this.$store.state.handShake;
-    },
+    }
     // key() {
     //   return this.$store.state.handShake;
     // }
