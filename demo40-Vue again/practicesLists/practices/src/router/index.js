@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import HelloWorld from '@/components/HelloWorld' /** 这里@相当于"../" */
 
-Vue.use(Router)
+Vue.use(Router);  /* 使用路由 */
 
 export default new Router({
-  routes: [
+  routes: [  /* 进行路由配置，规定“/”引入到Hello组件 */
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'HelloWorld', /* 这里的name路径名 */
+      component: HelloWorld  /* 注册Hello组件 */
     }
   ]
 })
