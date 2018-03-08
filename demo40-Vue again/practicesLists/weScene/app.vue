@@ -6,8 +6,8 @@
       <TabQrcode></TabQrcode>
       <router-link class="list-a" :to="item" v-for="(item,index) in tabList" :key="index">{{item}}</router-link>
       <router-link to="./tab">tab</router-link>
-      <h1>首页</h1>
-      {{img}}
+      <h2>{{img}}</h2>
+      <button v-on:click="getInfos">首页</button>
   </div>
 </template>
 <script>
@@ -26,6 +26,19 @@ export default {
     // key() {
     //   return this.$store.state.handShake;
     // }
+  },
+  methods: {
+    getInfos() {
+      console.log('111');
+      this.$store.dispatch("getAjax", "/FrontendService.asmx/Validation?", {
+        version: "2.0",
+        id: 30
+      },res=>{
+        console.log('====================================');
+        console.log(res);
+        console.log('====================================');
+      });
+    }
   },
   components: {
     TabQrcode: TabQrcode

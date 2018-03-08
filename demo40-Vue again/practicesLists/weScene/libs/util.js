@@ -59,9 +59,6 @@ Util.apiAxios = function (method, url, params, success, failure) {
             }],
         })
         .then(function (res) {
-            console.log('====================================');
-            console.log(res);
-            console.log('====================================');
             if (res.status === 200 && res.request.readyState === 4) {
                 if (success) {
                     success(res.data);
