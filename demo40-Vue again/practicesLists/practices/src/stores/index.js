@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import CryptoJS from 'crypto-js';
 import Settings from '@/assets/libs/settings.js';
 import api from '@/assets/libs/util.js';
 import handShake from './handShake/index.js';
