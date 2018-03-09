@@ -123,7 +123,14 @@ a {
   color: #42b983;
 }
 .topics-list {
-  width: 100vw;
+  width: 1600px;
   overflow: hidden;
+  margin: 0 auto;
+}
+.topics-list > .markdown-text{
+  width: 100%;
+}
+.markdown-text div p img {
+  width: 100%;
 }
 </style>

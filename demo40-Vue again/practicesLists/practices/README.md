@@ -27,8 +27,6 @@ npm run e2e
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
     build                   构建脚本目录
         build-server.js         运行本地构建服务器，可以访问构建后的页面
         build.js                生产环境构建脚本
@@ -58,4 +56,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     package.json            项目描述文件，里面定义了项目的npm脚本，依赖包等信息
     index.html              入口文件
 
-如果需要增加组件那就在components文件下定义xx.vue文件并编写代码即可，如果需要配置路由就要进行在index.js进行路由“路径”配置，还需要点击跳转就要用到<router-link></router-link>标签了。至于后面的过滤器啊，事件啊，钩子函数，ajax等等之类的和vue1.0差不多就不一一叙述，但是会在用到的时候简单说明一下的。
+如果需要增加组件那就在components文件下定义xx.vue文件并编写代码即可，如果需要配置路由就要进行在index.js进行路由“路径”配置，还需要点击跳转就要用到<router-link></router-link>标签了。
