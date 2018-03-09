@@ -4,87 +4,10 @@
      <p>图片地址{{imgSite}}</p>
     <h2>Essential Links</h2>
     <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
+      <li v-for="(item,key) in handShake" :key="key">
+        {{key+'-'+item}}
       </li>
     </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
-    <ul class="topics-list">
-      <li v-for="item in topics" :key="item.id" v-html="item.content"></li>
-    </ul>
-
   </div>
 </template>
 
@@ -93,21 +16,24 @@ export default {
   name: "HelloWorld",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App",
-      topics: ""
+      msg: "Welcome to Your Vue.js App"
     };
   },
   computed: {
     imgSite() {
       return this.$store.state.imgSite;
+    },
+    handShake() {
+      return this.$store.state.hand.handShake;
     }
   },
-  created() {
-    this.$api.get("topics", null, res => {
-      if (res.success) {
-        this.topics = res.data;
-      }
-    });
+  beforeCreate() {
+    // this.$api.get("topics", null, res => {
+    //   if (res.success) {
+    //     this.topics = res.data;
+    //   }
+    // });
+    this.$store.dispatch("handShakes");
   }
 };
 </script>

@@ -4,6 +4,9 @@ import Vue from 'vue' /** 这里是引入vue文件 */
 import App from './App' /** 这里是引入目录下的App.vue模块 */
 import router from './router' /** 这里是vue的路由 */
 import store from './stores/index.js';
+import './assets/styles/_normalize.scss';
+import './assets/styles/_base.scss';
+
 
 Vue.config.productionTip = false;
 
