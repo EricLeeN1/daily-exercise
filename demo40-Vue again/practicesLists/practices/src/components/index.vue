@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+     <p>图片地址{{imgSite}}</p>
     <h2>Essential Links</h2>
     <ul>
       <li>
@@ -83,6 +84,7 @@
     <ul class="topics-list">
       <li v-for="item in topics" :key="item.id" v-html="item.content"></li>
     </ul>
+
   </div>
 </template>
 
@@ -94,6 +96,11 @@ export default {
       msg: "Welcome to Your Vue.js App",
       topics: ""
     };
+  },
+  computed: {
+    imgSite() {
+      return this.$store.state.imgSite;
+    }
   },
   created() {
     this.$api.get("topics", null, res => {
@@ -127,7 +134,7 @@ a {
   overflow: hidden;
   margin: 0 auto;
 }
-.topics-list > .markdown-text{
+.topics-list > .markdown-text {
   width: 100%;
 }
 .markdown-text div p img {
