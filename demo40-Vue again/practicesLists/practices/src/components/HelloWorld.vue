@@ -80,6 +80,9 @@
         </a>
       </li>
     </ul>
+    <ul class="topics-list">
+      <li v-for="item in topics" :key="item.id" v-html="item.content"></li>
+    </ul>
   </div>
 </template>
 
@@ -88,8 +91,16 @@ export default {
   name: "HelloWorld",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      msg: "Welcome to Your Vue.js App",
+      topics: ""
     };
+  },
+  created() {
+    this.$api.get("topics", null, res => {
+      if (res.success) {
+        this.topics = res.data;
+      }
+    });
   }
 };
 </script>
@@ -110,5 +121,9 @@ li {
 }
 a {
   color: #42b983;
+}
+.topics-list {
+  width: 100vw;
+  overflow: hidden;
 }
 </style>
