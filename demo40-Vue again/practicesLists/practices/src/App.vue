@@ -1,29 +1,17 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
     <AppHeader></AppHeader>
-=======
-    <bgImg></bgImg>
->>>>>>> 8b3d37d2ba0486518c9cc519dfe6f04f8eefc47d
     <img src="./assets/images/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import AppHeader from "./views/header.vue";
 export default {
   name: "App",
   components: {
     AppHeader: AppHeader
-=======
-import bgImg from "./views/mainBg.vue";
-export default {
-  name: "App",
-  components: {
-    bgImg: bgImg
->>>>>>> 8b3d37d2ba0486518c9cc519dfe6f04f8eefc47d
   }
 };
 </script>
