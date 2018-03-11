@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="cart-content">
-            <div class="cart-content-main" v-for="(item, index) in cartList">
+            <div class="cart-content-main" v-for="(item, index) in cartList" :key="index">
                 <div class="cart-info">
                     <img :src="productDictList[item.id].image">
                     <span>{{ productDictList[item.id].name }}</span>
