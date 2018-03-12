@@ -4,24 +4,29 @@
   <h3>
     歌匣子大屏幕现场演示
   </h3>
-  <canvas id="activityQr"></canvas>
+  <div id="headerQr"></div>
 </header>
 </template>
 <script>
+import QRCode from "qrcodejs2";
 export default {
   methods: {
     qrcode() {
-      let canvas = document.getElementById("activityQr");
-      QRCode.toCanvas(canvas,'123456',function (err) {
-        if (err) {
-          console.error(err);
-        }
-        console.log('success');
-      })
+      let canvas = document.getElementById("headerQr");
+      new QRCode(canvas, {
+        text: "http://www.gexiazi.com",
+        width: 100,
+        height: 100,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
     }
   },
-  mounted () {
-    this.qrcode();
+  mounted() {
+    this.$nextTick(function() {
+      this.qrcode();
+    });
   }
 };
 </script>
@@ -41,7 +46,7 @@ header {
   img {
     width: 120px;
   }
-  #activityQr {
+  #headerQr {
     width: 100px;
     height: 100px;
   }

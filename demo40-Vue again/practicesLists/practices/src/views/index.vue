@@ -1,13 +1,5 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-     <p>图片地址{{imgSite}}</p>
-    <h2>Essential Links</h2>
-    <ul>
-      <li v-for="(item,key) in handShake" :key="key">
-        {{key+'-'+item}}
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -39,31 +31,12 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.topics-list {
-  width: 1600px;
+<style lang="scss" scoped>
+.hello {
+  height: 576px;
+  @include container;
   overflow: hidden;
-  margin: 0 auto;
-}
-.topics-list > .markdown-text {
-  width: 100%;
-}
-.markdown-text div p img {
-  width: 100%;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.15);
 }
 </style>
