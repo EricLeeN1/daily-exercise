@@ -6,9 +6,12 @@ import router from './router' /** 这里是vue的路由 */
 import store from './stores/index.js';
 import './assets/styles/_normalize.scss';
 import './assets/styles/_base.scss';
+import QRCode from "qrcode";
 
+Vue.use(QRCode);
 
 Vue.config.productionTip = false;
+
 
 
 /* eslint-disable no-new */

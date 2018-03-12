@@ -57,3 +57,19 @@ npm test
     index.html              入口文件
 
 如果需要增加组件那就在components文件下定义xx.vue文件并编写代码即可，如果需要配置路由就要进行在index.js进行路由“路径”配置，还需要点击跳转就要用到<router-link></router-link>标签了。
+
+
+一些后来添加的包
+
+  npm install --save qrcode ->
+  `qrcode () {
+    let qrcode = new QRCode('qrcode', {
+      width: 100,
+      height: 100, // 高度
+      text: '56663159' // 二维码内容
+      // render: 'canvas' // 设置渲染方式（有两种方式 table和canvas，默认是canvas）
+      // background: '#f0f'
+      // foreground: '#ff0'
+    })
+    console.log(qrcode)
+  }`
