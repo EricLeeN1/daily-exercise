@@ -7,10 +7,14 @@ Vue.use(Router); /* 使用路由 */
 // Vue.use(QRCode);
 
 let router = new Router({
-  mode:'history',/** 使用 HTML5 的 History 路由模式 */
+  linkActiveClass: '',
+  linkExactActiveClass: '',
+  mode: 'history',
+  /** 使用 HTML5 的 History 路由模式 */
   routes: [ /* 进行路由配置，规定“/”引入到Hello组件 */ {
     path: '/',
-    name: 'index', /* 这里的name路径名 */
+    name: 'index',
+    /* 这里的name路径名 */
     component: Index /* 注册Index组件 */ ,
     meta: {
       title: "练习册"

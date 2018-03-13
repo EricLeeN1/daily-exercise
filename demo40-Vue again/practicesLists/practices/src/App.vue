@@ -2,15 +2,18 @@
   <div id="app">
     <AppHeader></AppHeader>
     <router-view/>
+    <AppFooter></AppFooter>
   </div>
 </template>
 
 <script>
 import AppHeader from "./views/header.vue";
+import AppFooter from "./views/footer.vue";
 export default {
   name: "App",
   components: {
-    AppHeader: AppHeader
+    AppHeader: AppHeader,
+    AppFooter: AppFooter
   }
 };
 </script>
