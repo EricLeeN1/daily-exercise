@@ -17,7 +17,18 @@ $column-number:8;
 }
 
 @mixin spirits {
-  background: url('../assets/images/footer-spirit.png') no-repeat;
+    background: url('../assets/images/footer-spirit.png') no-repeat;
+}
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+    &:after {
+        clear: both;
+    }
 }
 
 @mixin container {
@@ -48,7 +59,12 @@ $column-number:8;
     border-radius: $radius;
 }
 
-@mixin positions( $left:auto, $right:auto, $top:auto, $bottom:auto, $position:absolute, $index:2) {
+@mixin positions( $left:auto,
+$right:auto,
+$top:auto,
+$bottom:auto,
+$position:absolute,
+$index:2) {
     position: $position;
     @if $left!=auto {
         left: $left;
