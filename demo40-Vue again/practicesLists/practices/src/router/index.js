@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/views/index.vue' /** 这里@相当于"../" */
+import App from '@/App.vue' /** 这里@相当于"../" */
 import QRCode from "qrcodejs2";
 
 Vue.use(Router); /* 使用路由 */
@@ -13,9 +13,9 @@ let router = new Router({
   /** 使用 HTML5 的 History 路由模式 */
   routes: [ /* 进行路由配置，规定“/”引入到Hello组件 */ {
     path: '/',
-    name: 'index',
+    name: 'App',
     /* 这里的name路径名 */
-    component: Index /* 注册Index组件 */ ,
+    component: App /* 注册App组件 */ ,
     meta: {
       title: "练习册"
     }

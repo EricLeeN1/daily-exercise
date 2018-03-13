@@ -1,7 +1,7 @@
 <template>
 <footer>
   <div class="tab-list">
-    <router-link :to="item.hrefUrl" class="tab-item" v-for="(item,index) in list" :key="index" active-class="active"></router-link>
+    <router-link :title="item.title" :to="item.hrefUrl" class="tab-item" v-for="(item,index) in list" :key="index" active-class="active"></router-link>
   </div>
 </footer>
 </template>
@@ -12,42 +12,42 @@ export default {
       list: [
         {
           active: true,
-          alt: "扫码加入活动",
+          title: "活动二维码",
           hrefUrl: "/tab1"
         },
         {
           active: false,
-          alt: "扫码加入活动",
+          title: "签到",
           hrefUrl: "/tab2"
         },
         {
           active: false,
-          alt: "扫码加入活动",
+          title: "消息墙",
           hrefUrl: "/tab3"
         },
         {
           active: false,
-          alt: "扫码加入活动",
+          title: "红包雨",
           hrefUrl: "/tab4"
         },
         {
           active: false,
-          alt: "扫码加入活动",
+          title: "摇一摇",
           hrefUrl: "/tab5"
         },
         {
           active: false,
-          alt: "扫码加入活动",
+          title: "砸金蛋",
           hrefUrl: "/tab6"
         },
         {
           active: false,
-          alt: "扫码加入活动",
+          title: "老虎机",
           hrefUrl: "/tab7"
         },
         {
           active: false,
-          alt: "扫码加入活动",
+          title: "活动相册",
           hrefUrl: "/tab8"
         }
       ]
@@ -66,14 +66,35 @@ footer {
   .tab-list {
     @include container;
     @include flex-center(0);
-    a.tab-item {
-      @include spirits;
-      width: 60px;
-      height: 45px;
-      background-position: 0 0;
-      &:hover,
-      &.active {
-        background-position: -60px 0;
+    @for $i from 1 through $column-number {
+      @if $i % 2 == 0 {
+        $j: ($i / 2) - 1;
+        $x: $i * 120;
+        $y: $j * 45;
+        a.tab-item:nth-child(#{$i}) {
+          @include spirits;
+          width: 60px;
+          height: 45px;
+          background-position: -120px -#{$y}px;
+          &:hover,
+          &.active {
+            background-position: -180px -#{$y}px;
+          }
+        }
+      } @else {
+        $j: ($i - 1) / 2;
+        $x: $i * 60;
+        $y: $j * 45;
+        a.tab-item:nth-child(#{$i}) {
+          @include spirits;
+          width: 60px;
+          height: 45px;
+          background-position: 0 -#{$y}px;
+          &:hover,
+          &.active {
+            background-position: -60px -#{$y}px;
+          }
+        }
       }
     }
   }

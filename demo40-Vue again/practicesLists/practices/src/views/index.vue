@@ -1,16 +1,20 @@
 <template>
-  <div class="hello">
-    111
-  </div>
+  <main class="hello">
+  </main>
 </template>
 
 <script>
+import AppFooter from "./footer.vue";
 export default {
   name: "HelloWorld",
   data() {
     return {
       msg: "Welcome to Your Vue.js App"
     };
+  },
+  name: "Index",
+  components: {
+    AppFooter: AppFooter
   },
   computed: {
     imgSite() {
@@ -33,7 +37,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.hello {
+main {
   height: 576px;
   @include container;
   overflow: hidden;
