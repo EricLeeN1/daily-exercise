@@ -3,10 +3,11 @@
     <router-view name="AppHeader"></router-view>
     <router-view></router-view>
     <footer>
-  <div class="tab-list">
-    <router-link :title="item.title" :to="item.hrefUrl" class="tab-item" v-for="(item,index) in list" :key="index" active-class="active"></router-link>
-  </div>
-</footer>
+      <div class="tab-list">
+        <router-link :title="item.title" :to="item.route" class="tab-item" v-for="(item,index) in list" :key="index" active-class="active">
+        </router-link>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -20,42 +21,42 @@ export default {
         {
           active: true,
           title: "活动二维码",
-          hrefUrl: "/tab1"
+          route: "/tab1"
         },
         {
           active: false,
           title: "签到",
-          hrefUrl: "/tab2"
+          route: "/tab2"
         },
         {
           active: false,
           title: "消息墙",
-          hrefUrl: "/tab3"
+          route: "/tab3"
         },
         {
           active: false,
           title: "红包雨",
-          hrefUrl: "/tab4"
+          route: "/tab4"
         },
         {
           active: false,
           title: "摇一摇",
-          hrefUrl: "/tab5"
+          route: "/tab5"
         },
         {
           active: false,
           title: "砸金蛋",
-          hrefUrl: "/tab6"
+          route: "/tab6"
         },
         {
           active: false,
           title: "老虎机",
-          hrefUrl: "/tab7"
+          route: "/tab7"
         },
         {
           active: false,
           title: "活动相册",
-          hrefUrl: "/tab8"
+          route: "/tab8"
         }
       ]
     };
@@ -91,7 +92,8 @@ export default {
           $x: $i * 120;
           $y: $j * 45;
           a.tab-item:nth-child(#{$i}) {
-            @include spirits;
+            // @include spirits;
+            background: url('./assets/images/footer-spirit.png') no-repeat;
             width: 60px;
             height: 45px;
             background-position: -120px -#{$y}px;
@@ -105,7 +107,8 @@ export default {
           $x: $i * 60;
           $y: $j * 45;
           a.tab-item:nth-child(#{$i}) {
-            @include spirits;
+            // @include spirits;
+            background: url('./assets/images/footer-spirit.png') no-repeat;
             width: 60px;
             height: 45px;
             background-position: 0 -#{$y}px;

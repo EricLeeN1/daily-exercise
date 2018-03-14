@@ -16,10 +16,6 @@ $column-number:8;
     /*text-align:justify;不能和溢出隐藏的代码一起写，会有bug*/
 }
 
-@mixin spirits {
-    background: url('/assets/images/footer-spirit.png') no-repeat;
-}
-
 @mixin clearfix() {
     &:before,
     &:after {

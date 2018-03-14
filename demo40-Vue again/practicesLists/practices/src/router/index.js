@@ -18,7 +18,6 @@ let router = new Router({
     components: {
       default: resolve => require(['../views/main.vue'], resolve),
       AppHeader: resolve => require(['../views/header.vue'], resolve),
-      AppFooter: resolve => require(['../views/footer.vue'], resolve)
     },
     redirect: '/tab1',
     meta: {
