@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import App from '@/App.vue' /** 这里@相当于"../" */
 import QRCode from "qrcodejs2";
-import Tab1 from "../components/tab1.vue";
-import Tab2 from "../components/tab2.vue";
 
 Vue.use(Router); /* 使用路由 */
 // Vue.use(QRCode);
@@ -13,26 +10,54 @@ let router = new Router({
   linkExactActiveClass: '',
   mode: 'history',
   /** 使用 HTML5 的 History 路由模式 */
-  routes: [ /* 进行路由配置，规定“/”引入到Hello组件 */ {
-      path: '/',
-      name: 'App',
-      /* 这里的name路径名 */
-      component: App /* 注册App组件 */ ,
-      redirect: '/tab1',
-      meta: {
-        title: "练习册"
-      },
-      children: [{
-          path: 'tab1',
-          component: require,
-        },
-        {
-          path: 'tab2',
-          component: Tab2,
-        }
-      ]
+  routes: [ /* 进行路由配置，规定“/”引入到App组件 */ {
+    path: '/',
+    name: 'App',
+    /* 这里的name路径名 */
+    // component: resolve => require(['@/App.vue'],resolve) /* 注册App组件 */ ,
+    components: {
+      default: resolve => require(['../views/main.vue'], resolve),
+      AppHeader: resolve => require(['../views/header.vue'], resolve),
+      AppFooter: resolve => require(['../views/footer.vue'], resolve)
     },
-  ],
+    redirect: '/tab1',
+    meta: {
+      title: "练习册"
+    },
+    children: [{
+        path: 'tab1',
+        component: resolve => require(['../components/tab1.vue'], resolve),
+      },
+      {
+        path: 'tab2',
+        component: resolve => require(['../components/tab2.vue'], resolve),
+      },
+      {
+        path: 'tab3',
+        component: resolve => require(['../components/tab1.vue'], resolve),
+      },
+      {
+        path: 'tab4',
+        component: resolve => require(['../components/tab1.vue'], resolve),
+      },
+      {
+        path: 'tab5',
+        component: resolve => require(['../components/tab1.vue'], resolve),
+      },
+      {
+        path: 'tab6',
+        component: resolve => require(['../components/tab1.vue'], resolve),
+      },
+      {
+        path: 'tab7',
+        component: resolve => require(['../components/tab1.vue'], resolve),
+      },
+      {
+        path: 'tab8',
+        component: resolve => require(['../components/tab1.vue'], resolve),
+      }
+    ]
+  }, ],
 });
 
 router.beforeEach((to, from, next) => {

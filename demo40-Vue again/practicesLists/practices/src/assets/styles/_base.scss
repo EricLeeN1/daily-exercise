@@ -17,7 +17,7 @@ $column-number:8;
 }
 
 @mixin spirits {
-    background: url('../assets/images/footer-spirit.png') no-repeat;
+    background: url('/assets/images/footer-spirit.png') no-repeat;
 }
 
 @mixin clearfix() {

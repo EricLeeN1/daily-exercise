@@ -73,3 +73,8 @@ npm test
     })
     console.log(qrcode)
   }`
+
+
+<!-- 心得体会 -->
+
+创建一个布局的时候，可以使用命名视图在router中命名好组件，然后在需要引入的页面用router-view 设置name引入即可

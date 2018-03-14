@@ -1,6 +1,6 @@
 <template>
 <main>
-  <router-view name="Tab1"></router-view>
+  <router-view name="tab1"></router-view>
 </main>
 </template>
 <script>
