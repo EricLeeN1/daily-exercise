@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     userLists() {
-      return this.$store.state.userInfos.userDatas.list;
+      return this.$store.state.user.userDatas.list;
     }
   },
   beforeCreate() {
@@ -66,7 +66,7 @@ ul {
     transform: scale(0.5);
   }
   50% {
-    transform: scale(1.4); 
+    transform: scale(1.4);
   }
   100% {
     transform: scale(1);
