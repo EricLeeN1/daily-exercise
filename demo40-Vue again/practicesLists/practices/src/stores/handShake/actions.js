@@ -3,7 +3,7 @@ import Settings from '../../assets/libs/settings.js'
 import CryptoJS from 'crypto-js';
 export default {
   handShakes(context) {
-    api.post('WebService.asmx/AcquireSecretKey', {
+    api.post('http://60.205.111.27:801/WebService.asmx/AcquireSecretKey', {
       type: 3,
       ts: Date.parse(new Date()) / 1000
     }, r => {

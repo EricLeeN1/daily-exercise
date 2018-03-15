@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import Settings from '@/assets/libs/settings.js';
 import api from '@/assets/libs/util.js';
 import handShake from './handShake/index.js';
+import userInfos from './userInfos/index.js';
 
 Vue.prototype.$api = api;
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
     imgSite: Settings.imgSite
   },
   modules: {
-    hand: handShake
+    hand: handShake,
+    userInfos:userInfos
   }
 });

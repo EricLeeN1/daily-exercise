@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-cloak>
     <router-view name="AppHeader"></router-view>
     <router-view></router-view>
     <footer>
@@ -60,11 +60,22 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    handShake() {
+      return this.$store.state.hand.handShake;
+    }
+  },
+  beforeCreate() {
+    this.$store.dispatch("handShakes");
   }
 };
 </script>
 
 <style lang="scss" scoped>
+[v-cloak] {
+  display: none;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -93,7 +104,7 @@ export default {
           $y: $j * 45;
           a.tab-item:nth-child(#{$i}) {
             // @include spirits;
-            background: url('./assets/images/footer-spirit.png') no-repeat;
+            background: url("./assets/images/footer-spirit.png") no-repeat;
             width: 60px;
             height: 45px;
             background-position: -120px -#{$y}px;
@@ -108,7 +119,7 @@ export default {
           $y: $j * 45;
           a.tab-item:nth-child(#{$i}) {
             // @include spirits;
-            background: url('./assets/images/footer-spirit.png') no-repeat;
+            background: url("./assets/images/footer-spirit.png") no-repeat;
             width: 60px;
             height: 45px;
             background-position: 0 -#{$y}px;
