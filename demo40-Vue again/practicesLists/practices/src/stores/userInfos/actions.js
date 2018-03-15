@@ -1,7 +1,7 @@
 import api from '../../assets/libs/util.js';
 import Settings from '../../assets/libs/settings.js'
 import CryptoJS from 'crypto-js';
-import datas from '../../data/product.js';
+import datas from '../../data/userLists.js';
 export default {
   userInfos(context) {
     setTimeout(() => {

@@ -81,7 +81,7 @@ export default {
     }, {
       "id": 20,
       "logo": "../../static/images/users/head_20.png",
-      "name": "连诗雅"
+      "name": "张钧蜜"
     }
   ]
 }
