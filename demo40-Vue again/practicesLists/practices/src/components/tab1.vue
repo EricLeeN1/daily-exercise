@@ -6,7 +6,6 @@
 <script>
 import QRCode from "qrcodejs2";
 export default {
-  name: "Tab1",
   methods: {
     qrcode() {
       let canvas = document.getElementById("qr-code");
