@@ -1,7 +1,5 @@
 <template>
   <section class="show">
-    <!-- <p id="hammer">
-    </p> -->
     <div id="eggs-hotarea"></div>
     <div id="egg"></div>
     <div class="broken-eggs2"></div>
