@@ -37,7 +37,7 @@ let router = new Router({
       },
       {
         path: 'tab4',
-        component: resolve => require(['../components/tab1.vue'], resolve),
+        component: resolve => require(['../components/tab4/tab1.vue'], resolve),
       },
       {
         path: 'tab5',

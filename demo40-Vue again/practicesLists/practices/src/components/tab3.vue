@@ -16,14 +16,14 @@
     </li>
   </ul>
   <div class="msg-attend">
-    <div id="qr-code">
-
-    </div>
+    <div id="qr-code"></div>
+    <h3>扫描二维码</h3>
+    <h4>参与互动上墙</h4>
   </div>
 </section>
 </template>
 <script>
-// import QRCode from "qrcodejs2";
+import QRCode from "qrcodejs2";
 export default {
   data() {
     return {
@@ -33,7 +33,6 @@ export default {
   computed: {
     msg() {
       let list = this.$store.state.msg.msgDatas.list;
-      console.log(list);
       if (list) {
         list.forEach(ele => {
           if (!ele.msg) {
@@ -53,37 +52,39 @@ export default {
       return list;
     }
   },
-  // methods: {
-  //   // qrcode() {
-  //   //   let canvas = document.getElementById("qr-code");
-  //   //   new QRCode(canvas, {
-  //   //     text: "http://www.gexiazi.com",
-  //   //     width: 200,
-  //   //     height: 200,
-  //   //     colorDark: "#000000",
-  //   //     colorLight: "#ffffff",
-  //   //     correctLevel: QRCode.CorrectLevel.H
-  //   //   });
-  //   // }
-  // },
+  methods: {
+    qrcode() {
+      let canvas = document.getElementById("qr-code");
+      new QRCode(canvas, {
+        text: "http://www.gexiazi.com",
+        width: 180,
+        height: 180,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+  },
   beforeCreate() {
     this.$store.dispatch("userInfos");
+  },
+  mounted() {
+    this.$nextTick(function() {
+      this.qrcode();
+    });
   }
-  // mounted() {
-  //   // this.$nextTick(function() {
-  //   //   this.qrcode();
-  //   // });
-  // }
 };
 </script>
 
 <style lang="scss" scoped>
 .panel-3 {
+  height: 100%;
+  @include flex-center(0);
   .msg-list {
     height: 100%;
-    width: 700px;
+    width: 690px;
     overflow-y: scroll;
-    padding: 2px 20px 0 20px;
+    padding: 2px 0 0 20px;
     li {
       @include flex-center(0);
       background: #fff;
@@ -102,22 +103,36 @@ export default {
       .msg-content {
         float: 0 0 500px;
         box-sizing: border-box;
-        padding: 20px 20px 20px 0;
-        @include flex-center(1);
+        padding: 20px 10px 20px 0;
         width: 500px;
         height: 100%;
-        align-items: flex-start;
-        justify-content: center;
         h3 {
           margin-bottom: 10px;
         }
         p {
+          overflow: hidden;
+          width: 460px;
+          padding: 10px;
         }
       }
     }
   }
   .msg-attend {
     @include flex-center(1);
+    width: 334px;
+    justify-content: center;
+    color: #fff;
+    #qr-code{
+      width: 180px;
+      height: 180px;
+      margin-bottom: 20px;
+    }
+    h3{
+      margin-bottom: 10px;
+    }
+    h4{
+      font-weight: 600;
+    }
   }
 }
 </style>
