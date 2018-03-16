@@ -14,7 +14,7 @@ export default {
     qrcode() {
       let canvas = document.getElementById("headerQr");
       new QRCode(canvas, {
-        text: "http://www.gexiazi.com",
+        text: this.$store.state.qrcode,
         width: 100,
         height: 100,
         colorDark: "#000000",

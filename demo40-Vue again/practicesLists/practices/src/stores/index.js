@@ -13,7 +13,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     imgSite: Settings.imgSite,
-    none: "../../static/images/none/msg-none.png"
+    none: "../../static/images/none/msg-none.png",
+    qrcode: Settings.qrUrl
   },
   modules: {
     hand: handShake,

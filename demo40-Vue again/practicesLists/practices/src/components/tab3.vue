@@ -54,9 +54,10 @@ export default {
   },
   methods: {
     qrcode() {
-      let canvas = document.getElementById("qr-code");
+      let canvas = document.getElementById("qr-code"),
+      text = this.$store.state.qrcode;
       new QRCode(canvas, {
-        text: "http://www.gexiazi.com",
+        text: text,
         width: 180,
         height: 180,
         colorDark: "#000000",
