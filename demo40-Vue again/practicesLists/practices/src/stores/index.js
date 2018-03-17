@@ -5,6 +5,8 @@ import api from '@/assets/libs/util.js';
 import handShake from './handShake/index.js';
 import userInfos from './userInfos/index.js';
 import msg from './msg/index.js';
+import album from './album/index.js';
+
 
 Vue.prototype.$api = api;
 
@@ -19,6 +21,7 @@ export default new Vuex.Store({
   modules: {
     hand: handShake,
     user: userInfos,
-    msg: msg
+    msg: msg,
+    album:album
   }
 });
