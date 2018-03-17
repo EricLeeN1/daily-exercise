@@ -32,23 +32,56 @@ export default {
       none: this.$store.state.none,
       narrowLeft: this.$store.state.narrowLeft,
       narrowRight: this.$store.state.narrowRight,
-      albumLists: ""
+      albumLists: "",
+      seconds: 2000,
+      pervLastTime: "",
+      nextLastTime: ""
     };
   },
   methods: {
     prev(index) {
+      clearInterval(this.timer);
+      let currentTime = new Date().getTime() / 1000; //获取当前秒数
+      console.log("====================================");
+      console.log(currentTime - this.pervLastTime);
+      console.log("====================================");
       let list = this.albumLists;
-      console.log(index);
       list[index].active = false;
       index = Math.max(0, index - 1);
-      console.log(index);
       list[index].active = true;
+      if (currentTime - this.pervLastTime > 3 && this.pervLastTime != "") {
+        this.bannerScroll(index);
+      }
+      this.pervLastTime = currentTime;
     },
     next(index) {
+      clearInterval(this.timer);
+      let currentTime = new Date().getTime() / 1000; //获取当前秒数
+      console.log("====================================");
+      console.log(currentTime - this.nextLastTime);
+      console.log("====================================");
       let list = this.albumLists;
       list[index].active = false;
-      index = Math.min(index + 1, list.length);
+      index = Math.min(index + 1, list.length - 1);
       list[index].active = true;
+      if (currentTime - this.nextLastTime > 3 && this.nextLastTime != "") {
+        this.bannerScroll(index);
+      }
+      this.nextLastTime = currentTime;
+    },
+    bannerScroll(index) {
+      let list = this.albumLists;
+      this.timer = setInterval(() => {
+        if (list[index].active) {
+          list[index].active = false;
+        }
+        if (index == 7) {
+          index = 0;
+        } else {
+          index++;
+        }
+        list[index].active = true;
+      }, this.seconds);
     }
   },
   beforeCreate() {
@@ -57,6 +90,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.albumLists = this.$store.state.album.albumDatas.list;
+      this.bannerScroll(0);
     }, 2000);
   }
 };
@@ -84,6 +118,10 @@ export default {
         margin-top: 300px;
         h3 {
           margin-bottom: 20px;
+        }
+        p {
+          padding: 0 20px;
+          text-indent: 36px;
         }
       }
       .img-narrow {

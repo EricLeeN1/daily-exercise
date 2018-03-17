@@ -21,7 +21,7 @@ export default {
     "userName": "王祖贤"
   }, {
     "id": 4,
-    "url": '../../static/images/background/tab7-page1-bg.jpg',
+    "url": '../../static/images/background/tab7-page1-bg.png',
     "title": "如果我多一张船票，你会不会跟我一起走。",
     "userId": "4",
     "userName": "张曼玉"
@@ -45,7 +45,7 @@ export default {
     "userName": "张柏芝"
   }, {
     "id": 8,
-    "url": '../../static/images/background/tab7-page1-bg.jpg',
+    "url": '../../static/images/background/tab7-page1-bg.png',
     "title": "夜已深 温馨到伤感，看着夜雨交织翻腾泪强忍。梦已深 漆黑里孤身，带着热爱辗转追寻。",
     "userId": "8",
     "userName": "黎姿"
