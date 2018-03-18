@@ -16,8 +16,11 @@ export default new Router({
       AppHeader: resolve => require(['@/components/AppHeader.vue'], resolve),
     },
     children: [{
-      path: 'Base',
+      path: 'base-layout',
       component: resolve => require(['@/components/Layout.vue'], resolve)
+    }, {
+      path: 'base-container',
+      component: resolve => require(['@/components/Container.vue'], resolve)
     }]
   }]
 })
