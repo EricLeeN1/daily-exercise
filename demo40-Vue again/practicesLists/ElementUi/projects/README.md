@@ -139,11 +139,64 @@ Vue.use(Button);
         8. lg ≥1200px 响应式栅格数或者栅格属性对象 number/object (例如：{span: 4, offset: 4})
         9. xl ≥1920px 响应式栅格数或者栅格属性对象 number/object (例如：{span: 4, offset: 4})
         10. tag 自定义元素标签 string 默认div
-7.Container 布局容器
-用于布局的容器组件，方便快速搭建页面的基本结构
-：外层容器。当子元素中包含 或 时，全部子元素会垂直上下排列，否则会水平左右排列。
-：顶栏容器。
-：侧边栏容器
-：主要区域容器。
-：底栏容器。
-以上组件采用了 flex 布局，使用前请确定目标浏览器是否兼容。此外， 的子元素只能是后四者，后四者的父元素也只能是 。
+## 7.Container 布局容器 ##
+    1. 用于布局的容器组件，方便快速搭建页面的基本结构
+        el-container：外层容器。当子元素中包含 或 时，全部子元素会垂直上下排列，否则会水平左右排列。
+        el-header：顶栏容器。
+        el-aside：侧边栏容器
+        el-main：主要区域容器。
+        el-footer：底栏容器。
+        以上组件采用了 flex 布局，使用前请确定目标浏览器是否兼容。此外， 的子元素只能是后四者，后四者的父元素也只能是 。
+    2. Container属性
+        1. direction 子元素的排列方向 string 可选值horizontal / vertical 默认值：子元素中有 el-header 或 el-footer 时为 vertical，否则为 horizontal
+    3. Header属性
+        1. height 顶栏高度 string 默认值60px
+    4. Aside属性
+        1. width 侧边栏宽度 string 默认值300px
+    5. Footer 属性
+        1. height 底栏高度 string 默认值60px
+## 8.Color 色彩 ##
+
+    1. 主色 -> Element 主要品牌颜色是鲜艳、友好的蓝色。
+        blue -> #409EFF
+    2. 辅助色 -> 除了主色外的场景色，需要在不同的场景中使用（例如危险色表示危险的操作）
+        success -> #67c23a
+        warning -> #e6a23c
+        danger -> #f56c6c
+        info -> #909399
+    3. 中性色 -> 中性色用于文本、背景和边框颜色。通过运用不同的中性色，来表现层次结构。
+        主要文字 -> #303133
+        常规文字 -> #606266
+        次要文字 -> #909399
+        占位文字 -> #C0C4CC
+        一级边框 -> #DCDFE6
+       二级边框 -> E4E7ED
+        三级边框 -> #EBEEF5
+        四级边框 -> #F2F6FC
+
+## 9. Typography 字体 ##
+
+    1. 中文字体
+        1. PingFang SC
+        2. Hiragino Sans GB
+        3. Microsoft YaHei
+    2. 英文／数字字体
+        1. Helvetica Neue
+        2. Helvetica
+        3. Arial
+    3. Font-family 代码
+        font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    4. 字体使用规范
+        1. 主标题	20px Extra large
+        2. 标题		18px large
+        3. 小标题	16px Medium
+        4. 正文		14px Small
+        5. 正文（小）	13px Extra Small
+        6. 辅助文字	12px Extra Extra Small
+
+## 10.Icon图标 ##
+
+    使用方法：
+    直接通过设置类名为el-icon-iconName来使用即可。
+
+## 11.button按钮 ##
