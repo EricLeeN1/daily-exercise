@@ -1,23 +1,55 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+<router-view name="AppHeader"></router-view>
+    <router-view></router-view>
+    <footer>
+      <ul class="footer-lists">
+        <li v-for="(item,index) in lists" :key="index">
+          <a :href="item.url">{{item.title}}</a>
+        </li>
+      </ul>
+    </footer>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
-}
+  name: "App",
+  data() {
+    return {
+      lists: [
+        {
+          url: "Base",
+          title: "Layout布局"
+        }
+      ]
+    };
+  }
+};
 </script>
-
-<style>
+<style lang="scss" scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  footer {
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      li {
+        border-radius: 20px;
+        padding: 20px;
+        font-size: 20px;
+        background-color: rgba(0, 0, 0, 0.6);
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
 }
 </style>

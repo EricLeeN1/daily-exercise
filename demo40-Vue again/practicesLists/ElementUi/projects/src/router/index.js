@@ -1,15 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Layout from '@/components/Layout.vue'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
-  ]
+  linkActiveClass: '',
+  linkExactActiveClass: '',
+  mode: "history",
+  routes: [{
+    path: '/',
+    name: 'App',
+    components: {
+      default: resolve => require(['@/components/Main.vue'], resolve),
+      AppHeader: resolve => require(['@/components/AppHeader.vue'], resolve),
+    },
+    children: [{
+      path: 'Base',
+      component: resolve => require(['@/components/Layout.vue'], resolve)
+    }]
+  }]
 })

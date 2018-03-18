@@ -9,7 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-const SpritesmithPlugin = require('webpack-spritesmith');
+const SpritesmithPlugin = require('webpack-spritesmith')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -56,12 +56,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }),
     new SpritesmithPlugin({
       src: {
-        cwd: '../src/assets/ico/',
+        cwd: '/src/assets/ico/',
         glob: '*.png'
       },
       target: {
-        image: '../src/assets/sprite/sprite.png',
-        css: '../src/assets/sprite/sprite.css'
+        image: '/src/assets/sprite/sprite.png',
+        css: '/src/assets/sprite/sprite.css'
       },
       apiOptions: {
         cssImageRef: '~sprite.png'

@@ -59,6 +59,7 @@ exports.cssLoaders = function (options) {
       return ['vue-style-loader'].concat(loaders)
     }
   }
+
   function resolveResouce(name) {
     return path.resolve(__dirname, '../src/assets/styles/' + name);
   }
@@ -76,7 +77,7 @@ exports.cssLoaders = function (options) {
         loader: 'sass-resources-loader',
         options: {
           // it need a absolute path
-          resources: [baseScss,normalScss]
+          resources: [baseScss, normalScss]
         }
       }
     ];
@@ -95,6 +96,10 @@ exports.cssLoaders = function (options) {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
+    // sass: generateLoaders('sass', {
+    //   indentedSyntax: true
+    // }),
+    // scss: generateLoaders('sass'),
     sass: generateSassResourceLoader(),
     scss: generateSassResourceLoader(),
     stylus: generateLoaders('stylus'),
