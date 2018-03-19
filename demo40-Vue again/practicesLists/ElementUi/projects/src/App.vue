@@ -37,6 +37,10 @@ export default {
         {
           url: "base-checkbox",
           title: "Checkbox 多选框"
+        },
+        {
+          url: "base-input",
+          title: "Input 输入框"
         }
       ]
     };

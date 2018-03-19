@@ -33,6 +33,10 @@ export default new Router({
       {
         path: 'base-checkbox',
         component: resolve => require(['../components/form/Checkbox.vue'], resolve)
+      },
+      {
+        path: 'base-input',
+        component: resolve => require(['../components/form/Input.vue'], resolve)
       }
     ]
   }]
