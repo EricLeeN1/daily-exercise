@@ -22,7 +22,7 @@ export default {
           url: "base-layout",
           title: "Layout布局"
         },
-         {
+        {
           url: "base-container",
           title: "Container布局"
         },
