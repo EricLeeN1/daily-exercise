@@ -29,6 +29,10 @@ export default {
         {
           url: "base-button",
           title: "Button 按钮"
+        },
+        {
+          url: "base-radio",
+          title: "Radio 单选框"
         }
       ]
     };

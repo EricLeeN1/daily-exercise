@@ -11,20 +11,25 @@ export default new Router({
   routes: [{
     path: '/',
     name: 'App',
+    redirect: "/base-layout",
     components: {
       default: resolve => require(['@/components/Main.vue'], resolve),
       AppHeader: resolve => require(['@/components/AppHeader.vue'], resolve),
     },
     children: [{
         path: 'base-layout',
-        component: resolve => require(['@/components/Layout.vue'], resolve)
+        component: resolve => require(['@/components/base/Layout.vue'], resolve)
       }, {
         path: 'base-container',
-        component: resolve => require(['@/components/Container.vue'], resolve)
+        component: resolve => require(['@/components/base/Container.vue'], resolve)
       },
       {
         path: 'base-button',
-        component: resolve => require(['@/components/Button.vue'], resolve)
+        component: resolve => require(['@/components/base/Button.vue'], resolve)
+      },
+      {
+        path: 'base-radio',
+        component: resolve => require(['../components/form/Radio.vue'], resolve)
       }
     ]
   }]
