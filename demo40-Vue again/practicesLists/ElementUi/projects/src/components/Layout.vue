@@ -112,10 +112,45 @@
       <div class="grid-content bg-purple">6</div>
     </el-col>
   </el-row>
-  <h1>4.分栏偏移</h1>
+  <h1>4.分栏偏移 :offset设置偏移栏数</h1>
   <el-row :gutter="20">
-    
+    <el-col :span="6"><div class="grid-content bg-purple">6</div></el-col>
+    <el-col :span="6" :offset="6"><div class="grid-content bg-purple">6</div></el-col>
   </el-row>
+  <el-row :gutter="20">
+    <el-col :span="6" :offset="6"><div class="grid-content bg-purple">6</div></el-col>
+    <el-col :span="6" :offset="6"><div class="grid-content bg-purple">6</div></el-col>
+  </el-row>
+  <el-row :gutter="20">
+    <el-col :span="12" :offset="6"><div class="grid-content bg-purple">6</div></el-col>
+  </el-row>
+  <h1>5.对齐方式 :flex</h1>
+  <el-row type="flex" class="row-bg">
+    <el-col :span="6"><div class="grid-content bg-purple">6</div></el-col>
+    <el-col :span="6"><div class="grid-content bg-purple-light">6</div></el-col>
+    <el-col :span="6"><div class="grid-content bg-purple">6</div></el-col>
+  </el-row>
+  <el-row type="flex" class="row-bg" justify="center">
+    <el-col :span="6"><div class="grid-content bg-purple">6</div></el-col>
+    <el-col :span="6"><div class="grid-content bg-purple-light">6</div></el-col>
+    <el-col :span="6"><div class="grid-content bg-purple">6</div></el-col>
+  </el-row>
+  <el-row type="flex" class="row-bg" justify="end">
+    <el-col :span="6"><div class="grid-content bg-purple">6</div></el-col>
+    <el-col :span="6"><div class="grid-content bg-purple-light">6</div></el-col>
+    <el-col :span="6"><div class="grid-content bg-purple">6</div></el-col>
+  </el-row>
+  <el-row type="flex" class="row-bg" justify="space-between">
+    <el-col :span="6"><div class="grid-content bg-purple">6</div></el-col>
+    <el-col :span="6"><div class="grid-content bg-purple-light">6</div></el-col>
+    <el-col :span="6"><div class="grid-content bg-purple">6</div></el-col>
+  </el-row>
+  <el-row type="flex" class="row-bg" justify="space-around">
+    <el-col :span="6"><div class="grid-content bg-purple">6</div></el-col>
+    <el-col :span="6"><div class="grid-content bg-purple-light">6</div></el-col>
+    <el-col :span="6"><div class="grid-content bg-purple">6</div></el-col>
+  </el-row>
+
 </div>
 </template>
 <script>

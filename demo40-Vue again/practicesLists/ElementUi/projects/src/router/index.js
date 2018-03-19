@@ -16,11 +16,16 @@ export default new Router({
       AppHeader: resolve => require(['@/components/AppHeader.vue'], resolve),
     },
     children: [{
-      path: 'base-layout',
-      component: resolve => require(['@/components/Layout.vue'], resolve)
-    }, {
-      path: 'base-container',
-      component: resolve => require(['@/components/Container.vue'], resolve)
-    }]
+        path: 'base-layout',
+        component: resolve => require(['@/components/Layout.vue'], resolve)
+      }, {
+        path: 'base-container',
+        component: resolve => require(['@/components/Container.vue'], resolve)
+      },
+      {
+        path: 'base-button',
+        component: resolve => require(['@/components/Button.vue'], resolve)
+      }
+    ]
   }]
 })

@@ -25,6 +25,10 @@ export default {
          {
           url: "base-container",
           title: "Container布局"
+        },
+        {
+          url: "base-button",
+          title: "Button 按钮"
         }
       ]
     };
