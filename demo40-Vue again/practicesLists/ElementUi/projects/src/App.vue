@@ -33,6 +33,10 @@ export default {
         {
           url: "base-radio",
           title: "Radio 单选框"
+        },
+        {
+          url: "base-checkbox",
+          title: "Checkbox 多选框"
         }
       ]
     };

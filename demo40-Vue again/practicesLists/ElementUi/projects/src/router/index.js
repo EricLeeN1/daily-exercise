@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Layout from '@/components/Layout.vue'
 
 Vue.use(Router)
 
@@ -30,6 +29,10 @@ export default new Router({
       {
         path: 'base-radio',
         component: resolve => require(['../components/form/Radio.vue'], resolve)
+      },
+      {
+        path: 'base-checkbox',
+        component: resolve => require(['../components/form/Checkbox.vue'], resolve)
       }
     ]
   }]
