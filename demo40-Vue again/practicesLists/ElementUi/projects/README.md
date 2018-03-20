@@ -290,6 +290,4 @@ Checkbox-button 属性
 
 ##14.Input-number 输入框
 
-    
-
-1.
+太费时间了，之后的有需要在当场看吧。
