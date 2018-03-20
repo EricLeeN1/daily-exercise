@@ -37,6 +37,14 @@ export default new Router({
       {
         path: 'base-input',
         component: resolve => require(['../components/form/Input.vue'], resolve)
+      },
+      {
+        path: 'base-inputnumber',
+        component: resolve => require(['../components/form/InputNumber.vue'], resolve)
+      },
+      {
+        path: 'base-select',
+        component: resolve => require(['../components/form/Select.vue'], resolve)
       }
     ]
   }]

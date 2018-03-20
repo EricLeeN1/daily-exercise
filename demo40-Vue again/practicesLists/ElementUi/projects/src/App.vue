@@ -41,6 +41,14 @@ export default {
         {
           url: "base-input",
           title: "Input 输入框"
+        },
+        {
+          url: "base-inputnumber",
+          title: "InputNumber 计数器"
+        },
+        {
+          url: "base-select",
+          title: "select 计数器"
         }
       ]
     };

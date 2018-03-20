@@ -288,4 +288,8 @@ Checkbox-button 属性
 
 ## 13.Input 输入框 ##
 
+##14.Input-number 输入框
+
+    
+
 1.
