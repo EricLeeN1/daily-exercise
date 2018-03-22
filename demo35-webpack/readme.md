@@ -29,3 +29,4 @@
 #### 如何将es6转换为es5
 
     ####babel babel-core babel-loader "babel-preset-es2015"
+    然后配置一下.babelrc文件
