@@ -26,7 +26,8 @@ module.exports = {
             // ] //写法2
             use: ExtractTextPlugin.extract({
                 // 转换 .css 文件需要使用的 Loader
-                use: ['style-loader', 'css-loader?minimize'],
+                // use: ['style-loader', 'css-loader?minimize'],
+                use: ['css-loader']
             }),
             // 有ExtractTextPlugin之后的写法3
         }]

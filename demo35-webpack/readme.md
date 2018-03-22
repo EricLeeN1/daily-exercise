@@ -41,9 +41,11 @@
 
 ####Plugin 的扩展
 
+####DevServer
 
 ####要用到或可能用到的包
 
 1. style-loader css-loader
 2. webpack webpack-cli
 3. extract-text-webpack-plugin
+4. webpack-dev-server
