@@ -10,4 +10,14 @@
 
 ## 3.historyApiFallback ##
 
-    1. 
+    1. historyApiFallback: true
+    2. `historyApiFallback: {
+    // 使用正则匹配命中路由
+        rewrites: [
+        // /user 开头的都返回 user.html
+        { from: /^\/user/, to: '/user.html' },
+        { from: /^\/game/, to: '/game.html' },
+        // 其它的都返回 index.html
+        { from: /./, to: '/index.html' },
+        ]
+    }`
