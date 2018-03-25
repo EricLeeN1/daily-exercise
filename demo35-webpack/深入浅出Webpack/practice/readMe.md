@@ -1,6 +1,6 @@
 #实战#
 
-## 2. Es6 ##
+## 1. Es6 ##
 
     npm i -D babel-plugin-transform-runtime -> 减少冗余代码
     npm i -D babel-core babel-loader -> Webpack 接入 Babel 必须依赖的模块
@@ -29,7 +29,7 @@
 
     3. 为了支持一些特定应用场景下的语法，和 ECMAScript 标准没有关系，例如 babel-preset-react 是为了支持 React 开发中的 JSX 语法。
 
-## 3. TypeScript ##
+## 2. TypeScript ##
 
     npm install -g typescript -> 安装编译器到全局
     npm i -D typescript awesome-typescript-loader -> 安装编译器
@@ -40,9 +40,10 @@
     通过 Loader 把 TypeScript 转换成 JavaScript。
     Webpack 在寻找模块对应的文件时需要尝试 ts 后缀。
 
-## 4. Flow ##
+## 3. Flow ##
 
     npm i -D flow-bin -> 
+    npm i -D babel-preset-flow -> 
 
     Flow 是一个 Facebook 开源的 JavaScript 静态类型检测器，它是 JavaScript 语言的超集。
 
@@ -50,4 +51,19 @@
 
     运行 Flow 去检查代码。 Flow 检测器由高性能跨平台的 OCaml 语言编写，它的可执行文件可以通过。
 
-    
+**集成Webpack**
+
+## 4. SCSS ##
+
+    npm i -D  sass-loader css-loader style-loader -> 安装webpack loader依赖
+    npm i -D node-sass -> sass-loader依赖node-sass
+
+    1. 通过 sass-loader 把 SCSS 源码转换为 CSS 代码，再把 CSS 代码交给 css-loader 去处理。
+    2. css-loader 会找出 CSS 代码中的 @import 和 url() 这样的导入语句，告诉 Webpack 依赖这些资源。同时还支持 CSS Modules、压缩 CSS 等功能。处理完后再把结果交给 style-loader 去处理。
+    3. style-loader 会把 CSS 代码转换成字符串后，注入到 JavaScript 代码中去，通过 JavaScript 去给 DOM 增加样式。如果你想把 CSS 代码提取到一个单独的文件而不是和 JavaScript 混在一起，可以使用1-5 使用Plugin 中介绍过的 ExtractTextPlugin。
+
+## 5. PostCSS ##
+
+    npm i -D postcss-loader css-loader style-loader ->
+安装 Webpack Loader 依赖
+    npm i -D postcss-cssnext -> 安装对应的 PostCSS 插件依赖
