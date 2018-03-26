@@ -67,3 +67,34 @@
     npm i -D postcss-loader css-loader style-loader ->
 安装 Webpack Loader 依赖
     npm i -D postcss-cssnext -> 安装对应的 PostCSS 插件依赖
+
+## 6. React与Babel ##
+
+    npm i -D react react-dom -> 安装react基础依赖
+    npm i -D babel-preset-react -> 安装babel完成语法转换所需依赖
+    npm i react react-dom @types/react @types/react-dom
+
+## 7. Vue ##
+
+    npm i -S vue -> Vue 框架运行需要的库
+    npm i -D vue-loader css-loader vue-template-compiler -> 构建所需要的依赖
+    npm i -D ts-loader typescript
+
+## 19. 加载图片 ##
+
+    npm i -D file-loader -> 把 JavaScript 和 CSS 中导入图片的语句替换成正确的地址，并同时把文件输出到对应的位置。
+    npm i -D imagemin-webpack-plugin  -> 压缩图片
+    npm i -D url-loader ->  url-loader 会把根据图片内容计算出的 base64 编码的字符串直接注入到代码中
+    npm i -D webpack-spritesmith -> 制作雪碧图
+## 20. 加载SVG ##
+
+    1. file-loader -> 用法同加载图片
+    2. npm i -D raw-loader -> 可以把文本文件的内容读取出来，注入到 JavaScript 或 CSS 中去。
+    3. npm i -D svg-inline-loader -> svg-inline-loader 增加了对 SVG 的压缩功能。
+
+## 21. 加载Source Map ##
+
+    1. 开发环境下把devtool设置成cheap-module-eval-source-map -> 因为生成这种 Source Map 的速度最快，能加速构建。由于在开发环境下不会做代码压缩，Source Map 中即使没有列信息也不会影响断点调试；
+    2. 生产环境下把 devtool 设置成 hidden-source-map，是生成最详细的 Source Map，但不会把 Source Map 暴露出去。
+    3. npm i -D source-map-loader 加载现有的map资源时需要的依赖。
+
