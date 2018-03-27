@@ -26,3 +26,4 @@
     i18n-webpack-plugin：给你的网页支持国际化。
     provide-plugin：从环境中提供的全局变量中加载模块，而不用导入对应的文件。
     web-webpack-plugin：方便的为单页应用输出 HTML，比 html-webpack-plugin 好用。
+    11
