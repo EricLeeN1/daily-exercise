@@ -12,16 +12,22 @@
 <body>
     <div id="example"></div>
     <script type="text/babel">
-        const list = ()=>(
-        <div>
-            <Title>This is title</Title>
+        // const list = ()=>(
+        // <div>
+        //     <ul>
+        //         <li>list item</li>
+        //         <li>list item</li>
+        //         <li>list item</li>
+        //     </ul>
+        // </div>
+        // ); 
+        ReactDOM.render( <div>
             <ul>
                 <li>list item</li>
                 <li>list item</li>
                 <li>list item</li>
             </ul>
-        </div>
-        ); ReactDOM.render( list, document.getElementById('example') );
+        </div>, document.getElementById('example') );
     </script>
 </body>
 
