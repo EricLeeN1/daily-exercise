@@ -14,8 +14,11 @@ class ClickCounter extends Component {
         });
     }
     render() {
+        const counterStyle = {
+            color:"#f55053"
+        }
         return ( 
-            <div>
+            <div style={counterStyle}>
                 <button onClick={this.onClickButton}> Click me </button>
                 <div> Click Count: {this.state.count} </div>
             </div>
