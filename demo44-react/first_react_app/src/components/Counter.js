@@ -33,6 +33,10 @@ class Counter extends Component {
     this.props.onUpdate(newValue, previousValue)
   }
 
+  componentWillReceiveProps(nextProps){
+      console.log('enter componentWillReceiveProps ' + this.props.caption);
+  }
+
   render() {
     const {caption} = this.props;
     return (
@@ -44,11 +48,5 @@ class Counter extends Component {
     );
   }
 }
-
-
-Counter.defaultProps = {
-  initValue: 0,
-  onUpdate: f => f //什么都不做的函数
-};
 
 export default Counter;
