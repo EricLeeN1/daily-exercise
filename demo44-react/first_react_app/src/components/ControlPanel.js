@@ -21,7 +21,7 @@ class ControlPanel extends Component {
 
     console.log('enter constructor ' ,this.props.caption);
   }
-
+// 11111
   onCounterUpdate(newValue, previousValue) {
     const valueChange = newValue - previousValue;
     this.setState({ sum: this.state.sum + valueChange});
