@@ -122,3 +122,4 @@
 #### 2.3.2.1 componentWillReceiveProps ####
 
     1. componentWillReceiveProps(nextProps)
+    2. 

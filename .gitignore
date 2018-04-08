@@ -51,3 +51,5 @@ demo27-vue/Vue2高级教程/Vue单文件组件/node_modules/querystring/.package
 .gitignore
 /demo27-vue/Vue2高级教程/Vue单文件组件/node_modules/
 demo41-small web/dist.zip
+demo45-welfare/bower_components/
+demo45-welfare/node_modules/
