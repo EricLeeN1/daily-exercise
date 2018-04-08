@@ -1,0 +1,70 @@
+@import './_base.scss';
+
+//提示
+#msg-tips {
+    font-size: .3rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -2rem;
+    width: 4rem;
+    height: .8rem;
+    @include flex-center(0);
+    border-radius: .2rem;
+    background-color: rgba(0, 0, 0, .4);
+    line-height: .8rem;
+    justify-content: center;
+    color: #fff;
+    z-index: 999;
+}
+
+//loading
+// 参数设置
+$sk-rect-length:5;
+// 层级备注loading->999，背景图->0
+// loading动画
+#loading-modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    @include flex-center(0);
+    justify-content: center;
+    z-index: 999;
+    .sk-wave {
+        margin: .4rem auto;
+        width: .6rem;
+        height: .8rem;
+        text-align: center;
+        font-size: .1rem;
+        padding: .4rem 1rem;
+        background-color: $modal-color;
+        @include rounded-corners(.2rem);
+        .sk-rect {
+            background-color: $main-theme;
+            height: 100%;
+            width: .06rem;
+            display: inline-block;
+            animation: loading 1.2s infinite ease-in-out;
+        }
+        @for $i from 1 through $sk-rect-length {
+            .sk-rect#{$i} {
+                animation-delay: 1.3s-($i/10);
+            }
+        }
+    }
+}
+// end.公共动画loading
+@keyframes loading {
+    0%,
+    40%,
+    to {
+        -webkit-transform: scaleY(.4);
+        transform: scaleY(.4)
+    }
+    20% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1)
+    }
+}

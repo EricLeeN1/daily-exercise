@@ -37,6 +37,7 @@ gulp.task('styles', () => {
             cascade: false
         })) //自动匹配浏览器支持的后缀
         .pipe($.cssnano())
+        .pipe($.rename({suffix: '.min'}))
         .pipe($.sourcemaps.write('.', {
             addComment: true
         })) //map文件命名
@@ -56,6 +57,7 @@ gulp.task('scripts', () => {
         .pipe($.babel()) //靠这个插件编译
         .pipe($.uglify())
         .pipe($.sourcemaps.write('.'))
+        .pipe($.rename({suffix: '.min'}))
         .pipe(gulp.dest('dist/scripts'))
         .pipe(browserSync.reload({
             stream: true
