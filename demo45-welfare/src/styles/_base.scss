@@ -1,17 +1,25 @@
 $modal-color:rgba(0, 0, 0, .4);
 $main-theme:#ff5053;
 $main-theme-blue:skyblue;
-
-
-@mixin container-main{
+@mixin container-main {
     width: 1200px;
     margin: 0 auto;
 }
 
-@mixin spirit() {
+@mixin spirit($xPos, $yPos, $width, $height) {
     background: url('../images/spirits.png') no-repeat;
-    background-size: 5rem auto;
+    background-size: 1000px auto;
+    background-position: $xPos $yPos;
+    width: $width;
+    height: $height;
 }
+
+@mixin spirit-bg($xPos, $yPos) {
+    background: url('../images/spirits.png');
+    background-size: 1000px auto;
+    background-position: $xPos $yPos;
+}
+
 // 手机上的多行省略 
 @mixin overflow-hidden {
     display: box !important;
@@ -54,16 +62,16 @@ $bottom:auto,
 $position:absolute,
 $index:2) {
     position: $position;
-    @if $left!=auto {
+    @if $left !=auto {
         left: $left;
     }
-    @if $right!=auto {
+    @if $right !=auto {
         right: $right;
     }
-    @if $bottom!=auto {
+    @if $bottom !=auto {
         bottom: $bottom;
     }
-    @if $top!=auto {
+    @if $top !=auto {
         top: $top;
     }
     z-index: $index;

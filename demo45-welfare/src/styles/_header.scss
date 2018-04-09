@@ -1,0 +1,40 @@
+@import './_base.scss';
+header.common-header {
+    padding: 0 150px;
+    height: 182px;
+    overflow: hidden;
+    background-color: #ffffff;
+    .logo-groups{
+        @include spirit(0,0,536px,40px);
+        margin-top: 71px;
+        float: left;
+    }
+    .site-logo{
+        @include spirit(-536px,0,138px,120px);
+        float: left;
+        margin-left: 216px;
+        margin-top: 31px;
+    }
+    nav {
+        float: right;
+        line-height: 182px;
+        a {
+            float: left;
+            width: 160px;
+            text-align: center;
+            &.active{
+                position: relative;
+                color: #f39f14;
+                &::after{
+                    content: '';
+                    @include positions($left:50%,$bottom:45px);
+                    height: 4px;
+                    background-color: #f39f14;
+                    width: 42px;
+                    margin-left: -21px;
+                    @include rounded-corners(4px);
+                }
+            }
+        }
+    }
+}

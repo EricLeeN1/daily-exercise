@@ -37,7 +37,9 @@ gulp.task('styles', () => {
             cascade: false
         })) //自动匹配浏览器支持的后缀
         .pipe($.cssnano())
-        .pipe($.rename({suffix: '.min'}))
+        .pipe($.rename({
+            suffix: '.min'
+        }))
         .pipe($.sourcemaps.write('.', {
             addComment: true
         })) //map文件命名
@@ -57,7 +59,9 @@ gulp.task('scripts', () => {
         .pipe($.babel()) //靠这个插件编译
         .pipe($.uglify())
         .pipe($.sourcemaps.write('.'))
-        .pipe($.rename({suffix: '.min'}))
+        .pipe($.rename({
+            suffix: '.min'
+        }))
         .pipe(gulp.dest('dist/scripts'))
         .pipe(browserSync.reload({
             stream: true
@@ -68,12 +72,17 @@ gulp.task('scripts', () => {
 
 gulp.task('images', () => {
     return gulp.src('src/images/**/*')
-        .pipe(($.cache($.imagemin({
-            //使用cache只压缩改变的图片
-            optimizationLevel: 5, //压缩级别
-            progressive: true,
-            interlaced: true
-        })))).pipe(gulp.dest('dist/images'))
+        .pipe((
+            $.cache(
+                $.imagemin({
+                    //使用cache只压缩改变的图片
+                    optimizationLevel: 5, //压缩级别
+                    progressive: true,
+                    interlaced: true
+                })
+            )
+        ))
+        .pipe(gulp.dest('dist/images'))
         .pipe(browserSync.reload({
             stream: true
         }));
@@ -104,7 +113,7 @@ gulp.task('html', () => { //先执行styles scripts任务
         })) //将页面上 <!--endbuild--> 根据上下顺序合并
         .pipe($.if('*.js', $.uglify()))
         .pipe($.if('*.css', $.cssnano()))
-        .pipe(rev())       //为引用添加版本号 
+        .pipe(rev()) //为引用添加版本号 
         .pipe($.if('*.html', $.htmlmin(options)))
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.reload({
@@ -133,7 +142,7 @@ gulp.task('serve', ['styles', 'scripts'], () => {
         'src/images/**/*'
     ]).on('change', reload);
 
-    gulp.watch(['src/styles/**/*.scss','src/styles/*.scss'], ['styles']); //监测变化 执行styles任务
+    gulp.watch(['src/styles/**/*.scss', 'src/styles/*.scss'], ['styles']); //监测变化 执行styles任务
     gulp.watch('src/images/**/*', ['images']); //监测变化 执行styles任务
     gulp.watch('src/*.html', ['html']); //监测变化 执行html任务
     gulp.watch('src/scripts/**/*.js', ['scripts']);
