@@ -1,6 +1,13 @@
 $modal-color:rgba(0, 0, 0, .4);
 $main-theme:#ff5053;
 $main-theme-blue:skyblue;
+.clearfix::after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
 
 @mixin container-main {
     width: 1200px;
@@ -15,7 +22,8 @@ $main-theme-blue:skyblue;
     height: $height;
 }
 
-@mixin spirit-bg($xPos, $yPos) {
+@mixin spirit-bg($xPos,
+$yPos) {
     background: url('../images/spirits.png');
     background-size: 1000px auto;
     background-position: $xPos $yPos;

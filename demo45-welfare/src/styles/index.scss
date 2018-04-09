@@ -5,19 +5,33 @@ $version:'1.0.0';
 @import '_base.scss';
 @import '_header.scss';
 @import '_footer.scss';
-
 body {
     min-height: 100vh;
+    padding-bottom: 120px;
+    >main {
+        @include container-main;
+        background-color: #ffffff;
+        padding: 40px;
+        box-sizing: border-box;
+    }
+    >#crumb {
+        @include container-main;
+        line-height: 60px;
+        padding-top: 28px;
+        a {
+            color: #999999;
+        }
+        span {
+            color: #333333;
+        }
+    }
     &#index-body {
         background-image: url('../images/bg-1.png');
     }
     &#news-body {
         background-image: url('../images/bg-news.png');
         >main {
-            @include container-main;
             article {
-                background-color: #ffffff;
-                padding: 30px;
                 h3 {
                     color: #2d91d0;
                     text-align: center;
@@ -37,22 +51,115 @@ body {
             }
         }
     }
-    &#about-body{
-        background-image: url('../images/bg-news.png');
+    &#about-body {
+        background-image: url('../images/bg-about.png');
         >main {
-            background-color: #fff;
-            @include container-main;
+            section {
+                overflow: hidden;
+                margin-bottom: 10px;
+                &.right-article {
+                    img {
+                        float: left;
+                        margin-bottom: 20px;
+                        margin-right: 20px;
+                    }
+                }
+                &.left-article {
+                    img {
+                        float: right;
+                        margin-bottom: 20px;
+                        margin-left: 20px;
+                    }
+                }
+                &.to-accompany {
+                    article {
+                        h3 {
+                            @include spirit(0,
+                            -40px,
+                            175px,
+                            50px);
+                            display: inline-block;
+                            margin-bottom: 10px;
+                            ;
+                        }
+                    }
+                }
+                &.about-brothers {
+                    article {
+                        h3 {
+                            @include spirit(-175px,
+                            -40px,
+                            189px,
+                            50px);
+                            display: inline-block;
+                            margin-bottom: 10px;
+                            ;
+                        }
+                    }
+                }
+                &.about-cnr {
+                    article {
+                        h3 {
+                            @include spirit(0,
+                            -90px,
+                            264px,
+                            51px);
+                            display: inline-block;
+                            margin-bottom: 10px;
+                            ;
+                        }
+                    }
+                }
+                article {
+                    p {
+                        font-size: 18px;
+                        color: #555555;
+                        line-height: 32px;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
         }
     }
-    #crumb {
-        @include container-main;
-        line-height: 60px;
-        padding-top: 28px;
-        a {
-            color: #999999;
-        }
-        span {
-            color: #333333;
+    &#donateInfos {
+        background-image: url('../images/bg-about.png');
+        >main {
+            section {
+                overflow: hidden;
+                margin-bottom: 40px;
+                &.right-article {
+                    img {
+                        float: left;
+                        margin-bottom: 20px;
+                        margin-right: 20px;
+                    }
+                }
+                &.left-article {
+                    img {
+                        float: right;
+                        margin-bottom: 20px;
+                        margin-left: 20px;
+                    }
+                }
+                article {
+                    h3 {
+                        display: inline-block;
+                        margin-bottom: 10px;
+                        color: #2d91d0;
+                        font-size: 32px;
+                        font-weight: 400;
+                    }
+                    p {
+                        font-size: 18px;
+                        color: #555555;
+                        line-height: 30px;
+                        margin-bottom: 10px;
+                        &.mt-20{
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
         }
     }
 }
