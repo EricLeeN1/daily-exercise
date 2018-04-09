@@ -1,0 +1,19 @@
+@import '_base.scss';
+footer.common-footer {
+    background-color: #4c4c4c;
+    padding: 10px 0;
+    color: #ffffff;
+    // @include container-main;
+    nav{
+        text-align: center;
+        a{
+            padding:0 20px;
+            line-height: 40px;
+        }
+    }
+    .copy-right{
+        color: #ccc;
+        line-height: 30px;
+        text-align: center;
+    }
+}

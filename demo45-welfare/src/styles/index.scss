@@ -4,11 +4,55 @@ $version:'1.0.0';
 @import '_normalize.scss';
 @import '_base.scss';
 @import '_header.scss';
+@import '_footer.scss';
+
 body {
+    min-height: 100vh;
     &#index-body {
         background-image: url('../images/bg-1.png');
     }
-    &#news-body{
+    &#news-body {
         background-image: url('../images/bg-news.png');
+        >main {
+            @include container-main;
+            article {
+                background-color: #ffffff;
+                padding: 30px;
+                h3 {
+                    color: #2d91d0;
+                    text-align: center;
+                    width: 40%;
+                    margin: 0 auto;
+                }
+                img {
+                    width: 75%;
+                    margin: 20px auto;
+                }
+                p {
+                    font-size: 18px;
+                    text-indent: 36px;
+                    line-height: 32px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+    &#about-body{
+        background-image: url('../images/bg-news.png');
+        >main {
+            background-color: #fff;
+            @include container-main;
+        }
+    }
+    #crumb {
+        @include container-main;
+        line-height: 60px;
+        padding-top: 28px;
+        a {
+            color: #999999;
+        }
+        span {
+            color: #333333;
+        }
     }
 }

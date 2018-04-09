@@ -1,7 +1,7 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 html {
-    font-family: sans-serif;
+    font-family: Arial, 'Microsoft YaHei', 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', STHeiti, SimHei, sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%; // 之后是自己加的
     // 优化文本显示开始
@@ -16,6 +16,7 @@ html {
 
 body {
     margin: 0;
+    font-size: 16px;
     -webkit-overflow-scrolling: touch;
     overflow-scrolling: touch;
 }
@@ -31,6 +32,7 @@ hgroup,
 main,
 menu,
 nav,
+img,
 section,
 summary {
     display: block
