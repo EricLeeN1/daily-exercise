@@ -9,7 +9,6 @@
     <title>我要陪伴</title>
     <link rel="apple-touch-icon" href="favicon.ico">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles/index.css">
     <meta name="keywords" content="公益，华谊兄弟">
     <meta name="description" content="华谊兄弟公益基金，中国人民广播电台，音乐之声，华谊兄弟">
     <meta name="author" content="Eric tel-1883983536">
@@ -44,9 +43,90 @@
                 <p>公益行动，有你有我。2018年，我们计划募捐400万元，用于明年40所“零钱电影院”的建设中。我们希望能够汇集社会各方的力量，达到爱心个人捐款100万元，爱心集体捐款100万元，爱心企业捐款200万元的目标，为更多的孩子搭建属于他们自己的“电影天堂”，用点滴爱心，为更多孩子的精神世界赋能。</p>
             </aside>
         </section>
-        <section>
+        <section class="pay-section">
             <div class="pay-infos">
-                <p>
+                <div class="pay-methods">
+                    <h4>请填写信息并完成支付：</h4>
+                    <ul class="pay-methods-list">
+                        <li data-value="197" class="active">
+                            <h5>￥197</h5>
+                            <p>就能为200位学生提供1年优质观影资源购买。</p>
+                        </li>
+                        <li data-value="276">
+                            <h5>￥276</h5>
+                            <p>就能都买一套“零钱电影院”观影桌椅（1张桌子、2把椅子）。</p>
+                        </li>
+                        <li data-value="1000">
+                            <h5>￥1000</h5>
+                            <p>就能为40个孩子提供为1学期部分素质基础启蒙教育用品，图书绘本资料。</p>
+                        </li>
+                        <li>
+                            <div>
+                                <label for="pay-value">￥</label>
+                                <input type="text" id="pay-value" placeholder="请输入金额">
+                            </div>
+                            <p>你希望捐助的其他金额</p>
+                        </li>
+                    </ul>
+                    <div class="pay-methods-tips">
+                        请提供真实的个人信息及平信地址以便我们与您联系，切为您寄送我们项目情况的 资料，您的个人资料将做保密处理。
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="surname">姓</label>
+                        <input type="text" name="surname" id="surname">
+                    </div>
+                    <div>
+                        <label for="name">名</label>
+                        <input type="text" name="name" id="name">
+                    </div>
+                    <div>
+                        <label for="appellation">称谓</label>
+                        <input type="text" name="appellation" id="appellation">
+                        <div class="receipt-radio">
+                            <input type="radio" name="appellation" value="sir" />先生
+                            <input type="radio" name="appellation" value="lady" />女士
+                            <input type="radio" name="appellation" value="child" />小朋友
+                        </div>
+                    </div>
+                    <div>
+                        <label for="phone">手机</label>
+                        <input type="tel" name="phone" id="phone">
+                        <span>手机格式不对</span>
+                    </div>
+                    <div>
+                        <label for="mail">E-mail</label>
+                        <input type="email" name="mail" id="mail">
+                        <span>电子邮件格式不对</span>
+                    </div>
+                    <div>
+                        <label for="address">邮寄地址</label>
+                        <input type="text" name="address" id="address">
+                    </div>
+                    <div>
+                        <label for="receipt">是否开发票</label>
+                        <div class="receipt-radio">
+                            <input type="radio" name="receipt" value="true" />是
+                            <input type="radio" name="receipt" value="false" />否
+                        </div>
+                        <div class="receipt-choice">
+                            <select name="receipt" id="select-choice">
+                                <option value="公司">公司</option>
+                                <option value="机构">机构</option>
+                            </select>
+                            <input type="text" placeholder="请输入公司名称或机构代码" id="organ-name">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="address">支付方式</label>
+                        <div>
+                            <img src="./images/donate/alipay.png" alt="">
+                            <img src="./images/donate/wechat.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <p class="form-tips">
                     请注意：在确认所选择的支付平台后，您将离开本网站，并经过支付平台进入在线支付页面进行您的捐助，再次感谢您对孩子们的帮助与支持！
                 </p>
             </div>
@@ -107,7 +187,7 @@
     </main>
 
     <p>
-        就能为200位学生提供1年优质观影资源购买。
+
     </p>
     <p>
         就能都买一套“零钱电影院”观影桌椅（1张桌子/2把椅子）

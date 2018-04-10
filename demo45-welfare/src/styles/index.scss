@@ -11,7 +11,7 @@ body {
     >main {
         @include container-main;
         background-color: #ffffff;
-        padding: 40px;
+        padding: 50px;
         box-sizing: border-box;
         section#love-tips {
             margin-bottom: 0;
@@ -86,7 +86,7 @@ body {
                     float: right;
                     margin-bottom: 20px;
                     margin-right: 20px;
-                    margin-left: 120px;
+                    margin-left: 130px;
                 }
             }
             aside {
@@ -94,36 +94,94 @@ body {
                     font-size: 18px;
                     color: #444444;
                     line-height: 30px;
-                    margin-bottom: 10px;
+                    margin-top: 15px;
                 }
             }
-            &.contact-us {
-                border-top: 1px dashed #d2d2d2;
-                border-bottom: 1px dashed #eeeeee;
-                padding-top: 30px;
-                padding-bottom: 30px;
-                img {
-                    margin-right: 60px;
-                }
-                article {
-                    h3 {
-                        display: inline-block;
-                        margin-bottom: 20px;
-                        color: #2d91d0;
-                        font-size: 32px;
-                        font-weight: 400;
-                    }
+            &.pay-section {
+                // margin-top: ;
+            }
+            .pay-infos {
+                width: 540px;
+                float: left;
+                .pay-methods {
                     h4 {
-                        line-height: 36px;
                         font-size: 18px;
-                        font-weight: normal;
+                        color: #333333;
+                        font-weight: 500;
                     }
-                    p {
-                        color: #333;
-                        line-height: 26px;
-                        margin-bottom: 0;
+                    ul.pay-methods-list {
+                        overflow: hidden;
+                        margin-top: 20px;
+                        li {
+                            float: left;
+                            width: 250px;
+                            box-sizing: border-box;
+                            border: 1px solid #000;
+                            margin-right: 20px;
+                            margin-bottom: 20px;
+                            padding: 15px 15px 0 15px;
+                            height: 120px;
+                            @include rounded-corners(9px);
+                            position: relative;
+                            h5 {
+                                font-size: 24px;
+                                color: #e94e18;
+                            }
+                            >div {
+                                overflow: hidden;
+                                font-size: 24px;
+                                color: #e94e18;
+                                line-height: 36px;
+                                margin-bottom: 30px;
+                                label {
+                                    float: left;
+                                }
+                                input {
+                                    float: left;
+                                    width: 144px;
+                                    box-sizing: border-box;
+                                    margin-left: 5px;
+                                    font-size: 14px;
+                                    padding-left: 10px;
+                                    @include rounded-corners(4px);
+                                    outline: none;
+                                    border: 1px solid #666666;
+                                    line-height: 36px;
+                                    &::placeholder {
+                                        color: #cccccc;
+                                    }
+                                }
+                                &+p {
+                                    text-align: right;
+                                }
+                            }
+                            p {
+                                font-size: 14px;
+                                color: #777777;
+                            }
+                            &.active {
+                                border: 1px solid #7ac035;
+                                &::after {
+                                    content: '';
+                                    @include spirit(-364px,
+                                    -40px,
+                                    28px,
+                                    28px);
+                                    @include positions($right: -1px, $top:-1px, $index:2);
+                                }
+                            }
+                        }
+                    }
+                    .pay-methods-tips{
+                        font-size: 14px;
+                        color: #999999;
                     }
                 }
+            }
+            .other-pay-infos {
+                // float: left;
+                width: 480px;
+                float: right;
             }
         }
     }

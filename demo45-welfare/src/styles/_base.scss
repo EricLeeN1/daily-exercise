@@ -59,8 +59,6 @@ $yPos) {
 }
 
 @mixin rounded-corners ($radius:.2rem) {
-    -moz-border-radius: $radius;
-    -webkit-border-radius: $radius;
     border-radius: $radius;
 }
 
