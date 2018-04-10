@@ -9,6 +9,13 @@ $main-theme-blue:skyblue;
     visibility: hidden
 }
 
+.important{
+    &::before{
+        content: '*';
+        color: #ff5053;
+    }
+}
+
 @mixin container-main {
     width: 1200px;
     margin: 0 auto;

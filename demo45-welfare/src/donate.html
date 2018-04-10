@@ -74,41 +74,41 @@
                 </div>
                 <div class="form-group">
                     <div>
-                        <label for="surname">姓</label>
+                        <label class="important" for="surname">姓</label>
                         <input type="text" name="surname" id="surname">
                     </div>
                     <div>
-                        <label for="name">名</label>
+                        <label class="important" for="name">名</label>
                         <input type="text" name="name" id="name">
                     </div>
                     <div>
-                        <label for="appellation">称谓</label>
+                        <label class="important" for="appellation">称谓</label>
                         <input type="text" name="appellation" id="appellation">
                         <div class="receipt-radio">
-                            <input type="radio" name="appellation" value="sir" />先生
+                            <input checked type="radio" name="appellation" value="sir" />先生
                             <input type="radio" name="appellation" value="lady" />女士
                             <input type="radio" name="appellation" value="child" />小朋友
                         </div>
                     </div>
                     <div>
-                        <label for="phone">手机</label>
+                        <label class="important" for="phone">手机</label>
                         <input type="tel" name="phone" id="phone">
                         <span>手机格式不对</span>
                     </div>
                     <div>
-                        <label for="mail">E-mail</label>
+                        <label class="important" for="mail">E-mail</label>
                         <input type="email" name="mail" id="mail">
                         <span>电子邮件格式不对</span>
                     </div>
                     <div>
-                        <label for="address">邮寄地址</label>
+                        <label class="important" for="address">邮寄地址</label>
                         <input type="text" name="address" id="address">
                     </div>
                     <div>
                         <label for="receipt">是否开发票</label>
                         <div class="receipt-radio">
                             <input type="radio" name="receipt" value="true" />是
-                            <input type="radio" name="receipt" value="false" />否
+                            <input type="radio" name="receipt" value="false" checked/>否 
                         </div>
                         <div class="receipt-choice">
                             <select name="receipt" id="select-choice">
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                     <div>
-                        <label for="address">支付方式</label>
+                        <label class="important" for="address">支付方式</label>
                         <div>
                             <img src="./images/donate/alipay.png" alt="">
                             <img src="./images/donate/wechat.png" alt="">
