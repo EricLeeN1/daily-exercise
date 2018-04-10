@@ -177,12 +177,98 @@ body {
                         color: #999999;
                     }
                 }
+                .form-group {
+                    margin-top: 20px;
+                    >div {
+                        overflow: hidden;
+                        margin-bottom: 20px;
+                        >label {
+                            width: 80px;
+                            font-size: 14px;
+                            color: #333333;
+                            float: left;
+                            line-height: 32px;
+                        }
+                        input {
+                            padding: 10px 0;
+                            outline: none;
+                            border: 1px solid #666666;
+                            @include rounded-corners(3px);
+                            height: 32px;
+                            line-height: 32px;
+                            box-sizing: border-box;
+                            &.name-input {
+                                width: 120px;
+                            }
+                            &.contact-input {
+                                width: 260px;
+                                display: inline-block;
+                            }
+                            &[type=radio] {
+                                float: left;
+                                margin-right: 10px;
+                                &+span {
+                                    width: 50px;
+                                    line-height: 32px;
+                                    float: left;
+                                }
+                            }
+                            &#organ-name {
+                                float: left;
+                            }
+                        }
+                        #pay-methods{
+                            overflow: hidden;
+                            img{
+                                float: left;
+                                margin-right: 20px;
+                            }
+                        }
+                        .receipt-choice {
+                            margin-top: 10px;
+                        }
+                        select {
+                            outline: none;
+                            margin-left: 80px;
+                            padding: 0 10px;
+                            @include rounded-corners(3px);
+                            border: 1px solid #666666;
+                            float: left;
+                            margin-right: 20px;
+                            height: 32px;
+                            line-height: 32px;
+                            box-sizing: border-box;
+                        }
+                        >span {
+                            color: #da4646;
+                            margin-left: 10px;
+                        }
+                        .receipt-radio {
+                            line-height: 32px;
+                        }
+                        &.form-surname {
+                            float: left;
+                            margin-right: 25px;
+                            input {}
+                            &+div {
+                                label {
+                                    width: 35px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .form-tips {
+                    color: #999999;
+                    font-size: 14px;
+                    line-height: 20px;
+                }
             }
             .other-pay-infos {
                 // float: left;
                 width: 480px;
                 float: right;
-                >div{
+                >div {
                     margin-bottom: 30px;
                     padding: 20px;
                     overflow: hidden;
@@ -224,16 +310,16 @@ body {
                         }
                     }
                 }
-                .qr-code-pay{
+                .qr-code-pay {
                     background-color: #f3e1db;
-                    img{
+                    img {
                         width: 120px;
                         height: 120px;
                         border: 5px solid #ffffff;
                         float: left;
                         margin-right: 20px;
                     }
-                    p{
+                    p {
                         color: #666;
                         font-size: 14px;
                         line-height: 24px;
