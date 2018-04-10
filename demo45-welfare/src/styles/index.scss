@@ -172,7 +172,7 @@ body {
                             }
                         }
                     }
-                    .pay-methods-tips{
+                    .pay-methods-tips {
                         font-size: 14px;
                         color: #999999;
                     }
@@ -182,6 +182,63 @@ body {
                 // float: left;
                 width: 480px;
                 float: right;
+                >div{
+                    margin-bottom: 30px;
+                    padding: 20px;
+                    overflow: hidden;
+                    @include rounded-corners(20px);
+                }
+                .infos-email {
+                    background-color: #f9e6c6;
+                    color: #888888;
+                    font-size: 14px;
+                    line-height: 24px;
+                    a {
+                        color: #da4646;
+                    }
+                }
+                .infos-transfer {
+                    background-color: #ddeeeb;
+                    @include rounded-corners(20px);
+                    >div.infos-transfer-title {
+                        width: 140px;
+                        text-align: center;
+                        float: left;
+                        img {
+                            display: inline-block;
+                            margin-bottom: 15px;
+                            margin-top: 10px;
+                        }
+                        div {
+                            font-size: 16px;
+                            color: #666666;
+                            margin-bottom: 15px;
+                            line-height: 26px;
+                        }
+                    }
+                    >div.infos-transfer-detail {
+                        p {
+                            color: #666666;
+                            font-size: 14px;
+                            line-height: 24px;
+                        }
+                    }
+                }
+                .qr-code-pay{
+                    background-color: #f3e1db;
+                    img{
+                        width: 120px;
+                        height: 120px;
+                        border: 5px solid #ffffff;
+                        float: left;
+                        margin-right: 20px;
+                    }
+                    p{
+                        color: #666;
+                        font-size: 14px;
+                        line-height: 24px;
+                    }
+                }
             }
         }
     }
