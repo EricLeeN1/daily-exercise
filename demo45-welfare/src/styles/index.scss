@@ -144,18 +144,92 @@ body {
                 article {
                     h3 {
                         display: inline-block;
-                        margin-bottom: 10px;
+                        margin-bottom: 30px;
                         color: #2d91d0;
                         font-size: 32px;
                         font-weight: 400;
+                    }
+                    h4{
+                        color: #7bc3f0;
+                        margin-top: -20px;
                     }
                     p {
                         font-size: 18px;
                         color: #555555;
                         line-height: 30px;
                         margin-bottom: 10px;
-                        &.mt-20{
+                        &.mt-20 {
                             margin-top: 20px;
+                        }
+                    }
+                    
+                }
+                &.contact-us{
+                    border-top: 1px dashed #d2d2d2;
+                    border-bottom: 1px dashed #eeeeee;
+                    padding-top: 30px;
+                    padding-bottom: 30px;
+                    img{
+                        margin-right: 60px;
+                    }
+                    article{
+                        h3 {
+                            display: inline-block;
+                            margin-bottom: 20px;
+                            color: #2d91d0;
+                            font-size: 32px;
+                            font-weight: 400;
+                        }
+                        h4{
+                            line-height: 36px;
+                            font-size: 18px;
+                            font-weight: normal;
+                        }
+                        p{
+                            color: #333;
+                            line-height: 26px;
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+                &#love-tips{
+                    margin-bottom: 0;
+                    .love-title{
+                        font-size: 18px;
+                        color: #444;
+                        line-height: 28px;
+                        margin-bottom: 25px;
+                    }
+                    .goods-tips-list{
+                        li{
+                            border-top: 2px solid #fff;
+                            line-height: 80px;
+                            color: #444444;
+                            overflow: hidden;
+                            background-color: #f5f5f5;
+                            &:nth-child(even){
+                                background-color: #e3eff7;
+                            }
+                            p{
+                                width: 50%;
+                                position: relative;
+                                padding-left: 120px;
+                                box-sizing: border-box;
+                                float: left;
+                                &::after{
+                                    content: '';
+                                    @include positions($right:-1px,$top:0,$bottom:0);
+                                    height: 100%;
+                                    width: 2px;
+                                    background-color: #fff;
+                                }
+                            }
+                            span{
+                                float: left;
+                                width: 50%;
+                                padding-left: 60px;
+                                box-sizing: border-box;
+                            }
                         }
                     }
                 }
