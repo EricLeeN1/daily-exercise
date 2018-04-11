@@ -69,32 +69,34 @@ body {
     &#index-body {
         background-image: url('../images/index/bg-index.jpg');
         #banner {
-            height: 420px;
+            height: 390px;
             position: relative;
             background-color: #fff;
             @include container-main;
             margin-top: 100px;
             .swiper-wrapper {
-                height: 400px;
-                // overflow: hidden;
-                .swiper-slide{
+                height: 400px; // overflow: hidden;
+                .swiper-slide {
                     overflow: hidden;
-                    .activity-img{
-                        float: left;margin-right: 90px;
+                    .activity-img {
+                        float: left;
+                        margin-right: 90px;
                         margin-bottom: 50px;
                     }
-                    .activity-des{
-                        p{
+                    .activity-des {
+                        p {
                             line-height: 32px;
                             font-size: 18px;
                             color: #585858;
                         }
-                        a{
+                        a {
                             display: inline-block;
                             background-color: #2d91d0;
                             width: 168px;
                             height: 50px;
-                            color: #fff;;line-height: 50px;
+                            color: #fff;
+                            ;
+                            line-height: 50px;
                             text-align: center;
                             margin-top: 20px;
                         }
@@ -116,6 +118,218 @@ body {
                     border-left-color: #e94e18;
                     transform: scale(1.5);
                 }
+            }
+        }
+        >main {
+            padding: 0;
+            @include container-main1;
+            #donate {
+                margin-top: 50px;
+                >h2 {
+                    @include spirit(-754px,
+                    0,
+                    95px,
+                    72px);
+                    margin: 0 auto;
+                    z-index: 2;
+                    position: relative;
+                }
+                ul {
+                    position: relative;
+                    z-index: 1;
+                    margin-top: -20px;
+                    overflow: hidden;
+                    background-color: #efefef;
+                    padding: 100px 3%;
+                    li {
+                        float: left;
+                        width: 25%;
+                        text-align: center;
+                        div {
+                            margin: 0 auto;
+                            &.donate-icon-1 {
+                                @include spirit(0,
+                                -141px,
+                                136px,
+                                114px);
+                            }
+                            &.donate-icon-2 {
+                                @include spirit(-136px,
+                                -141px,
+                                136px,
+                                114px);
+                            }
+                            &.donate-icon-3 {
+                                @include spirit(-272px,
+                                -141px,
+                                136px,
+                                114px);
+                            }
+                            &.donate-icon-4 {
+                                @include spirit(-408px,
+                                -141px,
+                                136px,
+                                114px);
+                            }
+                        }
+                        h3 {
+                            font-size: 38px;
+                            margin-top: 25px;
+                            line-height: 38px;
+                            margin-bottom: 10px;
+                            color: #6c6d6d;
+                        }
+                        span {
+                            color: #545454;
+                            font-size: 22px;
+                        }
+                    }
+                }
+            }
+            #donate-href {
+                background: url('../images/index/love-href.jpg') no-repeat;
+                height: 576px;
+                position: relative;
+                overflow: hidden;
+                &::before {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    content: '';
+                    z-index: 1;
+                    background-color: rgba(255, 255, 255, .7);
+                }
+                a {
+                    z-index: 2;
+                    position: relative;
+                    float: left;
+                    width: 25%;
+                    text-align: center;
+                    margin: 96px 0;
+                    div {
+                        margin: 100px auto 0 auto;
+                        &.donate-href-1 {
+                            @include spirit(0px,
+                            -255px,
+                            134px,
+                            134px);
+                        }
+                        &.donate-href-2 {
+                            @include spirit(-134px,
+                            -255px,
+                            134px,
+                            134px);
+                        }
+                        &.donate-href-3 {
+                            @include spirit(-268px,
+                            -255px,
+                            134px,
+                            134px);
+                        }
+                        &.donate-href-4 {
+                            @include spirit(-402px,
+                            -255px,
+                            134px,
+                            134px);
+                        }
+                    }
+                    p {
+                        color: #121212;
+                        font-size: 22px;
+                        margin-top: 20px;
+                    }
+                }
+            }
+            #action {
+                position: relative;
+                padding-bottom: 40px;
+                background-color: #efefef;
+                >h2 {
+                    position: relative;
+                    height: 240px;
+                    background-color: #efefef;
+                    &::after {
+                        content: '';
+                        @include spirit(-674px,
+                        0,
+                        80px,
+                        76px);
+                        margin: 0 auto;
+                        @include positions($top: 50%, $left:50%);
+                        margin-left: -40px;
+                        margin-top: -38px;
+                    }
+                }
+                .swiper-slide {
+                    height: 425px;
+                    overflow: hidden;
+                }
+                .swiper-pagination {
+                    @include positions($bottom: 0px);
+                    .swiper-pagination-bullet {
+                        width: 10px;
+                        @include rounded-corners(50%);
+                        height: 10px;
+                        background-color: #f1cf97;
+                    }
+                    .swiper-pagination-bullet-active {
+                        background-color: #e94e18;
+                        transform: scale(1.5);
+                    }
+                }
+            }
+            #donate-star {
+                >h2 {
+                    position: relative;
+                    height: 180px;
+                    background-color: #efefef;
+                    &::after {
+                        content: '';
+                        @include spirit(-849px,
+                        0,
+                        104px,
+                        62px);
+                        margin: 0 auto;
+                        @include positions($top: 50%, $left:50%);
+                        margin-left: -52px;
+                        margin-top: -31px;
+                    }
+                    margin: 0 auto;
+                }
+                .swiper-wrapper {
+                    .swiper-slide {
+                        width: 40%;
+                        height: 258px;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+                .swiper-pagination {
+                    @include positions($bottom: 0px);
+                    .swiper-pagination-bullet {
+                        width: 10px;
+                        @include rounded-corners(50%);
+                        height: 10px;
+                        background-color: #f1cf97;
+                    }
+                    .swiper-pagination-bullet-active {
+                        background-color: #e94e18;
+                        transform: scale(1.5);
+                    }
+                }
+            }
+            #donate-company {
+                h2 {
+                    @include spirit(-674px,
+                    -76px,
+                    116px,
+                    79px);
+                    margin: 0 auto;
+                }
+                
             }
         }
     }

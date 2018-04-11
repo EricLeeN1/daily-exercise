@@ -1,7 +1,7 @@
 $modal-color:rgba(0, 0, 0, .4);
 $main-theme:#ff5053;
 $main-theme-blue:skyblue;
-.clearfix::after{
+.clearfix::after {
     content: ".";
     display: block;
     height: 0;
@@ -9,8 +9,8 @@ $main-theme-blue:skyblue;
     visibility: hidden
 }
 
-.important{
-    &::before{
+.important {
+    &::before {
         content: '*';
         color: #ff5053;
     }
@@ -18,6 +18,11 @@ $main-theme-blue:skyblue;
 
 @mixin container-main {
     width: 1200px;
+    margin: 0 auto;
+}
+
+@mixin container-main1 {
+    width: 1064px;
     margin: 0 auto;
 }
 

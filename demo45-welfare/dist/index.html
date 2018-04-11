@@ -28,7 +28,7 @@
             <a href="http://">伙伴</a>
         </nav>
     </header>
-    <section class="swiper-container swipers" id="banner">
+    <section class="swiper-container swiper" id="banner">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <img src="./images/index/toAccompany.png" alt="" class="activity-img">
@@ -106,41 +106,41 @@
             <ul>
                 <li>
                     <div class="donate-icon-1"></div>
-                    <p>230044</p>
+                    <h3>230044</h3>
                     <span>捐赠目标</span>
                 </li>
                 <li>
                     <div class="donate-icon-2"></div>
-                    <p>230044</p>
+                    <h3>230044</h3>
                     <span>爱心人数</span>
                 </li>
                 <li>
                     <div class="donate-icon-3"></div>
-                    <p>230044</p>
+                    <h3>230044</h3>
                     <span>捐赠总额</span>
                 </li>
                 <li>
                     <div class="donate-icon-4"></div>
-                    <p>2044</p>
+                    <h3>2044</h3>
                     <span>零钱电影院</span>
                 </li>
             </ul>
         </section>
         <section id="donate-href">
-            <a href="" class="donate-href-1">
-                <div></div>
+            <a href="">
+                <div class="donate-href-1"></div>
                 <p>企业捐助</p>
             </a>
-            <a href="" class="donate-href-2">
-                <div></div>
+            <a href="">
+                <div class="donate-href-2"></div>
                 <p>个人捐赠</p>
             </a>
-            <a href="" class="donate-href-3">
-                <div></div>
+            <a href="">
+                <div class="donate-href-3"></div>
                 <p>爱心公示</p>
             </a>
-            <a href="" class="donate-href-4">
-                <div></div>
+            <a href="">
+                <div class="donate-href-4"></div>
                 <p>爱心产品</p>
             </a>
         </section>
@@ -181,53 +181,53 @@
             <h2></h2>
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="./images/index/action-1.jpg" alt="">
+                    <img src="./images/index/donate-star.jpg" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./images/index/action-2.jpg" alt="">
+                    <img src="./images/index/donate-star.jpg" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./images/index/action-3.jpg" alt="">
+                    <img src="./images/index/donate-star.jpg" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./images/index/action-1.jpg" alt="">
+                    <img src="./images/index/donate-star.jpg" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./images/index/action-2.jpg" alt="">
+                    <img src="./images/index/donate-star.jpg" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./images/index/action-3.jpg" alt="">
+                    <img src="./images/index/donate-star.jpg" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./images/index/action-1.jpg" alt="">
+                    <img src="./images/index/donate-star.jpg" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./images/index/action-2.jpg" alt="">
+                    <img src="./images/index/donate-star.jpg" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./images/index/action-3.jpg" alt="">
+                    <img src="./images/index/donate-star.jpg" alt="">
                 </div>
             </div>
             <div class="swiper-pagination"></div>
         </section>
         <section id="donate-company">
             <h2></h2>
-            <img src="./images/index/donate-company.png" alt="">
+            <img src="./images/index/donate-company.jpg" alt="">
         </section>
     </main>
     <footer class="common-footer">
-            <nav>
-                <a href="">首页</a>
-                <a href="">关于我们</a>
-                <a href="">我们的行动</a>
-                <a href="">新闻资讯</a>
-                <a href="">电影与儿童</a>
-                <a href="">加入我们</a>
-            </nav>
-            <section class="copy-right">
-                Copyright &copy; 2016-2017 分享信息技术有限公司 版权所有 京ICP备170014号-1
-            </section>
-        </footer>
+        <nav>
+            <a href="">首页</a>
+            <a href="">关于我们</a>
+            <a href="">我们的行动</a>
+            <a href="">新闻资讯</a>
+            <a href="">电影与儿童</a>
+            <a href="">加入我们</a>
+        </nav>
+        <section class="copy-right">
+            Copyright &copy; 2016-2017 分享信息技术有限公司 版权所有 京ICP备170014号-1
+        </section>
+    </footer>
     <script src="./scripts/swiper.min.js"></script>
     <script>
         let myPlugin = {
@@ -334,9 +334,19 @@
                 disableOnInteraction: false,
             },
             loop: true,
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 100,
+                stretch: 100,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
             pagination: {
                 el: '.swiper-pagination',
-                clickable: true,
             },
             // navigation: {
             //     nextEl: '.swiper-button-next',
