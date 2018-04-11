@@ -281,6 +281,9 @@ body {
                 }
             }
             #donate-star {
+                position: relative;
+                padding-bottom: 60px;
+                background-color: #efefef;
                 >h2 {
                     position: relative;
                     height: 180px;
@@ -308,26 +311,27 @@ body {
                     }
                 }
                 .swiper-pagination {
-                    @include positions($bottom: 0px);
+                    @include positions($bottom: 10px);
                     .swiper-pagination-bullet {
                         width: 10px;
-                        @include rounded-corners(50%);
                         height: 10px;
-                        background-color: #f1cf97;
+                        background-color: skyblue;
                     }
                     .swiper-pagination-bullet-active {
-                        background-color: #e94e18;
+                        background-color: #7bc3f0;
                         transform: scale(1.5);
                     }
                 }
             }
             #donate-company {
+                margin-top: 30px;
                 h2 {
                     @include spirit(-674px,
                     -76px,
                     116px,
                     79px);
                     margin: 0 auto;
+                    margin-bottom: 30px;
                 }
                 
             }
