@@ -67,7 +67,57 @@ body {
         }
     }
     &#index-body {
-        background-image: url('../images/bg-1.png');
+        background-image: url('../images/index/bg-index.jpg');
+        #banner {
+            height: 420px;
+            position: relative;
+            background-color: #fff;
+            @include container-main;
+            margin-top: 100px;
+            .swiper-wrapper {
+                height: 400px;
+                // overflow: hidden;
+                .swiper-slide{
+                    overflow: hidden;
+                    .activity-img{
+                        float: left;margin-right: 90px;
+                        margin-bottom: 50px;
+                    }
+                    .activity-des{
+                        p{
+                            line-height: 32px;
+                            font-size: 18px;
+                            color: #585858;
+                        }
+                        a{
+                            display: inline-block;
+                            background-color: #2d91d0;
+                            width: 168px;
+                            height: 50px;
+                            color: #fff;;line-height: 50px;
+                            text-align: center;
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
+            .swiper-pagination {
+                @include positions($bottom: 20px);
+                .swiper-pagination-bullet {
+                    border-bottom: 8px solid transparent;
+                    border-top: 8px solid transparent;
+                    border-left: 16px solid #f6b8a2;
+                    width: 0;
+                    height: 0; // border: 15px solid transparent;
+                    // opacity: 1;
+                    // border-left-color: #f6b8a2;
+                }
+                .swiper-pagination-bullet-active {
+                    border-left-color: #e94e18;
+                    transform: scale(1.5);
+                }
+            }
+        }
     }
     &#donate-body {
         background-image: url('../images/bg-news.png');
@@ -96,9 +146,6 @@ body {
                     line-height: 30px;
                     margin-top: 15px;
                 }
-            }
-            &.pay-section {
-                // margin-top: ;
             }
             .pay-infos {
                 width: 540px;
@@ -217,9 +264,9 @@ body {
                                 float: left;
                             }
                         }
-                        #pay-methods{
+                        #pay-methods {
                             overflow: hidden;
-                            img{
+                            img {
                                 float: left;
                                 margin-right: 20px;
                             }
@@ -249,7 +296,6 @@ body {
                         &.form-surname {
                             float: left;
                             margin-right: 25px;
-                            input {}
                             &+div {
                                 label {
                                     width: 35px;
