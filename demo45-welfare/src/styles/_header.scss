@@ -1,27 +1,33 @@
 @import './_base.scss';
 header.common-header {
     padding: 0 150px;
+    position: relative;
     height: 182px;
     overflow: hidden;
     background-color: #ffffff;
     .logo-groups{
-        @include spirit(0,0,536px,40px);
         margin-top: 71px;
         float: left;
+        width: 33.5%;
+        img{
+            width: 100%;
+        }
     }
     .site-logo{
         @include spirit(-536px,0,138px,120px);
         float: left;
-        margin-left: 216px;
-        margin-top: 31px;
+        margin-left: -69px;
+        margin-top: -60px;
+        @include positions($left:50%,$top:50%);
     }
     nav {
         float: right;
         line-height: 182px;
         font-size: 24px;
+        width: 40%;
         a {
             float: left;
-            width: 160px;
+            width: 25%;
             text-align: center;
             &.active{
                 position: relative;
