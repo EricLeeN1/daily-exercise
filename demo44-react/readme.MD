@@ -122,4 +122,29 @@
 #### 2.3.2.1 componentWillReceiveProps ####
 
     1. componentWillReceiveProps(nextProps)
-    2. 
+        1. 只要父组件的render函数被调用，在render函数里面被渲染的子组件就会经历更新过程，不管父组件传给子组件的props有没有改变，都会触发子组件的componentWillReceiveProps函数。
+
+
+#### 2.3.2.2shouldComponentUpdate  ####
+
+    1. shouldComponentUpdate(nextProps,nextState)
+        1. 除了render函数，这是React组件生命周期中最重要的一个函数了，这两个函数也是唯一两个要求有返回结果的函数。render函数返回结构将用于构造DOM对象，而shouldComponentUpdate函数返回一个布尔值，告诉React库这个组件在这次更新过程中是否要继续。
+        2. 返回 true那就会继续更新过程，接下来调用render函数。反之得到false那就立刻停止更新过程，也不会引发后续渲染。
+        3. 使用恰当会大大提高React组件的性能。
+
+#### 2.3.2.3 componentWillUpdate与componentDidUpdate ####
+
+    无论更新过程发生在服务器端还是浏览器端，该函数都会被调用。
+    componentDidUpdate可以利用这个函数执行其他UI库的代码，比如jQuery代码。当React组件被更新时，原有的内容会被重新绘制，这时候就需要在componentDidUpdate函数中再次调用jQuery代码。
+
+### 2.3.3 卸载过程 ###
+
+    componentWillUnmount
+    React组件的卸载过程只涉及这一个函数，当React组件要从DOM树上删除掉之前，对应的componentWillUnmount函数会被调用。
+    componentWillUnmount中的工作和 componentDidMount有关，若在 componentDidMount中用非React的方法创造了一些DOM元素时，如果撒手不管会造成内存泄漏，需要在 componentWillUnmount把这些创造的DOM元素清理掉。
+
+## 2.4 组件向外传递数据 ##
+
+## 2.5 React组件state和prop的局限 ##
+
+    1.
