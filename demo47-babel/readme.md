@@ -117,3 +117,12 @@ Babel提供一个[REPL在线编译器](https://babeljs.io/repl/)，可以在线�
 
 ## 九、与其他工具的配合 ##
 
+许多工具需要Babel进行前置转码，这里举两个例子：ESLint和Mocha。
+
+ESLint 用于静态检查代码的语法和风格，安装命令如下。
+
+[Mocha](http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html)
+
+    "test": "mocha --ui qunit --compilers js:babel-core/register"
+
+上面命令中，--compilers参数指定脚本的转码器，规定后缀名为js的文件，都需要使用babel-core/register先转码。
