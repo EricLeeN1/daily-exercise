@@ -16,3 +16,16 @@ Babel的配置文件是.babelrc,存放在项目的根目录下。使用Babel的�
             - npm install --save-dev babel-preset-stage-1
             - npm install --save-dev babel-preset-stage-2
             - npm install --save-dev babel-preset-stage-3
+
+## 二、命令行转码babel-cli ##
+
+Babel提供babel-cli工具，用于命令行转码。
+
+    npm install --global babel-cli
+
+**使用**
+
+    1. 转码结果输出到标准输出 -> `babel example.js`
+    2. 转码结果写入一个文件,--out-file 或 -o 参数指定输出文件 -> `babel example.js --out-file compiled.js`或 `babel example.js -o compiled.js`
+    3. 整个目录转码，--out-dir 或 -d 参数指定输出目录 -> `babel src --out-dir lib` 或 `babel src -d lib`
+    4. -s 参数生成source map文件 -> `babel src -d lib -s`
