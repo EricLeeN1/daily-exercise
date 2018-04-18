@@ -60,3 +60,60 @@ babel-register模块改写require命令，为它加上一个钩子。此后，�
 然后，在项目中就可以调用babel-core。
 
 index.js的代码中，transform方法的第一个参数是一个字符串，表示需要转换的ES6代码，第二个参数是转换的配置对象。
+
+## 六、babel-polyfill ##
+
+    npm install --save babel-polyfill
+
+Babel默认只转换新的JavaScript句法（syntax），而不转换新的API，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如Object.assign）都不会转码。
+
+举例来说，ES6在Array对象上新增了Array.from方法。Babel就不会转码这个方法。如果想让这个方法运行，必须使用babel-polyfill，为当前环境提供一个垫片。
+
+然后，在脚本头部，加入如下一行代码。
+
+    import 'babel-polyfill';
+    // 或者
+    require('babel-polyfill');
+
+## 七、浏览器环境 ##
+
+    npm install babel-core@old
+
+1. Babel也可以用于浏览器环境。但是，从Babel 6.0开始，不再直接提供浏览器版本，而是要用构建工具构建出来。如果你没有或不想使用构建工具，可以通过安装5.x版本的babel-core模块获取。
+
+运行上面的命令以后，就可以在当前目录的node_modules/babel-core/子目录里面，找到babel的浏览器版本browser.js（未精简）和browser.min.js（已精简）。
+
+然后，将下面的代码插入网页。
+
+    `<script src="node_modules/babel-core/browser.js"></script>
+    <script type="text/babel">
+    // Your ES6 code
+    </script>`
+
+上面代码中，browser.js是Babel提供的转换器脚本，可以在浏览器运行。用户的ES6脚本放在script标签之中，但是要注明type="text/babel"。
+
+2. 另一种方法是使用babel-standalone模块提供的浏览器版本，将其插入网页。
+
+    `<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.4.4/babel.min.js"></script>
+    <script type="text/babel">
+    // Your ES6 code
+    </script>`
+
+注意，网页中实时将ES6代码转为ES5，对性能会有影响。生产环境需要加载已经转码完成的脚本。
+
+3. 下面是如何将代码打包成浏览器可以使用的脚本，以Babel配合Browserify为例。
+    1. 首先，安装babelify模块。
+
+    npm install --save-dev babelify babel-preset-es2015
+
+    2. 然后，再用命令行转换ES6脚本。
+
+    browserify script.js -o bundle.js \
+  -t [ babelify --presets [ es2015 react ] ]
+
+## 八、在线转换 ##
+
+Babel提供一个[REPL在线编译器](https://babeljs.io/repl/)，可以在线将ES6代码转为ES5代码。转换后的代码，可以直接作为ES5代码插入网页运行。
+
+## 九、与其他工具的配合 ##
+
