@@ -19,40 +19,64 @@ let router = new Router({
       default: resolve => require(['../views/main.vue'], resolve),
       AppHeader: resolve => require(['../views/header.vue'], resolve),
     },
-    redirect: '/tab1',
+    // redirect: '/tab1',
     meta: {
       title: "练习册"
     },
     children: [{
         path: 'tab1',
+        meta: {
+          title: "参与活动",
+        },
         component: resolve => require(['../components/tab1.vue'], resolve),
       },
       {
         path: 'tab2',
+        meta: {
+          title: "个性签到",
+        },
         component: resolve => require(['../components/tab2.vue'], resolve),
       },
       {
         path: 'tab3',
+        meta: {
+          title: "上墙留言",
+        },
         component: resolve => require(['../components/tab3.vue'], resolve),
       },
       {
         path: 'tab4',
+        meta: {
+          title: "红包雨",
+        },
         component: resolve => require(['../components/tab4/tab1.vue'], resolve),
       },
       {
         path: 'tab5',
+        meta: {
+          title: "摇一摇跑马",
+        },
         component: resolve => require(['../components/tab5/tab1.vue'], resolve),
       },
       {
         path: 'tab6',
+        meta: {
+          title: "砸金蛋",
+        },
         component: resolve => require(['../components/tab6.vue'], resolve),
       },
       {
         path: 'tab7',
+        meta: {
+          title: "老虎机抽奖",
+        },
         component: resolve => require(['../components/tab7.vue'], resolve),
       },
       {
         path: 'tab8',
+        meta: {
+          title: "活动相册",
+        },
         component: resolve => require(['../components/tab8.vue'], resolve),
       }
     ]
