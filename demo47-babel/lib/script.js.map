@@ -1,0 +1,1 @@
+{"version":3,"sources":["../example/script.js"],"names":["x","console","log"],"mappings":";;AAAA,CAAC,UAACA,CAAD,EAAO;AACJA,QAAIA,IAAI,CAAR;AACAC,YAAQC,GAAR,CAAYF,CAAZ;AACH,CAHD,EAGG,CAHH","file":"script.js","sourcesContent":["((x) => {\r\n    x = x * 2;\r\n    console.log(x);\r\n})(1);"]}
