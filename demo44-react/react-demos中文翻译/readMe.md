@@ -63,3 +63,31 @@
     1. React将组件视为state机器，并用它this.state来保持组件的state，getInitialState()初始化this.state（在组件被装载之前调用），this.setState()以更新this.state和重新渲染组件。
     2. 你可以使用组件属性注册事件处理程序，就像onClick，onKeyDown，onCopy等正式文件拥有所有支持的事件。
 
+### 8. Form ###
+
+    1. 根据React的设计理念，this.state描述组件的状态并通过用户交互进行变异，并this.props描述组件的属性并且是稳定且不可变的。
+    2. 因此，value表单组件的属性（如<input>，<textarea>和<option>）不受任何用户输入的影响。如果您想要访问或更新该值以响应用户输入，则可以使用onChange事件。
+
+### 9. Component Lifecycle ###
+
+    1. 组件在其生命周期中有三个主要部分：挂载（插入到DOM中），更新（正在重新呈现）和卸除（正在从DOM中删除）。React提供了这些生命周期部分的钩子。will方法在事情发生之前被调用，并且did在事情发生之后被调用的方法。
+    2. componentWillMount（）：在初始渲染发生之前触发一次。接线消息监听器的好地方。this.setState在这里不起作用。
+    3. componentDidMount（）：在初始渲染发生后触发一次。可以使用this.getDOMNode()。
+    4. componentWillUpdate（object nextProps，object nextState）：在组件更新DOM之后触发。可以this.getDOMNode()用于更新。
+    5. componentDidUpdate（object prevProps，object prevState）：在组件的更新刷新到DOM后立即调用。此方法不用于初始渲染。当组件更新时，将此作为一个机会来操作DOM。
+    6. componentWillUnmount（）：在组件从DOM中卸载之前立即启动。删除消息监听器或一般清理的好地方。
+    7. componentWillReceiveProps（object nextProps）：组件接收新道具时触发。你可能想this.setState依靠道具。
+    8. shouldComponentUpdate（object nextProps，object nextState）：在接收新props或state时渲染之前触发。如果你知道不需要更新时return false。
+
+### 10. Ajax ###
+
+    1. 如何从服务器或API提供程序获取组件的数据？答案是使用Ajax来获取事件处理程序中的数据componentDidMount。服务器响应到达时，存储数据this.setState()以触​​发UI的重新呈现。
+
+### 11. Display value from a Promise ###
+
+    1. 如果异步收到React组件的数据，我们也可以使用Promise对象作为组件的属性，
+    2. 现在，当Promise未决时，组件会显示一个加载指示符。当promise成功解析后，组件会显示一个存储库信息列表。如果Promise被拒绝，组件将显示错误消息。
+
+### 12. Server-side rendering -> 服务器端渲染 ###
+
+    1. 
