@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>this.props.children</title>
+    <title>PropTypes</title>
     <script src="../build/react.js"></script>
     <script src="../build/react-dom.js"></script>
     <script src="../build/browser.min.js"></script>
 </head>
-
 <body>
     <div id="example"></div>
     <script type="text/babel">
-    var NotesList = React.createClass({
-        render: function() {
-          return (
-            <ol>
-              {
-                React.Children.map(this.props.children, function (child) {
-                  return <li><a href="">{child}</a></li>;
-                })
-              }
-            </ol>
-          );
+    // let data = 123;
+    let MyTitle = React.createClass({
+        // propTypes:{
+        //     title:React.PropTypes.string.isRequired,
+        // },
+        getDefaultProps : function () {
+            return {
+                title : 'Hello World'
+            };
+        },
+        render: function () {
+            return <h1>{this.props.title}</h1>
         }
-      });
-
-      ReactDOM.render(
-        <NotesList>
-          <span>hello</span>
-          <span>world</span>
-        </NotesList>,
+    });
+    ReactDOM.render(
+        // <MyTitle title={data}></MyTitle>,
+        <MyTitle></MyTitle>,
         document.getElementById('example')
-      );
+    );
     </script>
 </body>
-
 </html>
