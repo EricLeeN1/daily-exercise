@@ -149,7 +149,7 @@
         <section id="action" class="swiper-container swiper1">
             <h2></h2>
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-id="">
                     <img src="./images/index/action-1.jpg" alt="">
                 </div>
                 <div class="swiper-slide">
@@ -231,133 +231,8 @@
         </section>
     </footer>
     <script src="./scripts/swiper.min.js"></script>
-    <script>
-        let myPlugin = {
-            name: 'debugger',
-            params: {
-                debugger: false,
-            },
-            on: {
-                init: function () {
-                    if (!this.params.debugger) return;
-                    console.log('init');
-                },
-                click: function (e) {
-                    if (!this.params.debugger) return;
-                    console.log('click');
-                },
-                tap: function (e) {
-                    if (!this.params.debugger) return;
-                    console.log('tap');
-                },
-                doubleTap: function (e) {
-                    if (!this.params.debugger) return;
-                    console.log('doubleTap');
-                },
-                sliderMove: function (e) {
-                    if (!this.params.debugger) return;
-                    console.log('sliderMove');
-                },
-                slideChange: function () {
-                    if (!this.params.debugger) return;
-                    console.log('slideChange', this.previousIndex, '->', this.activeIndex);
-                },
-                slideChangeTransitionStart: function () {
-                    if (!this.params.debugger) return;
-                    console.log('slideChangeTransitionStart');
-                },
-                slideChangeTransitionEnd: function () {
-                    if (!this.params.debugger) return;
-                    console.log('slideChangeTransitionEnd');
-                },
-                transitionStart: function () {
-                    if (!this.params.debugger) return;
-                    console.log('transitionStart');
-                },
-                transitionEnd: function () {
-                    if (!this.params.debugger) return;
-                    console.log('transitionEnd');
-                },
-                fromEdge: function () {
-                    if (!this.params.debugger) return;
-                    console.log('fromEdge');
-                },
-                reachBeginning: function () {
-                    if (!this.params.debugger) return;
-                    console.log('reachBeginning');
-                },
-                reachEnd: function () {
-                    if (!this.params.debugger) return;
-                    console.log('reachEnd');
-                },
-            },
-        };
-        // Install Plugin To Swiper
-        Swiper.use(myPlugin);
-
-        // Init Swiper
-        let swiper = new Swiper('.swiper', {
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            // navigation: {
-            //     nextEl: '.swiper-button-next',
-            //     prevEl: '.swiper-button-prev',
-            // },
-            // Enable debugger
-            debugger: true,
-        });
-        let swiper1 = new Swiper('.swiper1', {
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            // navigation: {
-            //     nextEl: '.swiper-button-next',
-            //     prevEl: '.swiper-button-prev',
-            // },
-            // Enable debugger
-            debugger: true,
-        });
-        let swiper2 = new Swiper('.swiper2', {
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true,
-            effect: 'coverflow',
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            coverflowEffect: {
-                rotate: 30,
-                stretch: 30,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-            },
-            // navigation: {
-            //     nextEl: '.swiper-button-next',
-            //     prevEl: '.swiper-button-prev',
-            // },
-            // Enable debugger
-            debugger: true,
-        });
-    </script>
+    <script src="./scripts/vendor.js"></script>
+    <script src="./scripts/index.min.js"></script>
 </body>
 
 </html>
