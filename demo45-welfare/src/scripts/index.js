@@ -1,8 +1,10 @@
 $(function () {
     jQuery.support.cors = true;
     let Base = window.Base || {};
+    // import ajax from './ajaxModules.js';
+    // Base.ajax = ajax;
     Base = {
-        site: 'https://www.doubaner.top/',
+        site: 'https://www.doubaner.top',
         setSwiper() {
             let myPlugin = {
                 name: 'debugger',
@@ -131,7 +133,7 @@ $(function () {
             });
         },
         getBannerInfos() {
-            this.getAjax('intro', {}, function (res) {
+            this.getAjax('/intro', {}, function (res) {
                 console.log(res);
                 if (res.status == 200) {
                     $("#banner>.swiper-wrapper>.swiper-slide>.activity-des>p").text(res.data);
@@ -141,7 +143,7 @@ $(function () {
             });
         },
         welfareDatas() {
-            this.getAjax('data', {}, function (res) {
+            this.getAjax('/data', {}, function (res) {
                 console.log(res);
                 if (res.status == 200) {
                     $("#donate .donate-icon-1").next().text(res.data.aims);
@@ -154,7 +156,8 @@ $(function () {
             });
         },
         newsList8() {
-            this.getAjax('newsList/', {
+            let that = this;
+            this.getAjax('/newsList/column/8', {
                 column: 8
             }, function (res) {
                 console.log(res);
@@ -163,13 +166,14 @@ $(function () {
                     if (datas.length > 0) {
                         let swiperSlides = '';
                         datas.forEach(ele => {
-                            let imgSite = this.site + ele.str_thumb;
+                            let imgSite = that.site + ele.str_thumb;
                             swiperSlides += `
-                            <div class="swiper-slide" data-id="${ele.id}">
-                                <img src="${imgSite}" alt="${ele.title}">
+                            <div class="swiper-slide" data-id="${ele.str_id}">
+                                <img src="${imgSite}" alt="${ele.str_title}">
                             </div>
                             `;
                         });
+                        console.log(swiperSlides);
                         $("#action>.swiper-wrapper").html(swiperSlides);
                     } else {
 
@@ -180,7 +184,8 @@ $(function () {
             });
         },
         newsList9() {
-            this.getAjax('newsList/', {
+            let that = this;
+            that.getAjax('/newsList/column/9', {
                 column: 9
             }, function (res) {
                 console.log(res);
@@ -189,10 +194,10 @@ $(function () {
                     if (datas.length > 0) {
                         let swiperSlides = '';
                         datas.forEach(ele => {
-                            let imgSite = this.site + ele.str_thumb;
+                            let imgSite = that.site + ele.str_thumb;
                             swiperSlides += `
-                            <div class="swiper-slide" data-id="${ele.id}">
-                                <img src="${imgSite}" alt="${ele.title}">
+                            <div class="swiper-slide" data-id="${ele.str_id}">
+                                <img src="${imgSite}" alt="${ele.str_title}">
                             </div>
                             `;
                         });
@@ -202,6 +207,18 @@ $(function () {
                     }
                 } else {
                     alert(res.message);
+                }
+            });
+        },
+        companyList() {
+            let that = this;
+            that.getAjax('/companyList', {
+            }, function (res) { 
+                console.log(res);
+                if (res.status == 200) {
+
+                }else{
+
                 }
             });
         },
@@ -233,6 +250,7 @@ $(function () {
             that.welfareDatas();
             that.newsList8();
             that.newsList9();
+            that.companyList();
         }
     }
     Base.init();
