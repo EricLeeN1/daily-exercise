@@ -90,4 +90,6 @@
 
 ### 12. Server-side rendering -> 服务器端渲染 ###
 
-    1. 
+    1. npm install 
+    2. npm run build
+    3. node server.js
