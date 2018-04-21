@@ -5,29 +5,35 @@ $(function () {
         site: 'https://www.doubaner.top',
         getInfos() {
             let that = this;
-            let id = that.getQueryString('id');
-            that.postAjax('/new', {
-                id: id
-            }, function (res) {
+            let type = that.getQueryString('type');
+            type = type == 1 ? 8 : 9;
+            that.getAjax('/news/page/1/column/8', {}, function (res) {
+                console.log(res);
                 if (res.status == 200) {
-                    let article = $('#news-body>main>article');
-                    let imgArrays = [];
-                    let content = res.data.str_content;
-                    article.attr('data-id', res.data.cat_id)
-                    article.children("h3").html(res.data.str_title);
-                    article.children("img").attr('src', that.site + res.data.str_thumb);
-                    article.children("h3").html(res.data.str_title);
-                    content.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function (match, capture) {
-                        imgArrays.push(capture);
-                    });
-                    console.log(imgArrays);
-                    if (imgArrays) {
-                        imgArrays.forEach(element => {
-                            let src = that.site + element;
-                            content.replace(element, src);
+                    let newsDatas = res.data.newsList;
+                    let newsRightDatas = res.data.rightNewsList;
+                    let htmlLeft = '';
+                    if (newsDatas) {
+                        newsDatas.forEach(ele => {
+                            htmlLeft +=
+                                `<li>
+                                    <a href="./news.html?id=${ele.str_id}">
+                                        <div class="img-infos">
+                                            <img src="${that.site+ele.str_thumb}" alt="">
+                                        </div>
+                                        <div class="des-infos">
+                                            <h3>${ele.str_title}</h3>
+                                            <p>${ele.str_guide}</p>
+                                            <span>${ele.news_time}</span>
+                                        </div>
+                                    </a>
+                                </li>`
                         });
+                        $("#news-section>ul").append(htmlLeft);
+                    } else {
+                        $("#news-section>ul").append('<h1>Sorry,这里还什么都没有</h1>');
                     }
-                    article.append(content);
+
                 } else {
                     alert(res.message);
                 }
