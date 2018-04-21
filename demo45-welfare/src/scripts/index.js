@@ -64,7 +64,7 @@ $(function () {
                         if (!this.params.debugger) return;
                         // console.log('reachEnd');
                     },
-                },
+                }
             };
             // Install Plugin To Swiper
             Swiper.use(myPlugin);
