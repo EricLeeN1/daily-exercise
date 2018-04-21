@@ -333,7 +333,6 @@ body {
                     margin: 0 auto;
                     margin-bottom: 30px;
                 }
-                
             }
         }
     }
@@ -595,6 +594,7 @@ body {
     &#news-body {
         background-image: url('../images/bg-news.png');
         >main {
+            position: relative;
             article {
                 h3 {
                     color: #2d91d0;
@@ -611,6 +611,42 @@ body {
                     text-indent: 36px;
                     line-height: 32px;
                     margin-bottom: 10px;
+                }
+            }
+            aside {
+                background-color: #fff;
+                width: 200px;
+                box-sizing: border-box;
+                height: 154px;
+                padding: 0 8px;
+                @include rounded-corners(6px);
+                @include positions($left: -220px, $top:0);
+                box-shadow: 0 0 6px rgba(0, 0, 0, .06), -6px 0 6px rgba(0, 0, 0, .06), 6px 0 6px rgba(0, 0, 0, .06), 0 6px 6px rgba(0, 0, 0, .06);
+                .news-item {
+                    height: 50%;
+                    line-height: 76px;
+                    text-align: center;
+                    a {
+                        line-height: inherit;
+                        display: block;
+                        color: #5fb86e;
+                        position: relative;
+                        &::before {
+                            content: attr(data-type);
+                            @include positions($left: 10px, $top:50%);
+                            margin-top: -9px;
+                            width: 18px;
+                            height: 18px;
+                            font-size: 14px;
+                            background-color: #a8d8b0;
+                            color: #fff;
+                            line-height: 18px;
+                            @include rounded-corners(3px);
+                        }
+                    }
+                    &.line {
+                        border-bottom: 2px solid #a8d8b0;
+                    }
                 }
             }
         }
