@@ -3,10 +3,12 @@ $(function () {
     let Base = window.Base || {};
     Base = {
         site: 'https://www.doubaner.top',
-        getInfos() {
+        pagesLength: 1,
+        page: 1,
+        getInfos(page = 1) {
             let that = this;
             let type = that.getQueryString('type');
-            let url = `/news/page/1/column/${type}`;
+            let url = `/news/page/${page}/column/${type}`;
             that.getAjax(url, {}, function (res) {
                 console.log(res);
                 if (res.status == 200) {
@@ -16,13 +18,15 @@ $(function () {
                     let config = res.data.Configs;
                     let htmlLeft = '';
                     let htmlRight = '';
+                    let count = res.data.count;
+                    let pagesHtml = '';
                     if (newsDatas) {
                         newsDatas.forEach(ele => {
                             htmlLeft +=
                                 `<li>
                                     <a href="./news.html?id=${ele.str_id}">
                                         <div class="img-infos">
-                                            <img src="${that.site+ele.str_thumb}" alt="">
+                                            <img src="${that.site + ele.str_thumb}" alt="">
                                         </div>
                                         <div class="des-infos">
                                             <h3>${ele.str_title}</h3>
@@ -40,7 +44,7 @@ $(function () {
                     if (config) {
                         config.forEach(ele => {
                             let metaHave = `meta[name="${ele.name}"]`;
-                            if (ele.name=='title') {
+                            if (ele.name == 'title') {
                                 $("title").text(ele.value);
                             } else {
                                 if ($(metaHave)[0]) {
@@ -48,7 +52,7 @@ $(function () {
                                 } else {
                                     $("head").append(`<meta name="${ele.name}" content="${ele.value}" />`);
                                 }
-                            } 
+                            }
                         });
                     }
                     if (newsRightDatas) {
@@ -57,7 +61,7 @@ $(function () {
                                 `<li>
                                     <a href="./news.html?id=${ele.str_id}">
                                         <div class="img-infos">
-                                            <img src="${that.site+ele.str_thumb}" alt="">
+                                            <img src="${that.site + ele.str_thumb}" alt="">
                                         </div>
                                         <div class="des-infos">
                                             <h3>${ele.str_title}</h3>
@@ -70,6 +74,16 @@ $(function () {
                     } else {
                         $("#news-aside-list").append('<h1>Sorry,这里还什么都没有</h1>');
                     }
+                    that.pagesLength = Math.ceil(count / 8);
+                    for (let index = 1; index <= that.pagesLength; index++) {
+                        console.log(index);
+                        if (index == page) {
+                            pagesHtml += `<li class="active" data-page="${index}">${index}</li>`;
+                        } else {
+                            pagesHtml += `<li data-page="${index}">${index}</li>`;
+                        }
+                    }
+                    $("#show-pages").html(pagesHtml);
                 } else {
                     alert(res.message);
                 }
@@ -98,8 +112,8 @@ $(function () {
         imgLoad() {
             let image = new Image();
             image.onload = function () {
-                    console.log('success');
-                },
+                console.log('success');
+            },
                 image.onerror = function () {
                     this.src = that.site + +this.src;
                 }
@@ -125,10 +139,16 @@ $(function () {
             });
         },
         init() {
-            console.log('111');
             let that = this;
             that.getInfos();
             that.setCrumb();
+            $("#show-pages").on('click', 'li', function () {
+                if ($(this).hasClass('active')) {
+                    return;
+                }
+                let pages = $(this).attr('data-page');
+                that.getInfos(pages);
+            })
         }
     }
     Base.init();

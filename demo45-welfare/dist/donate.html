@@ -48,7 +48,7 @@
             <div class="pay-infos">
                 <div class="pay-methods">
                     <h4>请填写信息并完成支付：</h4>
-                    <ul class="pay-methods-list">
+                    <ul class="pay-methods-list" id="pay-methods-list">
                         <li data-value="197" class="active">
                             <h5>￥197</h5>
                             <p>就能为200位学生提供1年优质观影资源购买。</p>
@@ -61,7 +61,7 @@
                             <h5>￥1000</h5>
                             <p>就能为40个孩子提供为1学期部分素质基础启蒙教育用品，图书绘本资料。</p>
                         </li>
-                        <li>
+                        <li data-value="">
                             <div>
                                 <label for="pay-value">￥</label>
                                 <input type="text" id="pay-value" placeholder="请输入金额">
@@ -74,22 +74,18 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="form-surname">
-                        <label class="important" for="surname">姓</label>
-                        <input class="name-input" type="text" name="surname" id="surname">
-                    </div>
-                    <div class="clearfix">
-                        <label class="important" for="name">名</label>
+                    <div class="form-surname clearfix">
+                        <label class="important" for="name">姓名</label>
                         <input class="name-input" type="text" name="name" id="name">
                     </div>
                     <div>
                         <label class="important" for="appellation">称谓</label>
                         <div class="receipt-radio clearfix">
-                            <input checked="checked" type="radio" name="appellation" value="sir">
+                            <input checked="checked" type="radio" name="appellation" value="1">
                             <span>先生</span>
-                            <input type="radio" name="appellation" value="lady">
+                            <input type="radio" name="appellation" value="2">
                             <span>女士</span>
-                            <input type="radio" name="appellation" value="child">
+                            <input type="radio" name="appellation" value="3">
                             <span>小朋友</span>
                         </div>
                     </div>
@@ -99,8 +95,8 @@
                         <span></span>
                     </div>
                     <div>
-                        <label class="important" for="mail">E-mail</label>
-                        <input class="contact-input" type="email" name="mail" id="mail">
+                        <label class="important" for="email">E-mail</label>
+                        <input class="contact-input" type="email" name="mail" id="email">
                         <span></span>
                     </div>
                     <div>
@@ -113,13 +109,13 @@
                             <div class="clearfix">
                                 <input type="radio" name="receipt" value="true">
                                 <span>是</span>
-                                <input type="radio" name="receipt" value="false" checked="checked">
+                                <input type="radio" name="receipt" value="0" checked="checked">
                                 <span>否</span>
                             </div>
                             <div class="receipt-choice clearfix">
                                 <select name="receipt" id="select-choice">
-                                    <option value="公司">公司</option>
-                                    <option value="机构">机构</option>
+                                    <option value="2">公司</option>
+                                    <option value="1">个人</option>
                                 </select>
                                 <input type="text" placeholder="请输入公司名称或机构代码" id="organ-name">
                             </div>
@@ -128,8 +124,8 @@
                     <div>
                         <label class="important" for="address">支付方式</label>
                         <div class="clearfix" id="pay-methods">
-                            <img src="./images/donate/alipay.png" alt="">
-                            <img src="./images/donate/wechat.png" alt="">
+                            <img data-type="1" src="./images/donate/alipay.png" alt="支付宝">
+                            <img data-type="2" src="./images/donate/wechat.png" alt="微信">
                         </div>
                     </div>
                 </div>
@@ -212,6 +208,9 @@
             Copyright &copy; 2016-2017 分享信息技术有限公司 版权所有 京ICP备170014号-1
         </section>
     </footer>
+    <script src="./scripts/swiper.min.js"></script>
+    <script src="./scripts/vendor.js"></script>
+    <script src="./scripts/donate.min.js"></script>
 </body>
 
 </html>

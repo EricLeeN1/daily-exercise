@@ -3,19 +3,24 @@ $(function () {
     let Base = window.Base || {};
     Base = {
         site: 'https://www.doubaner.top',
-        showList() {
+        pagesLength: 1,
+        page: 1,
+        showList(page = 1) {
             let that = this;
-            that.getAjax('/publicity/2', {}, function (res) {
+            let url = `/publicity/${page}`;
+            that.getAjax(url, {}, function (res) {
                 console.log(res);
                 if (res.status == 200) {
-                    let datas = res.data;
+                    let datas = res.data.list;
+                    let count = res.data.count;
+                    let pagesHtml = '';
                     if (datas.length > 0) {
                         let showitem = '';
                         datas.forEach(ele => {
                             showitem += `
                             <li>
                                 <h3>${ele.title}</h3>
-                                <a href="${that.site+ele.file}" download="${that.site+ele.file}">立即下载</a>
+                                <a href="${that.site + ele.file}" download="${that.site + ele.file}">立即下载</a>
                                 <span>${ele.time}</span>
                             </li>
                             `;
@@ -24,6 +29,16 @@ $(function () {
                     } else {
                         $("#show-list").html('<h3>这里还什么都没有</h3>');
                     }
+                    that.pagesLength = Math.ceil(count / 8);
+                    for (let index = 1; index <= that.pagesLength; index++) {
+                        console.log(index);
+                        if (index == page) {
+                            pagesHtml += `<li class="active" data-page="${index}">${index}</li>`;
+                        } else {
+                            pagesHtml += `<li data-page="${index}">${index}</li>`;
+                        }
+                    }
+                    $("#show-pages").html(pagesHtml);
                 } else {
                     alert(res.message);
                 }
@@ -42,8 +57,8 @@ $(function () {
         imgLoad() {
             let image = new Image();
             image.onload = function () {
-                    console.log('success');
-                },
+                console.log('success');
+            },
                 image.onerror = function () {
                     this.src = that.site + +this.src;
                 }
@@ -69,9 +84,15 @@ $(function () {
             });
         },
         init() {
-            console.log('111');
             let that = this;
             that.showList();
+            $("#show-pages").on('click', 'li', function () {
+                if ($(this).hasClass('active')) {
+                    return;
+                }
+                let pages = $(this).attr('data-page');
+                that.showList(pages);
+            })
         }
     }
     Base.init();
