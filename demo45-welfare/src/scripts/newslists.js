@@ -6,13 +6,16 @@ $(function () {
         getInfos() {
             let that = this;
             let type = that.getQueryString('type');
-            type = type == 1 ? 8 : 9;
-            that.getAjax('/news/page/1/column/8', {}, function (res) {
+            let url = `/news/page/1/column/${type}`;
+            that.getAjax(url, {}, function (res) {
                 console.log(res);
                 if (res.status == 200) {
                     let newsDatas = res.data.newsList;
-                    let newsRightDatas = res.data.rightNewsList;
+                    let newsRightDatas =
+                        res.data.rightNewsList;
+                    let config = res.data.Configs;
                     let htmlLeft = '';
+                    let htmlRight = '';
                     if (newsDatas) {
                         newsDatas.forEach(ele => {
                             htmlLeft +=
@@ -29,15 +32,58 @@ $(function () {
                                     </a>
                                 </li>`
                         });
-                        $("#news-section>ul").append(htmlLeft);
+                        $("#news-section>ul").append(htmlLeft).after('<p class="tips">没有更多了</p>');
+
                     } else {
                         $("#news-section>ul").append('<h1>Sorry,这里还什么都没有</h1>');
                     }
-
+                    if (config) {
+                        config.forEach(ele => {
+                            let metaHave = `meta[name="${ele.name}"]`;
+                            if (ele.name=='title') {
+                                $("title").text(ele.value);
+                            } else {
+                                if ($(metaHave)[0]) {
+                                    $(metaHave).attr('content', ele.value);
+                                } else {
+                                    $("head").append(`<meta name="${ele.name}" content="${ele.value}" />`);
+                                }
+                            } 
+                        });
+                    }
+                    if (newsRightDatas) {
+                        newsRightDatas.forEach(ele => {
+                            htmlRight +=
+                                `<li>
+                                    <a href="./news.html?id=${ele.str_id}">
+                                        <div class="img-infos">
+                                            <img src="${that.site+ele.str_thumb}" alt="">
+                                        </div>
+                                        <div class="des-infos">
+                                            <h3>${ele.str_title}</h3>
+                                            <p>${ele.news_time}</p>
+                                        </div>
+                                    </a>
+                                </li>`
+                        });
+                        $("#news-aside-list").append(htmlRight);
+                    } else {
+                        $("#news-aside-list").append('<h1>Sorry,这里还什么都没有</h1>');
+                    }
                 } else {
                     alert(res.message);
                 }
             });
+        },
+        setCrumb() {
+            let that = this;
+            let type = that.getQueryString('type');
+            let crumb = $("#crumb>span");
+            let asideTitle = $("#aside-title");
+            if (type == 9) {
+                crumb.text('行动新闻列表');
+                asideTitle.text('公益明星').next().attr('href', '/newsList.html?type=8');
+            }
         },
         getQueryString: function (name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -82,6 +128,7 @@ $(function () {
             console.log('111');
             let that = this;
             that.getInfos();
+            that.setCrumb();
         }
     }
     Base.init();

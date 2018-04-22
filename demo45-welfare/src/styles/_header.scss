@@ -14,10 +14,10 @@ header.common-header {
         }
     }
     .site-logo{
-        @include spirit(-536px,0,138px,120px);
+        @include spirit(-536px,0,138px,145px);
         float: left;
         margin-left: -69px;
-        margin-top: -60px;
+        margin-top: -72px;
         @include positions($left:50%,$top:50%);
     }
     nav {

@@ -842,6 +842,7 @@ body {
                                     font-size: 16px;
                                     line-height: 24px;
                                     margin-bottom: 10px;
+                                    min-height: 72px;
                                 }
                                 span{
                                     display: block;
@@ -853,6 +854,13 @@ body {
                             }
                         }
                     }
+                }
+                .tips{
+                    line-height: 30px;
+                    text-align: center;
+                    font-size: 16px;
+                    margin-top: 10px;
+                    color: #666;
                 }
             }
             aside {
@@ -866,6 +874,9 @@ body {
                     line-height: 36px;
                     margin-bottom: 20px;
                     font-weight: 600;
+                    p{
+                        float: left;
+                    }
                     a{
                         float: right;
                         font-size: 14px;
