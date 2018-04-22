@@ -262,21 +262,29 @@ body {
                         margin-top: -38px;
                     }
                 }
-                .swiper-slide {
-                    height: 425px;
-                    overflow: hidden;
-                }
-                .swiper-pagination {
-                    @include positions($bottom: 0px);
-                    .swiper-pagination-bullet {
-                        width: 10px;
-                        @include rounded-corners(50%);
-                        height: 10px;
-                        background-color: #f1cf97;
+                .swiper-wrapper {
+                    h3 {
+                        text-align: center;
+                        font-size: 16px;
+                        color: #666;
+                        line-height: 60px;
                     }
-                    .swiper-pagination-bullet-active {
-                        background-color: #e94e18;
-                        transform: scale(1.5);
+                    .swiper-slide {
+                        height: 425px;
+                        overflow: hidden;
+                    }
+                    .swiper-pagination {
+                        @include positions($bottom: 0px);
+                        .swiper-pagination-bullet {
+                            width: 10px;
+                            @include rounded-corners(50%);
+                            height: 10px;
+                            background-color: #f1cf97;
+                        }
+                        .swiper-pagination-bullet-active {
+                            background-color: #e94e18;
+                            transform: scale(1.5);
+                        }
                     }
                 }
             }
@@ -302,6 +310,12 @@ body {
                     margin: 0 auto;
                 }
                 .swiper-wrapper {
+                    h3 {
+                        text-align: center;
+                        font-size: 16px;
+                        color: #666;
+                        line-height: 60px;
+                    }
                     .swiper-slide {
                         width: 40%;
                         height: 258px;
@@ -333,6 +347,27 @@ body {
                     margin: 0 auto;
                     margin-bottom: 30px;
                 }
+                .swiper-wrapper {
+                    h3 {
+                        text-align: center;
+                        font-size: 16px;
+                        color: #666;
+                        line-height: 60px;
+                    }
+                    @include clearfix;
+                    a {
+                        height: 100px;
+                        width: auto;
+                        float: left;
+                        img {
+                            float: left;
+                            height: 100%; // border: 1px solid #e1e1e1;
+                            box-sizing: border-box;
+                            padding: 6px;
+                            @include rounded-corners(10px);
+                        }
+                    }
+                }
             }
         }
     }
@@ -340,7 +375,6 @@ body {
         background-image: url('../images/bg-news.png');
         section {
             overflow: hidden;
-            margin-bottom: 40px;
             &.right-article {
                 img {
                     float: left;
@@ -831,20 +865,20 @@ body {
                                 height: 180px;
                                 box-sizing: border-box;
                                 padding-right: 6px;
-                                h3{
+                                h3 {
                                     color: #333333;
                                     font-size: 20px;
                                     line-height: 28px;
                                     margin-bottom: 10px;
                                 }
-                                p{
+                                p {
                                     color: #888888;
                                     font-size: 16px;
                                     line-height: 24px;
                                     margin-bottom: 10px;
                                     min-height: 72px;
                                 }
-                                span{
+                                span {
                                     display: block;
                                     text-align: right;
                                     color: #cdcdcd;
@@ -855,7 +889,7 @@ body {
                         }
                     }
                 }
-                .tips{
+                .tips {
                     line-height: 30px;
                     text-align: center;
                     font-size: 16px;
@@ -867,25 +901,25 @@ body {
                 float: right;
                 width: 320px;
                 padding-top: 40px;
-                >h2{
+                >h2 {
                     color: #edbb67;
                     @include clearfix;
                     font-size: 20px;
                     line-height: 36px;
                     margin-bottom: 20px;
                     font-weight: 600;
-                    p{
+                    p {
                         float: left;
                     }
-                    a{
+                    a {
                         float: right;
                         font-size: 14px;
                         color: #999999;
                         font-weight: normal;
                     }
                 }
-                ul{
-                    li{
+                ul {
+                    li {
                         @include clearfix;
                         padding: 16px 0;
                         div {
@@ -904,20 +938,95 @@ body {
                                 height: 88px;
                                 box-sizing: border-box;
                                 padding-right: 6px;
-                                h3{
+                                h3 {
                                     color: #121212;
                                     font-size: 16px;
                                     line-height: 24px;
                                     height: 54px;
                                     margin-bottom: 10px;
                                 }
-                                p{
+                                p {
                                     color: #888888;
                                     font-size: 16px;
                                     line-height: 24px;
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+    &#company-body {
+        background-image: url('../images/bg-about.png');
+        >main {
+            @include clearfix;
+            #company-list {
+                @include clearfix;
+                li {
+                    float: left;
+                    a {
+                        height: 160px;
+                        width: auto;
+                        float: left;
+                        img {
+                            float: left;
+                            height: 100%; 
+                            border: 1px solid #e1e1e1;
+                            box-sizing: border-box;
+                            padding: 6px;
+                            @include rounded-corners(10px);
+                            margin-right: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &#show-body {
+        background-image: url('../images/bg-about.png');
+        >main {
+            @include clearfix;
+            >h2{
+                color: #5fb86e;
+                position: relative;
+                font-size: 30px;
+                border: 1px solid #5fb86e;
+                p{
+                    width: 200px;
+                    height: 60px;
+                    line-height: 60px;
+                    background-color:#fff;
+                    text-align: center;
+                    @include positions($top:50%,$left:50%);
+                    margin-left: -100px;
+                    margin-top: -30px;
+                }
+            }
+            #show-list {
+                margin-top: 30px;
+                @include clearfix;
+                li {
+                    height: 100px;
+                    line-height: 100px;
+                    padding: 0 30px;
+                    border-bottom: 1px solid #5fb86e;
+                    h3{
+                        float: left;
+                    }
+                    span{
+                        float: right;
+                        margin-right: 60px;
+                    }
+                    a{
+                        float: right;
+                        background-color: #5fb86e;
+                        height: 40px;
+                        color: #fff;
+                        line-height: 40px;
+                        padding: 0 10px;
+                        margin-top: 30px;
+                        @include rounded-corners(5px);
                     }
                 }
             }

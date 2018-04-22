@@ -131,6 +131,16 @@ $(function () {
                 // Enable debugger
                 debugger: true,
             });
+            var swiper3 = new Swiper('.swiper3', {
+                slidesPerView: 'auto',
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                loop: true,
+                centeredSlides: true,
+                spaceBetween: 30
+            });
         },
         getBannerInfos() {
             this.getAjax('/intro', {}, function (res) {
@@ -146,10 +156,10 @@ $(function () {
             this.getAjax('/data', {}, function (res) {
                 console.log(res);
                 if (res.status == 200) {
-                    $("#donate .donate-icon-1").next().text(res.data.aims);
-                    $("#donate .donate-icon-2").next().text(res.data.num);
-                    $("#donate .donate-icon-3").next().text(res.data.total);
-                    $("#donate .donate-icon-4").next().text(res.data.sumofcinemas);
+                    $("#donate .donate-icon-1").next().text(res.data.aims).countUp();;
+                    $("#donate .donate-icon-2").next().text(res.data.num).countUp();;
+                    $("#donate .donate-icon-3").next().text(res.data.total).countUp();;
+                    $("#donate .donate-icon-4").next().text(res.data.sumofcinemas).countUp();;
                 } else {
                     alert(res.message);
                 }
@@ -168,15 +178,15 @@ $(function () {
                         datas.forEach(ele => {
                             let imgSite = that.site + ele.str_thumb;
                             swiperSlides += `
-                            <div class="swiper-slide" data-id="${ele.str_id}">
+                            <a href="./news.html?id=${ele.str_id}" class="swiper-slide" data-id="${ele.str_id}">
                                 <img src="${imgSite}" alt="${ele.str_title}">
-                            </div>
+                            </a>
                             `;
                         });
                         console.log(swiperSlides);
                         $("#action>.swiper-wrapper").html(swiperSlides);
-                    } else {
-
+                    }else{
+                        $("#action>.swiper-wrapper").html('<h3>这里还什么都没有</h3>');
                     }
                 } else {
                     alert(res.message);
@@ -188,6 +198,7 @@ $(function () {
             that.getAjax('/newsList/column/9', {
                 column: 9
             }, function (res) {
+                console.log('9');
                 console.log(res);
                 if (res.status == 200) {
                     let datas = res.data.StrategyList;
@@ -196,14 +207,14 @@ $(function () {
                         datas.forEach(ele => {
                             let imgSite = that.site + ele.str_thumb;
                             swiperSlides += `
-                            <div class="swiper-slide" data-id="${ele.str_id}">
+                            <a href="./news.html?id=${ele.str_id}" class="swiper-slide" data-id="${ele.str_id}">
                                 <img src="${imgSite}" alt="${ele.str_title}">
-                            </div>
+                            </a>
                             `;
                         });
                         $("#donate-star>.swiper-wrapper").html(swiperSlides);
                     } else {
-
+                        $("#donate-star>.swiper-wrapper").html('<h3>这里还什么都没有</h3>');
                     }
                 } else {
                     alert(res.message);
@@ -212,13 +223,28 @@ $(function () {
         },
         companyList() {
             let that = this;
-            that.getAjax('/companyList', {
-            }, function (res) { 
+            that.getAjax('/companyList', {}, function (res) {
                 console.log(res);
                 if (res.status == 200) {
-
-                }else{
-
+                    $("#donate-company");
+                    let datas = res.data;
+                    if (datas.length > 0) {
+                        let swiperSlides = '';
+                        datas.forEach(ele => {
+                            let imgSite = that.site + ele.logo;
+                            swiperSlides += `
+                            <a href="${ele.link_url}" class="swiper-slide" data-id="${ele.str_id}" target="_blank">
+                                <img src="${imgSite}" alt="${ele.str_title}">
+                            </a>
+                            `;
+                        });
+                        console.log(swiperSlides);
+                        $("#donate-company>.swiper-wrapper").html(swiperSlides);
+                    } else {
+                        $("#donate-company>.swiper-wrapper").html('<h3>这里还什么都没有</h3>');
+                    }
+                } else {
+                    alert(res.message);
                 }
             });
         },
@@ -246,11 +272,13 @@ $(function () {
             console.log('111');
             let that = this;
             that.getBannerInfos();
-            that.setSwiper();
             that.welfareDatas();
             that.newsList8();
             that.newsList9();
             that.companyList();
+            setTimeout(() => {
+                that.setSwiper();
+            }, 1000);
         }
     }
     Base.init();
