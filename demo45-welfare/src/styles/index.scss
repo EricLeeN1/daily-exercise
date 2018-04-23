@@ -891,17 +891,16 @@ body {
                         width: 20px;
                         height: 20px;
                         background-color: #fff;
-                        border: 1px solid #2d91d0;
-                        color: #2d91d0;
+                        border: 1px solid #edba67;
+                        color: #edba67;
                         @include rounded-corners(4px);
                         line-height: 20px;
                         text-align: center;
                         float: left;
-                        margin-right: 20px;
                         &.active{
                             color: #fff;
-                            background-color: #2d91d0;
-                            border: 1px solid #2d91d0;
+                            background-color: #edba67;
+                            border: 1px solid #edba67;
                         }
                     }
                 }
@@ -1054,17 +1053,16 @@ body {
                     width: 20px;
                     height: 20px;
                     background-color: #fff;
-                    border: 1px solid #2d91d0;
-                    color: #2d91d0;
+                    border: 1px solid #edba67;
+                    color: #edba67;
                     @include rounded-corners(4px);
                     line-height: 20px;
                     text-align: center;
                     float: left;
-                    margin-right: 20px;
                     &.active{
                         color: #fff;
-                        background-color: #2d91d0;
-                        border: 1px solid #2d91d0;
+                        background-color: #edba67;
+                        border: 1px solid #edba67;
                     }
                 }
             }
