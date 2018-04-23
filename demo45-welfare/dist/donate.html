@@ -64,7 +64,7 @@
                         <li data-value="">
                             <div>
                                 <label for="pay-value">￥</label>
-                                <input type="text" id="pay-value" placeholder="请输入金额">
+                                <input data-check="pay" type="text" id="pay-value" placeholder="请输入金额">
                             </div>
                             <p>你希望捐助的其他金额</p>
                         </li>
@@ -73,10 +73,11 @@
                         请提供真实的个人信息及平信地址以便我们与您联系，切为您寄送我们项目情况的资料，您的个人资料将做保密处理。
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="form-group">
                     <div class="form-surname clearfix">
                         <label class="important" for="name">姓名</label>
-                        <input class="name-input" type="text" name="name" id="name">
+                        <input data-check="name" class="contact-input" type="text" name="name" id="name" placeholder="请输入您的姓名" maxlength="8">
+                        <span></span>
                     </div>
                     <div>
                         <label class="important" for="appellation">称谓</label>
@@ -91,17 +92,18 @@
                     </div>
                     <div>
                         <label class="important" for="phone">手机</label>
-                        <input class="contact-input" type="tel" name="phone" id="phone">
+                        <input data-check="phone" class="contact-input" type="tel" name="phone" id="phone" placeholder="请输入您的联系方式">
                         <span></span>
                     </div>
                     <div>
                         <label class="important" for="email">E-mail</label>
-                        <input class="contact-input" type="email" name="mail" id="email">
+                        <input data-check="email" class="contact-input" type="email" name="mail" id="email" placeholder="请输入您的电子邮件地址">
                         <span></span>
                     </div>
                     <div>
                         <label class="important" for="address">邮寄地址</label>
-                        <input class="contact-input" type="text" name="address" id="address">
+                        <input data-check="address" class="contact-input" type="text" name="address" id="address" placeholder="请输入您的通讯地址">
+                        <span></span>
                     </div>
                     <div>
                         <label for="receipt">是否开发票</label>
@@ -109,7 +111,7 @@
                             <div class="clearfix">
                                 <input type="radio" name="receipt" value="true">
                                 <span>是</span>
-                                <input type="radio" name="receipt" value="0" checked="checked">
+                                <input type="radio" name="receipt" value="" checked="checked">
                                 <span>否</span>
                             </div>
                             <div class="receipt-choice clearfix">
@@ -117,7 +119,12 @@
                                     <option value="2">公司</option>
                                     <option value="1">个人</option>
                                 </select>
-                                <input type="text" placeholder="请输入公司名称或机构代码" id="organ-name">
+                                <input data-check="organ-name" type="text" placeholder="请输入公司名称或机构代码" id="organ-name">
+                                <span></span>
+                            </div>
+                            <div class="receipt-choice clearfix">
+                                <input data-check="taxid" type="text" placeholder="请输入税号" id="taxid">
+                                <span></span>
                             </div>
                         </div>
                     </div>

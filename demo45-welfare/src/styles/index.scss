@@ -513,6 +513,10 @@ body {
                             }
                             &#organ-name {
                                 float: left;
+                                @include clearfix;
+                            }
+                            &#taxid {
+                                margin-left: 80px;
                             }
                         }
                         #pay-methods {
@@ -520,22 +524,27 @@ body {
                             img {
                                 float: left;
                                 margin-right: 20px;
+                                cursor: pointer;
                             }
                         }
                         .receipt-choice {
-                            margin-top: 10px;
-                        }
-                        select {
-                            outline: none;
-                            margin-left: 80px;
-                            padding: 0 10px;
-                            @include rounded-corners(3px);
-                            border: 1px solid #666666;
-                            float: left;
-                            margin-right: 20px;
-                            height: 32px;
-                            line-height: 32px;
-                            box-sizing: border-box;
+                            margin-top: 11px;
+                            span{
+                                color: #da4646;
+                                margin-left: 10px; 
+                            }
+                            select {
+                                outline: none;
+                                margin-left: 80px;
+                                padding: 0 10px;
+                                @include rounded-corners(3px);
+                                border: 1px solid #666666;
+                                float: left;
+                                margin-right: 20px;
+                                height: 32px;
+                                line-height: 32px;
+                                box-sizing: border-box;
+                            }
                         }
                         >span {
                             color: #da4646;
