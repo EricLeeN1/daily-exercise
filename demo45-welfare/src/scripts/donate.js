@@ -67,6 +67,7 @@ $(function () {
             let regEmail = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
             let value = e.val();
             let checkType = e.attr('data-check');
+            console.log(value);
             let optionCheck = $("input[name=receipt]:checked").val();
             switch (checkType) {
                 case "name":
@@ -74,6 +75,16 @@ $(function () {
                         $("#name").next('span').text("您还没有填写名字呢");
                     } else {
                         $("#name").next('span').text("");
+                    }
+                    break;
+                case "pay":
+                    console.log('111');
+                    if (value < 100) {
+                        $("#form-group input[data-check]:not([data-check='name']),.receipt-radio").parent().hide();
+                        $("#form-group :radio[name='appellation'] ").parent().parent().hide();
+                    } else {
+                        $("#form-group input[data-check]:not([data-check='name']),.receipt-radio").parent().show();
+                        $("#form-group :radio[name='appellation'] ").parent().parent().show();
                     }
                     break;
                 case "phone":
@@ -118,6 +129,7 @@ $(function () {
         changePayValue(ele) {
             let that = this;
             let value = ele.attr('data-value');
+            ele.addClass('active').siblings().removeClass('active');
             if (value) {
                 that.payValue = value;
             }
@@ -171,7 +183,7 @@ $(function () {
                 let _this = $(this);
                 that.changePayValue(_this);
             });
-            $("#form-group input[data-check]").on('blur', function () {
+            $("#form-group input[data-check],#pay-value").on('blur', function () {
                 let _this = $(this);
                 that.blurCheck(_this);
             });
