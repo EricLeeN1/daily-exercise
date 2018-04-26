@@ -6,8 +6,8 @@ $version:'1.0.0';
 @import '_header.scss';
 @import '_footer.scss';
 body {
-    min-height: 100vh;
-    padding-bottom: 120px;
+    min-height: 100vh; // padding-bottom: 120px;
+    padding-top: 97px;
     >main {
         @include container-main;
         background-color: #ffffff;
@@ -201,44 +201,71 @@ body {
                     z-index: 1;
                     background-color: rgba(255, 255, 255, .7);
                 }
-                a {
+                >div {
+                    width: 25%;
                     z-index: 2;
                     position: relative;
                     float: left;
                     width: 25%;
                     text-align: center;
                     margin: 96px 0;
-                    div {
-                        margin: 100px auto 0 auto;
-                        &.donate-href-1 {
-                            @include spirit(0px,
-                            -255px,
-                            134px,
-                            134px);
+                    >a {
+                        span {
+                            margin: 100px auto 0 auto;
+                            display: inline-block;
+                            &.donate-href-1 {
+                                @include spirit(0px,
+                                -255px,
+                                134px,
+                                134px);
+                            }
+                            &.donate-href-2 {
+                                @include spirit(-134px,
+                                -255px,
+                                134px,
+                                134px);
+                            }
+                            &.donate-href-3 {
+                                @include spirit(-268px,
+                                -255px,
+                                134px,
+                                134px);
+                            }
+                            &.donate-href-4 {
+                                @include spirit(-402px,
+                                -255px,
+                                134px,
+                                134px);
+                            }
                         }
-                        &.donate-href-2 {
-                            @include spirit(-134px,
-                            -255px,
-                            134px,
-                            134px);
-                        }
-                        &.donate-href-3 {
-                            @include spirit(-268px,
-                            -255px,
-                            134px,
-                            134px);
-                        }
-                        &.donate-href-4 {
-                            @include spirit(-402px,
-                            -255px,
-                            134px,
-                            134px);
+                        p {
+                            color: #121212;
+                            font-size: 22px;
+                            margin-top: 20px;
                         }
                     }
-                    p {
-                        color: #121212;
-                        font-size: 22px;
-                        margin-top: 20px;
+                    &#hearts:hover {
+                        #love-hearts {
+                            display: block;
+                        }
+                    }
+                    #love-hearts {
+                        display: none;
+                        @include positions($left: 0, $right:0, $top:100px, $bottom:0);
+                        background-color: rgba(0, 0, 0, 1);
+                        height: calc(100% - 96px);
+                        line-height: calc(100% - 96px);
+                        @include clearfix; // width: 2;
+                        a {
+                            width: 30%;
+                            margin: 78px 10%;
+                            height: 35px;
+                            line-height: 35px;
+                            float: left;
+                            color: #fff;
+                            background-color: rgba(255, 0, 0, .6);
+                            @include rounded-corners(6px);
+                        }
                     }
                 }
             }
@@ -270,11 +297,12 @@ body {
                         line-height: 60px;
                     }
                     .swiper-slide {
-                        height: 425px;
+                        height: 700px;
                         overflow: hidden;
                     }
-                    .swiper-pagination {
-                        @include positions($bottom: 0px);
+                    .swiper-pagination-bullets {
+                        @include positions($bottom: 20px);
+                        background-color: red;
                         .swiper-pagination-bullet {
                             width: 10px;
                             @include rounded-corners(50%);
@@ -356,13 +384,14 @@ body {
                     }
                     @include clearfix;
                     a {
-                        height: 100px;
-                        width: auto;
+                        height: 72px;
+                        width: 140px;
                         float: left;
+                        overflow: hidden;
                         img {
-                            float: left;
                             height: 100%; // border: 1px solid #e1e1e1;
                             box-sizing: border-box;
+                            width: 100%;
                             padding: 6px;
                             @include rounded-corners(10px);
                         }
@@ -373,7 +402,11 @@ body {
     }
     &#donate-body {
         background-image: url('../images/bg-news.png');
+        font-family: huakang;
         section {
+            &.pay-section {
+                margin-top: 20px;
+            }
             overflow: hidden;
             &.right-article {
                 img {
@@ -384,10 +417,11 @@ body {
             }
             &.left-article {
                 img {
+                    transform: scale(.85, .85);
                     float: right;
                     margin-bottom: 20px;
                     margin-right: 20px;
-                    margin-left: 130px;
+                    margin-left: 30px;
                 }
             }
             aside {
@@ -399,7 +433,7 @@ body {
                 }
             }
             .pay-infos {
-                width: 540px;
+                width: 440px;
                 float: left;
                 .pay-methods {
                     h4 {
@@ -412,7 +446,7 @@ body {
                         margin-top: 20px;
                         li {
                             float: left;
-                            width: 250px;
+                            width: 200px;
                             box-sizing: border-box;
                             border: 1px solid #000;
                             margin-right: 20px;
@@ -433,6 +467,9 @@ body {
                                 margin-bottom: 30px;
                                 label {
                                     float: left;
+                                }
+                                span{
+                                    font-size: 14px;
                                 }
                                 input {
                                     float: left;
@@ -456,6 +493,7 @@ body {
                             p {
                                 font-size: 14px;
                                 color: #777777;
+                                margin-top: 6px;
                             }
                             &.active {
                                 border: 1px solid #7ac035;
@@ -529,9 +567,9 @@ body {
                         }
                         .receipt-choice {
                             margin-top: 11px;
-                            span{
+                            span {
                                 color: #da4646;
-                                margin-left: 10px; 
+                                margin-left: 10px;
                             }
                             select {
                                 outline: none;
@@ -566,7 +604,7 @@ body {
             }
             .other-pay-infos {
                 // float: left;
-                width: 480px;
+                width: 380px;
                 float: right;
                 >div {
                     margin-bottom: 30px;
@@ -674,7 +712,7 @@ body {
                         color: #5fb86e;
                         position: relative;
                         &::before {
-                            content: attr(data-type);
+                            content: attr(data-item);
                             @include positions($left: 10px, $top:50%);
                             margin-top: -9px;
                             width: 18px;
@@ -765,6 +803,7 @@ body {
     }
     &#donateInfos-body {
         background-image: url('../images/bg-about.png');
+        font-family: huakang;
         >main {
             section {
                 overflow: hidden;
@@ -844,7 +883,7 @@ body {
             @include clearfix;
             #news-section {
                 float: left;
-                width: 740px;
+                width: 640px;
                 overflow: hidden;
                 ul {
                     li {
@@ -864,7 +903,7 @@ body {
                                 }
                             }
                             &.des-infos {
-                                width: 450px;
+                                width: 350px;
                                 height: 180px;
                                 box-sizing: border-box;
                                 padding-right: 6px;
@@ -872,6 +911,8 @@ body {
                                     color: #333333;
                                     font-size: 20px;
                                     line-height: 28px;
+                                    overflow: hidden;
+                                    max-height: 56px;
                                     margin-bottom: 10px;
                                 }
                                 p {
@@ -879,7 +920,8 @@ body {
                                     font-size: 16px;
                                     line-height: 24px;
                                     margin-bottom: 10px;
-                                    min-height: 72px;
+                                    max-height: 72px;
+                                    @include overflow-hidden;
                                 }
                                 span {
                                     display: block;
@@ -892,11 +934,11 @@ body {
                         }
                     }
                 }
-                #show-pages{
+                #show-pages {
                     text-align: center;
                     margin-top: 20px;
                     @include clearfix;
-                    li{
+                    li {
                         width: 20px;
                         height: 20px;
                         background-color: #fff;
@@ -905,8 +947,9 @@ body {
                         @include rounded-corners(4px);
                         line-height: 20px;
                         text-align: center;
-                        float: left;
-                        &.active{
+                        display: inline-block;
+                        margin-right: 6px;
+                        &.active {
                             color: #fff;
                             background-color: #edba67;
                             border: 1px solid #edba67;
@@ -923,7 +966,7 @@ body {
             }
             aside {
                 float: right;
-                width: 320px;
+                width: 220px;
                 padding-top: 40px;
                 >h2 {
                     color: #edbb67;
@@ -954,7 +997,7 @@ body {
                                 height: 88px;
                                 overflow: hidden;
                                 img {
-                                    width: 100%;
+                                    height: 100%;
                                 }
                             }
                             &.des-infos {
@@ -966,7 +1009,8 @@ body {
                                     color: #121212;
                                     font-size: 16px;
                                     line-height: 24px;
-                                    height: 54px;
+                                    max-height: 48px;
+                                    @include overflow-hidden;
                                     margin-bottom: 10px;
                                 }
                                 p {
@@ -995,7 +1039,7 @@ body {
                         float: left;
                         img {
                             float: left;
-                            height: 100%; 
+                            height: 100%;
                             border: 1px solid #e1e1e1;
                             box-sizing: border-box;
                             padding: 6px;
@@ -1011,18 +1055,18 @@ body {
         background-image: url('../images/bg-about.png');
         >main {
             @include clearfix;
-            >h2{
+            >h2 {
                 color: #5fb86e;
                 position: relative;
                 font-size: 30px;
                 border: 1px solid #5fb86e;
-                p{
+                p {
                     width: 200px;
                     height: 60px;
                     line-height: 60px;
-                    background-color:#fff;
+                    background-color: #fff;
                     text-align: center;
-                    @include positions($top:50%,$left:50%);
+                    @include positions($top: 50%, $left:50%);
                     margin-left: -100px;
                     margin-top: -30px;
                 }
@@ -1035,14 +1079,14 @@ body {
                     line-height: 100px;
                     padding: 0 30px;
                     border-bottom: 1px solid #5fb86e;
-                    h3{
+                    h3 {
                         float: left;
                     }
-                    span{
+                    span {
                         float: right;
                         margin-right: 60px;
                     }
-                    a{
+                    a {
                         float: right;
                         background-color: #5fb86e;
                         height: 40px;
@@ -1054,11 +1098,11 @@ body {
                     }
                 }
             }
-            #show-pages{
+            #show-pages {
                 text-align: center;
-                margin-top: 20px;
                 @include clearfix;
-                li{
+                margin-top: 20px;
+                li {
                     width: 20px;
                     height: 20px;
                     background-color: #fff;
@@ -1067,8 +1111,9 @@ body {
                     @include rounded-corners(4px);
                     line-height: 20px;
                     text-align: center;
-                    float: left;
-                    &.active{
+                    display: inline-block;
+                    margin-right: 6px;
+                    &.active {
                         color: #fff;
                         background-color: #edba67;
                         border: 1px solid #edba67;

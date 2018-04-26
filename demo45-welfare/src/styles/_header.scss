@@ -1,22 +1,23 @@
 @import './_base.scss';
 header.common-header {
-    padding: 0 150px;
-    position: relative;
-    height: 182px;
+    padding: 0 100px;
+    @include positions($left:0,$top:0,$right:0,$position:fixed);
+    z-index: 999;
+    height: 97px;
     overflow: hidden;
     background-color: #ffffff;
+    box-shadow: 2px 6px 8px rgba(0, 0, 0, .4);
     .logo-groups {
         float: left;
-        width: 40%;
+        width: 45%;
         height: 100%;
         a {
             float: left;
             width: 22%;
             margin-right: 1.5%;
             height: 100%;
-            line-height: 182px;
-            overflow: hidden;
-            // @include flex-center(0);
+            line-height: 97px;
+            overflow: hidden; // @include flex-center(0);
             img {
                 width: 100%;
                 display: inline-block;
@@ -29,13 +30,14 @@ header.common-header {
         float: left;
         margin-left: -69px;
         margin-top: -72px;
+        transform: scale(.5, .5);
         @include positions($left: 50%, $top:50%);
     }
     nav {
         float: right;
-        line-height: 182px;
+        line-height: 97px;
         font-size: 24px;
-        width: 40%;
+        width: 30%;
         a {
             float: left;
             width: 25%;
@@ -45,7 +47,7 @@ header.common-header {
                 color: #f39f14;
                 &::after {
                     content: '';
-                    @include positions($left: 50%, $bottom:45px);
+                    @include positions($left: 50%, $bottom:20px);
                     height: 4px;
                     background-color: #f39f14;
                     width: 42px;

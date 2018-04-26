@@ -1,6 +1,6 @@
 @import '_base.scss';
 footer.common-footer {
-    @include positions($position:fixed,$left:0,$right:0,$bottom:0);
+    @include positions($position:relative,$left:0,$right:0,$bottom:0);
     background-color: #4c4c4c;
     padding: 10px 0;
     color: #ffffff;
