@@ -83,9 +83,24 @@ $(function () {
                 fail: fnf
             });
         },
+        setSeo() {
+            let that = this;
+            that.getAjax('/seo', {}, function (res) {
+                console.log(res);
+                if (res.status == 200) {
+                    $("title").text(res.data.title);
+                    $("meta[name='keywords']").attr('content', res.data['keywords']);
+                    $("meta[name='description']").attr('content', res.data['description']);
+                } else {
+                    alert(res.message);
+                }
+            })
+
+        },
         init() {
             let that = this;
             that.showList();
+            that.setSeo();
             $("#show-pages").on('click', 'li', function () {
                 if ($(this).hasClass('active')) {
                     return;

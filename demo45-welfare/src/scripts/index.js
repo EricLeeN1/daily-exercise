@@ -71,11 +71,8 @@ $(function () {
 
             // Init Swiper
             let swiper = new Swiper('.swiper', {
-                autoplay: {
-                    delay: 2500,
-                    disableOnInteraction: false,
-                },
-                loop: true,
+                autoplay: false,
+                // loop: true,
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
@@ -141,6 +138,20 @@ $(function () {
                 centeredSlides: true,
                 spaceBetween: 30
             });
+        },
+        setSeo() {
+            let that = this;
+            that.getAjax('/seo', {}, function (res) {
+                console.log(res);
+                if (res.status == 200) {
+                    $("title").text(res.data.title);
+                    $("meta[name='keywords']").attr('content', res.data['keywords']);
+                    $("meta[name='description']").attr('content', res.data['description']);
+                } else {
+                    alert(res.message);
+                }
+            })
+
         },
         getBannerInfos() {
             this.getAjax('/intro', {}, function (res) {
@@ -275,6 +286,7 @@ $(function () {
             that.welfareDatas();
             that.newsList8();
             that.newsList9();
+            that.setSeo();
             that.companyList();
             setTimeout(() => {
                 that.setSwiper();

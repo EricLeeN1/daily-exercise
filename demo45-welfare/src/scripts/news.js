@@ -52,6 +52,20 @@ $(function () {
                     this.src = that.site + +this.src;
                 }
         },
+        setSeo() {
+            let that = this;
+            that.getAjax('/seo', {}, function (res) {
+                console.log(res);
+                if (res.status == 200) {
+                    $("title").text(res.data.title);
+                    $("meta[name='keywords']").attr('content', res.data['keywords']);
+                    $("meta[name='description']").attr('content', res.data['description']);
+                } else {
+                    alert(res.message);
+                }
+            })
+
+        },
         getAjax(url, datas, fns, fnf) {
             $.ajax({
                 type: "GET",
@@ -76,6 +90,7 @@ $(function () {
             console.log('111');
             let that = this;
             that.getInfos();
+            that.setSeo();
         }
     }
     Base.init();

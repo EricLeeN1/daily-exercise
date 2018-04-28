@@ -5,6 +5,7 @@ $(function () {
         site: 'https://www.doubaner.top',
         check: false,
         payValue: 197,
+        modalShow: false,
         checkForms(type) {
             let that = this;
             let params = {};
@@ -98,6 +99,10 @@ $(function () {
                 return params;
             }
         },
+        modalHide() {
+            $('#qrcode-modal').hide();
+            this.modalShow = false;
+        },
         payOrder(e) {
             let that = this;
             let params = null;
@@ -117,7 +122,13 @@ $(function () {
                 params.way = way;
                 that.postAjax('/pay', params, function (res) {
                     that.check = false;
-                })
+                    if (params.way == 2) {
+                        $('#qrcode-modal').show();
+                        that.modalShow = true;
+                    } else if (params.way == 1) {
+                        window.location.href = "./alisuccess.html";
+                    }
+                });
             }
         },
         blurCheck(e) {
@@ -250,8 +261,23 @@ $(function () {
                 fail: fnf
             });
         },
+        setSeo() {
+            let that = this;
+            that.getAjax('/seo', {}, function (res) {
+                console.log(res);
+                if (res.status == 200) {
+                    $("title").text(res.data.title);
+                    $("meta[name='keywords']").attr('content', res.data['keywords']);
+                    $("meta[name='description']").attr('content', res.data['description']);
+                } else {
+                    alert(res.message);
+                }
+            })
+
+        },
         init() {
             let that = this;
+            that.setSeo();
             $("#pay-methods>img").on('click', function () {
                 let _this = $(this);
                 that.payOrder(_this);
@@ -268,6 +294,13 @@ $(function () {
                 let _this = $(this);
                 that.getCheck(_this);
             });
+
+            $('body,#qrcode-modal span').on('click', function () {
+                if (that.modalShow) {
+                    that.modalHide();
+                }
+            })
+
         }
     }
     Base.init();

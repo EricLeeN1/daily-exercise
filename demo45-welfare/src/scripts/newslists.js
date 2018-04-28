@@ -36,7 +36,7 @@ $(function () {
                                     </a>
                                 </li>`
                         });
-                        $("#news-section>ul").append(htmlLeft).after('<p class="tips">没有更多了</p>');
+                        $("#news-section>ul").append(htmlLeft);
 
                     } else {
                         $("#news-section>ul").append('<h1>Sorry,这里还什么都没有</h1>');

@@ -47,7 +47,7 @@
 
     <main>
         <section class="left-article">
-            <img src="./images/donate/donate-infos.png" alt="图片信息">
+            <img class="first-img" src="./images/donate/donate-infos.png" alt="图片信息">
             <aside>
                 <p>2000元，能为40个孩子提供1学年的素质基础启蒙教育的用品；</p>
                 <p>10000元，能为200个孩子提供至少可使用2年的电影放映设备；</p>
@@ -74,7 +74,8 @@
                         </li>
                         <li data-value="">
                             <div>
-                                <label for="pay-value">￥</label><span>你希望捐助的其他金额</span>
+                                <label for="pay-value">￥</label>
+                                <span>你希望捐助的其他金额</span>
                                 <input data-check="pay" type="text" id="pay-value" placeholder="请输入金额">
                             </div>
                             <p></p>
@@ -226,6 +227,12 @@
             Copyright &copy; 2016-2017 分享信息技术有限公司 版权所有 京ICP备170014号-1
         </section>
     </footer>
+    <section id="qrcode-modal" style="display: none;">
+        <span>X</span>
+        <h2>微信支付二维码</h2>
+        <img src="./images/donate/qrcode.png" alt="">
+        <p>支付成功</p>
+    </section>
     <script src="./scripts/swiper.min.js"></script>
     <script src="./scripts/vendor.js"></script>
     <script src="./scripts/donate.min.js"></script>
