@@ -140,7 +140,8 @@ body {
                         @include positions($left: 0, $right:0, $bottom:-20px);
                         text-align: center;
                         line-height: 20px;
-                        color: #666;
+                        font-weight: normal;
+                        color: #333;
                     }
                 }
                 ul {
@@ -302,7 +303,8 @@ body {
                         @include positions($left: 0, $right:0, $bottom:60px);
                         text-align: center;
                         line-height: 20px;
-                        color: #666;
+                        color: #333;
+                        font-weight: normal;
                     }
                 }
                 .swiper-wrapper {
@@ -313,7 +315,7 @@ body {
                         line-height: 60px;
                     }
                     .swiper-slide {
-                        height: 700px;
+                        height: 540px;
                         overflow: hidden;
                     }
                 }
@@ -355,7 +357,8 @@ body {
                         @include positions($left: 0, $right:0, $bottom:40px);
                         text-align: center;
                         line-height: 20px;
-                        color: #666;
+                        color: #333;
+                        font-weight: normal;
                     }
                     margin: 0 auto;
                 }
@@ -403,7 +406,8 @@ body {
                         @include positions($left: 0, $right:0, $bottom:-20px);
                         text-align: center;
                         line-height: 20px;
-                        color: #666;
+                        color: #333;
+                        font-weight: normal;
                     }
                 }
                 .swiper-wrapper {
@@ -571,6 +575,15 @@ body {
                             border: 1px solid #666666;
                             @include rounded-corners(3px);
                             height: 32px;
+                            &::-webkit-input-placeholder {
+                                color: #ccc;
+                            }
+                            &::-moz-placeholder {
+                                color: #ccc;
+                            }
+                            &::-ms-input-placeholder {
+                                color: #ccc;
+                            }
                             line-height: 32px;
                             box-sizing: border-box;
                             &.name-input {
@@ -717,12 +730,12 @@ body {
                 justify-content: center;
                 margin-top: -150px;
                 margin-left: -200px;
-                h2{
+                h2 {
                     font-size: 20px;
                 }
-                span{
+                span {
                     background-color: #fff;
-                    @include positions($right:0,$top:0);
+                    @include positions($right: 0, $top:0);
                     display: block;
                     height: 40px;
                     width: 40px;
@@ -730,12 +743,12 @@ body {
                     font-size: 20px;
                     text-align: center;
                 }
-                img{
+                img {
                     height: 180px;
                     height: 180px;
                     margin: 20px auto;
                 }
-                p{
+                p {
                     background-color: #2d91d0;
                     padding: 10px;
                     color: #fff;
@@ -752,7 +765,7 @@ body {
                 h3 {
                     color: #2d91d0;
                     text-align: center;
-                    width: 40%;
+                    padding: 0 20px;
                     margin: 0 auto;
                     font-size: 24px;
                 }
@@ -819,8 +832,9 @@ body {
                 &.right-article {
                     img {
                         float: left;
-                        margin-bottom: 10px;
+                        margin-bottom: 20px;
                         margin-right: 20px;
+                        margin-top: 30px;
                     }
                 }
                 &.left-article {
@@ -892,6 +906,7 @@ body {
                         float: left;
                         margin-bottom: 20px;
                         margin-right: 20px;
+                        width: 50%;
                         &.first-img {
                             width: 40%;
                         }
@@ -902,6 +917,7 @@ body {
                         float: right;
                         margin-bottom: 20px;
                         margin-left: 20px;
+                        width: 50%;
                     }
                 }
                 article {
@@ -995,6 +1011,7 @@ body {
                                     line-height: 28px;
                                     overflow: hidden;
                                     max-height: 56px;
+                                    font-weight: normal;
                                     margin-bottom: 10px;
                                 }
                                 p {
@@ -1031,6 +1048,7 @@ body {
                         text-align: center;
                         display: inline-block;
                         margin-right: 6px;
+                        cursor: pointer;
                         &.active {
                             color: #fff;
                             background-color: #edba67;
@@ -1056,7 +1074,6 @@ body {
                     font-size: 20px;
                     line-height: 36px;
                     margin-bottom: 20px;
-                    font-weight: 600;
                     p {
                         float: left;
                     }
@@ -1093,6 +1110,7 @@ body {
                                     max-height: 44px;
                                     @include overflow-hidden;
                                     margin-bottom: 4px;
+                                    font-weight: normal;
                                 }
                                 p {
                                     color: #888888;
@@ -1126,12 +1144,12 @@ body {
                             float: left;
                             width: 100%;
                             height: 100%;
-                            border: 3px solid #e1e1e1;
+                            border: 1px solid #e1e1e1;
                             box-sizing: border-box;
-                            padding: 3px;
+                            padding: 10px;
                             @include rounded-corners(10px);
                             &:hover {
-                                border: 3px solid #2d92d1;
+                                border: 1px solid #2d92d1;
                             }
                         }
                     }
@@ -1169,6 +1187,7 @@ body {
                     border-bottom: 1px solid #5fb86e;
                     h3 {
                         float: left;
+                        color: #555555;
                     }
                     span {
                         float: right;
@@ -1201,6 +1220,7 @@ body {
                     text-align: center;
                     display: inline-block;
                     margin-right: 6px;
+                    cursor: pointer;
                     &.active {
                         color: #fff;
                         background-color: #edba67;
@@ -1210,14 +1230,14 @@ body {
             }
         }
     }
-    &#alisuccess-body{
+    &#alisuccess-body {
         overflow: hidden;
-        main{
+        main {
             min-height: 362px;
-            h1{
+            h1 {
                 font-size: 30px;
                 text-align: center;
-                a{
+                a {
                     color: #da4646;
                 }
             }
