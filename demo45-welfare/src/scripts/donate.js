@@ -11,9 +11,9 @@ $(function () {
             let params = {};
             let regPhone = /^1[3-8]\d{9}$/;
             let regEmail = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;;
-            let invoicing = $("input[name=receipt]:checked").val();
-            params.username = $("#name").val();
-            params.sex = $("input[name=appellation]:checked").val();
+            let invoicing = $("input[name=invoicing]:checked").val();
+            params.username = $("#username").val();
+            params.sex = $("input[name=sex]:checked").val();
             params.phone = $("#phone").val();
             params.email = $("#email").val();
             params.total_fee = that.payValue ? that.payValue : $("pay-value").val();
@@ -120,15 +120,19 @@ $(function () {
             }
             if (that.check) {
                 params.way = way;
-                that.postAjax('/pay', params, function (res) {
-                    that.check = false;
-                    if (params.way == 2) {
-                        $('#qrcode-modal').show();
-                        that.modalShow = true;
-                    } else if (params.way == 1) {
-                        window.location.href = "./alisuccess.html";
-                    }
-                });
+                console.log(params);
+                // that.postAjax('/pay', params, function (res) {
+                //     that.check = false;
+                //     $("body").html(res)
+                //     console.log(res);
+                //     if (params.way == 2) {
+                //         $('#qrcode-modal').show();
+                //         that.modalShow = true;
+                //     } else if (params.way == 1) {
+                //         // window.location.href = "./alisuccess.html";
+                //     }
+                // });
+                $("#pay-form").submit();
             }
         },
         blurCheck(e) {
@@ -278,7 +282,7 @@ $(function () {
         init() {
             let that = this;
             that.setSeo();
-            $("#pay-methods>img").on('click', function () {
+            $("#pay-now").on('click', function () {
                 let _this = $(this);
                 that.payOrder(_this);
             });

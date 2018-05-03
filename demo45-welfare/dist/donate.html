@@ -55,7 +55,7 @@
                 <p>公益行动，有你有我。2018年，我们计划募捐400万元，用于明年40所“零钱电影院”的建设中。我们希望能够汇集社会各方的力量，达到爱心个人捐款100万元，爱心集体捐款100万元，爱心企业捐款200万元的目标，为更多的孩子搭建属于他们自己的“电影天堂”，用点滴爱心，为更多孩子的精神世界赋能。</p>
             </aside>
         </section>
-        <section class="pay-section">
+        <form id="pay-form" class="pay-section" action="http://www.doubaner.top/pay" method="POST">
             <div class="pay-infos">
                 <div class="pay-methods">
                     <h4>请填写信息并完成支付：</h4>
@@ -87,18 +87,18 @@
                 </div>
                 <div class="form-group" id="form-group">
                     <div class="form-surname clearfix">
-                        <label class="important" for="name">姓名</label>
-                        <input data-check="name" class="contact-input" type="text" name="name" id="name" placeholder="请输入您的姓名" maxlength="8">
+                        <label class="important" for="username">姓名</label>
+                        <input data-check="name" class="contact-input" type="text" name="name" id="username" placeholder="请输入您的姓名" maxlength="8">
                         <span></span>
                     </div>
                     <div>
                         <label class="important" for="appellation">称谓</label>
                         <div class="receipt-radio clearfix">
-                            <input checked="checked" type="radio" name="appellation" value="1">
+                            <input checked="checked" type="radio" name="sex" value="1">
                             <span>先生</span>
-                            <input type="radio" name="appellation" value="2">
+                            <input type="radio" name="sex" value="2">
                             <span>女士</span>
-                            <input type="radio" name="appellation" value="3">
+                            <input type="radio" name="sex" value="3">
                             <span>小朋友</span>
                         </div>
                     </div>
@@ -121,31 +121,37 @@
                         <label for="receipt">是否开发票</label>
                         <div class="receipt-radio">
                             <div class="clearfix">
-                                <input type="radio" name="receipt" value="true" checked="checked">
+                                <input type="radio" name="invoicing" value="true" checked="checked">
                                 <span>是</span>
-                                <input type="radio" name="receipt" value="">
+                                <input type="radio" name="invoicing" value="">
                                 <span>否</span>
                             </div>
                             <div class="receipt-choice clearfix">
-                                <select name="receipt" id="select-choice">
+                                <select name="invoicing" id="select-choice">
                                     <option value="2">公司</option>
                                     <option value="1">个人</option>
                                 </select>
-                                <input data-check="organ-name" type="text" placeholder="请输入公司名称或机构代码" id="organ-name">
+                                <input data-check="organ-name" type="text" placeholder="请输入公司名称或机构代码" id="organ-name" name="invoice"> 
                                 <span></span>
                             </div>
                             <div class="receipt-choice clearfix">
-                                <input data-check="taxid" type="text" placeholder="请输入税号" id="taxid">
+                                <input data-check="taxid" type="text" placeholder="请输入税号" id="taxid" name="TaxID">
                                 <span></span>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <label class="important" for="address">支付方式</label>
+                        <label class="important" for="address">支付方式1</label>
                         <div class="clearfix" id="pay-methods">
-                            <img data-type="1" src="./images/donate/alipay.png" alt="支付宝">
-                            <img data-type="2" src="./images/donate/wechat.png" alt="微信">
+                            <input type="radio" name="way" value="1" data-type="1" alt="支付宝" checked="checked">
+                            <img src="./images/donate/alipay.png" alt="">
+                            <input type="radio" name="way" value="2" data-type="2" alt="微信">
+                            <img src="./images/donate/wechat.png" alt="">
                         </div>
+                    </div>
+                    <div>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="button" value="立即支付" id="pay-now">
                     </div>
                 </div>
                 <p class="form-tips important">
@@ -176,7 +182,7 @@
                     </p>
                 </div>
             </div>
-        </section>
+        </form>
         <section id="love-tips">
             <div class="love-title">
                 对于您的爱心捐助，我们将奉上爱心回馈，请在捐款支付页面留下您的收货信息，请耐心等待，我们将会根据捐助先后顺序陆续发出相关回馈物品。若未留下相关信息，我们将默认为您放弃爱心回馈。爱心回馈物品如下：
