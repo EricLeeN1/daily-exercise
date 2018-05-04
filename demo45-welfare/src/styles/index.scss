@@ -129,21 +129,21 @@ body {
             #donate {
                 margin-top: 50px;
                 >h2 {
-                    @include spirit(-754px,
+                    @include spirit(-772px,
                     0,
-                    95px,
+                    133px,
                     72px);
                     margin: 0 auto;
                     z-index: 2;
                     position: relative;
-                    &::after {
-                        content: attr(data-name);
-                        @include positions($left: 0, $right:0, $bottom:-20px);
-                        text-align: center;
-                        line-height: 20px;
-                        font-weight: normal;
-                        color: #333;
-                    }
+                    // &::after {
+                    //     content: attr(data-name);
+                    //     @include positions($left: 0, $right:0, $bottom:-20px);
+                    //     text-align: center;
+                    //     line-height: 20px;
+                    //     font-weight: normal;
+                    //     color: #333;
+                    // }
                 }
                 ul {
                     position: relative;
@@ -293,21 +293,21 @@ body {
                         content: '';
                         @include spirit(-674px,
                         0,
-                        80px,
+                        97px,
                         76px);
                         margin: 0 auto;
                         @include positions($top: 50%, $left:50%);
                         margin-left: -40px;
                         margin-top: -38px;
                     }
-                    &::after {
-                        content: attr(data-name);
-                        @include positions($left: 0, $right:0, $bottom:60px);
-                        text-align: center;
-                        line-height: 20px;
-                        color: #333;
-                        font-weight: normal;
-                    }
+                    // &::after {
+                    //     content: attr(data-name);
+                    //     @include positions($left: 0, $right:0, $bottom:60px);
+                    //     text-align: center;
+                    //     line-height: 20px;
+                    //     color: #333;
+                    //     font-weight: normal;
+                    // }
                 }
                 .swiper-wrapper {
                     h3 {
@@ -348,8 +348,8 @@ body {
                     background-color: #efefef;
                     &::before {
                         content: '';
-                        @include spirit(-849px,
-                        0,
+                        @include spirit(-796px,
+                        -72px,
                         104px,
                         62px);
                         margin: 0 auto;
@@ -357,14 +357,14 @@ body {
                         margin-left: -52px;
                         margin-top: -31px;
                     }
-                    &::after {
-                        content: attr(data-name);
-                        @include positions($left: 0, $right:0, $bottom:40px);
-                        text-align: center;
-                        line-height: 20px;
-                        color: #333;
-                        font-weight: normal;
-                    }
+                    // &::after {
+                    //     content: attr(data-name);
+                    //     @include positions($left: 0, $right:0, $bottom:40px);
+                    //     text-align: center;
+                    //     line-height: 20px;
+                    //     color: #333;
+                    //     font-weight: normal;
+                    // }
                     margin: 0 auto;
                 }
                 .swiper-wrapper {
@@ -401,19 +401,19 @@ body {
                 h2 {
                     @include spirit(-674px,
                     -76px,
-                    116px,
+                    121px,
                     79px);
                     margin: 0 auto;
                     position: relative;
                     margin-bottom: 40px;
-                    &::after {
-                        content: attr(data-name);
-                        @include positions($left: 0, $right:0, $bottom:-20px);
-                        text-align: center;
-                        line-height: 20px;
-                        color: #333;
-                        font-weight: normal;
-                    }
+                    // &::after {
+                    //     content: attr(data-name);
+                    //     @include positions($left: 0, $right:0, $bottom:-20px);
+                    //     text-align: center;
+                    //     line-height: 20px;
+                    //     color: #333;
+                    //     font-weight: normal;
+                    // }
                 }
                 .swiper-wrapper {
                     h3 {
