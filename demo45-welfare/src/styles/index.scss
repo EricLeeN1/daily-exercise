@@ -135,8 +135,7 @@ body {
                     72px);
                     margin: 0 auto;
                     z-index: 2;
-                    position: relative;
-                    // &::after {
+                    position: relative; // &::after {
                     //     content: attr(data-name);
                     //     @include positions($left: 0, $right:0, $bottom:-20px);
                     //     text-align: center;
@@ -299,8 +298,7 @@ body {
                         @include positions($top: 50%, $left:50%);
                         margin-left: -40px;
                         margin-top: -38px;
-                    }
-                    // &::after {
+                    } // &::after {
                     //     content: attr(data-name);
                     //     @include positions($left: 0, $right:0, $bottom:60px);
                     //     text-align: center;
@@ -319,7 +317,7 @@ body {
                     .swiper-slide {
                         height: 500px;
                         overflow: hidden;
-                        img{
+                        img {
                             width: 100%;
                         }
                     }
@@ -356,8 +354,7 @@ body {
                         @include positions($top: 50%, $left:50%);
                         margin-left: -52px;
                         margin-top: -31px;
-                    }
-                    // &::after {
+                    } // &::after {
                     //     content: attr(data-name);
                     //     @include positions($left: 0, $right:0, $bottom:40px);
                     //     text-align: center;
@@ -367,31 +364,31 @@ body {
                     // }
                     margin: 0 auto;
                 }
-                .swiper-wrapper {
-                    h3 {
-                        text-align: center;
-                        font-size: 16px;
-                        color: #666;
-                        line-height: 60px;
-                    }
-                    .swiper-slide {
-                        width: 40%;
-                        height: 258px;
-                        img {
+                #wrap {
+                    padding-top: 30px;
+                    width: 100%;
+                    height: 250px;
+                    position: relative;
+                    // margin-top: 50px;
+                    /*一定要有以下样式，才会有3D的效果*/
+                    /*把div变成3D的场景*/
+                    transform-style: preserve-3d;
+                    perspective: 1500px;
+                    a {
+                        /*对所有的图片进行设置样式*/
+                        width: 450px;
+                        height: 250px;
+                        /*这里一定要设置为绝对定位*/
+                        position: absolute;
+                        /*calc()是一个计算函数  页面的宽度-容器宽度的一半*/
+                        left: calc(50% - 225px);
+                        top: calc(50% - 150px);
+                        border-radius: 7px;
+                        /*看到图片的运动过程*/
+                        transition: 0.8s ease-in-out;
+                        img{
                             width: 100%;
                         }
-                    }
-                }
-                .swiper-pagination {
-                    @include positions($bottom: 20px);
-                    .swiper-pagination-bullet {
-                        width: 10px;
-                        height: 10px;
-                        background-color: skyblue;
-                    }
-                    .swiper-pagination-bullet-active {
-                        background-color: #7bc3f0;
-                        transform: scale(1.5);
                     }
                 }
             }
@@ -405,8 +402,7 @@ body {
                     79px);
                     margin: 0 auto;
                     position: relative;
-                    margin-bottom: 40px;
-                    // &::after {
+                    margin-bottom: 40px; // &::after {
                     //     content: attr(data-name);
                     //     @include positions($left: 0, $right:0, $bottom:-20px);
                     //     text-align: center;
@@ -446,7 +442,8 @@ body {
     }
     &#donate-body {
         background-image: url('../images/bg-news.png');
-        section,form {
+        section,
+        form {
             &.pay-section {
                 margin-top: 50px;
             }
@@ -611,7 +608,7 @@ body {
                             &#taxid {
                                 margin-left: 80px;
                             }
-                            &#pay-now{
+                            &#pay-now {
                                 padding: 0 10px;
                                 background-color: #ffffff;
                                 border: 1px solid #555555;
@@ -1176,8 +1173,7 @@ body {
         }
     }
     &#show-body {
-        background-image: url('../images/bg-about.png');
-        // overflow: hidden;
+        background-image: url('../images/bg-about.png'); // overflow: hidden;
         >main {
             @include clearfix;
             >h2 {
@@ -1707,7 +1703,8 @@ body {
         }
         &#donate-body {
             background-image: url('../images/bg-news.png');
-            section,form {
+            section,
+            form {
                 &.pay-section {
                     margin-top: 50px;
                 }
@@ -2043,7 +2040,7 @@ body {
                         font-size: 18px;
                         text-indent: 36px;
                         line-height: 32px;
-                        margin-bottom: 10px;  
+                        margin-bottom: 10px;
                     }
                 }
                 aside {
