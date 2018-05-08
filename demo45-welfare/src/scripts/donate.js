@@ -16,13 +16,13 @@ $(function () {
             params.sex = $("input[name=sex]:checked").val();
             params.phone = $("#phone").val();
             params.email = $("#email").val();
-            params.total_fee = that.payValue ? that.payValue : $("pay-value").val();
+            params.total_fee = $("input[name=pay-value]").val();
             params.invoicing = invoicing ? $("#select-choice").val() : 0;
             params.invoice = $("#organ-name").val();
             params.TaxID = $("#organ-name").val();
             params.address = $("#address").val();
 
-            if (type == 1) {// 全部都要，全部校验
+            if (type == 1) { // 全部都要，全部校验
                 if (!params.username) {
                     $("#name").next('span').text("您还没有填写名字呢");
                     return;
@@ -61,7 +61,7 @@ $(function () {
                 };
                 that.check = true;
                 return params;
-            } else if (type == 2) {//不要发票,不用校验税号与发票抬头
+            } else if (type == 2) { //不要发票,不用校验税号与发票抬头
                 if (!params.username) {
                     $("#name").next('span').text("您还没有填写名字呢");
                     return;
@@ -88,7 +88,7 @@ $(function () {
                 }
                 that.check = true;
                 return params;
-            } else {//小于100只校验名字
+            } else { //小于100只校验名字
                 if (!params.username) {
                     $("#name").next('span').text("您还没有填写名字呢");
                     return;
@@ -153,8 +153,10 @@ $(function () {
                 case "pay":
                     if (value < 100) {
                         that.toggleForms(false);
+                        $("#pay-input").val = value;
                         that.payValue = value;
                     } else {
+                        $("#pay-input").val = value;
                         that.toggleForms(true);
                         that.payValue = value;
                     }
@@ -204,8 +206,11 @@ $(function () {
             ele.addClass('active').siblings().removeClass('active');
             if (value) {
                 that.payValue = value;
+                ele.children("input[name=pay-value]").attr("checked",true);
             }
             if (ele.index() != "3") {
+                that.payValue = value;
+                ele.children("input[name=pay-value]").attr("checked",true);
                 $("#pay-value").val("");
                 that.toggleForms(true);
             }
@@ -239,8 +244,7 @@ $(function () {
         },
         imgLoad() {
             let image = new Image();
-            image.onload = function () {
-            };
+            image.onload = function () {};
             image.onerror = function () {
                 this.src = that.site + +this.src;
             }

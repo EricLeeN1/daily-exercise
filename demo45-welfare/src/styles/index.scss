@@ -179,7 +179,7 @@ body {
                             &.donate-icon-4 {
                                 @include spirit(-408px,
                                 -141px,
-                                136px,
+                                126px,
                                 114px);
                             }
                         }
@@ -317,7 +317,7 @@ body {
                         line-height: 60px;
                     }
                     .swiper-slide {
-                        height: 700px;
+                        height: 500px;
                         overflow: hidden;
                         img{
                             width: 100%;
@@ -430,10 +430,10 @@ body {
                         overflow: hidden;
                         img {
                             height: 100%; // 
-                            border: 3px solid #e1e1e1;
+                            border: 1px solid #e1e1e1;
                             box-sizing: border-box;
                             width: 100%;
-                            padding: 3px;
+                            padding: 10px;
                             @include rounded-corners(10px);
                             &:hover {
                                 border: 3px solid #2d92d1;
@@ -610,6 +610,12 @@ body {
                             }
                             &#taxid {
                                 margin-left: 80px;
+                            }
+                            &#pay-now{
+                                padding: 0 10px;
+                                background-color: #ffffff;
+                                border: 1px solid #555555;
+                                color: #555555;
                             }
                         }
                         #pay-methods {
@@ -910,6 +916,7 @@ body {
         >main {
             section {
                 overflow: hidden;
+                padding-bottom: 70px;
                 &.right-article {
                     img {
                         float: left;
@@ -958,6 +965,7 @@ body {
                     padding-bottom: 30px;
                     img {
                         margin-right: 60px;
+                        width: 400px;
                     }
                     article {
                         h3 {
@@ -1114,7 +1122,7 @@ body {
                                 height: 88px;
                                 box-sizing: border-box; // padding-right: 6px;
                                 h3 {
-                                    color: #121212;
+                                    color: #555555;
                                     font-size: 16px;
                                     line-height: 22px;
                                     max-height: 44px;
@@ -1418,21 +1426,13 @@ body {
                 #donate {
                     margin-top: 50px;
                     >h2 {
-                        @include spirit(-754px,
+                        @include spirit(-772px,
                         0,
-                        95px,
+                        150px,
                         72px);
                         margin: 0 auto;
                         z-index: 2;
                         position: relative;
-                        &::after {
-                            content: attr(data-name);
-                            @include positions($left: 0, $right:0, $bottom:-20px);
-                            text-align: center;
-                            line-height: 20px;
-                            font-weight: normal;
-                            color: #333;
-                        }
                     }
                     ul {
                         position: relative;
@@ -1440,7 +1440,7 @@ body {
                         margin-top: -20px;
                         overflow: hidden;
                         background-color: #efefef;
-                        padding: 100px 3%;
+                        padding: 150px;
                         li {
                             float: left;
                             width: 25%;
@@ -1468,7 +1468,7 @@ body {
                                 &.donate-icon-4 {
                                     @include spirit(-408px,
                                     -141px,
-                                    136px,
+                                    126px,
                                     114px);
                                 }
                             }
@@ -1581,20 +1581,12 @@ body {
                             content: '';
                             @include spirit(-674px,
                             0,
-                            80px,
+                            98px,
                             76px);
                             margin: 0 auto;
                             @include positions($top: 50%, $left:50%);
                             margin-left: -40px;
                             margin-top: -38px;
-                        }
-                        &::after {
-                            content: attr(data-name);
-                            @include positions($left: 0, $right:0, $bottom:60px);
-                            text-align: center;
-                            line-height: 20px;
-                            color: #333;
-                            font-weight: normal;
                         }
                     }
                     .swiper-wrapper {
@@ -1605,7 +1597,7 @@ body {
                             line-height: 60px;
                         }
                         .swiper-slide {
-                            height: 540px;
+                            height: 500px;
                             overflow: hidden;
                         }
                     }
@@ -1633,22 +1625,14 @@ body {
                         background-color: #efefef;
                         &::before {
                             content: '';
-                            @include spirit(-849px,
-                            0,
-                            104px,
+                            @include spirit(-795px,
+                            -72px,
+                            105px,
                             62px);
                             margin: 0 auto;
                             @include positions($top: 50%, $left:50%);
                             margin-left: -52px;
                             margin-top: -31px;
-                        }
-                        &::after {
-                            content: attr(data-name);
-                            @include positions($left: 0, $right:0, $bottom:40px);
-                            text-align: center;
-                            line-height: 20px;
-                            color: #333;
-                            font-weight: normal;
                         }
                         margin: 0 auto;
                     }
@@ -1686,19 +1670,11 @@ body {
                     h2 {
                         @include spirit(-674px,
                         -76px,
-                        116px,
+                        122px,
                         79px);
                         margin: 0 auto;
                         position: relative;
                         margin-bottom: 40px;
-                        &::after {
-                            content: attr(data-name);
-                            @include positions($left: 0, $right:0, $bottom:-20px);
-                            text-align: center;
-                            line-height: 20px;
-                            color: #333;
-                            font-weight: normal;
-                        }
                     }
                     .swiper-wrapper {
                         h3 {
