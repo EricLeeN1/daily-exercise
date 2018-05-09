@@ -191,6 +191,7 @@ $(function () {
                             swiperSlides += `
                             <a href="./news.html?id=${ele.str_id}" class="swiper-slide" data-id="${ele.str_id}">
                                 <img src="${imgSite}" alt="${ele.str_title}">
+                                <h3>${ele.str_title}</h3>
                             </a>
                             `;
                         });
@@ -224,6 +225,49 @@ $(function () {
                             `;
                         });
                         $("#donate-star>#wrap").html(swiperSlides);
+                        $(".dnSlide-main").each(function (index, el) {
+                            var setting = {
+                                "response": true,
+                                "posterFirstWidth": 600,
+                                "posterFirstHeight": 180,
+                                "postWidth": 600,
+                                "postHeight": 180,
+                                "width": 600,
+                                "height": 180,
+                                afterClickBtnFn: function (i) {
+                                    console.log(i);
+                                }
+                            };
+                            switch (index) {
+                                case 0:
+                                    setting.verticalAlign = "top";
+                                    setting.switching = "custom";
+                                    setting.precentWidth = "25%";
+                                    var api = $(el).dnSlide(setting).data("dnSlide");
+                                    $(".hide").on("click", function () {
+                                        api.hide(function () {
+                                            alert('HIDEEN！！！');
+                                        });
+                                    });
+                                    $(".show").on("click", function () {
+                                        api.show(function () {
+                                            alert('SHOW！！！');
+                                        });
+                                    });
+                                    break;
+                                case 1:
+                                    setting.autoPlay = true;
+                                    $(el).dnSlide(setting);
+                                    break;
+                                case 2:
+                                    setting.verticalAlign = "bottom";
+                                    $(el).dnSlide(setting);
+                                    break;
+                                default:
+                                    $(el).dnSlide(setting);
+                                    break;
+                            }
+                        });
                     } else {
                         $("#donate-star>#wrap").html('<h3>这里还什么都没有</h3>');
                     }

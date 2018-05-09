@@ -16,7 +16,7 @@ $(function () {
             params.sex = $("input[name=sex]:checked").val();
             params.phone = $("#phone").val();
             params.email = $("#email").val();
-            params.total_fee = $("input[name=pay-value]").val();
+            params.total_fee = $("input[name=total_fee]").val();
             params.invoicing = invoicing ? $("#select-choice").val() : 0;
             params.invoice = $("#organ-name").val();
             params.TaxID = $("#organ-name").val();
@@ -136,6 +136,7 @@ $(function () {
             }
         },
         blurCheck(e) {
+            console.log(111);
             let that = this;
             let regPhone = /^1[3-8]\d{9}$/;
             let regEmail = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
@@ -153,10 +154,10 @@ $(function () {
                 case "pay":
                     if (value < 100) {
                         that.toggleForms(false);
-                        $("#pay-input").val = value;
+                        $("#pay-input").val(value);
                         that.payValue = value;
                     } else {
-                        $("#pay-input").val = value;
+                        $("#pay-input").val(value);
                         that.toggleForms(true);
                         that.payValue = value;
                     }
@@ -206,12 +207,12 @@ $(function () {
             ele.addClass('active').siblings().removeClass('active');
             if (value) {
                 that.payValue = value;
-                ele.children("input[name=pay-value]").attr("checked",true);
+                ele.children("input[name=total_fee]").attr("checked",true);
             }
             if (ele.index() != "3") {
                 that.payValue = value;
-                ele.children("input[name=pay-value]").attr("checked",true);
-                $("#pay-value").val("");
+                ele.children("input[name=total_fee]").attr("checked",true);
+                $("#total_fee").val("");
                 that.toggleForms(true);
             }
         },
@@ -294,7 +295,7 @@ $(function () {
                 let _this = $(this);
                 that.changePayValue(_this);
             });
-            $("#form-group input[data-check],#pay-value").on('blur', function () {
+            $("#form-group input[data-check],#total_fee").on('blur', function () {
                 let _this = $(this);
                 that.blurCheck(_this);
             });

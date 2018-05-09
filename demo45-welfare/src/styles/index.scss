@@ -5,6 +5,8 @@ $version:'1.0.0';
 @import '_base.scss';
 @import '_header.scss';
 @import '_footer.scss';
+@import '_dnSlide.scss';
+
 body {
     min-height: 100vh; // padding-bottom: 120px;
     padding-top: 97px;
@@ -282,11 +284,11 @@ body {
             }
             #action {
                 position: relative;
-                padding-bottom: 40px;
+                // padding-bottom: 40px;
                 background-color: #efefef;
                 >h2 {
                     position: relative;
-                    height: 240px;
+                    height: 180px;
                     background-color: #efefef;
                     &::before {
                         content: '';
@@ -317,8 +319,14 @@ body {
                     .swiper-slide {
                         height: 500px;
                         overflow: hidden;
+                        position: relative;
                         img {
                             width: 100%;
+                        }
+                        h3{
+                            @include positions($bottom:10px,$left:0,$right:0);
+                            text-align: center;
+                            color: #ffffff;
                         }
                     }
                 }
@@ -338,8 +346,9 @@ body {
             }
             #donate-star {
                 position: relative;
-                padding-bottom: 60px;
+                // padding-bottom: 60px;
                 background-color: #efefef;
+                
                 >h2 {
                     position: relative;
                     height: 180px;
@@ -365,51 +374,42 @@ body {
                     margin: 0 auto;
                 }
                 #wrap {
-                    padding-top: 30px;
                     width: 100%;
-                    height: 250px;
-                    position: relative;
-                    // margin-top: 50px;
-                    /*一定要有以下样式，才会有3D的效果*/
-                    /*把div变成3D的场景*/
-                    transform-style: preserve-3d;
-                    perspective: 1500px;
+                    overflow: hidden;
                     a {
-                        /*对所有的图片进行设置样式*/
-                        width: 450px;
-                        height: 250px;
-                        /*这里一定要设置为绝对定位*/
-                        position: absolute;
-                        /*calc()是一个计算函数  页面的宽度-容器宽度的一半*/
-                        left: calc(50% - 225px);
-                        top: calc(50% - 150px);
-                        border-radius: 7px;
-                        /*看到图片的运动过程*/
-                        transition: 0.8s ease-in-out;
-                        img{
-                            width: 100%;
-                        }
+                        // /*对所有的图片进行设置样式*/
+                        // width: 450px;
+                        // height: 250px;
+                        // /*这里一定要设置为绝对定位*/
+                        // position: absolute;
+                        // /*calc()是一个计算函数  页面的宽度-容器宽度的一半*/
+                        // left: calc(50% - 225px);
+                        // top: calc(50% - 150px);
+                        // border-radius: 7px;
+                        // /*看到图片的运动过程*/
+                        // transition: 0.8s ease-in-out;
+                        // img{
+                        //     width: 100%;
+                        // }
                     }
                 }
             }
             #donate-company {
-                margin-top: 30px;
                 margin-bottom: 30px;
                 h2 {
-                    @include spirit(-674px,
-                    -76px,
-                    121px,
-                    79px);
-                    margin: 0 auto;
                     position: relative;
-                    margin-bottom: 40px; // &::after {
-                    //     content: attr(data-name);
-                    //     @include positions($left: 0, $right:0, $bottom:-20px);
-                    //     text-align: center;
-                    //     line-height: 20px;
-                    //     color: #333;
-                    //     font-weight: normal;
-                    // }
+                    height: 180px;
+                    &::before {
+                        content: '';
+                        @include spirit(-674px,
+                    -76px,
+                    122px,
+                    79px);
+                        margin: 0 auto;
+                        @include positions($top: 50%, $left:50%);
+                        margin-left: -61px;
+                        margin-top: -40px;
+                    }
                 }
                 .swiper-wrapper {
                     h3 {
@@ -1436,7 +1436,7 @@ body {
                         margin-top: -20px;
                         overflow: hidden;
                         background-color: #efefef;
-                        padding: 150px;
+                        padding: 150px 3%;
                         li {
                             float: left;
                             width: 25%;
@@ -1567,11 +1567,11 @@ body {
                 }
                 #action {
                     position: relative;
-                    padding-bottom: 40px;
+                    // padding-bottom: 40px;
                     background-color: #efefef;
                     >h2 {
                         position: relative;
-                        height: 240px;
+                        height: 180px;
                         background-color: #efefef;
                         &::before {
                             content: '';
@@ -1613,8 +1613,9 @@ body {
                 }
                 #donate-star {
                     position: relative;
-                    padding-bottom: 60px;
+                    // padding-bottom: 60px;
                     background-color: #efefef;
+                    // background-color: red;
                     >h2 {
                         position: relative;
                         height: 180px;
@@ -1632,45 +1633,43 @@ body {
                         }
                         margin: 0 auto;
                     }
-                    .swiper-wrapper {
-                        h3 {
-                            text-align: center;
-                            font-size: 16px;
-                            color: #666;
-                            line-height: 60px;
-                        }
-                        .swiper-slide {
-                            width: 40%;
-                            height: 258px;
-                            img {
-                                width: 100%;
-                            }
-                        }
-                    }
-                    .swiper-pagination {
-                        @include positions($bottom: 20px);
-                        .swiper-pagination-bullet {
-                            width: 10px;
-                            height: 10px;
-                            background-color: skyblue;
-                        }
-                        .swiper-pagination-bullet-active {
-                            background-color: #7bc3f0;
-                            transform: scale(1.5);
+                    #wrap {
+                        overflow: hidden;
+                        width: 100%;
+                        a {
+                            // /*对所有的图片进行设置样式*/
+                            // width: 450px;
+                            // height: 250px;
+                            // /*这里一定要设置为绝对定位*/
+                            // position: absolute;
+                            // /*calc()是一个计算函数  页面的宽度-容器宽度的一半*/
+                            // left: calc(50% - 225px);
+                            // top: calc(50% - 150px);
+                            // border-radius: 7px;
+                            // /*看到图片的运动过程*/
+                            // transition: 0.8s ease-in-out;
+                            // img{
+                            //     width: 100%;
+                            // }
                         }
                     }
                 }
                 #donate-company {
-                    margin-top: 30px;
                     margin-bottom: 30px;
                     h2 {
-                        @include spirit(-674px,
+                        position: relative;
+                        height: 180px;
+                        &::before {
+                            content: '';
+                            @include spirit(-674px,
                         -76px,
                         122px,
                         79px);
-                        margin: 0 auto;
-                        position: relative;
-                        margin-bottom: 40px;
+                            margin: 0 auto;
+                            @include positions($top: 50%, $left:50%);
+                            margin-left: -61px;
+                            margin-top: -40px;
+                        }
                     }
                     .swiper-wrapper {
                         h3 {
