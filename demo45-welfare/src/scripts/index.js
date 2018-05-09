@@ -142,7 +142,7 @@ $(function () {
         setSeo() {
             let that = this;
             that.getAjax('/seo', {}, function (res) {
-                console.log(res);
+                // console.log(res);
                 if (res.status == 200) {
                     $("title").text(res.data.title);
                     $("meta[name='keywords']").attr('content', res.data['keywords']);
@@ -155,7 +155,7 @@ $(function () {
         },
         getBannerInfos() {
             this.getAjax('/intro', {}, function (res) {
-                console.log(res);
+                // console.log(res);
                 if (res.status == 200) {
                     $("#banner>.swiper-wrapper>.swiper-slide>.activity-des>p").text(res.data);
                 } else {
@@ -165,7 +165,7 @@ $(function () {
         },
         welfareDatas() {
             this.getAjax('/data', {}, function (res) {
-                console.log(res);
+                // console.log(res);
                 if (res.status == 200) {
                     $("#donate .donate-icon-1").next().text(res.data.aims).countUp();;
                     $("#donate .donate-icon-2").next().text(res.data.num).countUp();;
@@ -181,7 +181,7 @@ $(function () {
             this.getAjax('/newsList/column/8', {
                 column: 8
             }, function (res) {
-                console.log(res);
+                // console.log(res);
                 if (res.status == 200) {
                     let datas = res.data.StrategyList;
                     if (datas.length > 0) {
@@ -195,7 +195,7 @@ $(function () {
                             </a>
                             `;
                         });
-                        console.log(swiperSlides);
+                        // console.log(swiperSlides);
                         $("#action>.swiper-wrapper").html(swiperSlides);
                     } else {
                         $("#action>.swiper-wrapper").html('<h3>这里还什么都没有</h3>');
@@ -210,64 +210,39 @@ $(function () {
             that.getAjax('/newsList/column/9', {
                 column: 9
             }, function (res) {
-                console.log('9');
-                console.log(res);
+                // console.log('9');
+                // console.log(res);
                 if (res.status == 200) {
                     let datas = res.data.StrategyList;
                     if (datas.length > 0) {
                         let swiperSlides = '';
-                        datas.forEach(ele => {
+                        datas.forEach((ele, index) => {
                             let imgSite = that.site + ele.str_thumb;
-                            swiperSlides += `
-                            <a href="./news.html?id=${ele.str_id}" class="wrap-a" data-id="${ele.str_id}">
-                                <img src="${imgSite}" alt="${ele.str_title}">
-                            </a>
-                            `;
+                            swiperSlides +=
+                                `
+                            <li class="item-${index}">
+                                <div class="item-content">
+                                    <a href="./news.html?id=${ele.str_id}">
+                                        <img class="cover-img" src="${imgSite}" alt="${ele.str_title}">
+                                    </a>
+                                </div>
+                            </li>`
                         });
-                        $("#donate-star>#wrap").html(swiperSlides);
-                        $(".dnSlide-main").each(function (index, el) {
-                            var setting = {
-                                "response": true,
-                                "posterFirstWidth": 600,
-                                "posterFirstHeight": 180,
-                                "postWidth": 600,
-                                "postHeight": 180,
-                                "width": 600,
-                                "height": 180,
-                                afterClickBtnFn: function (i) {
-                                    console.log(i);
-                                }
-                            };
-                            switch (index) {
-                                case 0:
-                                    setting.verticalAlign = "top";
-                                    setting.switching = "custom";
-                                    setting.precentWidth = "25%";
-                                    var api = $(el).dnSlide(setting).data("dnSlide");
-                                    $(".hide").on("click", function () {
-                                        api.hide(function () {
-                                            alert('HIDEEN！！！');
-                                        });
-                                    });
-                                    $(".show").on("click", function () {
-                                        api.show(function () {
-                                            alert('SHOW！！！');
-                                        });
-                                    });
-                                    break;
-                                case 1:
-                                    setting.autoPlay = true;
-                                    $(el).dnSlide(setting);
-                                    break;
-                                case 2:
-                                    setting.verticalAlign = "bottom";
-                                    $(el).dnSlide(setting);
-                                    break;
-                                default:
-                                    $(el).dnSlide(setting);
-                                    break;
-                            }
+                        swiperSlides = `<ul  class="item-list clearfix">` + swiperSlides + `</ul>`;
+                        $("#wrap").html(swiperSlides);
+                        //3d
+                        $('#wrap').slideCarsousel({
+                            slideType: '3d',
+                            indicatorEvent: 'mouseover'
                         });
+                        //2d
+                        var sliderDescArr = [],
+                            i = 0,
+                            len = 10;
+                        for (; i < len; i++) {
+                            sliderDescArr.push(new Array(10).join('' + i));
+                        }
+                        $('#sliderDesc').text(sliderDescArr[0]);
                     } else {
                         $("#donate-star>#wrap").html('<h3>这里还什么都没有</h3>');
                     }
@@ -279,7 +254,6 @@ $(function () {
         companyList() {
             let that = this;
             that.getAjax('/companyList', {}, function (res) {
-                console.log(res);
                 if (res.status == 200) {
                     $("#donate-company");
                     let datas = res.data;
@@ -293,7 +267,6 @@ $(function () {
                             </a>
                             `;
                         });
-                        console.log(swiperSlides);
                         $("#donate-company>.swiper-wrapper").html(swiperSlides);
                     } else {
                         $("#donate-company>.swiper-wrapper").html('<h3>这里还什么都没有</h3>');
@@ -324,7 +297,6 @@ $(function () {
             });
         },
         init() {
-            console.log('111');
             let that = this;
             that.getBannerInfos();
             that.welfareDatas();

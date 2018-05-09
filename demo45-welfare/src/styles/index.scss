@@ -5,8 +5,6 @@ $version:'1.0.0';
 @import '_base.scss';
 @import '_header.scss';
 @import '_footer.scss';
-@import '_dnSlide.scss';
-
 body {
     min-height: 100vh; // padding-bottom: 120px;
     padding-top: 97px;
@@ -283,8 +281,7 @@ body {
                 }
             }
             #action {
-                position: relative;
-                // padding-bottom: 40px;
+                position: relative; // padding-bottom: 40px;
                 background-color: #efefef;
                 >h2 {
                     position: relative;
@@ -323,8 +320,8 @@ body {
                         img {
                             width: 100%;
                         }
-                        h3{
-                            @include positions($bottom:10px,$left:0,$right:0);
+                        h3 {
+                            @include positions($bottom: 10px, $left:0, $right:0);
                             text-align: center;
                             color: #ffffff;
                         }
@@ -345,10 +342,8 @@ body {
                 }
             }
             #donate-star {
-                position: relative;
-                // padding-bottom: 60px;
+                position: relative; // padding-bottom: 60px;
                 background-color: #efefef;
-                
                 >h2 {
                     position: relative;
                     height: 180px;
@@ -376,21 +371,58 @@ body {
                 #wrap {
                     width: 100%;
                     overflow: hidden;
-                    a {
-                        // /*对所有的图片进行设置样式*/
-                        // width: 450px;
-                        // height: 250px;
-                        // /*这里一定要设置为绝对定位*/
-                        // position: absolute;
-                        // /*calc()是一个计算函数  页面的宽度-容器宽度的一半*/
-                        // left: calc(50% - 225px);
-                        // top: calc(50% - 150px);
-                        // border-radius: 7px;
-                        // /*看到图片的运动过程*/
-                        // transition: 0.8s ease-in-out;
-                        // img{
-                        //     width: 100%;
-                        // }
+                    height: 380px;
+                    margin-bottom: 20px;
+                    .desc {
+                        display: none;
+                    }
+                    .item-list li {
+                        width: 750px;
+                        height: 380px;
+                        transition: all 0.5s ease-out;
+                        opacity: 0;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        &.item0 {
+                            transform: translate3d(-225px, 0, 0) scale(0.8);
+                        }
+                        &.item1 {
+                            transform: translate3d(0, 0, 0) scale(0.8);
+                            transform-origin: 0 50%;
+                            opacity: 1;
+                            z-index: 2;
+                        }
+                        &.item2 {
+                            transform: translate3d(225px, 0, 0) scale(1);
+                            transform-origin: 0 50%;
+                            opacity: 1;
+                            z-index: 3;
+                        }
+                        &.item3 {
+                            transform: translate3d(450px, 0, 0) scale(0.8);
+                            transform-origin: 100% 50%;
+                            opacity: 1;
+                            z-index: 2;
+                        }
+                        &.item4 {
+                            transform: translate3d(675px, 0, 0) scale(0.8);
+                        }
+                        &.item5 {
+                            transform: translate3d(900px, 0, 0) scale(0.8);
+                        }
+                        &.item6 {
+                            transform: translate3d(1125px, 0, 0) scale(0.8);
+                        }
+                        &.item7 {
+                            transform: translate3d(1350px, 0, 0) scale(0.8);
+                        }
+                        &.item8 {
+                            transform: translate3d(1575px, 0, 0) scale(0.8);
+                        }
+                        &.item9 {
+                            transform: translate3d(1800px, 0, 0) scale(0.8);
+                        }
                     }
                 }
             }
@@ -402,9 +434,9 @@ body {
                     &::before {
                         content: '';
                         @include spirit(-674px,
-                    -76px,
-                    122px,
-                    79px);
+                        -76px,
+                        122px,
+                        79px);
                         margin: 0 auto;
                         @include positions($top: 50%, $left:50%);
                         margin-left: -61px;
@@ -1566,8 +1598,7 @@ body {
                     }
                 }
                 #action {
-                    position: relative;
-                    // padding-bottom: 40px;
+                    position: relative; // padding-bottom: 40px;
                     background-color: #efefef;
                     >h2 {
                         position: relative;
@@ -1612,10 +1643,8 @@ body {
                     }
                 }
                 #donate-star {
-                    position: relative;
-                    // padding-bottom: 60px;
-                    background-color: #efefef;
-                    // background-color: red;
+                    position: relative; // padding-bottom: 60px;
+                    background-color: #efefef; // background-color: red;
                     >h2 {
                         position: relative;
                         height: 180px;
@@ -1634,23 +1663,60 @@ body {
                         margin: 0 auto;
                     }
                     #wrap {
-                        overflow: hidden;
                         width: 100%;
-                        a {
-                            // /*对所有的图片进行设置样式*/
-                            // width: 450px;
-                            // height: 250px;
-                            // /*这里一定要设置为绝对定位*/
-                            // position: absolute;
-                            // /*calc()是一个计算函数  页面的宽度-容器宽度的一半*/
-                            // left: calc(50% - 225px);
-                            // top: calc(50% - 150px);
-                            // border-radius: 7px;
-                            // /*看到图片的运动过程*/
-                            // transition: 0.8s ease-in-out;
-                            // img{
-                            //     width: 100%;
-                            // }
+                        overflow: hidden;
+                        height: 500px;
+                        margin-bottom: 20px;
+                        .desc {
+                            display: none;
+                        }
+                        .item-list li {
+                            width: 750px;
+                            height: 380px;
+                            transition: all 0.5s ease-out;
+                            opacity: 0;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            &.item0 {
+                                transform: translate3d(-225px, 0, 0) scale(0.8);
+                            }
+                            &.item1 {
+                                transform: translate3d(0, 0, 0) scale(0.8);
+                                transform-origin: 0 50%;
+                                opacity: 1;
+                                z-index: 2;
+                            }
+                            &.item2 {
+                                transform: translate3d(225px, 0, 0) scale(1);
+                                transform-origin: 0 50%;
+                                opacity: 1;
+                                z-index: 3;
+                            }
+                            &.item3 {
+                                transform: translate3d(450px, 0, 0) scale(0.8);
+                                transform-origin: 100% 50%;
+                                opacity: 1;
+                                z-index: 2;
+                            }
+                            &.item4 {
+                                transform: translate3d(675px, 0, 0) scale(0.8);
+                            }
+                            &.item5 {
+                                transform: translate3d(900px, 0, 0) scale(0.8);
+                            }
+                            &.item6 {
+                                transform: translate3d(1125px, 0, 0) scale(0.8);
+                            }
+                            &.item7 {
+                                transform: translate3d(1350px, 0, 0) scale(0.8);
+                            }
+                            &.item8 {
+                                transform: translate3d(1575px, 0, 0) scale(0.8);
+                            }
+                            &.item9 {
+                                transform: translate3d(1800px, 0, 0) scale(0.8);
+                            }
                         }
                     }
                 }
@@ -1662,9 +1728,9 @@ body {
                         &::before {
                             content: '';
                             @include spirit(-674px,
-                        -76px,
-                        122px,
-                        79px);
+                            -76px,
+                            122px,
+                            79px);
                             margin: 0 auto;
                             @include positions($top: 50%, $left:50%);
                             margin-left: -61px;
