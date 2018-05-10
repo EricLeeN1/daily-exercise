@@ -219,32 +219,15 @@ $(function () {
                         datas.forEach((ele, index) => {
                             let imgSite = that.site + ele.str_thumb;
                             swiperSlides +=
-                                `
-                            <li class="item-${index}">
-                                <div class="item-content">
-                                    <a href="./news.html?id=${ele.str_id}">
-                                        <img class="cover-img" src="${imgSite}" alt="${ele.str_title}">
-                                    </a>
-                                </div>
-                            </li>`
+                                `<a href="./news.html?id="+${ele.str_id} class="swiper-slide" data-id="${ele.str_id}">
+                           <img src="${imgSite}" alt="${ele.str_title}">
+                           <h3>${ele.str_title}</h3>
+                           </a>`
                         });
-                        swiperSlides = `<ul  class="item-list clearfix">` + swiperSlides + `</ul>`;
-                        $("#wrap").html(swiperSlides);
+                        $("#donate-star>.swiper-wrapper").html(swiperSlides);
                         //3d
-                        $('#wrap').slideCarsousel({
-                            slideType: '3d',
-                            indicatorEvent: 'mouseover'
-                        });
-                        //2d
-                        var sliderDescArr = [],
-                            i = 0,
-                            len = 10;
-                        for (; i < len; i++) {
-                            sliderDescArr.push(new Array(10).join('' + i));
-                        }
-                        $('#sliderDesc').text(sliderDescArr[0]);
                     } else {
-                        $("#donate-star>#wrap").html('<h3>这里还什么都没有</h3>');
+                        $("#donate-star>.swiper-wrapper").html('<h3>这里还什么都没有</h3>');
                     }
                 } else {
                     alert(res.message);
