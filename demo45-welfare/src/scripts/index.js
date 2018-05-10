@@ -219,7 +219,7 @@ $(function () {
                         datas.forEach((ele, index) => {
                             let imgSite = that.site + ele.str_thumb;
                             swiperSlides +=
-                                `<a href="./news.html?id="+${ele.str_id} class="swiper-slide" data-id="${ele.str_id}">
+                                `<a href="./news.html?id=${ele.str_id}" class="swiper-slide" data-id="${ele.str_id}">
                            <img src="${imgSite}" alt="${ele.str_title}">
                            <h3>${ele.str_title}</h3>
                            </a>`

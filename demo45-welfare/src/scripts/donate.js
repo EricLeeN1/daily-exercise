@@ -207,14 +207,14 @@ $(function () {
             ele.addClass('active').siblings().removeClass('active');
             if (value) {
                 that.payValue = value;
-                ele.children("input[name=total_fee]").attr("checked",true);
+                ele.children("input[name=total_fee]").attr("checked", true);
+                ele.siblings().children("input[name=total_fee]").attr("checked", false);
             }
-            if (ele.index() != "3") {
-                that.payValue = value;
-                ele.children("input[name=total_fee]").attr("checked",true);
-                $("#total_fee").val("");
-                that.toggleForms(true);
-            }
+            that.payValue = value;
+            ele.children("input[name=total_fee]").attr("checked", true);
+            ele.siblings().children("input[name=total_fee]").attr("checked", false);;
+            $("#total_fee").val("");
+            that.toggleForms(true);
         },
         getCheck(ele) {
             let that = this;
