@@ -9,7 +9,9 @@ $(function () {
             }, function (res) {
                 console.log(res);
                 if (res.status == 200) {
-                    $("#about-body>main").html(res.data);
+                    $("#about-body>main .to-accompany .text").html(res.data.accompany);
+                    $("#about-body>main .about-brothers .text").html(res.data.hb);
+                    $("#about-body>main .about-cnr .text").html(res.data.cnr);
                 } else {
                     alert(res.message);
                 }
@@ -52,7 +54,8 @@ $(function () {
         init() {
             console.log('111');
             let that = this;
-            that.setSeo();           // that.getBannerInfos();
+            that.setSeo();           
+            that.getBannerInfos();
         }
     }
     Base.init();
