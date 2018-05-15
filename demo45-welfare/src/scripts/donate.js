@@ -16,13 +16,13 @@ $(function () {
             params.sex = $("input[name=sex]:checked").val();
             params.phone = $("#phone").val();
             params.email = $("#email").val();
-            params.total_fee = that.payValue ? that.payValue : $("pay-value").val();
+            params.total_fee = $("input[name=total_fee]").val();
             params.invoicing = invoicing ? $("#select-choice").val() : 0;
             params.invoice = $("#organ-name").val();
             params.TaxID = $("#organ-name").val();
             params.address = $("#address").val();
 
-            if (type == 1) {// 全部都要，全部校验
+            if (type == 1) { // 全部都要，全部校验
                 if (!params.username) {
                     $("#name").next('span').text("您还没有填写名字呢");
                     return;
@@ -61,7 +61,7 @@ $(function () {
                 };
                 that.check = true;
                 return params;
-            } else if (type == 2) {//不要发票,不用校验税号与发票抬头
+            } else if (type == 2) { //不要发票,不用校验税号与发票抬头
                 if (!params.username) {
                     $("#name").next('span').text("您还没有填写名字呢");
                     return;
@@ -88,7 +88,7 @@ $(function () {
                 }
                 that.check = true;
                 return params;
-            } else {//小于100只校验名字
+            } else { //小于100只校验名字
                 if (!params.username) {
                     $("#name").next('span').text("您还没有填写名字呢");
                     return;
@@ -136,6 +136,7 @@ $(function () {
             }
         },
         blurCheck(e) {
+            console.log(111);
             let that = this;
             let regPhone = /^1[3-8]\d{9}$/;
             let regEmail = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
@@ -153,8 +154,10 @@ $(function () {
                 case "pay":
                     if (value < 100) {
                         that.toggleForms(false);
+                        $("#pay-input").val(value);
                         that.payValue = value;
                     } else {
+                        $("#pay-input").val(value);
                         that.toggleForms(true);
                         that.payValue = value;
                     }
@@ -204,11 +207,14 @@ $(function () {
             ele.addClass('active').siblings().removeClass('active');
             if (value) {
                 that.payValue = value;
+                ele.children("input[name=total_fee]").attr("checked", true);
+                ele.siblings().children("input[name=total_fee]").attr("checked", false);
             }
-            if (ele.index() != "3") {
-                $("#pay-value").val("");
-                that.toggleForms(true);
-            }
+            that.payValue = value;
+            ele.children("input[name=total_fee]").attr("checked", true);
+            ele.siblings().children("input[name=total_fee]").attr("checked", false);;
+            $("#total_fee").val("");
+            that.toggleForms(true);
         },
         getCheck(ele) {
             let that = this;
@@ -239,8 +245,7 @@ $(function () {
         },
         imgLoad() {
             let image = new Image();
-            image.onload = function () {
-            };
+            image.onload = function () {};
             image.onerror = function () {
                 this.src = that.site + +this.src;
             }
@@ -290,7 +295,7 @@ $(function () {
                 let _this = $(this);
                 that.changePayValue(_this);
             });
-            $("#form-group input[data-check],#pay-value").on('blur', function () {
+            $("#form-group input[data-check],#total_fee").on('blur', function () {
                 let _this = $(this);
                 that.blurCheck(_this);
             });
