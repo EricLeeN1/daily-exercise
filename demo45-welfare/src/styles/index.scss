@@ -127,7 +127,7 @@ body {
         >main {
             padding: 0; // @include container-main1;@include container-main1;
             #donate {
-                margin-top: 50px;
+                // margin-top: 50px;
                 >h2 {
                     @include spirit(-772px,
                     0,
@@ -178,7 +178,7 @@ body {
                             &.donate-icon-4 {
                                 @include spirit(-408px,
                                 -141px,
-                                136px,
+                                126px,
                                 114px);
                             }
                         }
@@ -281,12 +281,11 @@ body {
                 }
             }
             #action {
-                position: relative;
-                padding-bottom: 40px;
+                position: relative; // padding-bottom: 40px;
                 background-color: #efefef;
                 >h2 {
                     position: relative;
-                    height: 240px;
+                    height: 180px;
                     background-color: #efefef;
                     &::before {
                         content: '';
@@ -315,10 +314,19 @@ body {
                         line-height: 60px;
                     }
                     .swiper-slide {
-                        height: 700px;
+                        height: 790px;
                         overflow: hidden;
+<<<<<<< HEAD
+=======
+                        position: relative;
+>>>>>>> 2e2351fdc5ac67587cc785817d5cbad53c6117e0
                         img {
                             width: 100%;
+                        }
+                        h3 {
+                            @include positions($bottom: 10px, $left:0, $right:0);
+                            text-align: center;
+                            color: #ffffff;
                         }
                     }
                 }
@@ -369,13 +377,28 @@ body {
                         text-align: center;
                         font-size: 16px;
                         color: #666;
-                        line-height: 60px;
+                        line-height: 60px
                     }
                     .swiper-slide {
                         width: 40%;
                         height: 258px;
+                        position: relative;
                         img {
+                            width: 100%
+                        }
+                        h3 {
+                            @include positions($bottom: 10px, $left:0, $right:0);
                             width: 100%;
+                            line-height: 20px;
+                            height: 20px;
+                            padding: 0 20px;
+                            box-sizing: border-box;
+                            text-align: center;
+                            color: #ffffff;
+                            font-size: 14px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
                         }
                     }
                 }
@@ -384,24 +407,19 @@ body {
                     .swiper-pagination-bullet {
                         width: 10px;
                         height: 10px;
-                        background-color: skyblue;
+                        background-color: skyblue
                     }
                     .swiper-pagination-bullet-active {
                         background-color: #7bc3f0;
-                        transform: scale(1.5);
+                        transform: scale(1.5)
                     }
                 }
             }
             #donate-company {
-                margin-top: 30px;
                 margin-bottom: 30px;
                 h2 {
-                    @include spirit(-674px,
-                    -76px,
-                    121px,
-                    79px);
-                    margin: 0 auto;
                     position: relative;
+<<<<<<< HEAD
                     margin-bottom: 40px; // &::after {
                     //     content: attr(data-name);
                     //     @include positions($left: 0, $right:0, $bottom:-20px);
@@ -410,6 +428,20 @@ body {
                     //     color: #333;
                     //     font-weight: normal;
                     // }
+=======
+                    height: 180px;
+                    &::before {
+                        content: '';
+                        @include spirit(-674px,
+                        -76px,
+                        122px,
+                        79px);
+                        margin: 0 auto;
+                        @include positions($top: 50%, $left:50%);
+                        margin-left: -61px;
+                        margin-top: -40px;
+                    }
+>>>>>>> 2e2351fdc5ac67587cc785817d5cbad53c6117e0
                 }
                 .swiper-wrapper {
                     h3 {
@@ -426,10 +458,10 @@ body {
                         overflow: hidden;
                         img {
                             height: 100%; // 
-                            border: 3px solid #e1e1e1;
+                            border: 1px solid #e1e1e1;
                             box-sizing: border-box;
                             width: 100%;
-                            padding: 3px;
+                            padding: 10px;
                             @include rounded-corners(10px);
                             &:hover {
                                 border: 3px solid #2d92d1;
@@ -633,6 +665,12 @@ body {
                             }
                             &#taxid {
                                 margin-left: 80px;
+                            }
+                            &#pay-now {
+                                padding: 0 10px;
+                                background-color: #ffffff;
+                                border: 1px solid #555555;
+                                color: #555555;
                             }
                         }
                         #pay-methods {
@@ -933,6 +971,7 @@ body {
         >main {
             section {
                 overflow: hidden;
+                padding-bottom: 70px;
                 &.right-article {
                     img {
                         float: left;
@@ -981,6 +1020,7 @@ body {
                     padding-bottom: 30px;
                     img {
                         margin-right: 60px;
+                        width: 400px;
                     }
                     article {
                         h3 {
@@ -1137,7 +1177,7 @@ body {
                                 height: 88px;
                                 box-sizing: border-box; // padding-right: 6px;
                                 h3 {
-                                    color: #121212;
+                                    color: #555555;
                                     font-size: 16px;
                                     line-height: 22px;
                                     max-height: 44px;
@@ -1387,7 +1427,7 @@ body {
                 position: relative;
                 background-color: #fff;
                 @include container-main;
-                margin-top: 100px;
+                margin-top: 130px;
                 .swiper-wrapper {
                     height: 400px; // overflow: hidden;
                     .swiper-slide {
@@ -1438,23 +1478,15 @@ body {
             >main {
                 padding: 0; // @include container-main1;@include container-main1;
                 #donate {
-                    margin-top: 50px;
+                    margin-top: 150px;
                     >h2 {
-                        @include spirit(-754px,
+                        @include spirit(-772px,
                         0,
-                        95px,
+                        150px,
                         72px);
                         margin: 0 auto;
                         z-index: 2;
                         position: relative;
-                        &::after {
-                            content: attr(data-name);
-                            @include positions($left: 0, $right:0, $bottom:-20px);
-                            text-align: center;
-                            line-height: 20px;
-                            font-weight: normal;
-                            color: #333;
-                        }
                     }
                     ul {
                         position: relative;
@@ -1462,7 +1494,7 @@ body {
                         margin-top: -20px;
                         overflow: hidden;
                         background-color: #efefef;
-                        padding: 100px 3%;
+                        padding: 150px 3%;
                         li {
                             float: left;
                             width: 25%;
@@ -1490,7 +1522,7 @@ body {
                                 &.donate-icon-4 {
                                     @include spirit(-408px,
                                     -141px,
-                                    136px,
+                                    126px,
                                     114px);
                                 }
                             }
@@ -1592,31 +1624,26 @@ body {
                     }
                 }
                 #action {
-                    position: relative;
-                    padding-bottom: 40px;
+                    position: relative; // padding-bottom: 40px;
                     background-color: #efefef;
                     >h2 {
                         position: relative;
-                        height: 240px;
+                        height: 180px;
                         background-color: #efefef;
                         &::before {
                             content: '';
                             @include spirit(-674px,
                             0,
+<<<<<<< HEAD
                             97px,
+=======
+                            98px,
+>>>>>>> 2e2351fdc5ac67587cc785817d5cbad53c6117e0
                             76px);
                             margin: 0 auto;
                             @include positions($top: 50%, $left:50%);
                             margin-left: -40px;
                             margin-top: -38px;
-                        }
-                        &::after {
-                            content: attr(data-name);
-                            @include positions($left: 0, $right:0, $bottom:60px);
-                            text-align: center;
-                            line-height: 20px;
-                            color: #333;
-                            font-weight: normal;
                         }
                     }
                     .swiper-wrapper {
@@ -1627,8 +1654,17 @@ body {
                             line-height: 60px;
                         }
                         .swiper-slide {
-                            height: 540px;
+                            height: 665px;
                             overflow: hidden;
+                            position: relative;
+                            img {
+                                width: 100%;
+                            }
+                            h3 {
+                                @include positions($bottom: 10px, $left:0, $right:0);
+                                text-align: center;
+                                color: #ffffff;
+                            }
                         }
                     }
                     .swiper-pagination {
@@ -1648,29 +1684,21 @@ body {
                 #donate-star {
                     position: relative;
                     padding-bottom: 60px;
-                    background-color: #efefef;
+                    background-color: #efefef; // background-color: red;
                     >h2 {
                         position: relative;
                         height: 180px;
                         background-color: #efefef;
                         &::before {
                             content: '';
-                            @include spirit(-849px,
-                            0,
-                            104px,
+                            @include spirit(-795px,
+                            -72px,
+                            105px,
                             62px);
                             margin: 0 auto;
                             @include positions($top: 50%, $left:50%);
                             margin-left: -52px;
                             margin-top: -31px;
-                        }
-                        &::after {
-                            content: attr(data-name);
-                            @include positions($left: 0, $right:0, $bottom:40px);
-                            text-align: center;
-                            line-height: 20px;
-                            color: #333;
-                            font-weight: normal;
                         }
                         margin: 0 auto;
                     }
@@ -1679,13 +1707,28 @@ body {
                             text-align: center;
                             font-size: 16px;
                             color: #666;
-                            line-height: 60px;
+                            line-height: 60px
                         }
                         .swiper-slide {
                             width: 40%;
                             height: 258px;
+                            position: relative;
                             img {
                                 width: 100%;
+                            }
+                            h3 {
+                                @include positions($bottom: 10px, $left:0, $right:0);
+                                width: 100%;
+                                padding: 0 20px;
+                                box-sizing: border-box;
+                                line-height: 20px;
+                                height: 20px;
+                                text-align: center;
+                                color: #ffffff;
+                                font-size: 14px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
                             }
                         }
                     }
@@ -1694,32 +1737,29 @@ body {
                         .swiper-pagination-bullet {
                             width: 10px;
                             height: 10px;
-                            background-color: skyblue;
+                            background-color: skyblue
                         }
                         .swiper-pagination-bullet-active {
                             background-color: #7bc3f0;
-                            transform: scale(1.5);
+                            transform: scale(1.5)
                         }
                     }
                 }
                 #donate-company {
-                    margin-top: 30px;
                     margin-bottom: 30px;
                     h2 {
-                        @include spirit(-674px,
-                        -76px,
-                        116px,
-                        79px);
-                        margin: 0 auto;
                         position: relative;
-                        margin-bottom: 40px;
-                        &::after {
-                            content: attr(data-name);
-                            @include positions($left: 0, $right:0, $bottom:-20px);
-                            text-align: center;
-                            line-height: 20px;
-                            color: #333;
-                            font-weight: normal;
+                        height: 180px;
+                        &::before {
+                            content: '';
+                            @include spirit(-674px,
+                            -76px,
+                            122px,
+                            79px);
+                            margin: 0 auto;
+                            @include positions($top: 50%, $left:50%);
+                            margin-left: -61px;
+                            margin-top: -40px;
                         }
                     }
                     .swiper-wrapper {
