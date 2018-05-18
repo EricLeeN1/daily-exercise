@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>元素渲染</title>
+    <script src="../scripts/react.min.js"></script>
+    <script src="../scripts/react-dom.min.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+    <script type="text/babel">
+        
+        // const CommentBox = <h1>Hello React</h1>;
+        // ReactDOM.render(CommentBox,document.getElementById('root'));
+        
+        function tick() {
+            const CommentBox = (
+            <div>
+                <h1> Hello,Eric</h1>
+                <h2>{'现在时间：'+new Date().toLocaleTimeString()}.</h2>
+            </div>
+        );
+        ReactDOM.render(CommentBox,document.getElementById('root'));
+        }
+        setInterval(tick, 1000);
+    </script>
+</body>
+
+</html>

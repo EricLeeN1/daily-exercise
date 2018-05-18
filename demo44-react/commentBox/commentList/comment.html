@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello React</title>
+    <script src="../scripts/react.min.js"></script>
+    <script src="../scripts/react-dom.min.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+</head>
+<body>
+    <div id="example">
+
+    </div>
+    <script type="text/babel">
+        const list = ()=>(
+            <div>
+                <Title>标题在这里</Title>
+                <ul>
+                    <li>列表1</li>
+                    <li>列表2</li>
+                    <li>列表3</li>
+                </ul>    
+            </div>
+        );
+        ReactDOM.render(<list />,document.getElementById('example'));
+    </script>
+</body>
+</html>

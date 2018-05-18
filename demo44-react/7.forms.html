@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>forms表单</title>
+    <script src="../scripts/react.min.js"></script>
+    <script src="../scripts/react-dom.min.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    class NameForm extends React.Component{
+        constructor(props){
+            super(props);
+            // this.state = {value:''};
+            this.state = {value: 'coconut'};
+
+            this.handleChange = this.handleChange.bind(this);
+            this.handleSubmit = this.handleSubmit.bind(this);
+        }
+
+        handleChange(event){
+            this.setState({
+                value:event.target.value,
+            });
+        }
+
+        handleSubmit(event){
+            alert('A name was submitted:'+this.state.value);
+            event.preventDefault();
+        }
+
+        // render(){
+        //     return(
+        //         <form onSubmit={this.handleSubmit}>
+        //             <label>
+        //                 Name:
+        //                 <input type="text" value={this.state.value} onChange = {this.handleChange} />
+        //             </label>
+        //             <input type="submit" value="submit" />
+        //         </form>
+        //     )
+        // }
+        // render(){
+        //     return(
+        //         <form onSubmit={this.handleSubmit}>
+        //             <label>
+        //                 Name:
+        //                 <textarea type="text" value={this.state.value1} onChange = {this.handleChange} />
+        //             </label>
+        //             <input type="submit" value="submit" />
+        //         </form>
+        //     )
+        // }
+        render(){
+            return(
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        选择你最喜欢的口味:
+                        <select value={this.state.value} onChange={this.handleChange}>
+                            <option value="grapefruit">Grapefruit</option>
+                            <option value="lime">Lime</option>
+                            <option value="coconut">Coconut</option>
+                            <option value="mango">Mango</option>
+                        </select>
+                    </label>
+                    <input type="submit" value="submit" />
+                </form>
+            )
+        }
+    }
+    ReactDOM.render(
+        <NameForm />,
+        document.getElementById('root')
+    );
+    class FileInput extends React.Component{
+        constructor(props){
+            super(props);
+            this.handleSubmit = this.handleSubmit.bind(this);
+        }
+        handleSubmit(event){
+            event.preventDefault();
+            console.log(event);
+            alert(`选择文件-${this.fileInput.files[0].name}`);
+        }
+        render(){
+            return(
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        上传文件：
+                        <input type='file' ref={input=>{this.fileInput = input}}/>
+                    </label>
+                    <br />
+                    <button type="submit">
+                        Submit
+                    </button>
+                </form>
+            );
+        }
+    }
+    ReactDOM.render(
+        <FileInput />,
+        document.getElementById('root')
+    );
+
+    class Reservation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isGoing: true,
+      numberOfGuests: 2
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  render() {
+    return (
+      <form>
+        <label>
+          Is going:
+          <input
+            name="isGoing"
+            type="checkbox"
+            checked={this.state.isGoing}
+            onChange={this.handleInputChange} />
+        </label>
+        <br />
+        <label>
+          Number of guests:
+          <input
+            name="numberOfGuests"
+            type="number"
+            value={this.state.numberOfGuests}
+            onChange={this.handleInputChange} />
+        </label>
+      </form>
+    );
+  }
+}
+ReactDOM.render(
+        <Reservation />,
+        document.getElementById('root')
+    );
+    </script>
+</body>
+
+</html>

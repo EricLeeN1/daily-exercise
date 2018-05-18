@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件</title>
+    <script src="../scripts/react.min.js"></script>
+    <script src="../scripts/react-dom.min.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+    <script type="text/babel">
+    console.log('====================================');
+    console.log("函数式组件");
+    console.log('====================================');
+    function Welcome(props) {
+        return <h1>hello,{props.name}</h1>;
+    }; 
+    // class Welcome extends React.Component{
+    //     render(){
+    //         return <h1>hello,{this.props.name}</h1>;
+    //     }
+    // }
+    console.log('====================================');
+    console.log("渲染一个组件");
+    console.log('====================================');
+    
+    console.log('====================================');
+    console.log("React 元素");
+    console.log('====================================');
+    const element = <div />;
+    console.log('====================================');
+    console.log("代表用户定义的组件");
+    console.log('====================================');
+    const element1 = <Welcome name="Eric"/>
+    console.log('====================================');
+    console.log("构成组件");
+    console.log('====================================');
+
+function App() {
+    return(
+        <div>
+        <Welcome name="Sara"/>
+        <Welcome name="Cahal"/>
+        <Welcome name="Edite"/>
+        </div>
+    )
+}
+
+    ReactDOM.render(
+        <App />,
+        document.getElementById("root")
+    );
+    </script>
+</body>
+
+</html>

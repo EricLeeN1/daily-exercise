@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表与key</title>
+    <script src="../scripts/react.min.js"></script>
+    <script src="../scripts/react-dom.min.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    // const numbers = [1,2,3,4,5];
+    // const listItems = numbers.map((number)=>
+    //     <li>{number}</li>
+    // );
+    // ReactDOM.render(
+    //     <ul>{listItems}</ul>,
+    //     document.getElementById('root')
+    // )
+    function ListItem(props) {
+        return <li>{props.value}</li>
+    }
+
+    function NumberList(props) {
+        const numbers = props.numbers;
+        return (
+            <ul>
+            {numbers.map((number,index)=>
+        <ListItem key={number.toString()} data-key={index} value={number} />
+        )}
+            </ul>
+        );
+    }
+
+    const numbers = [1,2,3,4,5];
+    const posts = [
+  {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
+  {id: 2, title: 'Installation', content: 'You can install React from npm.'}
+];
+    function Blog(props) {
+        const sidebar = (
+            <ul>
+            {props.posts.map((post)=>
+                <li key={post.id}>
+                {post.title}
+                </li>
+            )}
+            </ul>
+        );
+        const content = props.posts.map((post) =>
+            <div key={post.id}>
+                <h3>{post.title}</h3>
+                <p>{post.content}</p>
+            </div>
+        );
+        return (
+            <div>
+            {sidebar}
+            <hr/>
+            {content}
+            <hr />
+            <NumberList numbers={numbers}/>
+            </div>
+        );
+    };
+
+    ReactDOM.render(
+        <Blog posts={posts} />,
+        document.getElementById('root')
+    )
+    </script>
+</body>
+
+</html>

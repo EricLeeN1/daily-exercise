@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>状态和生命周期</title>
+    <script src="../scripts/react.min.js"></script>
+    <script src="../scripts/react-dom.min.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+    <script type="text/babel">
+        // function Clock(props) {
+        //     return(
+        //         <div>
+        //         <h1>Hello , Eric!</h1>
+        //         <h2>It is {props.date.toLocaleTimeString()}.</h2>
+        //         </div>
+        //     )
+        // }
+        // function tick() {
+        //     ReactDOM.render(
+        //         <Clock date={new Date()} />,
+        //         document.getElementById('root')
+        //     );
+        // }
+        // setInterval(tick, 1000);
+        console.log('====================================');
+        console.log("把函数式组件转化为类组件");
+        console.log('====================================');
+        class Clock extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {date:new Date()};
+            }
+            componentDidMount = () => {
+              this.timerID = setInterval(()=>{
+                  this.tick();
+              },1000);
+            }
+            componentWillUnmount = () => {
+              clearInterval(this.timerID);
+            }
+            
+            tick(){
+                this.setState({
+                    date: new Date()
+                });
+            }
+
+            render(){
+                return(
+                    <div>
+                        <h1>Hello,Eric</h1>
+                        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                    </div>
+                );
+            }
+        }
+        function App() {
+            return(
+                <div>
+                <Clock/>
+                <Clock/>
+                <Clock/>
+                </div>
+            )
+        }
+        ReactDOM.render(
+            <App/>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+
+</html>
