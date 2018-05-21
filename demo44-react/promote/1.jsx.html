@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jsx</title>
+    <script src="../scripts/react.min.js"></script>
+    <script src="../scripts/react-dom.min.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
 </head>
+
 <body>
-    
+    <div class="root">
+
+    </div>
+    <script type="text/babel">
+        class Counter extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    count:props.initialCount
+                };
+
+                //这一行很重要！
+                this.handleClick = this.handleClick.bind(this);
+            }
+            handleClick(){
+                alert(this.state.message);
+            }
+            render(){
+                return(
+                    <button onclick={this.handleClick}>
+                    Say Hello
+                    </button>
+                )
+            }
+        }
+    </script>
 </body>
+
 </html>
