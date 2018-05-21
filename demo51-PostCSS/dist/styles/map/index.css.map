@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["index.css"],"sourcesContent":["body{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    background-color: green;\r\n}"],"file":"../index.css"}

@@ -1,35 +1,62 @@
 // gulp.js配置
 var gulp = require('gulp');
 var postcss = require('gulp-postcss');
-var stylelint = require('stylelint');
-var doiuse = require('doiuse');
 var autoprefixer = require('autoprefixer');
-var immutableCss = require('immutable-css');
-var mqpacker = require('css-mqpacker');
+var sourcemaps = require('gulp-sourcemaps');
+var rename = require('gulp-rename');
+var stylelint = require('stylelint');
+var reporter = require('postcss-reporter');
+// var doiuse = require('doiuse');
+// var immutableCss = require('immutable-css');
+// var mqpacker = require('css-mqpacker');
 var cssnano = require('cssnano');
 
 // 应用PostCss插件
 
-gulp.task('css', function () {
-    return gulp.src('src/main.css')
+gulp.task('styles', function () {
+    return gulp.src('src/styles/*.css')
         .pipe(postcss([
-            reporter(),
-            stylelint(),
-            immutableCss({
-                strict: true
+            reporter({
+                clearMessages: true
             }),
-            mqpacker({
-                map:{
-                    inline:false
+            stylelint({
+                'rules': {
+                    'color-no-invalid-hex': true,
+                    'declaration-colon-space-before': [2, 'never'],
+                    'indentation': [2, 2],
+                    'number-leading-zero': [2, 'always']
                 }
             }),
+            // immutableCss({
+            //     strict: true
+            // }),
+            // mqpacker({
+            //     map:{
+            //         inline:false
+            //     }
+            // }),
             autoprefixer({
                 browsers: ['last 2 versions', '> 2%']
             }),
-            doiuse({
-                browsers: ['ie >= 9', 'last 2 versions'],
-            }),
+            // doiuse({
+            //     browsers: ['ie >= 9', 'last 2 versions'],
+            // }),
             cssnano()
         ]))
-        .pipe(gulp.dest('dist/main.css'));
+        .pipe(
+            rename({
+                suffix: '.min'
+            })
+        )
+        .pipe(sourcemaps.init())
+        .pipe(sourcemaps.write('map/'))
+        .pipe(gulp.dest('dist/styles'));
 });
+
+gulp.task('default', ['styles']);
+
+var watcher = gulp.watch('src/styles/*.css', ['default']);
+
+watcher.on('change', function (event) {
+    console.log('File' + event.path + ' was ' + event.type + ',running task...');
+})
