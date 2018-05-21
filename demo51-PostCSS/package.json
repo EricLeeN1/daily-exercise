@@ -9,7 +9,20 @@
   "author": "Eric",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^8.5.0",
+    "css-mqpacker": "^6.0.2",
+    "cssnano": "^3.10.0",
+    "doiuse": "^4.1.0",
     "gulp": "^3.9.1",
-    "gulp-postcss": "^7.0.1"
+    "gulp-postcss": "^7.0.1",
+    "immutable-css": "^1.1.2",
+    "postcss-assets": "^5.0.0",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-reporter": "^5.0.0",
+    "rucksack-css": "^1.0.2"
+  },
+  "dependencies": {
+    "stylelint": "^9.2.1",
+    "stylelint-config-standard": "^18.2.0"
   }
 }
