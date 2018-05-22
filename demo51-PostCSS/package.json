@@ -21,6 +21,7 @@
     "postcss-assets": "^5.0.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-reporter": "^5.0.0",
+    "precss": "^3.1.2",
     "rucksack-css": "^1.0.2"
   },
   "dependencies": {

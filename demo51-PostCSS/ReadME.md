@@ -11,4 +11,5 @@
     7. 是否可用 npm i doiuse --save-dev
     8. Immutable CSS npm i immutable-css --save-dev
     9. 在必要时会将你的媒体查询成一个规则 npm install --save-dev css-mqpacker
+    10. precss(像Sass的函数) npm install precss --save-dev
     
