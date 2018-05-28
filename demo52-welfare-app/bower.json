@@ -1,0 +1,36 @@
+{
+    "name": "html5",
+    "description": "App页面HTML5化",
+    "main": "app",
+    "authors": [
+      "Eric Lee"
+    ],
+    "license": "ISC",
+    "keywords": [
+      "html5",
+      "app"
+    ],
+    "homepage": "https://github.com/EricLeeN1/daily-exercise",
+    "private": true,
+    "ignore": [
+      "**/.*",
+      "node_modules",
+      "bower_components",
+      "test",
+      "tests"
+    ],
+    "devDependencies": {
+      "jquery": "^3.2.1",
+      "bootstrap-sass": "^3.3.7"
+    },
+    "overrides": {
+      "bootstrap-sass": {
+        "main": [
+          "assets/stylesheets/_bootstrap.scss",
+          "assets/fonts/bootstrap/*",
+          "assets/javascripts/bootstrap.js"
+        ]
+      }
+    }
+  }
+  

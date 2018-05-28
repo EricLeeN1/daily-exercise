@@ -1,0 +1,45 @@
+{
+  "name": "html5",
+  "version": "0.0.1",
+  "description": "App页面HTML5化",
+  "main": "app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "html5",
+    "app"
+  ],
+  "author": "Eric Lee",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "browser-sync": "^2.23.5",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-cache": "^1.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev-append": "^0.1.8",
+    "gulp-sass": "^3.1.0",
+    "gulp-size": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.3",
+    "gulp-strip-css-comments": "^2.0.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.4",
+    "main-bower-files": "^2.13.1",
+    "wiredep": "^4.0.0"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}

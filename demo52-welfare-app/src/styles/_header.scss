@@ -1,0 +1,25 @@
+@import './_base.scss';
+header.common-header {
+    padding: 0 .3rem;
+    @include positions($left:0,$top:0,$right:0,$position:fixed);
+    z-index: 999;
+    height: .88rem;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 1px 0px 1px rgba(0, 0, 0, .3);
+    h1{
+        line-height: .88rem;
+        text-align: center;
+        font-size: .36rem;
+    }
+    ul{
+        @include positions($right:.3rem,$top:50%);
+        margin-top: -.1rem;
+        li{
+            background-color: #444444;
+            height: .03rem;
+            width: .36rem;
+            margin-bottom: .1rem;
+        }
+    }
+}
