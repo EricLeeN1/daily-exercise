@@ -14,9 +14,9 @@
     <meta name="author" content="Eric tel-1883983536">
     <link rel="stylesheet" href="./styles/index.min.css?rev=@@hash">
 </head>
-<body id="about-body">
+<body id="donate-body">
 <header class="common-header">
-    <h1>关于</h1>
+    <h1>个人捐助</h1>
     <ul>
         <li></li>
         <li></li>
@@ -29,147 +29,167 @@
         <li><a href="./company.html">伙伴</a></li>
     </ol>
 </header>
-<section class="banner">
-    <img src="" alt="">
+<section id="banner">
+    <img src="./images/company/company-banner@2x.png" alt="">
 </section>
 <main>
-    <section class="about-us">
-        <h2><img src="./images/about/about-us@2x.png" alt=""></h2>
-        <h3><img src="./images/about/about-us-title@2x.png" alt=""></h3>
-        <div class="text"></div>
+    <section class="what-can-do">
+        <div class="text">
+            <p>
+                2000元，能为40个孩子提供1学年的素质基础启蒙教育的用品；
+            </p>
+            <p>
+                10000元，能为200个孩子提供至少可使用2年的电影放映设备；
+            </p>
+            <p>
+                20000万，能为......
+            </p>
+            <p>
+                公益行动，有你有我。2018年，我们计划募捐400万元，用于明年40所“零钱电影院”的建设中。我们希望能够汇集社会各方的力量，达到爱心个人捐款100万元，爱心集体捐款100万元，爱心企业捐款200万元的目标，为更多的孩子搭建属于他们自己的“电影天堂”，用点滴爱心，为更多孩子的精神世界赋能。
+            </p>
+        </div>
     </section>
-    <section class="about-brothers">
-        <h2><img src="./images/about/about-brothers@2x.png" alt=""></h2>
-        <h3><img src="./images/about/about-brothers-title@2x.png" alt=""></h3>
-        <div class="text"></div>
-    </section>
-    <section class="about-cnr">
-        <h2><img src="./images/about/about-cnr@2x.png" alt=""></h2>
-        <h3><img src="./images/about/about-cnr-title@2x.png" alt=""></h3>
-        <div class="text"></div>
-    </section>
-    <section class="about-budget">
-        <h3><img src="./images/about/about-budget@2x.png" alt=""></h3>
-        <div class="table">
-            <div class="table-title">
-                基础启蒙教育
+    <form id="pay-form" class="pay-section" action="http://www.doubaner.top/pay" method="POST">
+        <div class="pay-infos">
+            <div class="pay-methods">
+                <h4>请填写信息并完成支付：</h4>
+                <ul class="pay-methods-list" id="pay-methods-list">
+                    <li data-value="197" class="active">
+                        <input type="checkbox" name="total_fee" hidden value="197" checked>
+                        <h5>￥197</h5>
+                        <p>就能为200位学生提供1年优质观影资源购买。</p>
+                    </li>
+                    <li data-value="276">
+                        <input type="checkbox" name="total_fee" hidden value="276">
+                        <h5>￥276</h5>
+                        <p>就能都买一套“零钱电影院”观影桌椅（1张桌子、2把椅子）。</p>
+                    </li>
+                    <li data-value="1000">
+                        <input type="checkbox" name="total_fee" hidden value="1000">
+                        <h5>￥1000</h5>
+                        <p>就能为40个孩子提供为1学期部分素质基础启蒙教育用品，图书绘本资料。</p>
+                    </li>
+                    <li data-value="">
+                        <input type="checkbox" name="total_fee" hidden value="" id="pay-input">
+                        <div>
+                            <label for="total_fee">你希望捐助的其他金额</label>
+                            <input data-check="pay" type="text" id="total_fee" placeholder="请输入金额">
+                        </div>
+                        <p></p>
+                    </li>
+                </ul>
+                <div class="pay-methods-tips">
+                    请提供真实的个人信息及平信地址以便我们与您联系，切为您寄送我们项目情况的资料，您的个人资料将做保密处理。
+                </div>
             </div>
-            <ul class="table-tr">
-                <li>项目</li>
-                <li>绘画用品</li>
-                <li>绘本图书</li>
-                <li>电影库资料</li>
-            </ul>
-            <ul class="table-tr font-black">
-                <li>价格(元)</li>
-                <li>3000元</li>
-                <li>3100元</li>
-                <li>197元</li>
-            </ul>
-            <ul class="table-tr height-28 font-black">
-                <li>数量</li>
-                <li>纸360张4开康颂、 笔60支 、颜料40罐、画布60块、 调色板20块、小水桶20个</li>
-                <li>410本</li>
-                <li>3000部</li>
-            </ul>
-            <ul class="table-tr font-black">
-                <li>辐射人数</li>
-                <li>40</li>
-                <li>200</li>
-                <li>200</li>
-            </ul>
-            <ul class="table-tr font-black">
-                <li>使用时长</li>
-                <li>1学期</li>
-                <li>1年</li>
-                <li>1年</li>
-            </ul>
-        </div>
-        <div class="table">
-            <div class="table-title">
-                多功能教室
+            <div class="form-group" id="form-group">
+                <div>
+                    <label class="important" for="username">姓名</label>
+                    <input data-check="name" class="contact-input" type="text" name="name" id="username"
+                           placeholder="请输入您的姓名" maxlength="8">
+                    <span></span>
+                </div>
+                <div>
+                    <label class="important" for="appellation">称谓</label>
+                    <select name="sex" id="appellation">
+                        <option value="1">先生</option>
+                        <option value="2">女士</option>
+                        <option value="3">小朋友</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="important" for="phone">手机</label>
+                    <input data-check="phone" class="contact-input" type="tel" name="phone" id="phone"
+                           placeholder="请输入您的联系方式">
+                    <span></span>
+                </div>
+                <div>
+                    <label class="important" for="email">E-mail</label>
+                    <input data-check="email" class="contact-input" type="email" name="mail" id="email"
+                           placeholder="请输入您的电子邮件地址">
+                    <span></span>
+                </div>
+                <div>
+                    <label class="important" for="address">邮寄地址</label>
+                    <input data-check="address" class="contact-input" type="text" name="address" id="address"
+                           placeholder="请输入您的通讯地址">
+                    <span></span>
+                </div>
+                <div class="deal-receipt">
+                    <label for="receipt">是否开发票</label>
+                    <select name="invoicing" id="receipt">
+                        <option value="true">是</option>
+                        <option value="">否</option>
+                    </select>
+                    <div class="receipt-radio">
+                        <div class="receipt-choice">
+                            <select name="invoicing" id="select-choice">
+                                <option value="2">公司</option>
+                                <option value="1">个人</option>
+                            </select>
+                            <input data-check="organ-name" type="text" placeholder="请输入公司名称或机构代码" id="organ-name"
+                                   name="invoice">
+                            <span></span>
+                        </div>
+                        <div class="receipt-choice">
+                            <input data-check="taxid" type="text" placeholder="请输入税号" id="taxid" name="TaxID">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label class="important" for="address">支付方式</label>
+                    <div id="pay-methods">
+                        <input hidden type="radio" name="way" value="1" data-type="1" alt="支付宝" checked>
+                        <img src="./images/donate/ali-pay@2x.png" alt="">
+                        <input hidden type="radio" name="way" value="2" data-type="2" alt="微信">
+                        <img src="./images/donate/wechat-pay@2x.png" alt="">
+                    </div>
+                </div>
+                <div>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="button" value="立即支付" id="pay-now">
+                </div>
             </div>
-            <ul class="table-tr">
-                <li>项目</li>
-                <li>桌椅</li>
-                <li>笔记本电脑</li>
-                <li>音视频设备</li>
-            </ul>
-            <ul class="table-tr font-black">
-                <li>价格(元)</li>
-                <li>8000元</li>
-                <li>4500元</li>
-                <li>9800元</li>
-            </ul>
-            <ul class="table-tr height-28 font-black">
-                <li>数量</li>
-                <li>椅子50张、桌子30张、 书架3套、墙贴2套</li>
-                <li>1套</li>
-                <li>投影仪1台、幕布1块、音响调音台1套、 辅助线材支架1套</li>
-            </ul>
-            <ul class="table-tr font-black">
-                <li>辐射人数</li>
-                <li>40</li>
-                <li>200</li>
-                <li>200</li>
-            </ul>
-            <ul class="table-tr font-black">
-                <li>使用时长</li>
-                <li>2年</li>
-                <li>2年</li>
-                <li>2年</li>
-            </ul>
+            <p class="form-tips important">
+                请注意：在确认所选择的支付平台后，您将离开本网站，并经过支付平台进入在线支付页面进行您的捐助，再次感谢您对孩子们的帮助与支持！
+            </p>
         </div>
-        <div class="table2">
-            <div class="table-title">
-                零钱电影院
-            </div>
-            <ul class="table-tr">
-                <li>项目</li>
-                <li>改造</li>
-            </ul>
-            <ul class="table-tr font-black">
-                <li>价格(元)</li>
-                <li>6000元</li>
-            </ul>
-            <ul class="table-tr height-18 font-black">
-                <li>数量</li>
-                <li>80平米左右墙面、地面、门窗、窗帘、灯、线路改造、人工、安装等（包含基础启蒙教育和多功能教室物资）</li>
-            </ul>
-            <ul class="table-tr font-black">
-                <li>辐射人数</li>
-                <li>200</li>
-            </ul>
-            <ul class="table-tr font-black">
-                <li>使用时长</li>
-                <li>2年</li>
-            </ul>
+    </form>
+    <section id="love-tips">
+        <div class="love-title">
+            对于您的爱心捐助，我们将奉上爱心回馈，请在捐款支付页面留下您的收货信息，请耐心等待，我们将会根据捐助先后顺序陆续发出相关回馈物品。若未留下相关信息，我们将默认为您放弃爱心回馈。爱心回馈物品如下：
         </div>
-        <div class="table2">
-            <div class="table-title">
-                维护管理
-            </div>
-            <ul class="table-tr">
-                <li>项目</li>
-                <li>升级和维护管理</li>
-            </ul>
-            <ul class="table-tr font-black">
-                <li>价格(元)</li>
-                <li>14303元</li>
-            </ul>
-            <ul class="table-tr height-15 font-black">
-                <li>数量</li>
-                <li>项目执行费、教室培训、设备维护更新升级、材料补充</li>
-            </ul>
-            <ul class="table-tr font-black">
-                <li>辐射人数</li>
-                <li>200</li>
-            </ul>
-            <ul class="table-tr font-black">
-                <li>使用时长</li>
-                <li>3年</li>
-            </ul>
-        </div>
+        <ul class="goods-tips-list">
+            <li>
+                <p>100元≤捐款金额＜500元</p>
+                <span>爱心明信片一张</span>
+            </li>
+            <li>
+                <p>500元≤捐款金额＜2000元</p>
+                <span>爱心明信片一套</span>
+            </li>
+            <li>
+                <p>2000元≤捐款金额＜500元</p>
+                <span>爱心T恤一件+爱心明信片一张</span>
+            </li>
+            <li>
+                <p>5000元≤捐款金额＜10000元</p>
+                <span>爱心邮册一本+爱心明信片一张</span>
+            </li>
+            <li>
+                <p>10000元≤捐款金额＜50000元</p>
+                <span>一份精美礼品+爱心明信片一张</span>
+            </li>
+            <li>
+                <p>50000元≤捐款金额＜100000元</p>
+                <span>零钱电影院挂牌露出+爱心明信片一张</span>
+            </li>
+            <li>
+                <p>100000元≤捐款金额</p>
+                <span>零钱电影院挂牌露出+慈善晚会席位</span>
+            </li>
+        </ul>
     </section>
 </main>
 <footer class="common-footer">

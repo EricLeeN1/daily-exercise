@@ -575,23 +575,382 @@ body {
           }
         }
       }
-      .news-change{
+      .news-change {
         border-top: .02rem solid #e1e1e1;
         border-bottom: .02rem solid #e1e1e1;
-        @include  flex-center(1);
+        @include flex-center(1);
         align-items: flex-start;
-        a{
-          @include  flex-center(0);
+        a {
+          @include flex-center(0);
           align-items: center;
-          img{
+          img {
             width: .2rem;
             margin-right: .2rem;
             margin-left: .1rem;
           }
-          span,p{
+          span, p {
             color: #666666;
             font-size: .24rem;
             line-height: .6rem;
+          }
+        }
+      }
+    }
+  }
+  &#donateCompany-body {
+    #banner {
+      position: relative;
+      img {
+        width: 100%;
+      }
+    }
+    main {
+      position: relative;
+      margin-top: -.3rem;
+      background-color: #fff;
+      @include rounded-corners(.2rem);
+      @include p30;
+      padding-top: .3rem;
+      section {
+        margin-bottom: .2rem;
+        .text {
+          p {
+            color: #333333;
+            font-size: .28rem;
+            line-height: .48rem;
+            margin-bottom: .1rem;
+            span {
+              color: #888888;
+            }
+          }
+        }
+        img {
+          width: 100%;
+        }
+        h3 {
+          font-size: .36rem;
+          line-height: .6rem;
+          color: #2d91d0;
+          font-weight: normal;
+        }
+        h4 {
+          font-size: .28rem;
+          line-height: .48rem;
+          color: #2d91d0;
+          font-weight: normal;
+        }
+        .love-title {
+          margin-top: .5rem;
+          border-top: .02rem solid #e1e1e1;
+          margin-bottom: .1rem;
+          padding-top: .5rem;
+          font-size: .28rem;
+          color: #333333;
+          line-height: .48rem;
+        }
+        .goods-tips-list {
+          li {
+            padding: .3rem 0;
+            border-top: .02rem solid #fff;
+            line-height: .26rem;
+            font-size: .22rem;
+            color: #333333;
+            overflow: hidden;
+            background-color: #e3eff7;
+            @include flex-center(0);
+            justify-content: space-between;
+            text-align: center;
+            p {
+              padding: 0 .1rem;
+              position: relative;
+              flex: 0 0 50%;
+              box-sizing: border-box;
+              &::after {
+                content: '';
+                @include positions($right: -.02rem, $top: 0, $bottom: 0);
+                height: calc(100% + .02rem);
+                width: .02rem;
+                background-color: #fff;
+              }
+            }
+            span {
+              box-sizing: border-box;
+              flex: 0 0 50%;
+              padding: 0 .1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  &#donate-body {
+    #banner {
+      position: relative;
+      img {
+        width: 100%;
+      }
+    }
+    main {
+      position: relative;
+      margin-top: -.3rem;
+      background-color: #fff;
+      @include rounded-corners(.2rem);
+      @include p30;
+      padding-top: .3rem;
+      section {
+        margin-bottom: .2rem;
+        .text {
+          p {
+            color: #333333;
+            font-size: .28rem;
+            line-height: .48rem;
+            margin-bottom: .1rem;
+            span {
+              color: #888888;
+            }
+          }
+        }
+        &#love-tips {
+          .love-title {
+            margin-top: .5rem;
+            border-top: .02rem solid #e1e1e1;
+            margin-bottom: .1rem;
+            padding-top: .5rem;
+            font-size: .28rem;
+            color: #333333;
+            line-height: .48rem;
+          }
+          .goods-tips-list {
+            li {
+              padding: .3rem 0;
+              border-top: .02rem solid #fff;
+              line-height: .26rem;
+              font-size: .22rem;
+              color: #333333;
+              overflow: hidden;
+              background-color: #e3eff7;
+              @include flex-center(0);
+              justify-content: space-between;
+              text-align: center;
+              p {
+                padding: 0 .1rem;
+                position: relative;
+                flex: 0 0 50%;
+                box-sizing: border-box;
+                &::after {
+                  content: '';
+                  @include positions($right: -.02rem, $top: 0, $bottom: 0);
+                  height: calc(100% + .02rem);
+                  width: .02rem;
+                  background-color: #fff;
+                }
+              }
+              span {
+                box-sizing: border-box;
+                flex: 0 0 50%;
+                padding: 0 .1rem;
+              }
+            }
+          }
+        }
+      }
+      form {
+        .pay-infos {
+          .pay-methods {
+            h4 {
+              font-size: .28rem;
+              color: #2d91d0;
+              margin: .3rem 0;
+            }
+            ul.pay-methods-list {
+              @include flex-center(0);
+              justify-content: space-between;
+              flex-wrap: wrap;
+              li {
+                flex: 0 0 3.3rem;
+                box-sizing: border-box;
+                border: .02rem solid #000;
+                padding: .15rem .15rem 0 .15rem;
+                height: 1.88rem;
+                overflow: hidden;
+                margin-bottom: .3rem;
+                @include rounded-corners(.1rem);
+                position: relative;
+                h5 {
+                  font-size: .44rem;
+                  color: #e94e18;
+                }
+                > div {
+                  overflow: hidden;
+                  label {
+                    margin-left: .1rem;
+                    font-size: .26rem;
+                    color: #e94e18;
+                    line-height: .5rem;
+                  }
+                  input {
+                    margin-top: .2rem;
+                    width: 2.6rem;
+                    box-sizing: border-box;
+                    margin-left: .1rem;
+                    font-size: .28rem;
+                    height: .54rem;
+                    padding-left: .2rem;
+                    @include rounded-corners(4px);
+                    outline: none;
+                    border: none;
+                    background-color: #e9e9e9;
+                    line-height: 36px;
+                    &::placeholder {
+                      color: #cccccc;
+                    }
+                  }
+                }
+                p {
+                  font-size: .24rem;
+                  color: #888888;
+                  line-height: .32rem;
+                }
+                &.active {
+                  border: 1px solid #e94e18;
+                }
+              }
+            }
+            .pay-methods-tips {
+              font-size: .24rem;
+              color: #888888;
+              line-height: .32rem;
+            }
+          }
+          .form-group {
+            margin-top: .2rem;
+            > div {
+              overflow: hidden;
+              @include flex-center(0);
+              justify-content: space-between;
+              margin-bottom: .2rem;
+              flex-wrap: wrap;
+              > label {
+                width: 1.6rem;
+                font-size: .28rem;
+                color: #333333;
+                float: left;
+                line-height: .64rem;
+                margin-right: .1rem;
+              }
+              input {
+                padding: .2rem 0 .2rem .2rem;
+                outline: none;
+                border: .02rem solid #666666;
+                @include rounded-corners(3px);
+                height: .64rem;
+                font-size: .26rem;
+                &::-webkit-input-placeholder {
+                  color: #999999;
+                }
+                &::-moz-placeholder {
+                  color: #999999;
+                }
+                &::-ms-input-placeholder {
+                  color: #999999;
+                }
+                line-height: .64rem;
+                box-sizing: border-box;
+                &.name-input {
+                  width: 2.4rem;
+                }
+                &.contact-input {
+                  width: 5.2rem;
+                  display: inline-block;
+                }
+                &#organ-name {
+                  width: 3.6rem;
+                  flex: 0 0 3.6rem;
+                }
+                &#taxid {
+                  margin-left: 0rem;
+                  width: 100%;
+                }
+                &#pay-now {
+                  padding: 0 .2rem;
+                  background-color: #2d91d0;
+                  border: none;
+                  color: #ffffff;
+                  @include  rounded-corners(.1rem);
+                  width: 100%;
+                  height: .88rem;
+                  line-height: .88rem;
+                  margin: .1rem 0;
+                }
+              }
+              #pay-methods {
+                overflow: hidden;
+                width: 5.2rem;
+                input {
+                  padding: 0;
+                  border: none;
+                  margin-right: .2rem;
+                  cursor: pointer;
+                }
+                img {
+                  float: left;
+                  padding: 0;
+                  border: none;
+                  margin-right: .38rem;
+                  height: .76rem;
+                  cursor: pointer;
+                }
+              }
+              > select {
+                padding-left: .2rem;
+                font-size: .26rem;
+                color: #333333;
+                border: .02rem solid #666666;
+                width: 5.2rem;
+                @include rounded-corners(.06rem);
+                height: .64rem;
+              }
+              .receipt-choice {
+                width: 5.2rem;
+                @include  flex-center(0);
+                justify-content: space-between;
+                margin-top: .2rem;
+                span {
+                  color: #da4646;
+                  line-height: .64rem;
+                }
+                select {
+                  margin-right: auto;
+                  line-height: .64rem;
+                  box-sizing: border-box;
+                  padding-left: .2rem;
+                  font-size: .26rem;
+                  color: #333333;
+                  border: .02rem solid #666666;
+                  width: 1.44rem;
+                  flex: 0 0 1.44rem;
+                  @include rounded-corners(.06rem);
+                  height: .64rem;
+                }
+              }
+              > span {
+                color: #da4646;
+                line-height: 32px;
+                display: inline-block;
+              }
+              .receipt-radio {
+                line-height: 32px;
+                margin-left: 1.7rem;
+              }
+            }
+            &.deal-receipt {
+
+            }
+          }
+          .form-tips {
+            color: #999999;
+            font-size: 14px;
+            line-height: 20px;
           }
         }
       }
