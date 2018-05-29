@@ -892,13 +892,22 @@ body {
                   margin-right: .2rem;
                   cursor: pointer;
                 }
-                img {
-                  float: left;
-                  padding: 0;
-                  border: none;
-                  margin-right: .38rem;
-                  height: .76rem;
-                  cursor: pointer;
+                .img-group{
+                  overflow: hidden;
+                  img {
+                    float: left;
+                    padding: 0;
+                    height: .76rem;
+                    cursor: pointer;
+                    border: .02rem solid #333333;
+                    @include  rounded-corners(.2rem);
+                    &.active{
+                      border: .02rem solid #da4646;
+                    }
+                    &+img{
+                      margin-left: .38rem;
+                    }
+                  }
                 }
               }
               > select {
@@ -935,8 +944,9 @@ body {
               }
               > span {
                 color: #da4646;
-                line-height: 32px;
-                display: inline-block;
+                line-height: .64rem;
+                flex: auto;
+                text-align: center;
               }
               .receipt-radio {
                 line-height: 32px;

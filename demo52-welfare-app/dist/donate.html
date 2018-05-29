@@ -133,10 +133,14 @@
                 <div>
                     <label class="important" for="address">支付方式</label>
                     <div id="pay-methods">
-                        <input hidden type="radio" name="way" value="1" data-type="1" alt="支付宝" checked="checked">
-                        <img src="./images/donate/ali-pay@2x.png" alt="">
-                        <input hidden type="radio" name="way" value="2" data-type="2" alt="微信">
-                        <img src="./images/donate/wechat-pay@2x.png" alt="">
+                        <div class="radio-group">
+                            <input hidden type="radio" name="way" value="1" data-type="1" alt="支付宝" checked="checked">
+                            <input hidden type="radio" name="way" value="2" data-type="2" alt="微信">
+                        </div>
+                        <div class="img-group">
+                            <img src="./images/donate/ali-pay@2x.png" alt="" data-type="1" class="active">
+                            <img src="./images/donate/wechat-pay@2x.png" data-type="2" alt="">
+                        </div>
                     </div>
                 </div>
                 <div>
