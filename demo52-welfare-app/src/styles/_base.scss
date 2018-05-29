@@ -62,7 +62,7 @@ $height) {
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     /*第几行出现省略号*/
     /*text-align:justify;不能和溢出隐藏的代码一起写，会有bug*/
 }

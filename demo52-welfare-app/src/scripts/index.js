@@ -3,6 +3,7 @@ $(function () {
     let Base = window.Base || {};
     Base = {
         site: 'https://www.doubaner.top',
+        slides: null,
         language: (navigator.browserLanguage || navigator.language).toLowerCase(),
         versions: function () {
             var e = navigator.userAgent, t = e.toLowerCase();
@@ -32,6 +33,128 @@ $(function () {
                 };
             window.getComputedStyle(i, null).getPropertyValue("font-size") <= "20px" && o(), t.addEventListener && (e.addEventListener(n, o, !1), t.addEventListener("DOMContentLoaded", o, !1))
         },
+        setSwiper() {
+            let that = this;
+            let myPlugin = {
+                name: 'debugger',
+                params: {
+                    debugger: false,
+                },
+                // on: {
+                //     init: function () {
+                //         if (!this.params.debugger) return;
+                //         // console.log('init');
+                //     },
+                //     click: function (e) {
+                //         if (!this.params.debugger) return;
+                //         // console.log('click');
+                //     },
+                //     tap: function (e) {
+                //         if (!this.params.debugger) return;
+                //         // console.log('tap');
+                //     },
+                //     doubleTap: function (e) {
+                //         if (!this.params.debugger) return;
+                //         // console.log('doubleTap');
+                //     },
+                //     sliderMove: function (e) {
+                //         if (!this.params.debugger) return;
+                //         // console.log('sliderMove');
+                //     },
+                //     slideChange: function () {
+                //         if (!this.params.debugger) return;
+                //         // console.log('slideChange', this.previousIndex, '->', this.activeIndex);
+                //     },
+                //     slideChangeTransitionStart: function () {
+                //         if (!this.params.debugger) return;
+                //         // console.log('slideChangeTransitionStart');
+                //     },
+                //     slideChangeTransitionEnd: function () {
+                //         if (!this.params.debugger) return;
+                //         // console.log('slideChangeTransitionEnd');
+                //     },
+                //     transitionStart: function () {
+                //         if (!this.params.debugger) return;
+                //         // console.log('transitionStart');
+                //     },
+                //     transitionEnd: function () {
+                //         if (!this.params.debugger) return;
+                //         // console.log('transitionEnd');
+                //     },
+                //     fromEdge: function () {
+                //         if (!this.params.debugger) return;
+                //         // console.log('fromEdge');
+                //     },
+                //     reachBeginning: function () {
+                //         if (!this.params.debugger) return;
+                //         // console.log('reachBeginning');
+                //     },
+                //     reachEnd: function () {
+                //         if (!this.params.debugger) return;
+                //         // console.log('reachEnd');
+                //     },
+                // }
+                // on: {
+                //     progress: function (progress) {
+                //         for (let i = 0; i < that.slides.length; i++) {
+                //             slide = that.slides.eq(i);
+                //             slideProgress = that.slides[i].progress;
+                //             if (i == 4) {
+                //                 prevIndent = 0.3228;
+                //             } else {
+                //                 prevIndent = 0.0898;
+                //             }
+                //
+                //             if (Math.abs(slideProgress + prevIndent) < 1) {
+                //                 scale = (1 - Math.abs(slideProgress + prevIndent)) * 0.1 + 1
+                //             } else {
+                //                 scale = 1;
+                //             }
+                //
+                //             slide.find('a').transform('scale3d(' + scale + ',' + scale + ',1)');
+                //         }
+                //     },
+                //     setTransition: function (transition) {
+                //         for (var i = 0; i < that.slides.length; i++) {
+                //             var slide = that.slides.eq(i);
+                //             slide.find('a').transition(transition);
+                //         }
+                //
+                //     },
+                //
+                //     //处理左侧拖入时背景图消失
+                //     touchMove: function () {
+                //         if (this.progress < 0.01) {
+                //             this.controller.control = '';
+                //         } else {
+                //             this.controller.control = swiperBg;
+                //         }
+                //     },
+                //     touchEnd: function () {
+                //         if (this.translate < -1515) {
+                //             alert('跳转');
+                //         }
+                //     }
+                // }
+            };
+            // Install Plugin To Swiper
+            Swiper.use(myPlugin);
+            // Init Swiper
+            let swiper = new Swiper('#action-list', {
+                autoplay: false,
+                loop: true,
+                lazy: true,
+                slidesPerView: 'auto',
+                slidesOffsetBefore: 38,
+                slidesOffsetAfter: 40,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                // Enable debugger
+                // debugger: true,
+            });
+        },
         getBannerInfos() {
             this.getAjax('/intro', {}, function (res) {
                 console.log(res);
@@ -60,24 +183,30 @@ $(function () {
             this.getAjax('/newsList/column/8', {
                 column: 8
             }, function (res) {
-                // console.log(res);
+                console.log(res);
                 if (res.status == 200) {
                     let datas = res.data.StrategyList;
                     if (datas.length > 0) {
                         let swiperSlides = '';
-                        datas.forEach(ele => {
+                        datas.forEach((ele, index) => {
                             let imgSite = that.site + ele.str_thumb;
-                            swiperSlides += `
-                            <a href="./news.html?id=${ele.str_id}" class="swiper-slide" data-id="${ele.str_id}">
-                                <img src="${imgSite}" alt="${ele.str_title}">
-                                <h3>${ele.str_title}</h3>
-                            </a>
+                            if (index < 4) {
+                                swiperSlides += `
+                            <li>
+                                <a href="./news.html?id=${ele.str_id}" data-id="${ele.str_id}">
+                                    <div>
+                                        <img src="${imgSite}" alt="${ele.str_title}">
+                                    </div>
+                                    <p>${ele.str_title}</p>
+                                </a>
+                            </li>
                             `;
+                            }
                         });
                         // console.log(swiperSlides);
-                        $("#action>.swiper-wrapper").html(swiperSlides);
+                        $("#star>ul").html(swiperSlides);
                     } else {
-                        $("#action>.swiper-wrapper").html('<h3>这里还什么都没有</h3>');
+                        $("#star>ul").html('<h3>这里还什么都没有</h3>');
                     }
                 } else {
                     alert(res.message);
@@ -90,23 +219,27 @@ $(function () {
                 column: 9
             }, function (res) {
                 // console.log('9');
-                // console.log(res);
+                console.log(res);
                 if (res.status == 200) {
                     let datas = res.data.StrategyList;
                     if (datas.length > 0) {
                         let swiperSlides = '';
-                        datas.forEach((ele, index) => {
+                        datas.forEach((ele) => {
                             let imgSite = that.site + ele.str_thumb;
-                            swiperSlides +=
-                                `<a href="./news.html?id=${ele.str_id}" class="swiper-slide" data-id="${ele.str_id}">
-                           <img src="${imgSite}" alt="${ele.str_title}">
-                           <h3>${ele.str_title}</h3>
-                           </a>`
+
+                            swiperSlides += `
+                            <a href="./news.html?id=${ele.str_id}" class="swiper-slide" data-id="${ele.str_id}">
+                               <div>
+                                    <img src="${imgSite}" alt="${ele.str_title}">
+                               </div>
+                               <p>${ele.str_title}</p>
+                            </a>`;
+                            that.slides = swiperSlides;
                         });
-                        $("#donate-star>.swiper-wrapper").html(swiperSlides);
+                        $("#action-list>.swiper-wrapper").html(swiperSlides);
                         //3d
                     } else {
-                        $("#donate-star>.swiper-wrapper").html('<h3>这里还什么都没有</h3>');
+                        $("#action-list>.swiper-wrapper").html('<h3>这里还什么都没有</h3>');
                     }
                 } else {
                     alert(res.message);
@@ -176,16 +309,27 @@ $(function () {
             })
 
         },
+        showNav() {
+
+            $(".common-header ol").toggle();
+            $("body").toggleClass('header-active');
+        },
         init() {
             console.log('111');
             let that = this;
             that.fontSize();
             that.setSeo();
+            $(".common-header ul").on('click', function () {
+                that.showNav();
+            });
             that.getBannerInfos();
             that.welfareDatas();
             that.newsList8();
             that.newsList9();
             that.companyList();
+            setTimeout(() => {
+                that.setSwiper();
+            }, 1000);
         }
     }
     Base.init();
