@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>属性和状态实战</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../scripts/react.min.js"></script>
+    <script src="../scripts/react-dom.min.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class Content extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                inputText: ""
+            };
+            this.handleChange = this.handleChange.bind(this);
+            this.handleSubmit = this.handleSubmit.bind(this);
+        }
+
+        handleChange(e) {
+            this.setState({
+                inputText: e.target.value
+            });
+        }
+
+        handleSubmit() {
+            console.log("Reply To:" + this.props.selectName + "\n" + this.state.inputText);
+        }
+
+        render() {
+            return <div>
+                <textarea onChange={this.handleChange} placeholder="place enter something..."></textarea>
+                <button onClick={this.handleSubmit}>Submit</button>
+            </div>;
+        }
+    }
+
+    class Comment extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                names: ["Tim", "John", "Hank"],
+                selectName: ''
+            };
+            this.handleSelect = this.handleSelect.bind(this);
+        }
+
+        handleSelect(e) {
+            this.setState({selectName: e.target.value});
+        }
+
+        render() {
+            let options = [];
+            let that = this;
+            console.log(that.state);
+            for (let option in that.state.names) {
+                options.push(<option value={that.state.names[option]}>{that.state.names[option]}</option>)
+            }
+            return <div>
+                <select onChange={that.handleSelect}>
+                    {options}
+                </select>
+                <Content selectName={that.state.selectName}/>
+            </div>
+        }
+    }
+
+    ReactDOM.render(
+        <Comment/>,
+        document.getElementById('root')
+    );
+</script>
+</body>
+</html>

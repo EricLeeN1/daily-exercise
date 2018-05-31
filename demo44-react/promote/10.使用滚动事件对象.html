@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>使用滚动事件对象</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../scripts/react.min.js"></script>
+    <script src="../scripts/react-dom.min.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class HelloWorld extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                backgroundColor: "#FFFFFF"
+            };
+            this.handleWheel = this.handleWheel.bind(this);
+        }
+
+        handleWheel(e) {
+            let newColor = (parseInt(this.state.backgroundColor.substr(1), 16) + e.deltaY * 997).toString(16);
+            newColor = "#" + newColor.substr(newColor.length - 6).toUpperCase();
+            this.setState({
+                backgroundColor: newColor
+            });
+        }
+
+        render() {
+            console.log(this.state);
+            return <div onWheel={this.handleWheel} style={this.state}>
+                <p>Hello,Eric</p>
+            </div>
+        }
+    }
+    ReactDOM.render(
+        <HelloWorld />,
+        document.getElementById('root')
+    );
+</script>
+
+</body>
+</html>
