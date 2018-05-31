@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>web components</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../scripts/react.min.js"></script>
+    <script src="../scripts/react-dom.min.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class HelloMessage extends React.Component {
+        render() {
+            return <div>Hello <x-search>{this.props.name}</x-search></div>
+        }
+    }
+
+    const proto = Object.create(HTMLElement.prototype, {
+        attachedCallback: {
+            value: function () {
+                const mountPoint = document.createElement('span');
+                this.createShadowRoot().appendChild(mountPoint);
+
+                const name = this.getAttribute('name');
+                const url = 'https://www.baidu.com/search?q=' + encodeURIComponent(name);
+                ReactDOM.render(<a href={url}>{name}</a>, mountPoint);
+            }
+        }
+    });
+    document.registerElement('x-search', {prototype: proto});
+</script>
+</body>
+</html>
