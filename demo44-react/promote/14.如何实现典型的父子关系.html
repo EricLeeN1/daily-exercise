@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>实现典型的父子关系</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../scripts/react.min.js"></script>
+    <script src="../scripts/react-dom.min.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class GenderSelect extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+
+        render() {
+            return <select onChange={this.props.handleSelect}>
+                <option value="0">男</option>
+                <option value="1">女</option>
+            </select>
+        };
+    }
+
+    class Input extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+
+        render() {
+            return <div className="input-wrapper">
+                <input type={this.props.type} placeholder={this.props.placeholder} name={this.props.name}
+                       onChange={this.props.vauleChange}/>
+            </div>
+        }
+    }
+
+
+    class SignUpForm extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                name: '',
+                password: '',
+                gender: ''
+            };
+            this.handleChange = this.handleChange.bind(this);
+            this.handleSelect = this.handleSelect.bind(this);
+        }
+
+        handleChange(e) {
+            console.log(e.target.placeholder);
+            //方法1
+            // this.setState({
+            //     [e.target.name]:e.target.value
+            // });
+
+            // 方法2
+            let newState = {};
+            newState[e.target.name] = e.target.value;
+            this.setState(
+                newState
+            )
+        }
+
+        handleSelect(e) {
+            this.setState({
+                gender: e.target.value
+            })
+        }
+
+        render() {
+            console.log(this.state);
+            return <form>
+                <Input type="text" name="name" placeholder="请输入用户名" vauleChange={this.handleChange}/>
+                <Input type="password" name="password" placeholder="请输入密码" vauleChange={this.handleChange}/>
+                <GenderSelect handleSelect={this.handleSelect}/>
+            </form>
+        }
+    }
+
+    ReactDOM.render(
+        <SignUpForm/>,
+        document.getElementById('root')
+    );
+</script>
+
+</body>
+</html>

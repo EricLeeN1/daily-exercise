@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>事件和状态关联</title>
+    <title>组件可控与不可控</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../scripts/react.min.js"></script>
     <script src="../scripts/react-dom.min.js"></script>
@@ -14,38 +14,42 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-    class HelloWorld extends React.Component {
+    //可控代码
+    class MyForm extends React.Component {
         constructor(props) {
             super(props);
             this.state = {
-                x: 0,
-                y: 0
+                helloTo: "Hello World"
             };
-            this.handleMouseMove = this.handleMouseMove.bind(this);
+            this.handleSubmit = this.handleSubmit.bind(this);
+            this.handleChange = this.handleChange.bind(this);
         }
 
-        handleMouseMove(e) {
+        handleChange(e) {
             this.setState({
-                x: e.clientX,
-                y: e.clientY,
-            });
+                helloTo: e.target.value
+            })
+        }
+
+        handleSubmit(e) {
+            e.preventDefault();
+            alert('Hi, ' + this.state.helloTo);
         }
 
         render() {
-            return <div onMouseMove={this.handleMouseMove} style={{
-                height: "1000px",
-                width: "700px",
-                backgroundColor: "gray"
-            }}>
-                {this.state.x + ',' + this.state.y}
-            </div>
+            return <form onSubmit={this.handleSubmit}>
+                <input type="text" ref="helloTo" value={this.state.helloTo} onChange={this.handleChange}/>
+                <br/>
+                <button type="submit">Speak</button>
+            </form>
         }
     }
 
     ReactDOM.render(
-        <HelloWorld/>,
+        <MyForm/>,
         document.getElementById('root')
     );
+
 </script>
 
 </body>

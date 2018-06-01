@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>事件处理函数复用</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../scripts/react.min.js"></script>
+    <script src="../scripts/react-dom.min.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class MyForm extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                username: "",
+                gender: "man",
+                checkbox: true
+            };
+            // this.handleChange = this.handleChange.bind(this);
+            // this.handleSubmit = this.handleSubmit.bind(this);
+        }
+
+        handleChange(name, e) {
+            console.log(name,e.target);
+            let newState = {};
+            newState[name] = name === "checkbox" ? e.target.checked : e.target.value;
+            this.setState({
+                newState
+            });
+        }
+
+        handleSubmit(e) {
+            e.preventDefault();
+            console.log(this);
+        }
+
+        render() {
+            return <form onSubmit={this.handleSubmit}>
+                <label htmlFor="username">请输入用户名：</label>
+                <input type="text" id="username" value={this.state.username} onChange={this.handleChange.bind(this,'username')}/>
+                <br/>
+                <label htmlFor="gender"></label>
+                <select id="gender" value={this.state.gender} onChange={this.handleChange.bind(this,"gender")}>
+                    <option value="man">男</option>
+                    <option value="woman">女</option>
+                </select>
+                <br/>
+                <label htmlFor="check">同意用户协议</label>
+                <input id="check" type="checkbox" value="同意用户协议" checked={this.state.checkbox} onChange={this.handleChange.bind(this,"checkbox")}/>
+                <br/>
+                <button type="submit">注册</button>
+            </form>
+        }
+    }
+
+    ReactDOM.render(
+        <MyForm/>,
+        document.getElementById('root')
+    );
+
+</script>
+
+</body>
+</html>
