@@ -83,6 +83,16 @@ $(function () {
                                     </a>
                                 </li>`
                         });
+                      that.pagesLength = Math.ceil(count / 8);
+                      for (let index = 1; index <= that.pagesLength; index++) {
+                        console.log(index);
+                        if (index == page) {
+                          pagesHtml += `<li class="active" data-page="${index}">${index}</li>`;
+                        } else {
+                          pagesHtml += `<li data-page="${index}">${index}</li>`;
+                        }
+                      }
+                      $("#show-pages").html(pagesHtml);
                         $("#news-list-big>ul").append(htmlLeft);
 
                     } else {
@@ -132,11 +142,14 @@ $(function () {
         setCrumb() {
             let that = this;
             let type = that.getQueryString('type');
-            let asideTitle = $("#news-list-small h2 span");
+            let bigTitle = $("#news-list-big h2 span");
+            let smallTitle = $("#news-list-small h2 span");
             if (type == 9) {
-                asideTitle.text('公益明星').next().attr('href', '/newsList.html?type=8');
+                bigTitle.text('公益行动').next().attr('href', 'javascript:;');
+                smallTitle.text('公益明星').next().attr('href', '/newsList.html?type=8');
             }else if (type ==8) {
-                asideTitle.text('公益行动').next().attr('href', '/newsList.html?type=9');
+                bigTitle.text('公益明星').next().attr('href', '/javascript:;');
+                smallTitle.text('公益行动').next().attr('href', '/newsList.html?type=9');
             }
         },
         getQueryString: function (name) {
@@ -184,7 +197,7 @@ $(function () {
                 }
                 let pages = $(this).attr('data-page');
                 that.getInfos(pages);
-            })
+            });
         }
     }
     Base.init();

@@ -169,10 +169,10 @@ $(function () {
       this.getAjax('/data', {}, function (res) {
         console.log(res);
         if (res.status == 200) {
-          $("#donate ul li:eq(0) a").children('h3').text(res.data.aims).countUp();
-          $("#donate ul li:eq(1) a").children('h3').text(res.data.num).countUp();
-          $("#donate ul li:eq(2) a").children('h3').text(res.data.total).countUp();
-          $("#donate ul li:eq(3) a").children('h3').text(res.data.sumofcinemas).countUp();
+          $("#donate ul li:eq(0)").children('h3').text(res.data.aims).countUp();
+          $("#donate ul li:eq(1)").children('h3').text(res.data.num).countUp();
+          $("#donate ul li:eq(2)").children('h3').text(res.data.total).countUp();
+          $("#donate ul li:eq(3)").children('h3').text(res.data.sumofcinemas).countUp();
         } else {
           alert(res.message);
         }
@@ -251,10 +251,10 @@ $(function () {
       console.log(that.versions);
       if (that.versions.mobile) {
         //手机端
-        window.location.href = "https://www.baidu.com"
+        // window.location.href = "https://www.baidu.com";
       } else {
         // pc端
-        window.location.href = "www.doubaner.top/accompany/index"
+        window.location.href = "https://www.doubaner.top/accompany/index";
       }
     },
     companyList() {

@@ -21,7 +21,6 @@ $(function () {
                             </li>
                             `;
                         });
-                        console.log(swiperSlides);
                         $("#company-list").html(swiperSlides);
                     } else {
                         $("#company-list").html('<h3>这里还什么都没有</h3>');

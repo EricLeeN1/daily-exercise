@@ -368,7 +368,7 @@ body {
               }
               &.height-28 {
                 li {
-                  min-height: 3rem;
+                  min-height: 3.6rem;
                 }
               }
               &.font-black {
@@ -433,6 +433,21 @@ body {
   &#newslists-body {
     main {
       #news-list-big {
+        margin-bottom: .3rem;
+        h2 {
+          position: relative;
+          color: #f6aa2a;
+          font-size: .32rem;
+          @include p30;
+          background-color: #f4f4f4;
+          line-height: .88rem;
+          a {
+            @include positions($right: .3rem);
+            font-size: .24rem;
+            color: #555555;
+            font-weight: normal;
+          }
+        }
         ul {
           @include p30;
           li {
@@ -963,6 +978,119 @@ body {
             line-height: 20px;
           }
         }
+      }
+    }
+  }
+  &#company-body{
+    main{
+      #company-list {
+        @include  flex-center(0);
+        margin-bottom: .6rem;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        li {
+          flex: 0 0 3.6rem;
+          height: 1.8rem;
+          margin-bottom: .2rem;
+          a {
+            height: 1.8rem;
+            width: 3.6rem;
+            margin-right: .2rem;
+            margin-bottom: .1rem;
+            img {
+              float: left;
+              width: 100%;
+              height: 100%;
+              border: .01rem solid #e1e1e1;
+              box-sizing: border-box;
+              padding: .1rem;
+              @include rounded-corners(.1rem);
+              &:hover {
+                border: .01rem solid #2d92d1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#show-body{
+    >main {
+      margin-top: .3rem;
+      >h2 {
+        color: #5fb86e;
+        position: relative;
+        font-size: .3rem;
+        border: 1px solid #5fb86e;
+        p {
+          width: 2rem;
+          height: .6rem;
+          line-height: .6rem;
+          background-color: #fff;
+          text-align: center;
+          @include positions($top: 50%, $left:50%);
+          margin-left: -1rem;
+          margin-top: -.3rem;
+        }
+      }
+      #show-list {
+        margin-top: .3rem;
+        li {
+          height: 1rem;
+          padding: 0 .3rem;
+          border-bottom: 1px solid #5fb86e;
+          @include  flex-center(0);
+          justify-content: space-between;
+          h3 {
+            color: #555555;
+            line-height: 1rem;
+            font-size: .3rem;
+            @include overflow-1;
+            flex: 0  0 5rem;
+          }
+          div{
+            @include flex-center(1);
+            justify-content: center;
+            span {
+              text-align: center;
+              font-size: .2rem;
+            }
+            a {
+              background-color: #5fb86e;
+              height: .32rem;
+              color: #fff;
+              font-size: .26rem;
+              line-height: .32rem;
+              padding: .05rem .1rem;
+              @include rounded-corners(.05rem);
+              margin-bottom: .1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  #show-pages {
+    text-align: center;
+    @include clearfix;
+    margin-top: .2rem;
+    li {
+      width: .36rem;
+      height: .36rem;
+      background-color: #fff;
+      border: .01rem solid #edba67;
+      color: #edba67;
+      @include rounded-corners(.04rem);
+      line-height: .36rem;
+      text-align: center;
+      font-size: .26rem;
+      display: inline-block;
+      margin-right: .06rem;
+      cursor: pointer;
+      &.active {
+        color: #fff;
+        background-color: #edba67;
+        border: .01rem solid #edba67;
       }
     }
   }
