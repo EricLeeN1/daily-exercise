@@ -65,14 +65,13 @@ $(function () {
             let showitem = '';
             datas.forEach(ele => {
               showitem += `
-                            <li>
-                                <h3>${ele.title}</h3>
-                                <div>
-                                <a href="${that.site + ele.file}" download="${that.site + ele.file}">立即下载</a>
-                                <span>${ele.time}</span>
-</div>
-                            </li>
-                            `;
+  <li>
+    <a href="${that.site + ele.file}" download="${that.site + ele.file}">
+        <h3>${ele.title}</h3>
+            <span>${ele.time}</span>
+    </a>
+  </li>
+  `;
             });
             $("#show-list").html(showitem);
           } else {

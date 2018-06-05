@@ -982,32 +982,47 @@ body {
     }
   }
   &#company-body{
+    background-color: #f4f4f4;
     main{
+      margin-top: .6rem;
+      @include p30;
+      >h2 {
+        margin-bottom: .6rem;
+        color: #2c90cf;
+        position: relative;
+        font-size: .36rem;
+        border: 1px solid #2c90cf;
+        p {
+          width: 2rem;
+          height: .6rem;
+          line-height: .6rem;
+          background-color: #f4f4f4;
+          text-align: center;
+          @include positions($top: 50%, $left:50%);
+          margin-left: -1rem;
+          margin-top: -.3rem;
+        }
+      }
       #company-list {
         @include  flex-center(0);
         margin-bottom: .6rem;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-between;
         li {
-          flex: 0 0 3.6rem;
-          height: 1.8rem;
+          flex: 0 0 2.2rem;
+          height: 1.13rem;
           margin-bottom: .2rem;
+          @include rounded-corners(.2rem);
+          width: 2.2rem;
+          overflow: hidden;
+          background-color: #fff;
           a {
-            height: 1.8rem;
-            width: 3.6rem;
-            margin-right: .2rem;
-            margin-bottom: .1rem;
+            @include flex-center(0);
+            justify-content: center;
+            height: 100%;
             img {
-              float: left;
               width: 100%;
               height: 100%;
-              border: .01rem solid #e1e1e1;
-              box-sizing: border-box;
-              padding: .1rem;
-              @include rounded-corners(.1rem);
-              &:hover {
-                border: .01rem solid #2d92d1;
-              }
             }
           }
         }
@@ -1015,18 +1030,21 @@ body {
     }
   }
   &#show-body{
+    background-color: #f4f4f4;
     >main {
-      margin-top: .3rem;
+      margin-top: .6rem;
+      @include p30;
       >h2 {
+        margin-bottom: .6rem;
         color: #5fb86e;
         position: relative;
-        font-size: .3rem;
+        font-size: .36rem;
         border: 1px solid #5fb86e;
         p {
           width: 2rem;
           height: .6rem;
           line-height: .6rem;
-          background-color: #fff;
+          background-color: #f4f4f4;
           text-align: center;
           @include positions($top: 50%, $left:50%);
           margin-left: -1rem;
@@ -1037,33 +1055,29 @@ body {
         margin-top: .3rem;
         li {
           height: 1rem;
-          padding: 0 .3rem;
-          border-bottom: 1px solid #5fb86e;
+          background-color: #fff;
           @include  flex-center(0);
           justify-content: space-between;
-          h3 {
-            color: #555555;
-            line-height: 1rem;
-            font-size: .3rem;
-            @include overflow-1;
-            flex: 0  0 5rem;
-          }
-          div{
+          margin-bottom: .2rem;
+          @include p30;
+          @include rounded-corners(.2rem);
+          a {
+            height: 1rem;
+            font-size: .26rem;
             @include flex-center(1);
+            align-items: flex-start;
             justify-content: center;
-            span {
-              text-align: center;
-              font-size: .2rem;
-            }
-            a {
-              background-color: #5fb86e;
-              height: .32rem;
-              color: #fff;
-              font-size: .26rem;
-              line-height: .32rem;
-              padding: .05rem .1rem;
-              @include rounded-corners(.05rem);
+            h3 {
+              color: #555555;
+              font-size: .28rem;
+              width: 100%;
+              line-height: .38rem;
+              height: .38rem;
               margin-bottom: .1rem;
+            }
+            span {
+              font-size: .2rem;
+              color: #888888;
             }
           }
         }
@@ -1073,7 +1087,8 @@ body {
   #show-pages {
     text-align: center;
     @include clearfix;
-    margin-top: .2rem;
+    margin-top: .38rem;
+    margin-bottom: .38rem;
     li {
       width: .36rem;
       height: .36rem;

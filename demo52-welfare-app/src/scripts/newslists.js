@@ -145,10 +145,10 @@ $(function () {
             let bigTitle = $("#news-list-big h2 span");
             let smallTitle = $("#news-list-small h2 span");
             if (type == 9) {
-                bigTitle.text('公益行动').next().attr('href', 'javascript:;');
+                bigTitle.text('公益行动');
                 smallTitle.text('公益明星').next().attr('href', '/newsList.html?type=8');
             }else if (type ==8) {
-                bigTitle.text('公益明星').next().attr('href', '/javascript:;');
+                bigTitle.text('公益明星');
                 smallTitle.text('公益行动').next().attr('href', '/newsList.html?type=9');
             }
         },

@@ -62,7 +62,7 @@ $(function () {
               let imgSite = that.site + ele.logo;
               swiperSlides += `
                             <li>
-                            <a href="${ele.link_url}" class="swiper-slide" data-id="${ele.str_id}" target="_blank">
+                            <a href="${ele.link_url}" target="_blank">
                                 <img src="${imgSite}" alt="${ele.str_title}">
                             </a>
                             </li>
