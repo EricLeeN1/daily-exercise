@@ -1,7 +1,3 @@
-/*
-修改日期：2017.11.2
-修改说明：没有该版本号全部视为老版本！
-*/
 /**********************************************************常量(枚举)定义************************************************/
 /// <summary>数据类型</summary>
 goog.provide('Zondy.Enum.XClsType');
@@ -2532,7 +2528,6 @@ Zondy.Format.PolygonJSON.prototype.parseGRegion = function (gRegions) {
     if (gRegions === undefined || gRegions.length === undefined || gRegions.length == 0) {
         return null;
     }
-
     var m = 0;
     var results = new Array();
     for (var i = 0; i < gRegions.length; i++) {
@@ -3584,7 +3579,7 @@ ol.inherits(Zondy.Service.Catalog.ColorInfo, Zondy.Service.Catalog.CatalogServic
 * return:
 * 颜色值在系统库中对应的ID编号 -{Int}
 */
-Zondy.Service.Catalog.ColorInfo.prototype.getColorNO = function (options, onSuccess, onError/*, options*/) {
+Zondy.Service.Catalog.ColorInfo.prototype.getColorNO = function (options, onSuccess, onError, options) {
     if (options != null && options !== undefined) {
         if (options.SystemLibID !== undefined) {
             this.SystemLibID = options.SystemLibID;
@@ -3614,12 +3609,12 @@ Zondy.Service.Catalog.ColorInfo.prototype.getColorNO = function (options, onSucc
 * return：
 * 颜色信息对象 - {Zondy.Object.Catalog.ColorInfo}
 */
-Zondy.Service.Catalog.ColorInfo.prototype.getColorRGB = function (options, onSuccess, onError/*, options*/) {
+Zondy.Service.Catalog.ColorInfo.prototype.getColorRGB = function (options, onSuccess, onError, options) {
     if (options != null && options !== undefined) {
         if (options.SystemLibID !== undefined) {
             this.SystemLibID = options.SystemLibID;
         }
-        if (options.ColorNO !== undefined) {
+        if (options.SystemLibID !== undefined) {
             this.ColorNO = options.ColorNO;
         }
     }
@@ -3909,34 +3904,28 @@ Zondy.Service.QueryFeatureRule = function (opt_options) {
     var options = opt_options ? opt_options : {};
 
     /**
-    * 修改内容：!="boolean"修改为=="boolean"
-    * 修改时间：2017.10.18
-    * 修改人：朱鹏飞
-    */
-
-    /**
     *  是否仅比较要素的外包矩形，来判定是否与几何约束图形有交集
     *  {Bool}
     **/
-    this.CompareRectOnly = (options.CompareRectOnly !== undefined && (typeof (options.CompareRectOnly) == "boolean")) ? options.CompareRectOnly : false;
+    this.CompareRectOnly = (options.CompareRectOnly !== undefined && (typeof (options.CompareRectOnly) != "boolean")) ? options.CompareRectOnly : false;
 
     /**
     *  是否将要素的可见性计算在内
     *  {Bool}
     **/
-    this.EnableDisplayCondition = (options.EnableDisplayCondition !== undefined && (typeof (options.EnableDisplayCondition) == "boolean")) ? options.EnableDisplayCondition : false;
+    this.EnableDisplayCondition = (options.EnableDisplayCondition !== undefined && (typeof (options.EnableDisplayCondition) != "boolean")) ? options.EnableDisplayCondition : false;
 
     /**
     *  是否完全包含
     *  {Bool}
     **/
-    this.MustInside = (options.MustInside !== undefined && (typeof (options.MustInside) == "boolean")) ? options.MustInside : false;
+    this.MustInside = (options.MustInside !== undefined && (typeof (options.MustInside) != "boolean")) ? options.MustInside : false;
 
     /**
     *  是否相交
     *  {Bool}
     **/
-    this.Intersect = (options.Intersect !== undefined && (typeof (options.Intersect) == "boolean")) ? options.Intersect : false;
+    this.Intersect = (options.Intersect !== undefined && (typeof (options.Intersect) != "boolean")) ? options.Intersect : false;
 
     ol.obj.assign(this, options);
 };
@@ -4260,6 +4249,7 @@ Zondy.Service.CProjectBySRSID = function (desSrsID, gdbInfo) {
     this.GdbInfo = gdbInfo;
 };
 goog.provide('Zondy.Service.CalServiceBase');
+
 goog.require("Zondy.Service.GeometryAnalysisBase");
 
 /// <summary>测量服务基类构造函数</summary>
@@ -4269,9 +4259,9 @@ Zondy.Service.CalServiceBase = function (opt_options) {
     Zondy.Service.GeometryAnalysisBase.call(this, options);
     ol.obj.assign(this, options);
     this.dots = options.dots !== undefined ? options.dots : null;
-    /// <summary>{Zondy.Service.CProjectParam}类型</summary>
+    /// <summary>{Zondy.Object.CSRefInfo}类型</summary>
     this.projectInfo = options.projectInfo !== undefined ? options.projectInfo : null;
-    /// <summary>{Zondy.Service.CProjectBySRSID}</summary>
+    /// <summary>{Zondy.Object.CProjectParam}</summary>
     this.projectInfoBySRSID = options.projectInfoBySRSID !== undefined ? options.projectInfoBySRSID : null;
 
 };
@@ -4279,7 +4269,7 @@ ol.inherits(Zondy.Service.CalServiceBase, Zondy.Service.GeometryAnalysisBase);
 
 /// <summary>通过传入投影参数或者通过传入SRSID参数进行计算</summary>
 /// <param name="fullURL" type="String">请求基地址</param>
-/// <param name="projParam" type="Zondy.Service.CProjectBySRSID | Zondy.Service.CProjectParam（建议普通用户采用此类直接获取MapGIS GDB 已经提供的空间参考系）">投影参数</param>
+/// <param name="projParam" type="Zondy.Object.CSRefInfo | Zondy.Object.CProjectParam（建议普通用户采用此类直接获取MapGIS GDB 已经提供的空间参考系）">投影参数</param>
 /// <param name="onSuccess" type="Function">执行成功后的回调函数</param>
 Zondy.Service.CalServiceBase.prototype.execute = function (projParam, onSuccess, onError, options) {
     if (projParam instanceof Zondy.Service.CProjectParam) {
@@ -4599,12 +4589,7 @@ Zondy.Service.AnalysisBase.prototype.execute = function (onSuccess, way, isAsy, 
         for (var o in obj) {
             var keyValue = {};
             keyValue.Key = o;
-            /*
-            * 修改内容：将if(obj[o])修改为if(obj[o]!=null)
-            * 修改时间：2017.10.18
-            * 修改人：朱鹏飞
-            */
-            if (obj[o] != null) {
+            if (obj[o]) {
                 keyValue.Value = obj[o].toString();
                 keyValueArray.push(keyValue);
             }
@@ -5067,8 +5052,8 @@ goog.provide('Zondy.Object.Theme.FolderInfo');
 //n:{string}
 //att:{FolderInfoAttribute}
 Zondy.Object.Theme.FolderInfo = function (n, att) {
-    this.name = n !== undefined ? n : null;
-    this.attribute = att !== undefined ? att : null;
+    this.name = n !== undefined ? n : null;;
+    this.attribute = att !== undefined ? att : null;;
 };
 
 goog.provide('Zondy.Object.Theme.FolderInfoAttribute');
@@ -6191,8 +6176,6 @@ Zondy.Service.GetMapInfoService = function (opt_options) {
 
     /// <summary>唯一标识{string}</summary>
     this.guid = options.guid !== undefined ? options.guid : Zondy.Util.newGuid();
-    this.token = options.token;
-    this.type = options.type;
 };
 ol.inherits(Zondy.Service.GetMapInfoService, Zondy.Service.MapServiceBase);
 
@@ -6202,18 +6185,8 @@ ol.inherits(Zondy.Service.GetMapInfoService, Zondy.Service.MapServiceBase);
 Zondy.Service.GetMapInfoService.prototype.GetMapInfo = function (onSuccess, onError, options) {
     if (this.mapName !== undefined) {
         this.partUrl = "info/" + this.mapName;
-        var params = [];
-        if (this.guid) {
-            params.push("guid=" + this.guid);
-        }
-        if(this.token){
-            params.push("token=" + this.token);
-        }
-        if(this.type){
-            params.push("type=" + this.type);
-        }
-        if(params.length>0){
-            this.partUrl += "?" + params.join('&');
+        if (this.guid != null) {
+            this.partUrl += "?guid=" + this.guid;
         }
         this.executeAjax("GET", "json", onSuccess, onError, options);
     }
@@ -6543,7 +6516,6 @@ goog.provide('Zondy.Source.TileLayerSource');
 Zondy.Source.TileLayerSource = function (opt_options) {
     var options = opt_options ? opt_options : {};
 
-    this.token = options.token;
     /**
     * @public
     * @type {string}
@@ -6683,9 +6655,6 @@ Zondy.Source.TileLayerSource.prototype.tileUrlFunctionExtend = function (tileCoo
         }
     }
     var urlTemplate = 'http://' + this.ip + ':' + this.port + '/igs/rest/mrms/tile/' + this.name + '/{z}/{y}/{x}?size=' + this.tileSize;
-    if(this.token){
-        urlTemplate+="&token=" + this.token;
-    }
     var latCenter = (this.extent[3] - this.extent[1]) / 2 + this.extent[1];
     if ((this.tileOriginType.toLowerCase() == "lefttop") || (this.origin[1] >= latCenter)) {
         var z = tileCoord[0];
@@ -6743,9 +6712,9 @@ Zondy.Map.TileLayer = function (opt_name, opt_hdfName, opt_options) {
                 opt.origin = [data.originX, data.originY];
                 opt.maxZoom = data.endLevel;
 
-                //if (data.type.toLowerCase() == "dtile") {
-                    //this.layerObj.cache = true;
-                //}
+                if (data.type.toLowerCase() == "dtile") {
+                    this.layerObj.cache = true;
+                }
                 if ((data.xMax - data.xMin <= 1e-6) && (data.yMax - data.yMin <= 1e-6)) {
                     alert("获取数据范围失败！");
                     return;
@@ -6763,16 +6732,6 @@ Zondy.Map.TileLayer = function (opt_name, opt_hdfName, opt_options) {
         else {
 
             if (!this.cache) {
-                if(options.tileData){
-                    var data = options.tileData;
-                    options.name = data.name;
-                    options.extent = [data.xMin, data.yMin, data.xMax, data.yMax];
-                    options.tileOriginType = data.originType;
-                    options.resolutions = data.resolutions;
-                    options.tileSize = data.tileWidth;
-                    options.origin = [data.originX, data.originY];
-                    options.maxZoom = data.endLevel;
-                }
                 this.source = new Zondy.Source.TileLayerSource(options);
             }
             else {
@@ -6996,7 +6955,6 @@ Zondy.Source.MapDocSource = function (opt_options) {
     });
     //*******************MapGIS************************
 
-    this.token = options.token;
     //=======================================================================
     /**
     * @public
@@ -7118,7 +7076,7 @@ Zondy.Source.MapDocSource = function (opt_options) {
     * @type {number}
     *非必要参数
     */
-    this.ratio_ = options.ratio !== undefined ? options.ratio : 1;
+    this.ratio_ = options.ratio !== undefined ? options.ratio : 1.5;
     //=======================================================================
 
     /**
@@ -7211,8 +7169,6 @@ Zondy.Source.MapDocSource.prototype.getImage = function (extent, resolution, pix
 
     this.renderedRevision_ = this.getRevision();
 
-    ol.events.listen(this.image_, ol.events.EventType.CHANGE,
-        this.handleImageChange, this);
     return this.image_;
 
 };
@@ -7237,10 +7193,8 @@ Zondy.Source.MapDocSource.prototype.getRequestUrl_ = function (extent, size, pix
         ol.obj.assign(params, { 'layers': this.layers });
     }
     var axisOrientation = projection.getAxisOrientation();
-    ol.obj.assign(params, { 'bbox': extent.join(',') });
-    if(this.token){
-        ol.obj.assign(params, { 'token': this.token });
-    }
+    var bbox = extent;
+    ol.obj.assign(params, { 'bbox': bbox.join(',') });
     return ol.uri.appendParams(this.url_, params);
 };
 //**********************************************************Zondy.Source.MapDocSource(end)************************************************//
@@ -8197,9 +8151,9 @@ goog.provide('Zondy.source.GoogleMapSource');
 Zondy.Source.GoogleMapSource = function (opt_options) {
     var options = opt_options !== undefined ? opt_options : {};
 
-    this.ip = options.ip !== undefined ? options.ip : '127.0.0.1';
+    this.ip = options.ip !== undefined ? options.ip : null;
 
-    this.port = options.port !== undefined ? options.port : '6163';
+    this.port = options.port !== undefined ? options.port : null;
 
     //图层类型，默认为矢量图
     this.layerType = options.layerType !== undefined ? options.layerType : Zondy.Enum.Map.GoogleLayerType.VEC,
@@ -8985,7 +8939,7 @@ MilStd.EnumMilstdType = {
     Vane: 'Vane',                                           //风向标指北针
     SimpleArrow: 'SimpleArrow',                             //简单箭头
     DoubleArrow: 'DoubleArrow',                             //双箭头
-    StraightArrow: 'StraightArrow',                           //直箭头
+    StraightArrow: 'SimpleArrow',                           //直箭头
     SingleLineArrow: 'SingleLineArrow',                     //单线箭头
     TriangleFlag: 'TriangleFlag',                           //三角旗
     RectFlag: 'RectFlag',                                   //矩形旗
@@ -10645,8 +10599,6 @@ MilStd.Compass.GetRhombusDots = function (arg1) {
     loc6.push(loc3);
     loc6.push(loc4);
     loc6.push(loc2);
-    //2017.1.19修改
-    loc6.push(loc3);
 
     loc8 = [(arg1[0][0] + width / 32 * 13), arg1[0][1] - height / 16 * 1];
     loc12.push(loc8);
@@ -11158,8 +11110,7 @@ MilStd.MilStdGeomtry.prototype.Create = function () {
         case MilStd.EnumMilstdType.Bezier:
         case MilStd.EnumMilstdType.BezierLine:
         case MilStd.EnumMilstdType.AssemblyArea:
-            //var geom = MilStd.Bezier.getBezierFromVert(this.vertices, this.milStdType);
-            var geom = MilStd.Compass.getBezierFromVert(this.vertices, this.milStdType);
+            var geom = MilStd.Bezier.getBezierFromVert(this.vertices, this.milStdType);
             this.setGeometriesArray([geom]);
             break;
     }
@@ -11278,20 +11229,11 @@ MilStd.tool.MilStdDrawTool = function (map) {
         stroke: strock
         //image: image
     });
-    //this.featureOverLay = new ol.layer.Vector({
-    //    source:new ol.source.Vector({
-    //        wrapX:false
-    //    })
-    //});
-    //2017.1.19修改
-    var featureOverlayTem = new ol.layer.Vector({
+    this.featureOverLay = new ol.layer.Vector({
         source: new ol.source.Vector({
-            useSpatialIndex: false,
             wrapX: false
         })
     });
-    this.featureOverLay = featureOverlayTem;
-
     this.featureOverLay.setStyle(this.style);
     this.setMap(map);
 };
@@ -11343,17 +11285,12 @@ MilStd.tool.MilStdDrawTool.prototype.activate = function (milType, milStdParams,
     this.milStdType = milType;
     this.milStdParams = milStdParams;
     this.featureName = (name !== undefined && name != null) ? name : "draw";
-    //this.map.addLayer(this.featureOverLay);
-    //2017.1.19修改
-    this.featureOverLay.setMap(this.map);
+    this.map.addLayer(this.featureOverLay);
 };
 
 MilStd.tool.MilStdDrawTool.prototype.deactivate = function () {
     this.disconnectEventHandlers();
-    //this.map.removeLayer(this.featureOverLay);
-    //2017.1.19修改
-    this.featureOverLay.setMap(null);
-
+    this.map.removeLayer(this.featureOverLay);
     this.vertices = [];
     this.milStdGeom = null;
     this.feature = null;
@@ -11434,9 +11371,7 @@ MilStd.tool.MilStdDrawTool.prototype.clear = function (opt_options) {
     this.featureOverLay.getSource().removeFeature(this.feature);
     this.UnShieldDBClickZoomEvent(this.map);
     //this.disconnectEventHandlers();
-    //2017.1.19修改
-    this.featureOverLay.setMap(null);
-    //this.map.removeLayer(this.featureOverLay);
+    this.map.removeLayer(this.featureOverLay);
     this.vertices = [];
     this.milStdGeom = null;
     this.feature = null;
@@ -11518,42 +11453,10 @@ MilStd.ModifyTool = function (map, opt_options) {
     * @type {ol.FeatureOverlay}
     * @private
     */
-    //this.overlay_ = new ol.FeatureOverlay({
-    //    //style: (options.style !== undefined) ? options.style :
-    //    //MilStd.ModifyTool.getDefaultStyleFunction()
-    //    style: options.style
-    //});
-
-    //this.overlay_ = new ol.layer.Vector({
-    //    //source: new ol.source.Vector({
-    //    //    useSpatialIndex: false,
-    //    //    wrapX: !!options.wrapX
-    //    //}),
-    //    source: new ol.source.Vector({
-    //        warpX:true
-    //    }),
-    //    style: (options.style !== undefined) ? options.style :
-    //    MilStd.ModifyTool.getDefaultStyleFunction()
-
-    //});
-
-    //2017.1.19修改
-    // this.featureOverLay = new ol.FeatureOverlay();
-
-    this.overlay_ = new ol.layer.Vector({
-        source: new ol.source.Vector({
-            useSpatialIndex: false,
-            wrapX: !!options.wrapX
-        }),
-        updateWhileAnimating: true,
-        updateWhileInteracting: true
+    this.overlay_ = new ol.FeatureOverlay({
+        style: (options.style !== undefined) ? options.style :
+        MilStd.ModifyTool.getDefaultStyleFunction()
     });
-
-
-
-    var olayerStyle = goog.isDef(options.style) ? options.style : MilStd.ModifyTool.getDefaultStyleFunction();
-    this.overlay_.setStyle(olayerStyle);
-    this.setMap(this.map_);
 
     /**
     * @const
@@ -11578,7 +11481,6 @@ MilStd.ModifyTool = function (map, opt_options) {
     */
     this.cursor_ = 'pointer';
 
-    //this.modifyTool_ = this;
     /**
     * @type {string|undefined}
     * @private
@@ -11592,7 +11494,7 @@ ol.inherits(MilStd.ModifyTool, ol.interaction.Pointer);
 
 MilStd.ModifyTool.prototype.activate = function () {
     if (this.selectTool == null) {
-        this.selectTool = new ol.interaction.Select({ wrapX: false });
+        this.selectTool = new ol.interaction.Select();
     }
 
     if (this.map_ === undefined || this.map_ == null) {
@@ -11606,17 +11508,16 @@ MilStd.ModifyTool.prototype.activate = function () {
             interActionArr.remove(item);
         }
     }
-    //修改
+
     this.map_.addInteraction(this.selectTool);
     this.map_.addInteraction(this);
-    //this.map_ = this.selectTool.map_;
 
     this.map_.on("dblclick", this.modifyEndHandle, this);
     this.features_ = this.selectTool.getFeatures();
     this.features_.forEach(this.addFeature_, this);
-    //修改
-    ol.events.listen(this.features_, ol.Collection.EventType.ADD, this.handleFeatureAdd_, this);
-    ol.events.listen(this.features_, ol.Collection.EventType.REMOVE, this.handleFeatureRemove_, this);
+
+    ol.events.listen(this.features_, ol.CollectionEventType.ADD, this.handleFeatureAdd_, this);
+    ol.events.listen(this.features_, ol.CollectionEventType.REMOVE, this.handleFeatureRemove_, this);
 
     MilStd.tool.MilStdDrawTool.prototype.ShieldDBClickZoomEvent(this.map_);
 
@@ -11636,9 +11537,8 @@ MilStd.ModifyTool.prototype.disconnectEventHandlers = function () {
         this.map_.removeInteraction(this.selectTool);
         this.map_.removeInteraction(this);
     }
-    //修改2017.11.2
-    ol.events.unlisten(this.features_, ol.Collection.EventType.ADD, this.handleFeatureAdd_, this);
-    ol.events.unlisten(this.features_, ol.Collection.EventType.REMOVE, this.handleFeatureRemove_, this);
+    ol.events.unlisten(this.features_, ol.CollectionEventType.ADD, this.handleFeatureAdd_, this);
+    ol.events.unlisten(this.features_, ol.CollectionEventType.REMOVE, this.handleFeatureRemove_, this);
 };
 
 MilStd.ModifyTool.prototype.modifyEndHandle = function (e) {
@@ -11672,7 +11572,7 @@ MilStd.ModifyTool.prototype.addFeature_ = function (feature) {
         if (geometry.vertices !== undefined && geometry.vertices != null) {
             for (var i = 0; i < geometry.vertices.length; i++) {
                 var vertexFeature = new ol.Feature(new ol.geom.Point(geometry.vertices[i]));
-                this.overlay_.getSource().addFeature(vertexFeature);
+                this.overlay_.addFeature(vertexFeature);
                 this.oldVerticesFeature.push(vertexFeature);
             }
         }
@@ -11684,24 +11584,12 @@ MilStd.ModifyTool.prototype.addFeature_ = function (feature) {
 };
 
 MilStd.ModifyTool.prototype.clearOverLayer = function (overlayer) {
-    //if (overlayer !== undefined && overlayer != null) {
-    //    //var features = overlayer.getFeatures();
-    //    //var vSource = overlayer.getSource();
-    //    //if (vSource != null)
-    //    //{
-    //    //    vSource.clear();
-    //    //}
-    //    var features = overlayer.getSource().getFeatures();
-    //    //var len = features.getLength();
-    //    var len = features.length;
-    //    for (var i = len - 1; i >= 0; i--) {
-    //        overlayer.getSource().removeFeature(features[i]);
-    //    }
-    //};
-
-    //2017.1.19修改
     if (overlayer !== undefined && overlayer != null) {
-        overlayer.getSource().clear();
+        var features = overlayer.getFeatures();
+        var len = features.getLength();
+        for (var i = len - 1; i >= 0; i--) {
+            overlayer.removeFeature(features.item(i));
+        }
     };
 };
 /**
@@ -11709,9 +11597,7 @@ MilStd.ModifyTool.prototype.clearOverLayer = function (overlayer) {
 */
 MilStd.ModifyTool.prototype.setMap = function (map) {
     this.overlay_.setMap(map);
-    //ol.interaction.Pointer.call(this, 'setMap', map);
-    //2017.1.19修改
-    ol.interaction.Pointer.prototype.setMap.call(this, map);
+    ol.interaction.Pointer.call(this, 'setMap', map);
 };
 
 
@@ -11784,7 +11670,7 @@ MilStd.ModifyTool.prototype.createOrUpdateVertexFeature_ = function (coordinates
     if (vertexFeature == null) {
         vertexFeature = new ol.Feature(new ol.geom.Point(coordinates));
         this.vertexFeature_ = vertexFeature;
-        this.overlay_.getSource().addFeature(vertexFeature);
+        this.overlay_.addFeature(vertexFeature);
     } else {
         var geometry = vertexFeature.getGeometry(); /** @type {ol.geom.Point} */
         geometry.setCoordinates(coordinates);
@@ -11975,25 +11861,11 @@ MilStd.ModifyTool.prototype.updateFeature = function (segmentData, coordinate, i
 * @api
 */
 MilStd.ModifyTool.handleEvent = function (mapBrowserEvent) {
-    //var handled;
-    //if (!mapBrowserEvent.map.getView().getHints()[ol.ViewHint.INTERACTING] &&
-    //mapBrowserEvent.type == ol.MapBrowserEvent.EventType.POINTERMOVE) {
-    //    this.handlePointerMove_(mapBrowserEvent);
-    //}
-    //return ol.interaction.Pointer.handleEvent.call(this, mapBrowserEvent) &&
-    //!handled;
-
-    //2017.1.19修改
-    if (!(mapBrowserEvent instanceof ol.MapBrowserPointerEvent)) {
-        return true;
-    }
     var handled;
-    if (!mapBrowserEvent.map.getView().getHints()[ol.View.Hint.INTERACTING] &&
-      mapBrowserEvent.type == ol.MapBrowserEvent.EventType.POINTERMOVE &&
-      !this.handlingDownUpSequence) {
+    if (!mapBrowserEvent.map.getView().getHints()[ol.ViewHint.INTERACTING] &&
+    mapBrowserEvent.type == ol.MapBrowserEvent.EventType.POINTERMOVE) {
         this.handlePointerMove_(mapBrowserEvent);
     }
-
     return ol.interaction.Pointer.handleEvent.call(this, mapBrowserEvent) &&
     !handled;
 };
@@ -12047,7 +11919,7 @@ MilStd.ModifyTool.prototype.handlePointerAtPixel = function (pixel, map) {
         return;
     }
     if (this.vertexFeature_ != null) {
-        this.overlay_.getSource().removeFeature(this.vertexFeature_);
+        this.overlay_.removeFeature(this.vertexFeature_);
         this.vertexFeature_ = null;
     }
 
@@ -12057,7 +11929,7 @@ MilStd.ModifyTool.prototype.handlePointerAtPixel = function (pixel, map) {
 * @return {ol.style.StyleFunction} Styles.
 */
 MilStd.ModifyTool.getDefaultStyleFunction = function () {
-    var style = ol.style.Style.createDefaultEditing();
+    var style = ol.style.createDefaultEditingStyles();
     return function (feature, resolution) {
         return style[ol.geom.GeometryType.POINT];
     };
@@ -12107,15 +11979,13 @@ MilStd.DragPan = function (map) {
 
 };
 ol.inherits(MilStd.DragPan, ol.interaction.Pointer);
-//2017.1.19修改
+
 MilStd.DragPan.prototype.activate = function () {
     if (this.map_ === undefined || this.map_ == null) {
         return;
     }
     var interActionArr = this.map_.getInteractions();
-
-    var len = interActionArr.getLength();
-    for (var i = len - 1; i >= 0; i--) {
+    for (var i = 0, len = interActionArr.getLength() ; i < len; i++) {
         var item = interActionArr.item(i);
         if (item instanceof MilStd.DragPan) {
             interActionArr.remove(item);
@@ -12125,22 +11995,13 @@ MilStd.DragPan.prototype.activate = function () {
     MilStd.tool.MilStdDrawTool.prototype.ShieldDBClickZoomEvent(this.map_);
     this.map_.on("dblclick", this.modifyEndHandle, this);
 };
-//2017.1.19修改
+
 MilStd.DragPan.prototype.deactivate = function () {
     if (this.map_ === undefined || this.map_ == null) {
         return;
     }
     MilStd.tool.MilStdDrawTool.prototype.UnShieldDBClickZoomEvent(this.map_);
-
-    var interActionArr = this.map_.getInteractions();
-    var len = interActionArr.getLength();
-    for (var i = len - 1; i >= 0; i--) {
-        var item = interActionArr.item(i);
-        if (item instanceof MilStd.DragPan) {
-            interActionArr.remove(item);
-        }
-    }
-
+    this.map_.removeInteraction(this);
 };
 
 MilStd.DragPan.prototype.modifyEndHandle = function (e) {
@@ -12956,8 +12817,6 @@ Zondy.ClientTheme.prototype.UpdateLayerRender = function () {
                                 var dotFeature = this.ClientThemeInfos.SetThemeInfo(featureArr[j]);
                                 if (dotFeature !== undefined && dotFeature != null) {
                                     vectSource.addFeatures([dotFeature]);
-                                } else {
-                                    vectSource.removeFeature(featureArr[j]);
                                 }
                             }
                         }
@@ -13914,7 +13773,7 @@ Zondy.ClientDensityInfos.prototype.SetThemeInfo = function (feature) {
                 var geomCollection = new ol.geom.GeometryCollection();
                 geomCollection.setGeometries(dotArr);
                 var dotFeature = new ol.Feature();
-                dotFeature.setGeometry(geomCollection);
+                dotFeature.setGeometry(geometry);
                 dotFeature.setStyle(this.defaultStyle);
             }
         }
