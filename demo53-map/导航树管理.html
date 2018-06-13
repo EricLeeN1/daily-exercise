@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
+
 <head>
   <title>加载图层控件（自定义）</title>
   <link href="css/ol.css" rel="stylesheet" type="text/css" />
@@ -96,20 +97,20 @@
     //瓦片的显示名称
     var name = "MapGIS IGS TileLayer";
     //瓦片地图的名称
-    var TileName = "世界地图";
+    var TileName = "天地图_影像13_15";
     var TileLayer = new Zondy.Map.TileLayer(name, TileName, {
-      ip: "localhost",
+      ip: "10.164.251.222",
       port: "6163"
     });
 
     //地图的显示名称
     var name = "MapGIS IGS MapDocLayer";
     //地图文档名称
-    var docname = "china";
+    var docname = "12345";
 
     var mapDocLayer = new Zondy.Map.Doc(name, docname, {
       //IP地址
-      ip: "localhost",
+      ip: "10.164.251.222",
       //端口号
       port: "6163"
     });
@@ -192,20 +193,27 @@
       ],
       //地图视图设置
       view: new ol.View({
-        projection:"EPSG:4326",
+        projection: "EPSG:4326",
         //地图初始中心点
-        center: [110, 36],
+        center: [111.2, 34.75],
+
         //地图初始显示级别
-        zoom: 5
+        zoom: 14
       }),
       controls: ol.control.defaults().extend([
         new ol.control.MousePosition({
           target: document.getElementById('mouse-position')
+        }),
+        new ol.control.ZoomToExtent({
+          extent: [
+            110, 33,
+            115, 37
+          ]
         })
       ])
     });
     //加载图层列表数据
-  loadLayersControl(map, "layerTree");
+    loadLayersControl(map, "layerTree");
   </script>
 </body>
 
