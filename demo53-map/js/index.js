@@ -14,6 +14,7 @@ $(function () {
         tName: "MapGIS IGS TileLayer",
         // 矢量地图名称
         docName: "12345",
+        doc2Name: "LRDL_2000",
         // 矢量地图显示名称
         mName: "MapGIS IGS MapDocLayer",
         // ip地址
@@ -39,16 +40,15 @@ $(function () {
         // 鼠标位置DOM的ID
         mousePosition: 'mouse-position',
         // 地图缩放延伸的区域
-        extend: [
-            110, 33,
-            115, 37
-        ],
+        extend: [111.13227664319722, 34.712871905272884, 111.27904811225743, 34.80599655079968],
         //图层列表容器ID
         mapTreeId: "layerTree",
         //缩放按钮集合jQuery dom节点,例:"#zoom-in,.zoom-in"
         zoomInBtnGroups: "#zoom-in",
         zoomOutBtnGroups: "#zoom-out",
         zoomRestoreBtnGroups: "#restore",
+        // 地图数组
+        mapArray: [MapTree.TileLayer, MapTree.mapDocLayer, MapTree.map2DocLayer]
     };
 
     // 图层树展示
@@ -65,6 +65,10 @@ $(function () {
             ip: Config.ip,
             port: Config.port
         }),
+        map2DocLayer: new Zondy.Map.Doc(Config.mName, Config.doc2Name, {
+            ip: Config.ip,
+            port: Config.port
+        }),
         TileLayer: new Zondy.Map.TileLayer(Config.tName, Config.TileName, {
             ip: Config.ip,
             port: Config.port
@@ -75,6 +79,9 @@ $(function () {
     // 实例化Map对象加载地图,并为其添加相关功能
     Base = {
         //获取地图视图
+        getMapInfos: false,
+        themeActive: '',
+        themesInfoArrs: [],
         views: {
             view() {
                 return this.map.getView();
@@ -89,10 +96,8 @@ $(function () {
             target: Config.target,
             //地图容器中加载的图层
             layers: [
-                //加载瓦片图层数据（OSM）
-                MapTree.TileLayer,
-                // 加载矢量图层数据
-                MapTree.mapDocLayer
+                //加载瓦片图层数据（OSM）及其他图层数据（加载矢量图层数据）
+                MapTree.TileLayer, MapTree.mapDocLayer
             ],
             //地图视图设置
             view: new ol.View({
@@ -198,6 +203,67 @@ $(function () {
             };
 
         },
+        addChangeEvent3(e) {
+            let that = this;
+            let mt = MapTree;
+            console.log(e.checked);
+            let index1 = e.getAttribute("data-index1");
+            let index2 = e.getAttribute("data-index2");
+            let index3 = e.getAttribute("data-index3");
+            e.onclick = function () {
+                if (e.checked) {
+                    //可见 e.name代表图层索引
+                    // MapTree.mapDocLayer.setLayerStatus(index, "include");
+                    // MapTree.mapDocLayer.refresh();
+                    that.themesInfoArrs[index1].ThemeArr[index2].UniqueThemeInfoArr[0].IsVisible = true;
+                    mt.oper.updateThemesInfo(that.themeActive, `${index1}/${index2}`, that.themesInfoArrs, that.onUniqueTheme.bind(that));
+                    //调用专题图成服务功后的回调
+                } else {
+                    //不可见 e.name代表图层索引
+                    // MapTree.mapDocLayer.setLayerStatus(index, "exclude");
+                    // MapTree.mapDocLayer.refresh();
+                    that.themesInfoArrs[index1].ThemeArr[index2].UniqueThemeInfoArr[0].IsVisible = false;
+                    mt.oper.updateThemesInfo(that.themeActive, `${index1}/${index2}`, that.themesInfoArrs, that.onUniqueTheme.bind(that));
+                    //调用专题图成服务功后的回调
+                }
+            };
+        },
+        addChangeEvent4(e) {
+            let that = this;
+            let mt = MapTree;
+            console.log(e.checked);
+            let index1 = e.getAttribute("data-index1");
+            let index2 = e.getAttribute("data-index2");
+            e.onclick = function () {
+                if (e.checked) {
+                    //可见 e.name代表图层索引
+                    // MapTree.mapDocLayer.setLayerStatus(index, "include");
+                    // MapTree.mapDocLayer.refresh();
+                    that.themesInfoArrs[index1].ThemeArr[index2].Visible = true;
+                    mt.oper.updateThemesInfo(that.themeActive, `${index1}/${index2}`, that.themesInfoArrs, that.onUniqueTheme.bind(that));
+                    //调用专题图成服务功后的回调
+                } else {
+                    //不可见 e.name代表图层索引
+                    // MapTree.mapDocLayer.setLayerStatus(index, "exclude");
+                    // MapTree.mapDocLayer.refresh();
+                    that.themesInfoArrs[index1].ThemeArr[index2].Visible = false;
+                    mt.oper.updateThemesInfo(that.themeActive, `${index1}/${index2}`, that.themesInfoArrs, that.onUniqueTheme.bind(that));
+                    //调用专题图成服务功后的回调
+                }
+            };
+        },
+        //调用专题图成服务功后的回调
+        onUniqueTheme(flg) {
+            let that = this;
+            console.log(that.map);
+            if (flg) {
+                //刷新地图，即重新加载生成专题图后的地图文档
+                MapTree.mapDocLayer.refresh();
+            }
+            else {
+                return false;
+            }
+        },
         /**
          * 动态设置元素文本内容（兼容）
          */
@@ -289,23 +355,88 @@ $(function () {
         updateTheme() {
             let that = this;
             let mt = MapTree;
-            let themesInfoArr;
-            mt.oper.getThemesInfo(Config.docName, "1/0", function (themesInfoArr) {
-                console.log(themesInfoArr);
-                
+            mt.oper.getThemesInfo(Config.docName, "0/0", function (themesInfoArr) {
+                that.themesInfoArrs = themesInfoArr;
+                that.themeActive = Config.docName;
                 if (themesInfoArr.length > 0 && themesInfoArr[0].ThemeArr != null) {
-                    var i;
-                    for (i = 0; i < themesInfoArr[0].ThemeArr.length; i++) {
-                        if (themesInfoArr[0].ThemeArr[i].Type == "CUniqueTheme") {
-                            themesInfoArr[0].ThemeArr[i].UniqueThemeInfoArr[0].RegInfo.FillClr = 23;
-                            themesInfoArr[0].ThemeArr[i].UniqueThemeInfoArr[1].RegInfo.FillClr = 353;
-                            themesInfoArr[0].ThemeArr[0].DefaultInfo.RegInfo.FillClr = 12;
-                            mt.oper.updateThemesInfo(Config.docName, "1/0", themesInfoArr, onUniqueTheme);
-                            break;
-                        }
-                    }
-                    if (i == themesInfoArr[0].ThemeArr.length)
-                        alert("没有该专题信息");
+                    // for (i = 0; i < themesInfoArr[0].ThemeArr.length; i++) {
+                    //     if (themesInfoArr[0].ThemeArr[i].Type == "CUniqueTheme") {
+                    //         themesInfoArr[0].ThemeArr[i].UniqueThemeInfoArr[0].RegInfo.FillClr = 23;
+                    //         themesInfoArr[0].ThemeArr[i].UniqueThemeInfoArr[1].RegInfo.FillClr = 353;
+                    //         themesInfoArr[0].ThemeArr[0].DefaultInfo.RegInfo.FillClr = 12;
+
+                    //     }
+                    // }
+                    // 更新专题图信息
+                    let id = "#" + Config.mapTreeId;
+                    //图层目录容器
+                    let length = $(id).children('li').length;
+                    let liLists = $(id).children(`li`).eq(length - 1).children('ul').children('li')[0];
+                    var elementUl = document.createElement('ul');
+                    themesInfoArr.forEach((ele, i) => {
+                        console.log(ele, i);
+                        //设置图层名称
+                        let attrAr = ele.ThemeArr;
+                        attrAr.forEach((element, index) => {
+                            let uniqueThemeArr = element.UniqueThemeInfoArr;
+                            var elementUl2 = document.createElement('ul');
+                            //获取每个图层的名称、是否可见属性
+                            //新增li元素，用来承载图层项
+                            var elementLi2 = document.createElement('li');
+                            // 添加子节点
+                            elementUl2.appendChild(elementLi2);
+                            //创建复选框元素
+                            var elementInput2 = document.createElement('input');
+                            elementInput2.type = "checkbox";
+                            elementInput2.checked = true;
+                            // elementInput.name = i;
+                            elementInput2.setAttribute("data-index1", i);
+                            elementInput2.setAttribute("data-index2", index);
+                            // elementInput.attributes = true;
+                            elementLi2.appendChild(elementInput2);
+                            //创建label元素
+                            var elementLable2 = document.createElement('label');
+                            elementLable2.className = "layer";
+                            elementLable2.innerText = element.Name;
+                            elementLi2.appendChild(elementLable2);
+                            that.addChangeEvent4(elementInput2);
+
+                            uniqueThemeArr.forEach((eles, indexs) => {
+                                //获取每个图层的名称、是否可见属性
+                                //新增li元素，用来承载图层项
+                                var elementLi = document.createElement('li');
+                                // 添加子节点
+                                elementUl.appendChild(elementLi);
+                                //创建复选框元素
+                                var elementInput = document.createElement('input');
+                                elementInput.type = "checkbox";
+                                elementInput.checked = true;
+                                // elementInput.name = i;
+                                elementInput.setAttribute("data-index1", i);
+                                elementInput.setAttribute("data-index2", index);
+                                elementInput.setAttribute("data-index3", indexs);
+                                // elementInput.attributes = true;
+                                elementLi.appendChild(elementInput);
+                                //创建label元素
+                                var elementLable = document.createElement('label');
+                                elementLable.className = "layer";
+                                elementLable.innerText = eles.Caption;
+                                elementLi.appendChild(elementLable);
+                                that.addChangeEvent3(elementInput);
+                                elementUl2.appendChild(elementUl);
+                            });
+                            liLists.appendChild(elementUl2);
+                        });
+                        //设置图层默认显示状态
+                        // if (mt.layerVisibility[i]) {
+                        //     elementInput.checked = true;
+                        // }
+                        //为checkbox添加变更事件
+                        console.log(that);
+                    });
+                    console.log(elementUl);
+                    // if (i == themesInfoArr[0].ThemeArr.length)
+                    //     alert("没有该专题信息");
                 } else
                     alert("没有该专题信息");
             });
@@ -316,7 +447,6 @@ $(function () {
         //获取指定地图信息
         getMapInfo() {
             let that = this;
-            // $('#resultShow').tabs('select', 1);
             //实例化Zondy.Service.Catalog.MapDoc类，设置操作的地图文档为用户指定的地图文档,地图为索引值为0的地图
             var docCatalog = new Zondy.Service.Catalog.MapDoc({
                 ip: Config.ip,
@@ -338,6 +468,8 @@ $(function () {
             if (result.length == 0) {
                 alert("没有获取到矢量地图文档！");
                 $("#reslutTable").empty(); //清空结果显示面板
+                return;
+            } else if (that.getMapInfos) {
                 return;
             } else {
                 //将一个JSON转换成一个包含JSON文本的字符串
@@ -393,6 +525,7 @@ $(function () {
                     that.addChangeEvent2(elementInput);
                 });
                 liLists.appendChild(elementUl);
+                that.getMapInfos = true;
             }
         },
         init() {

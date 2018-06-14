@@ -88,9 +88,8 @@
 
 .layerControl {
     position: absolute;
-    bottom: 5px;
     min-width: 200px;
-    max-height: 200px;
+    min-height: 200px;
     left: 100px;
     top: 5px;
     /*在地图容器中的层，要设置z-index的值让其显示在地图上层*/
