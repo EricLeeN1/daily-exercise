@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
@@ -11,63 +12,111 @@
     <meta name="description" content="华谊兄弟公益基金，中国人民广播电台，音乐之声，华谊兄弟">
     <meta name="author" content="Eric tel-1883983536">
     <link rel="stylesheet" href="./styles/index.min.css?rev=@@hash">
+    <script>
+        function versions() {
+            var e = navigator.userAgent,
+                t = e.toLowerCase();
+            navigator.appVersion;
+            return {
+                wechat: "micromessenger" == t.match(/MicroMessenger/i),
+                qq: "qq" == t.match(/QQ/i),
+                weibo: "weibo" == t.match(/WeiBo/i),
+                trident: e.indexOf("Trident") > -1,
+                presto: e.indexOf("Presto") > -1,
+                webKit: e.indexOf("AppleWebKit") > -1,
+                gecko: e.indexOf("Gecko") > -1 && -1 == e.indexOf("KHTML"),
+                mobile: !!e.match(/AppleWebKit.*Mobile.*/),
+                ios: !!e.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                android: e.indexOf("Android") > -1 || e.indexOf("Linux") > -1,
+                iPhone: e.indexOf("iPhone") > -1,
+                iPad: e.indexOf("iPad") > -1,
+                webApp: -1 == e.indexOf("Safari")
+            }
+        }
+        console.log('====================================');
+        console.log(versions().mobile);
+        console.log('====================================');
+        var version = versions();
+        console.log('====================================');
+        console.log(window.location.search);
+        var search = window.location.search
+        console.log('====================================');
+        if (version.mobile) {
+            //手机打开PC页面
+            window.location.href = '你的地址' + search;
+        } else {
+            //PC打开手机页面同
+        }
+    </script>
 </head>
-<body id="newslists-body">
-<header class="common-header">
-    <h1>新闻列表</h1>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-    <ol style="display: none">
-        <li><a href="./">首页</a></li>
-        <li><a href="./about.html">关于</a></li>
-        <li><a href="./donate.html">捐助</a></li>
-        <li class="active"><a href="javascript:;">行动</a></li>
-        <li><a href="./company.html">伙伴</a></li>
-    </ol>
-</header>
-<main>
-    <section id="news-list-big">
-        <h2>
-            <span>
-                公益行动
-            </span>
-        </h2>
-        <ul>
-        </ul>
-        <ol id="show-pages">
-        </ol>
-    </section>
-    <section id="news-list-small">
-        <h2>
-            <span>
-                公益明星
-            </span>
-            <a href="./newsList.html?type=8">更多</a>
-        </h2>
-        <ul>
-        </ul>
-    </section>
-</main>
-<footer class="common-footer">
-    <nav>
-        <a href="/">首页</a>
-        <a href="/about/us#fund">关于我们</a>
-        <a href="/action/5">我们的行动</a>
-        <a href="/newslist/4">新闻资讯</a>
-        <a href="/exhibition">电影与儿童教育</a>
-        <a href="/apply">加入我们</a>
-    </nav>
-    <section class="copy-right">
-        Copyright ©2018 hbfoundation.cn All rights reserved.　京ICP备:11044956
-    </section>
-</footer>
 
-<script src="./scripts/vendor.min.js"></script>
-<script src="./scripts/newslists.min.js"></script>
+<body id="newslists-body">
+    <header class="common-header">
+        <h1>新闻列表</h1>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ol style="display: none">
+            <li>
+                <a href="./">首页</a>
+            </li>
+            <li>
+                <a href="./about.html">关于</a>
+            </li>
+            <li>
+                <a href="./donate.html">捐助</a>
+            </li>
+            <li class="active">
+                <a href="javascript:;">行动</a>
+            </li>
+            <li>
+                <a href="./company.html">伙伴</a>
+            </li>
+        </ol>
+    </header>
+    <main>
+        <section id="news-list-big">
+            <h2>
+                <span>
+                    公益行动
+                </span>
+            </h2>
+            <ul>
+            </ul>
+            <ol id="show-pages">
+            </ol>
+        </section>
+        <section id="news-list-small">
+            <h2>
+                <span>
+                    公益明星
+                </span>
+                <a href="./newsList.html?type=8">更多</a>
+            </h2>
+            <ul>
+            </ul>
+        </section>
+    </main>
+    <footer class="common-footer">
+        <nav>
+            <a href="/">首页</a>
+            <a href="/about/us#fund">关于我们</a>
+            <a href="/action/5">我们的行动</a>
+            <a href="/newslist/4">新闻资讯</a>
+            <a href="/exhibition">电影与儿童教育</a>
+            <a href="/apply">加入我们</a>
+        </nav>
+        <section class="copy-right">
+            Copyright ©2018 hbfoundation.cn All rights reserved.　京ICP备:11044956
+        </section>
+    </footer>
+
+    <script src="./scripts/vendor.min.js"></script>
+    <script src="./scripts/newslists.min.js"></script>
 
 
 </body>
+
 </html>

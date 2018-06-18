@@ -121,17 +121,18 @@ $(function () {
             if (that.check) {
                 params.way = way;
                 console.log(params);
-                // that.postAjax('/pay', params, function (res) {
-                //     that.check = false;
-                //     $("body").html(res)
-                //     console.log(res);
-                //     if (params.way == 2) {
-                //         $('#qrcode-modal').show();
-                //         that.modalShow = true;
-                //     } else if (params.way == 1) {
-                //         // window.location.href = "./alisuccess.html";
-                //     }
-                // });
+                that.postAjax('/pay', params, function (res) {
+                    that.check = false;
+                    $("body").html(res)
+                    console.log(res);
+                    if (params.way == 2) {
+                        $('#qrcode-modal img').attr('src',res.img);
+                        $('#qrcode-modal').show();
+                        that.modalShow = true;
+                    } else if (params.way == 1) {
+                        // window.location.href = "./alisuccess.html";
+                    }
+                });
                 $("#pay-form").submit();
             }
         },
