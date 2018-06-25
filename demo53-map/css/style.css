@@ -6,6 +6,7 @@ body {
 }
 
 /*正文头部样式*/
+
 div#Header {
     height: 15px;
     z-index: 2000;
@@ -14,7 +15,8 @@ div#Header {
 #title {
     font-size: 22px;
     font-family: Times New Roman;
-    color: rgb(10,36,106); /*rgb(10,36,106)*/
+    color: rgb(10, 36, 106);
+    /*rgb(10,36,106)*/
     font-weight: bold;
     display: block;
 }
@@ -30,7 +32,9 @@ div#Header {
 }
 
 /*表格中地图样式*/
-#map, .olMap {
+
+#map,
+.olMap {
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -52,22 +56,22 @@ div#Header {
     z-index: 1000;
 }
 
-    #toolbar ul {
-        width: 100%;
-        margin: 5px 5px 5px 0;
-        padding: 0;
-        margin: 0;
-        height: 50px;
-        list-style: none;
-    }
+#toolbar ul {
+    width: 100%;
+    margin: 5px 5px 5px 0;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    list-style: none;
+}
 
-        #toolbar ul li {
-            margin: 5px 5px 5px 5px;
-            width: 40px;
-            height: 40px;
-            text-align: center;
-            cursor: pointer;
-        }
+#toolbar ul li {
+    margin: 5px 5px 5px 5px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
 
 .operator {
     width: 50px;
@@ -207,7 +211,6 @@ div#Header {
     padding: 5px;
 }
 
-
 .CheckRadio {
     float: left;
     margin-left: 10px;
@@ -228,7 +231,6 @@ div#Header {
     border-radius: 5px;
     width: 430px;
 }
-
 
 .resInfoText {
     height: 350px;
@@ -295,11 +297,11 @@ div#Header {
     margin-left: -20px;
 }
 
-    .imagelabelRight .spanid .spana {
-        white-space: nowrap;
-        color: white;
-        font-weight: bold;
-    }
+.imagelabelRight .spanid .spana {
+    white-space: nowrap;
+    color: white;
+    font-weight: bold;
+}
 
 .markerTransparent {
     position: relative;
@@ -330,10 +332,10 @@ div#Header {
     background-color: transparent;
 }
 
-    .ButtonLib:hover {
-        color: white;
-        background-color: #0075C7;
-    }
+.ButtonLib:hover {
+    color: white;
+    background-color: #0075C7;
+}
 
 .ToolLib {
     border-radius: 3px;
@@ -345,7 +347,9 @@ div#Header {
     border-bottom: 1px solid #949292;
     margin-bottom: 2px;
 }
+
 /*结果显示面板*/
+
 #resultT {
     position: absolute;
     overflow: auto;
@@ -366,13 +370,16 @@ div#Header {
     font-family: 微软雅黑;
     color: #008000;
 }
+
 /*Fushioncharts统计图*/
+
 #divPieChart2 {
     margin: 100px auto;
     text-align: center;
 }
 
 /*图层投影转换*/
+
 #allmap {
     width: 100%;
     height: 95%;
@@ -395,10 +402,12 @@ div#Header {
     position: relative;
     border: 1px solid black;
 }
+
 /*缓冲条样式*/
+
 #preview {
     position: absolute;
-    background: rgba(3,3,3,0.1);
+    background: rgba(3, 3, 3, 0.1);
     color: #fff;
     float: left;
     width: 100%;
