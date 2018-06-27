@@ -6,7 +6,15 @@ const config = {
     output: {
         filename: "[name].js",
         path: _dirname + '/dist'
-    }
+    },
+    mode: "production",
+    rules: [{
+        test: /\.css$/,
+        use: "css-loader"
+    }, {
+        test: /\.ts$/,
+        use: "ts-loader"
+    }]
 }
 
 module.exports = config;
