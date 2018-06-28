@@ -1,3 +1,6 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //通过npm安装
+const webpack = require('webpack');
+const path = require('path');
 const config = {
     entry: {
         app: "./src/main.js",
@@ -5,16 +8,29 @@ const config = {
     },
     output: {
         filename: "[name].js",
-        path: _dirname + '/dist'
+        path: path.resolve(_dirname, '/dist')
     },
     mode: "production",
-    rules: [{
-        test: /\.css$/,
-        use: "css-loader"
-    }, {
-        test: /\.ts$/,
-        use: "ts-loader"
-    }]
-}
+    module: {
+        rules: [{
+                test: /\.css$/,
+                use: "css-loader"
+            }, {
+                test: /\.(js|jsx)$/,
+                use: 'babel-loader'
+            },
+            {
+                test: /\.ts$/,
+                use: "ts-loader"
+            }
+        ]
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin(),
+        new HtmlWebpackPlugin({
+            template: './src/index.html'
+        })
+    ]
+};
 
 module.exports = config;
