@@ -8,7 +8,8 @@ $(function () {
         modalShow: false,
         language: (navigator.browserLanguage || navigator.language).toLowerCase(),
         versions: function () {
-            var e = navigator.userAgent, t = e.toLowerCase();
+            var e = navigator.userAgent,
+                t = e.toLowerCase();
             navigator.appVersion;
             return {
                 wechat: "micromessenger" == t.match(/MicroMessenger/i),
@@ -27,8 +28,10 @@ $(function () {
             }
         }(),
         fontSize: function () {
-            var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : window, t = e.document,
-                i = t.documentElement, n = "orientationchange" in e ? "orientationchange" : "resize",
+            var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : window,
+                t = e.document,
+                i = t.documentElement,
+                n = "orientationchange" in e ? "orientationchange" : "resize",
                 o = function () {
                     var e = i.clientWidth || 375;
                     e > 750 && (e = 750), i.style.fontSize = e / 7.5 + "px"
@@ -43,8 +46,7 @@ $(function () {
             let that = this;
             let params = {};
             let regPhone = /^1[3-8]\d{9}$/;
-            let regEmail = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
-            ;
+            let regEmail = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;;
             let invoicing = $("#receipt").val();
             params.username = $("#username").val();
             params.sex = $("#appellation").val();
@@ -92,8 +94,7 @@ $(function () {
                     return;
                 } else {
                     $("#taxid").next('span').text("");
-                }
-                ;
+                };
                 that.check = true;
                 return params;
             } else if (type == 2) { //不要发票,不用校验税号与发票抬头
@@ -132,6 +133,30 @@ $(function () {
                 }
                 that.check = true;
                 return params;
+            }
+        },
+        paySet() {
+            let that = this;
+            if (that.versions.wechat) {
+                // 微信里面
+                let html = `
+                <div class="radio-group">
+                    <input hidden type="radio" name="way" value="2" data-type="2" alt="微信" checked>
+                </div>
+                <div class="img-group">
+                    <img src="./images/donate/wechat-pay@2x.png" data-type="2" class="active" alt="">
+                </div>`;
+                $("#pay-methods").html(html);
+            } else if (that.versions.webKit && that.versions.mobile) {
+                // 除了微信以外的浏览器里面
+                let html = `
+                <div class="radio-group">
+                    <input hidden type="radio" name="way" value="1" data-type="1" alt="支付宝" checked>
+                </div>
+                <div class="img-group">
+                    <img src="./images/donate/ali-pay@2x.png" alt="" data-type="1"  class="active">
+                </div>`;
+                $("#pay-methods").html(html);
             }
         },
         payOrder(e) {
@@ -243,8 +268,7 @@ $(function () {
             }
             that.payValue = value;
             ele.children("input[name=total_fee]").attr("checked", true);
-            ele.siblings().children("input[name=total_fee]").attr("checked", false);
-            ;
+            ele.siblings().children("input[name=total_fee]").attr("checked", false);;
             $("#total_fee").val("");
             that.toggleForms(true);
         },
@@ -256,7 +280,7 @@ $(function () {
             ele.addClass('active').siblings().removeClass('active');
             if (type == 1) {
                 $("#pay-methods>.radio-group>input:eq(0)").attr("checked", true).siblings().attr("checked", false);
-            }else if (type==2) {
+            } else if (type == 2) {
                 $("#pay-methods>.radio-group>input:eq(1)").attr("checked", true).siblings().attr("checked", false);
             }
         },
@@ -324,6 +348,7 @@ $(function () {
             let that = this;
             that.fontSize();
             that.setSeo();
+            that.paySet();
             $(".common-header ul").on('click', function () {
                 that.showNav();
             });
