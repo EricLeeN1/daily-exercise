@@ -139,6 +139,7 @@ $(function () {
             let that = this;
             if (that.versions.wechat) {
                 // 微信里面
+                console.log(that.versions.wechat);
                 let html = `
                 <div class="radio-group">
                     <input hidden type="radio" name="way" value="2" data-type="2" alt="微信" checked>
