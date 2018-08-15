@@ -469,7 +469,7 @@ en, ar, bn, cs, de, en, es, fa, fi, fr, he, it, ja, ko, no, pl, pt, ro, ru, sv, 
 }
 ```
 
-例如要使 h1、h2 标签有下边框， 可以在   
+例如要使 h1、h2 标签有下边框， 可以在  
 website.css 中设置
 
 ```
