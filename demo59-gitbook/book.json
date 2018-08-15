@@ -1,0 +1,33 @@
+{
+    "gitbook": "2.x.x",
+    "title": "Eric test",
+    "description": "gitbook学习",
+    "language": "zh",
+    "structure": {
+      "readme": "ReadME.md"
+    },
+    "pluginsConfig": {
+      "fontSettings": {
+        "theme": "white",
+        "family": "msyh",
+        "size": 2
+      },
+      "plugins": [
+        "yahei",
+        "katex",
+        "-search"
+      ]
+    },
+    "pdf": {
+      "pageNumbers": true, 
+      "fontFamily": "Arial",
+      "fontSize": 12,
+      "paperSize": "a4",
+      "margin": {
+        "right": 62,
+        "left": 62,
+        "top": 56,
+        "bottom": 56
+      }
+    }
+  }
