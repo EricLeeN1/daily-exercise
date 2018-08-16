@@ -1,0 +1,21 @@
+{
+  "name": "labhook",
+  "version": "1.0.0",
+  "description": "利用Gitlab的Webhook功能和node.js完成项目的自动部署",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "webhook",
+    "nodejs"
+  ],
+  "author": "Eric Lee",
+  "license": "ISC",
+  "devDependencies": {
+    "child_process": "^1.0.2",
+    "github-webhook-handler": "^0.7.1",
+    "gitlab-webhook-handler": "^1.0.1"
+  }
+}
