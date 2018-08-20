@@ -28,7 +28,7 @@ http.createServer(function (req, res) {
     })
 }).listen(7777);
 
-console.log("Gitlab Hook Server running at http://0.0.0.0:7777/webhook");
+console.log("Gitlab Hook Server running at http://127.0.0.1:7777/webhook");
 
 handler.on('error', function (err) {
     console.error('Error:', err.message)

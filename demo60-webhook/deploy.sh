@@ -1,5 +1,3 @@
-#!/bin/bash
-
 WEB_PATH='/home/webhookServe/'
 WEB_USER='root'
 WEB_USERGROUP='root'
