@@ -145,8 +145,8 @@ $(function () {
         loop: true,
         lazy: true,
         slidesPerView: 'auto',
-        slidesOffsetBefore: 38,
-        slidesOffsetAfter: 40,
+        // slidesOffsetBefore: 38,
+        // slidesOffsetAfter: 40,
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
@@ -341,7 +341,7 @@ $(function () {
       that.companyList();
       setTimeout(() => {
         that.setSwiper();
-      }, 1000);
+      }, 2000);
     }
   };
   Base.init();

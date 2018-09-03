@@ -343,7 +343,6 @@ $(function () {
                     alert(res.message);
                 }
             })
-
         },
         init() {
             let that = this;

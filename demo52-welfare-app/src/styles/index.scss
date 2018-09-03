@@ -184,13 +184,13 @@ body {
         #action-list {
           padding-bottom: .9rem;
           .swiper-wrapper {
-            width: 6rem;
+            width: 7.5rem;
             height: 4.2rem;
             .swiper-slide {
               text-align: center;
               @include flex-center(1);
               div {
-                width: 6rem;
+                width: 7.5rem;
                 height: 5rem;
                 flex: auto;
                 overflow: hidden;

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>确认订单</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <link rel="apple-touch-icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="keywords" content="公益，华谊兄弟">
+    <meta name="description" content="华谊兄弟公益基金，中国人民广播电台，音乐之声，华谊兄弟">
+    <meta name="author" content="Eric tel-1883983546">
+    <link rel="stylesheet" href="./styles/alipost.min.css">
+</head>
+
+<body id="order-check" data-com="pagecommon">
+    <header class="navbar">
+        <h1 class="nav-header">确认订单</h1>
+    </header>
+    <div class="wrapper-list">
+        <h4 id="subject">捐款订单确认</h4>
+        <dl class="list">
+            <dd>
+                <dl>
+                    <dd class="kv-line-r dd-padding">
+                        <h6>捐助费用：</h6>
+                        <p id="total_fee"></p>
+                    </dd>
+                    <dd class="kv-line-r dd-padding">
+                            <h6>名称：</h6>
+                            <p id="name"></p>
+                        </dd>
+                    <dd class="kv-line-r dd-padding">
+                        <h6>性别：</h6>
+                        <p id="sex"></p>
+                    </dd>
+                    <dd class="kv-line-r dd-padding">
+                        <h6>手机号码：</h6>
+                        <p id="phone"></p>
+                    </dd>
+                    <dd class="kv-line-r dd-padding">
+                        <h6>邮件：</h6>
+                        <p id="mail"></p>
+                    </dd>
+                    <dd class="kv-line-r dd-padding">
+                        <h6>地址：</h6>
+                        <p id="address"></p>
+                    </dd>
+                    <dd class="kv-line-r dd-padding">
+                        <h6>这个是什么：</h6>
+                        <p id="invoicing"></p>
+                    </dd>
+                    <dd class="kv-line-r dd-padding">
+                        <h6>这个又是什么：</h6>
+                        <p id="invoice"></p>
+                    </dd>
+                    <dd class="kv-line-r dd-padding">
+                        <h6>这个是什么：</h6>
+                        <p id="TaxID"></p>
+                    </dd>
+                    <dd class="kv-line-r dd-padding">
+                        <h6>支付方式：</h6>
+                        <p id="way"></p>
+                    </dd>
+                </dl>
+            </dd>
+        </dl>
+
+        <form id="form" action="" method="post" hidden>
+            <input type="text" name="total_fee" hidden>
+            <input type="text" name="name" hidden>
+            <input type="text" name="sex" hidden>
+            <input type="text" name="phone" hidden>
+            <input type="text" name="mail" hidden>
+            <input type="text" name="address" hidden>
+            <input type="text" name="invoicing" hidden>
+            <input type="text" name="invoice" hidden>
+            <input type="text" name="TaxID" hidden>
+            <input type="text" name="way" hidden>
+        </form>
+        <div class="wrapper buy-wrapper">
+            <a href="javascript:void(0);" class="J-btn-submit btn mj-submit btn-strong btn-larger btn-block">确认支付</a>
+        </div>
+    </div>
+    <script src="./scripts/vendor.min.js"></script>
+    <script type="text/javascript" src="./scripts/ap.js"></script>
+    <script src="./scripts/alipost.js"></script>
+</body>
+
+</html>
