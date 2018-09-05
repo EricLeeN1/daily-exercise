@@ -8,8 +8,8 @@ import Tab1 from "../components/tab1.vue";
 import Tab2 from "../components/tab2.vue";
 
 export default {
-  name:'Main',
-  mounted () {
+  name: "Main",
+  mounted() {
     // console.log($route);
   }
 };
