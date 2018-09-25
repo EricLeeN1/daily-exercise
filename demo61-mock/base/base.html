@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mock</title>
+    <script src="../node_modules/mockjs/dist/mock.js"></script>
+</head>
+
+<body>
+    <script>
+        console.log('====================================');
+        console.log('数据模版定义')
+        console.log('String');
+        console.log("String-'name|min-max': string");
+        console.log(Mock.mock({
+            "string|1-10": "★"
+        })) //包含最大最小在内的一个拼接字符串
+        console.log("String-'name|count': string");
+        console.log(Mock.mock({
+            "string|3": "★★★"
+        }));
+        //指定字符串count倍的一个拼接字符串3*3=9
+        console.log('====================================');
+    </script>
+</body>
+
+</html>
