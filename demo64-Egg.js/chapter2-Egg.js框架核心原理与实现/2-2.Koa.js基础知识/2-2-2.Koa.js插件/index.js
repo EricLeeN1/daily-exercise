@@ -2,7 +2,7 @@ const Koa = require('koa');
 
 const userAgent = require("koa-useragent");
 
-const log = require('/log.js');
+const log = require('./log');
 
 const app = new Koa();
 

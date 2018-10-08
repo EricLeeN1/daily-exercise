@@ -1,4 +1,4 @@
-module.export = options => {
+module.exports = options => {
     if (!options.format) {
         console.error("需要传递format函数");
     }
