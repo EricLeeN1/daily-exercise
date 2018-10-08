@@ -1,5 +1,5 @@
 {
-  "name": "Base of Eggjs",
+  "name": "eggjs-core",
   "version": "0.0.1",
   "description": "",
   "main": "main.js",

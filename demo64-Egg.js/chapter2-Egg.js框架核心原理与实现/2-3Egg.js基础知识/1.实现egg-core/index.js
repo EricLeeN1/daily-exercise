@@ -5,7 +5,7 @@ const app = new Koa();
 
 init(app);
 
-app.use(async (ctx,next) => {
+app.use(async (ctx, next) => {
     console.log(ctx.service);
     console.log(ctx.config);
     ctx.type = "application/json";
@@ -13,4 +13,3 @@ app.use(async (ctx,next) => {
 });
 
 app.listen(3000);
-

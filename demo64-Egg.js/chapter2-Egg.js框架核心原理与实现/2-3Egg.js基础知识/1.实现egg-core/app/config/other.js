@@ -1,3 +1,3 @@
 module.exports = {
-    app_name:"egg"
+    app_name: "egg"
 };
