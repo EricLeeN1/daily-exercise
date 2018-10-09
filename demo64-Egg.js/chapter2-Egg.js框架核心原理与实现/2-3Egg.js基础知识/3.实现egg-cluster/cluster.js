@@ -10,7 +10,7 @@ const master = cfork({
     count: 2
 });
 
-chokidar.watch('./app').options("change", (event, path) => {
+chokidar.watch('./app').on("change", (event, path) => {
     console.log(event, path);
     reload(2);
 });
