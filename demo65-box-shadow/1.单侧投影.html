@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单侧投影</title>
+    <style>
+        ul {
+            overflow: hidden;
+            padding-top: 20px;
+        }
+
+        ul>li {
+            margin-bottom: 20px;
+            list-style: none;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .box {
+            height: 200px;
+            width: 200px;
+            background-color: skyblue;
+        }
+
+        .box-shadow-two {
+            box-shadow: 3px 3px 1px 1px #666666;
+        }
+
+        .box-shadow-four {
+            box-shadow: 0 0 3px 3px #666666;
+        }
+
+        .box-shadow-left {
+            box-shadow: -7px 0 5px -5px #666666;
+        }
+
+        .box-shadow-right {
+            box-shadow: 7px 0 5px -5px #666666;
+        }
+
+        .box-shadow-top {
+            box-shadow: 0 -7px 5px -5px #666666;
+        }
+
+        .box-shadow-bottom {
+            box-shadow: 0 7px 5px -5px #666666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li class="box box-shadow-two"></li>
+        <li class="box box-shadow-four"></li>
+        <li class="box box-shadow-left"></li>
+        <li class="box box-shadow-right"></li>
+        <li class="box box-shadow-top"></li>
+        <li class="box box-shadow-bottom"></li>
+    </ul>
+</body>
+
+</html>
