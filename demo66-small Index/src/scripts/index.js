@@ -20,6 +20,18 @@ $(function () {
     //         el: ".swiper-scrollbar"
     //     }
     // });
+    setTimeout(() => {
+        $("#module1 .module-item:eq(0)").css('marginLeft', '0');
+    }, 600);
+    setTimeout(() => {
+        $("#module1 .module-item:eq(1)").css('marginRight', '0');
+    }, 1200);
+    setTimeout(() => {
+        $("#module1 .module-item:eq(2)").css('marginLeft', '0');
+    }, 1800);
+    setTimeout(() => {
+        $("#module1 .module-item:eq(3)").css('marginRight', '0');
+    }, 2400);
     var wow = new WOW({
         boxClass: 'wow', // animated element css class (default is wow)
         animateClass: 'animated', // animation css class (default is animated)

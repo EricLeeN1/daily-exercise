@@ -143,10 +143,15 @@ nav {
         text-align: center;
         padding: 0 .2rem;
         box-sizing: border-box;
-        height: 1.59rem;
+        height: 1.6rem;
         background: rgba(255, 255, 255, 1);
         box-shadow: 0rem 0rem .27rem .01rem rgba(21, 21, 21, 0.1);
-
+        &:nth-child(2n){
+            margin-right: -.36rem;
+        }
+        &:nth-child(2n-1){
+            margin-left: -.36rem;
+        }
         h4 {
             font-size: .26rem;
             font-family: PingFangSC-Regular;
@@ -282,7 +287,14 @@ nav {
         .module-item {
             width: 1.74rem;
             height: 1.24rem;
+            @for $i from 1 through 12 {
 
+                &:nth-child(#{$i}) {
+                    animation-duration: $i * 0.15s;
+                    animation-delay: $i * 0.15s;
+                    animation-iteration-count: 1
+                }
+            }
             img {
                 width: 100%;
             }
@@ -668,7 +680,7 @@ nav {
             position: relative;
             div{
                 box-sizing: border-box;
-                border: 1px dashed #e1e1e1;
+                // border: 1px dashed #e1e1e1;
                 overflow: hidden;
                 margin-bottom: .1rem;
             }
