@@ -20,12 +20,10 @@ $(function () {
             el: ".swiper-scrollbar"
         }
     });
-    $("#index-nav2 .index-nav2-tabbar li").on('click',function(){
+    $("#module5 .module-tab li").on('click',function(){
         $(this).addClass('active').siblings().removeClass('active');
         let index = $(this).index();
-        console.log('====================================');
-        console.log(index);
-        console.log('====================================');
-        $(".index-nav2-panel >li").eq(index).show().siblings().hide();
+        $("#module5 .module-list >li").eq(index).show().siblings().hide();
+        $("#module5 .module-line >li").eq(index).show().siblings().hide();
     });
 })
