@@ -1,0 +1,29 @@
+@import './_base.scss';
+footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    height: 1.2rem;
+    ul {
+        @include flex-center(0);
+        height: 100%;
+        border-top: .02rem solid #e4e4e4;
+        li {
+            flex: 1;
+            color: #bfbfbf;
+            font-size: .24rem;
+            a {
+                @include flex-center(1);
+                justify-content: center;
+                img {
+                    width: .66rem;
+                }
+            }
+            &.active {
+                color: $main-color;
+            }
+        }
+    }
+}
