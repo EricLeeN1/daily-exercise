@@ -1,0 +1,25 @@
+body{
+    width: 100vw;
+    overflow-x: hidden;
+}
+.navbar{
+    margin-bottom: 0;
+    height: 44px;
+    background-color: #fff;
+    border: none;
+}
+.navbar .navbar-brand img{
+    width: 73.5px;
+    margin-top: -4px;
+}
+#carousel-generic{
+    height: 180px;
+    overflow: hidden;
+    display: none;
+}
+
+#carousel-generic .carousel-caption{
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>我们要做用户体验最好的网站</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/style.css">
+
+  <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+  <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="main">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="./images/logo.png" alt="" srcset="">
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div id="carousel-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="./images/banner.png" alt="...">
+        <div class="carousel-caption">
+          <p>我们只做用户体验好的网站</p>
+          <span>打造线上营销平台—让业务主动找上门</span>
+        </div>
+      </div>
+      <div class="item active">
+        <img src="./images/banner.png" alt="...">
+        <div class="carousel-caption">
+          <p>我们只做用户体验好的网站</p>
+          <span>打造线上营销平台—让业务主动找上门</span>
+        </div>
+      </div>
+      <div class="item active">
+        <img src="./images/banner.png" alt="...">
+        <div class="carousel-caption">
+          <p>我们只做用户体验好的网站</p>
+          <span>打造线上营销平台—让业务主动找上门</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <section class="module">
+    <div class="module-title">
+      <h3>您需要的是能降低推广成本的网站</h3>
+      <p>多年来始终专注营销，解决页面跳出率高问题</p>
+    </div>
+    <div class="module-list row">
+      <div class="module-item col-xs-6 col-md-3">
+        <h4>更多意向客户联系</h4>
+        <p>
+          PC+移动站全网营销推广让客户主动找到您
+        </p>
+      </div>
+      <div class="module-item col-xs-6 col-md-3">
+        <h4>更多意向客户联系</h4>
+        <p>
+          PC+移动站全网营销推广让客户主动找到您
+        </p>
+      </div>
+      <div class="module-item col-xs-6 col-md-3">
+        <h4>更多意向客户联系</h4>
+        <p>
+          PC+移动站全网营销推广让客户主动找到您
+        </p>
+      </div>
+      <div class="module-item col-xs-6 col-md-3">
+        <h4>更多意向客户联系</h4>
+        <p>
+          PC+移动站全网营销推广让客户主动找到您
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="module">
+    <div class="module-title">
+      <h3>服务体系</h3>
+      <p>鹏耘打造一支专业的网站建设团队，立足上海，服务全国，根据不同行业客户需求，定制各类网站.....</p>
+    </div>
+    <div class="module-list row">
+      <div class="module-item col-xs-12 col-md-6">
+        <img src="" alt="">
+        <div>
+          <h4>营销型网站</h4>
+          <p>
+            适合付费推广的企业，通过内容营销带来更多的销售线索，降低企业推广成本，让您不再因花大量广告费转化差问题烦恼！
+          </p>
+        </div>
+      </div>
+      <div class="module-item col-xs-12 col-md-6">
+        <img src="" alt="">
+        <div>
+          <h4>营销型网站</h4>
+          <p>
+            适合付费推广的企业，通过内容营销带来更多的销售线索，降低企业推广成本，让您不再因花大量广告费转化差问题烦恼！
+          </p>
+        </div>
+      </div>
+      <div class="module-item col-xs-12 col-md-6">
+        <img src="" alt="">
+        <div>
+          <h4>营销型网站</h4>
+          <p>
+            适合付费推广的企业，通过内容营销带来更多的销售线索，降低企业推广成本，让您不再因花大量广告费转化差问题烦恼！
+          </p>
+        </div>
+      </div>
+      <div class="module-item col-xs-12 col-md-6">
+        <img src="" alt="">
+        <div>
+          <h4>营销型网站</h4>
+          <p>
+            适合付费推广的企业，通过内容营销带来更多的销售线索，降低企业推广成本，让您不再因花大量广告费转化差问题烦恼！
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="module">
+    <div class="module-title">
+      <h3>我们的优势</h3>
+      <p>我们给您的不仅仅只是一个网站，而是能带来销售业绩的营销型网站，全程一条龙服务PC+手机+域名+服务器一次性搞定</p>
+    </div>
+    <div class="module-list row">
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <h4>专业的开发团队</h4>
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <h4>专业的开发团队</h4>
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <h4>专业的开发团队</h4>
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <h4>专业的开发团队</h4>
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <h4>专业的开发团队</h4>
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="module">
+    <div class="module-title">
+      <h3>服务客户</h3>
+      <p>SERVICE CUSTOMER</p>
+    </div>
+    <div class="module-list row">
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+      </div>
+    </div>
+  </section>
+  <section class="module">
+    <div class="module-title">
+      <h3>精品案例展示</h3>
+      <p>来自各行业经验丰富的策划师，为您做好策划前的数据分析（市场、目标人群、同行及自身优劣势）想用户所想，做用户所需</p>
+    </div>
+    <ul id="myTab" class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">
+          菜鸟教程</a>
+      </li>
+      <li><a href="#ios" data-toggle="tab">iOS</a></li>
+      <li class="dropdown">
+        <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Java <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+          <li><a href="#jmeter" tabindex="-1" data-toggle="tab">
+              jmeter</a>
+          </li>
+          <li><a href="#ejb" tabindex="-1" data-toggle="tab">
+              ejb</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade in active" id="home">
+        <p>菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>
+      </div>
+      <div class="tab-pane fade" id="ios">
+        <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
+          TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+      </div>
+      <div class="tab-pane fade" id="jmeter">
+        <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+      </div>
+      <div class="tab-pane fade" id="ejb">
+        <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="module">
+    <div class="module-title">
+      <h3>定制网站流程</h3>
+      <p>从需求沟通、原型策划、创意设计、动态交互、后台搭建、专业测试“6大流程”每个板块都按需求定制，给到您满意的结果</p>
+    </div>
+    <div class="module-list row">
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <h4>专业的开发团队</h4>
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <h4>专业的开发团队</h4>
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <h4>专业的开发团队</h4>
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <h4>专业的开发团队</h4>
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <h4>专业的开发团队</h4>
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <h4>专业的开发团队</h4>
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="module">
+    <div class="module-title">
+      <h3>选择鹏耘 售后无忧</h3>
+      <p>降低推广成本的策划是我们始终不变的设计理念</p>
+    </div>
+    <div class="module-list row">
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+      <div class="module-item col-xs-4 col-md-4">
+        <img src="" alt="">
+        <p>
+          团队成员人均6年+开发经验，曾就职于大型互联网技术服务公司
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="ad">
+    <p>网站推广效果差，广告成本居高不下需要一份专业的诊断方案？欢迎咨询我们！
+    </p>
+    <h4>免费诊断方案</h4>
+  </section>
+  <section class="contact-us">
+    <img src="" alt="" srcset="">
+    <img src="" alt="" srcset="">
+  </section>
+
+  <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+  <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
