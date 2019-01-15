@@ -29,7 +29,7 @@ $(function () {
     setTimeout(() => {
         $("#module1 .module-item:eq(2)").css('marginLeft', '0');
     }, 1800);
-    setTimeout(() => {
+    setTimeout(() => { 
         $("#module1 .module-item:eq(3)").css('marginRight', '0');
     }, 2400);
     var wow = new WOW({
