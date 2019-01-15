@@ -681,6 +681,7 @@ nav {
     }
 
     .module-list {
+        margin-top: -.2rem;
         @include flex-center();
         padding: 0 .3rem;
         justify-content: space-between;
