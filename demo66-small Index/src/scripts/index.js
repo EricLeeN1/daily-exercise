@@ -21,16 +21,24 @@ $(function () {
     //     }
     // });
     setTimeout(() => {
-        $("#module1 .module-item:eq(0)").css('marginLeft', '0');
+        $("#module1 .module-item:eq(0)").animate({
+            'marginLeft': '0'
+        });
     }, 600);
     setTimeout(() => {
-        $("#module1 .module-item:eq(1)").css('marginRight', '0');
+        $("#module1 .module-item:eq(1)").animate({
+            'marginRight': '0'
+        });
     }, 1200);
     setTimeout(() => {
-        $("#module1 .module-item:eq(2)").css('marginLeft', '0');
+        $("#module1 .module-item:eq(2)").animate({
+            'marginLeft': '0'
+        });
     }, 1800);
-    setTimeout(() => { 
-        $("#module1 .module-item:eq(3)").css('marginRight', '0');
+    setTimeout(() => {
+        $("#module1 .module-item:eq(3)").animate({
+            'marginRight': '0'
+        });
     }, 2400);
     var wow = new WOW({
         boxClass: 'wow', // animated element css class (default is wow)
