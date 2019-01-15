@@ -23,23 +23,23 @@ $(function () {
     setTimeout(() => {
         $("#module1 .module-item:eq(0)").animate({
             'marginLeft': '0'
-        });
+        },'fast','linear');
     }, 600);
     setTimeout(() => {
         $("#module1 .module-item:eq(1)").animate({
             'marginRight': '0'
-        });
+        },'fast','linear');
     }, 1200);
     setTimeout(() => {
         $("#module1 .module-item:eq(2)").animate({
             'marginLeft': '0'
-        });
+        },'fast','linear');
     }, 1800);
     setTimeout(() => {
         $("#module1 .module-item:eq(3)").animate({
             'marginRight': '0'
-        });
-    }, 2400);
+        },'fast','linear');
+    }, 2000);
     var wow = new WOW({
         boxClass: 'wow', // animated element css class (default is wow)
         animateClass: 'animated', // animation css class (default is animated)
