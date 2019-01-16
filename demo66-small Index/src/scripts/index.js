@@ -20,26 +20,26 @@ $(function () {
     //         el: ".swiper-scrollbar"
     //     }
     // });
-    setTimeout(() => {
-        $("#module1 .module-item:eq(0)").animate({
-            'marginLeft': '0'
-        },'fast','linear');
-    }, 600);
-    setTimeout(() => {
-        $("#module1 .module-item:eq(1)").animate({
-            'marginRight': '0'
-        },'fast','linear');
-    }, 1200);
-    setTimeout(() => {
-        $("#module1 .module-item:eq(2)").animate({
-            'marginLeft': '0'
-        },'fast','linear');
-    }, 1800);
-    setTimeout(() => {
-        $("#module1 .module-item:eq(3)").animate({
-            'marginRight': '0'
-        },'fast','linear');
-    }, 2000);
+    // setTimeout(() => {
+    //     $("#module1 .module-item:eq(0)").animate({
+    //         'marginLeft': '0'
+    //     },'fast','linear');
+    // }, 600);
+    // setTimeout(() => {
+    //     $("#module1 .module-item:eq(1)").animate({
+    //         'marginRight': '0'
+    //     },'fast','linear');
+    // }, 1200);
+    // setTimeout(() => {
+    //     $("#module1 .module-item:eq(2)").animate({
+    //         'marginLeft': '0'
+    //     },'fast','linear');
+    // }, 1800);
+    // setTimeout(() => {
+    //     $("#module1 .module-item:eq(3)").animate({
+    //         'marginRight': '0'
+    //     },'fast','linear');
+    // }, 2000);
     var wow = new WOW({
         boxClass: 'wow', // animated element css class (default is wow)
         animateClass: 'animated', // animation css class (default is animated)
@@ -59,12 +59,12 @@ $(function () {
             active++;
             $("#module5 .module-tab li").eq(active).addClass('active').siblings().removeClass('active');
             $("#module5 .module-list >li").eq(active).show().siblings().hide();
-            $("#module5 .module-line >li").eq(active).show().siblings().hide();
+            $("#module5 .module-line >li").eq(active).addClass('active').siblings().removeClass('active');
         } else {
             active = 0;
             $("#module5 .module-tab li").eq(active).addClass('active').siblings().removeClass('active');
             $("#module5 .module-list >li").eq(active).show().siblings().hide();
-            $("#module5 .module-line >li").eq(active).show().siblings().hide();
+            $("#module5 .module-line >li").eq(active).addClass('active').siblings().removeClass('active');
         }
     }, 5000);
     $("#module5 .module-tab li").on('click', function () {
@@ -72,18 +72,18 @@ $(function () {
         $(this).addClass('active').siblings().removeClass('active');
         let index = $(this).index();
         $("#module5 .module-list >li").eq(index).show().siblings().hide();
-        $("#module5 .module-line >li").eq(index).show().siblings().hide();
+        $("#module5 .module-line >li").eq(active).addClass('active').siblings().removeClass('active');
         timer = setInterval(() => {
             if (active < 3) {
                 active++;
                 $("#module5 .module-tab li").eq(active).addClass('active').siblings().removeClass('active');
                 $("#module5 .module-list >li").eq(active).show().siblings().hide();
-                $("#module5 .module-line >li").eq(active).show().siblings().hide();
+                $("#module5 .module-line >li").eq(active).addClass('active').siblings().removeClass('active');
             } else {
                 active = 0;
                 $("#module5 .module-tab li").eq(active).addClass('active').siblings().removeClass('active');
                 $("#module5 .module-list >li").eq(active).show().siblings().hide();
-                $("#module5 .module-line >li").eq(active).show().siblings().hide();
+                $("#module5 .module-line >li").eq(active).addClass('active').siblings().removeClass('active');
             }
         }, 5000);
     });
