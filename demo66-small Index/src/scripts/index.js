@@ -87,4 +87,13 @@ $(function () {
             }
         }, 5000);
     });
+    let order = 2;
+    setInterval(() => {
+        if (order == 2) {
+            order = 3;
+        } else {
+            order = 2;
+        }
+        $("#module7 .module-list .module-box:eq(1)").css('order', order);
+    }, 4000);
 })
