@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>抽奖</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      margin: 100px auto;
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 1px solid #fff;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+    var list = [
+      ["@", "@", "@", "樊晓阳", "讲师", "樊晓阳", "樊晓阳", "@", "@", "@"],
+      ["@", "@", "樊晓阳", "樊晓阳", "讲师", "樊晓阳", "樊晓阳", "樊晓阳", "@", "@"],
+      ["@", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "@", "@"],
+      ["樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳"],
+      ["樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳"],
+      ["@", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "@"],
+      ["@", "@", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "@", "@"],
+      ["樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳"],
+      ["樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳"],
+      ["@", "@", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "樊晓阳", "@", "樊晓阳"],
+      ["@", "@", "樊晓阳", "樊晓阳", "樊晓阳", "@", "@", "@", "@", "樊晓阳"],
+    ];
+
+    //  var btn = document.createElement("button");
+    //  btn.innerHTML = "开始点名";
+    //  document.body.appendChild(btn);
+
+    var btn1 = document.createElement("input");
+    btn1.type = "button";
+    btn1.value = "开始抽奖";
+    document.body.appendChild(btn1);
+
+    var btn2 = document.createElement("input");
+    btn2.type = "button";
+    btn2.value = "抽奖";
+    document.body.appendChild(btn2);
+
+
+    var arr = [];
+    var timerID;
+
+    //1.创建表格
+    var table = document.createElement("table");
+
+    for (var i = 0; i < list.length; i++) {
+      var tr = document.createElement("tr");
+
+      for (var j = 0; j < list[i].length; j++) {
+        var td = document.createElement("td");
+        if (list[i][j] != "@") {
+          td.innerHTML = list[i][j];
+          td.style.backgroundColor = "yellowgreen";
+          if (list[i][j] != "讲师") {
+            arr.push(td);
+          }
+        }
+        tr.appendChild(td);
+      }
+      table.appendChild(tr);
+    }
+
+    //2.把table添加到body里
+    document.body.appendChild(table);
+
+    btn1.onclick = function () {
+      if (timerID) {
+        clearInterval(timerID);
+      }
+      //每隔1秒钟让一个td变红
+      timerID = setInterval(function () {
+        for (var i = 0; i < arr.length; i++) {
+          arr[i].style.backgroundColor = "yellowgreen";
+        }
+        var radmon = Math.floor(Math.random() * arr.length);
+        //      var random = Math.round(Math.random() * (arr.length - 1));
+        arr[radmon].style.backgroundColor = "hotpink";
+      }, 100)
+    }
+
+    btn2.onclick = function () {
+      clearInterval(timerID);
+    }
+  </script>
+</body>
+
+</html>
