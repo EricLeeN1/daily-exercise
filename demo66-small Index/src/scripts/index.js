@@ -94,6 +94,6 @@ $(function () {
         } else {
             order = 2;
         }
-        $("#module7 .module-list .module-box:eq(1)").css('order', order);
+        $("#module7 .module-list .module-box:eq(0)").css('order', order);
     }, 4000);
 })
