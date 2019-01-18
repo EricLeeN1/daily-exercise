@@ -5,22 +5,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>抽奖</title>
-  <link rel="stylesheet" href="./styles/index.css">
+  <title>老虎机抽奖</title>
+  <link rel="stylesheet" href="./styles/slot.css">
   <link rel="stylesheet" href="./styles/animate.css">
+  <link rel="stylesheet" href="./styles/jquery.slotmachine.min.css">
   <script src="./scripts/wow.js"></script>
 </head>
 
 <body>
-  <ul>
-    <li><a href="./draw-单个.html" target="_blank">抽奖1</a></li>
-    <li><a href="" target="_blank">抽奖2</a></li>
-    <li><a href="" target="_blank">抽奖3</a></li>
-  </ul>
+  <div id="tab7">
+    <span class="begin-tool"></span>
+    <span id="ranomizeButton"></span>
+    <div id="winner-show">
+      <ul class="list-unstyled clearfix" id="user-icon">
+      </ul>
+    </div>
+    <form id="form-set" class="clearfix">
+      <div>
+        <label for="select-prize">设置奖项：</label>
+        <select id="select-prize">
+          <option value="1">一等奖</option>
+          <option value="2">二等奖</option>
+          <option value="3">三等奖</option>
+          <option value="4">四等奖</option>
+          <option value="5">五等奖</option>
+        </select>
+      </div>
+      <div>
+        <label for="select-number">设置抽奖人数：</label>
+        <select id="select-number">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10" selected>10</option>
+        </select>
+      </div>
+    </form>
+    <aside>
+      <p>中奖名单</p>
+      <div class="content" id="winner-info-p">
+        <ul id="winner-info" class="list-unstyled">
+          <!-- <li class="nobody hide">暂无人中奖</li> -->
+          <!--&lt;!&ndash;&ndash;&gt;-->
+          <!-- <li>
+            <img src="./images/user/head_1.png" alt="">
+            <span>winner 01</span>
+          </li>
+          <li>
+            <img src="./images/user/head_2.png" alt="">
+            <span>winner 02</span>
+          </li>
+          <li>
+            <img src="./images/user/head_3.png" alt="">
+            <span>winner 03</span>
+          </li>
+          <li>
+            <img src="./images/user/head_4.png" alt="">
+            <span>winner 04</span>
+          </li>
+          <li>
+            <img src="./images/user/head_5.png" alt="">
+            <span>winner 05</span>
+          </li>
+          <li>
+            <img src="./images/user/head_6.png" alt="">
+            <span>winner 06</span>
+          </li>
+          <li>
+            <img src="./images/user/head_7.png" alt="">
+            <span>winner 07</span>
+          </li>
+          <li>
+            <img src="./images/user/head_8.png" alt="">
+            <span>winner 08</span>
+          </li> -->
+        </ul>
+      </div>
+    </aside>
+  </div>
 </body>
 <script src="./scripts/fontsize.js"></script>
 <script src="./scripts/vendor.js"></script>
+<script src="./scripts/jquery.slotmachine.js?v=2017-11-28 16:22:36"></script>
 <!-- <script src="./scripts/swiper.min.js"></script> -->
-<script src="./scripts/index.js"></script>
+<script src="./scripts/slot.js"></script>
 
 </html>
