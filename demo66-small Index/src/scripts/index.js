@@ -1,25 +1,35 @@
 $(function () {
-    // var mySwiper = new Swiper('.swiper-container', {
-    //     //            direction:"vertical",
-    //     direction: "horizontal",
-    //     initialSlide: 0,
-    //     speed: 2000,
-    //     autoplay: true,
-    //     loop: true,
-    //     //            分页器
-    //     pagination: {
-    //         el: ".swiper-pagination"
-    //     },
-    //     //            前进后退按钮
-    //     navigation: {
-    //         nextEl: ".swiper-button-next",
-    //         prevEl: ".swiper-button-prev",
-    //     },
-    //     //            如果需要滚动条
-    //     scrollbar: {
-    //         el: ".swiper-scrollbar"
-    //     }
-    // });
+    let mySwiper = new Swiper('.swiper-container', {
+        //            direction:"vertical",
+        direction: "horizontal",
+        initialSlide: 0,
+        speed: 2000,
+        autoplay: true,
+        // loop: true,
+        //            分页器
+        pagination: {
+            el: ".swiper-pagination"
+        },
+        //            前进后退按钮
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        //            如果需要滚动条
+        scrollbar: {
+            el: ".swiper-scrollbar"
+        },
+        on: {
+            init: function () {
+                swiperAnimateCache(this); //隐藏动画元素 
+                swiperAnimate(this); //初始化完成开始动画
+            },
+            slideChangeTransitionEnd: function () {
+                swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+                //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
+            }
+        }
+    });
     // setTimeout(() => {
     //     $("#module1 .module-item:eq(0)").animate({
     //         'marginLeft': '0'
