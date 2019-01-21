@@ -1,27 +1,12 @@
 $(function () {
+    $(".banner-tips").fadeIn(1000);
     let mySwiper = new Swiper('.swiper-container', {
-        //            direction:"vertical",
-        direction: "horizontal",
-        initialSlide: 0,
-        speed: 2000,
+        speed: 2500,
         autoplay: true,
-        // loop: true,
-        //            分页器
-        pagination: {
-            el: ".swiper-pagination"
-        },
-        //            前进后退按钮
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        //            如果需要滚动条
-        scrollbar: {
-            el: ".swiper-scrollbar"
-        },
+        loop:true,
         on: {
             init: function () {
-                swiperAnimateCache(this); //隐藏动画元素 
+                // swiperAnimateCache(this); //隐藏动画元素 
                 swiperAnimate(this); //初始化完成开始动画
             },
             slideChangeTransitionEnd: function () {
