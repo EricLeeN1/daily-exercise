@@ -601,9 +601,11 @@ nav {
             line-height: .3rem;
             box-sizing: border-box;
             padding: 0 .4rem;
+            z-index: 2;
         }
 
         img {
+            z-index: 1;
             width: .2rem;
             margin-top: -.4rem;
         }
@@ -611,11 +613,11 @@ nav {
 
     .module-title {
         height: 2.26rem;
-        padding-top: 1rem;
+        padding-top: 1.5rem;
 
         h3 {
             color: #FF6D0B;
-            font-size: .3rem
+            font-size: .28rem;
         }
 
         p {
