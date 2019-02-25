@@ -1,0 +1,27 @@
+@import './_base.scss';
+
+#index-title {
+    background-color: $main-color;
+    padding: .15rem 0;
+    .index-title-group {
+        font-size: 0.30rem;
+        background-color: transparent;
+        border: .04rem solid #ffffff;
+        @include rounded-corners(.08rem);
+        @include flex-center(0);
+        height: .54rem;
+        width: 1.82*3rem;
+        margin: 0 auto;
+    }
+    li {
+        height: 100%;
+        width: 1.82rem;
+        color: #fff;
+        line-height: .54rem;
+        text-align: center;
+        &.active {
+            color: $main-color;
+            background-color: #fff;
+        }
+    }
+}
