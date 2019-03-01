@@ -11,171 +11,191 @@
 </head>
 
 <body>
-    <section>
-        <header id="index-banner">
-            <div class="swiper-container">
-                <!-- <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="./images/banner1@2x.png" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="./images/banner1@2x.png" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="./images/banner1@2x.png" alt="">
-                    </div>
-                </div> -->
-                <!--分页器-->
-                <div class="swiper-pagination"></div>
-                <!--导航按钮-->
-                <div class="swiper-button-prev">
+    <header id="index-banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-color: red">
+                    1
                 </div>
-                <div class="swiper-button-next">
+                <div class="swiper-slide" style="background-color: orange">
+                    2
                 </div>
-                <!--滚动条-->
-                <!--<div class="swiper-scrollbar">-->
+                <div class="swiper-slide" style="background-color: yellow">
+                    3
+                </div>
+            </div>
+            <!--分页器-->
+            <div class="swiper-pagination"></div>
+            <!--导航按钮-->
+            <div class="swiper-button-prev">
+            </div>
+            <div class="swiper-button-next">
+            </div>
+        </div>
+    </header>
+    <section id="goods-des">
+        <div class="goods-price">
+            <span>¥</span>
+            <div>49</div>
+            <i>小农推荐</i>
+            <p>已售9266件</p>
+        </div>
+        <div class="goods-titles">
+            <h2>2018年新米5kg东北吉林正宗小粒香</h2>
+            <p>一个家乡梦 一颗小农心</p>
+        </div>
+        <div class="goods-others">
+            <div class="tips">8小时内发货</div>
+            <div class="tips">服务费率11%</div>
+            <!-- <div class="goods-collect">
+                <img src="" alt="">
+                <p>收藏</p>
+            </div>
+            <div class="goods-share">
+                <img src="" alt="">
+                <p>分享</p>
+            </div> -->
+        </div>
+    </section>
+    <section id="goods-select">
+        <div class="goods-select-title">
+            <p>选择规格和数量</p>
+            <img src="./images/-@2x.png" alt="减少">
+            <!-- <input type="number" v-modal="goods.number" :style="{'width',goods.number.length>3?goods.number.length*.18rem:'.5rem'}"> -->
+            <img src="./images/+@2x.png" alt="添加">
+        </div>
+        <ul class="goods-select-lists">
+            <li class="active">10斤/箱</li>
+            <li>50斤/箱</li>
+            <li>100斤/箱</li>
+            <li>20斤/箱</li>
+            <li>30斤/箱</li>
+            <li>120斤/箱</li>
+        </ul>
+    </section>
+    <section id="judge-lists">
+        <div class="judge-lists-title">
+            <p>农货评价(5263)</p>
+            <div>查看全部</div>
+        </div>
+        <ul class="judge-list">
+            <li>
+                <img src="./images/xianguo@2x.png" alt="" class="judger-logo">
+                <div class="judge-main">
+                    <div class="judger-name">
+                        <p>用户名称</p>
+                        <img src="./images/huangxing@2x.png" alt="">
+                        <img src="./images/huangxing@2x.png" alt="">
+                        <img src="./images/huangxing@2x.png" alt="">
+                        <img src="./images/huangxing@2x.png" alt="">
+                        <img src="./images/huixingda@2x.png" alt="">
+                    </div>
+                    <div class="judge-time">
+                        2019-01-12
+                    </div>
+                    <div class="judge-content">
+                        <p>非常非常好吃非常非常好吃非常非常好吃。</p>
 
-                <!--</div>-->
-            </div>
-            <!-- <img src="" alt="" class="banner-back"> -->
-        </header>
-        <section id="goods-des">
-            <div class="goods-price">
-                <span>¥</span>
-                <div>49</div>
-                <i>小农推荐</i>
-                <p>已售9266件</p>
-            </div>
-            <div class="goods-titles">
-                <h2>2018年新米5kg东北吉林正宗小粒香</h2>
-                <p>一个家乡梦 一颗小农心</p>
-            </div>
-            <div class="goods-others">
-                <div class="tips">8小时内发货</div>
-                <div class="tips">服务费率11%</div>
-                <!-- <div class="goods-collect">
-                    <img src="" alt="">
-                    <p>收藏</p>
+                    </div>
                 </div>
-                <div class="goods-share">
-                    <img src="" alt="">
-                    <p>分享</p>
-                </div> -->
-            </div>
-        </section>
-        <section id="goods-select">
-            <div class="goods-select-title">
-                <p>选择规格和数量</p>
-                <img :src="icon.reduce" alt="减少">
-                <!-- <input type="number" v-modal="goods.number" :style="{'width',goods.number.length>3?goods.number.length*.18rem:'.5rem'}"> -->
-                <img :src="icon.add" alt="添加">
-            </div>
-            <ul class="goods-select-lists">
-                <li :class="active:active == index">10斤/箱</li>
-                <li>50斤/箱</li>
-                <li>100斤/箱</li>
-                <li>20斤/箱</li>
-                <li>30斤/箱</li>
-                <li>120斤/箱</li>
-            </ul>
-        </section>
-        <section id="judge-lists">
-            <div class="judge-lists-title">
-                <p>农货评价(5263)</p>
-                <div>查看全部</div>
-            </div>
-            <ul class="judge-list">
-                <li>
-                    <img src="" alt="" class="judger-logo">
-                    <div class="judge-main">
-                        <div class="judger-name">
-                            <p>用户名称</p>
-                            <img src="" alt="">
-                        </div>
-                        <div class="judge-time">
-                            2019-01-12
-                        </div>
-                        <div class="judge-content">
-                            非常非常好吃非常非常好吃非常非常好吃。
+            </li>
+            <li>
+                <img src="./images/xianguo@2x.png" alt="" class="judger-logo">
+                <div class="judge-main">
+                    <div class="judger-name">
+                        <p>用户名称</p>
+                        <img src="./images/huangxing@2x.png" alt="">
+                        <img src="./images/huangxing@2x.png" alt="">
+                        <img src="./images/huangxing@2x.png" alt="">
+                        <img src="./images/huangxing@2x.png" alt="">
+                        <img src="./images/huixingda@2x.png" alt="">
+                    </div>
+                    <div class="judge-time">
+                        2019-01-12
+                    </div>
+                    <div class="judge-content">
+                        <p>非常非常好吃非常非常好吃非常非常好吃。</p>
+                        <div class="judge-img">
+                            <img src="./images/xianguo@2x.png" alt="">
+                            <img src="./images/xianguo@2x.png" alt="">
+                            <img src="./images/xianguo@2x.png" alt="">
+                            <img src="./images/xianguo@2x.png" alt="">
+                            <img src="./images/xianguo@2x.png" alt="">
+                            <img src="./images/xianguo@2x.png" alt="">
+                            <img src="./images/xianguo@2x.png" alt="">
+                            <img src="./images/xianguo@2x.png" alt="">
+                            <img src="./images/xianguo@2x.png" alt="">
+                            <img src="./images/xianguo@2x.png" alt="">
                         </div>
                     </div>
-                </li>
-                <li>
-                    <img src="" alt="" class="judger-logo">
-                    <div class="judge-main">
-                        <div class="judger-name">
-                            <p>用户名称</p>
-                            <img src="" alt="">
-                        </div>
-                        <div class="judge-time">
-                            2019-01-12
-                        </div>
-                        <div class="judge-content">
-                            非常非常好吃非常非常好吃非常非常好吃。
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </section>
-        <section id="shops-infos">
-            <div class="shops-info">
-                <img src="" alt="">
-                <div class="shops-info-main">
-                    <h2>店铺名称</h2>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section id="shops-infos">
+        <div class="shops-info">
+            <img src="./images/xianguo@2x.png" alt="">
+            <div class="shops-info-main">
+                <h2>店铺名称</h2>
+                <div>
+                    <p>商品数：20</p>
                     <div>
-                        <p>商品数：20</p>
-                        <div>
-                            <span>综合评分</span>
-                            <img src="" alt="">
-                        </div>
+                        <span>综合评分</span>
+                        <img src="./images/hongxing@2x.png" alt="">
+                        <img src="./images/hongxing@2x.png" alt="">
+                        <img src="./images/hongxing@2x.png" alt="">
+                        <img src="./images/hongxing@2x.png" alt="">
+                        <img src="./images/huixingda@2x.png" alt="">
                     </div>
                 </div>
-                <div class="to-shop">
-                    进店逛逛
-                </div>
             </div>
-            <div class="shop-others">
-                <div>
-                    <img src="" alt="">
-                    <p>认证店铺</p>
-                </div>
-                <div>
-                    <img src="" alt="">
-                    <p>保证金已缴纳</p>
-                </div>
+            <div class="to-shop">
+                进店逛逛
             </div>
-        </section>
-        <section id="goods-details">
-            <div class="goods-main-title">
-                宝贝详情
-            </div>
-            <div class="goods-details">
-                <img src="" alt="">
-            </div>
-        </section>
-        <section class="controller-bar">
-            <div class="btn-shop">
-                <img src="" alt="">
-                <p>店铺</p>
-            </div>
-            <div class="btn-service">
-                <img src="" alt="">
-                <p>客服</p>
-            </div>
-            <div class="btn-cart">
-                <img src="" alt="">
-                <p>购物车</p>
+        </div>
+        <div class="shop-others">
+            <div>
+                <img src="./images/renzheng@2x.png" alt="">
+                <p>认证店铺</p>
             </div>
             <div>
-                <p>加入购物车</p>
-                <span>立即购买</span>
+                <img src="./images/baozhengjin@2x.png" alt="">
+                <p>保证金已缴纳</p>
             </div>
-        </section>
+        </div>
+    </section>
+    <section id="goods-details">
+        <div class="goods-main-title">
+            宝贝详情
+        </div>
+        <div class="goods-details">
+            <img src="./images/xianguo@2x.png" alt="">
+            <img src="./images/xianguo@2x.png" alt="">
+            <img src="./images/xianguo@2x.png" alt="">
+        </div>
+    </section>
+    <section id="controller-bar">
+        <div class="btn-shop">
+            <img src="./images/dainou@2x.png" alt="">
+            <p>店铺</p>
+        </div>
+        <div class="btn-service">
+            <img src="./images/kefu@2x.png" alt="">
+            <p>客服</p>
+        </div>
+        <div class="btn-cart">
+            <img src="./images/gouwuche@2x.png" alt="">
+            <p>购物车</p>
+        </div>
+        <div class="btn-group">
+            <p>加入购物车</p>
+            <span>立即购买</span>
+        </div>
     </section>
     <script src="./scripts/fontsize.js"></script>
     <script src="./scripts/vendor.js"></script>
     <script src="./scripts/swiper.min.js"></script>
-    <script src="./scripts/index.js"></script>
+    <!-- <script src="./scripts/index.js"></script> -->
 </body>
 
 </html>

@@ -9,6 +9,7 @@ $version:'1.0.0';
 body {
     font-size: .3rem;
     background-color: #F9F9F9;
+    padding-bottom: 1rem;
 }
 
 #index-banner {
@@ -20,6 +21,9 @@ body {
         height: 3.28rem;
 
         .swiper-slide {
+            width: 100%;
+            height: 100%;
+
             img {
                 width: 100%;
             }
@@ -172,6 +176,7 @@ body {
     .goods-select-lists {
         @include flex-center(0);
         flex-wrap: wrap;
+
         li {
             margin-right: .36rem;
             padding: 0 .5rem;
@@ -187,8 +192,312 @@ body {
 
             &.active {
                 color: #0E8E41;
-                background-color: #11BB55;
+                background-color: rgba(17, 187, 85, .26);
             }
+        }
+    }
+}
+
+#judge-lists {
+    background-color: #fff;
+    padding: 0 .28rem;
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+
+    .judge-lists-title {
+        height: .98rem;
+        @include flex-center(0);
+        font-size: .26rem;
+        font-family: MicrosoftYaHei;
+
+        p {
+            margin-right: auto;
+            font-weight: bold;
+            color: rgba(51, 51, 51, 1);
+        }
+
+        div {
+
+            font-weight: 400;
+            color: rgba(17, 187, 85, 1);
+        }
+    }
+
+    .judge-list {
+        li {
+            @include flex-center(0);
+            border-top: .01rem solid #E6E6E6;
+            padding: .3rem 0;
+
+            .judger-logo {
+                width: .56rem;
+                flex: 0 0 .56rem;
+                margin-right: .2rem;
+                align-self: flex-start;
+            }
+
+            .judge-main {
+                flex: 0 0 6.18rem;
+                width: 6.18rem;
+            }
+
+            .judger-name {
+                height: .46rem;
+                @include flex-center(0);
+                align-items: flex-start;
+
+                p {
+                    margin-right: auto;
+                    font-size: .28rem;
+                    font-family: MicrosoftYaHei;
+                    font-weight: 400;
+                    color: rgba(51, 51, 51, 1);
+                }
+
+                img {
+                    width: .26rem;
+                }
+            }
+
+            .judge-time {
+                font-size: .22rem;
+                font-family: MicrosoftYaHei;
+                font-weight: 400;
+                color: rgba(153, 153, 153, 1);
+                line-height: .4rem;
+            }
+
+            .judge-content {
+                font-size: .28rem;
+                font-family: MicrosoftYaHei;
+                font-weight: 400;
+                color: rgba(51, 51, 51, 1);
+                line-height: .36rem;
+            }
+        }
+    }
+
+    .judge-img {
+        @include flex-center(0);
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin: .1rem 0;
+
+        img {
+            flex: 0 0 calc((100% - .4rem)/4);
+            margin-right: .1rem;
+            width: calc((100% - .4rem)/4);
+            border: .01rem solid #e5e5e5;
+            box-sizing: border-box;
+            margin-bottom: .1rem;
+        }
+    }
+
+}
+
+#shops-infos {
+    @include flex-center(1);
+    padding: .2rem .28rem 0;
+    background-color: #fff;
+
+    .shops-info {
+        width: 100%;
+        @include flex-center(0);
+        height: .97rem;
+
+        img {
+            width: .97rem;
+
+        }
+
+        .shops-info-main {
+            height: 100%;
+            margin-left: .2rem;
+            @include flex-center(1);
+            flex: 0 0 4.37rem;
+            justify-content: center;
+            align-items: flex-start;
+
+            h2 {
+                font-size: .28rem;
+                font-family: MicrosoftYaHei;
+                font-weight: 400;
+                color: rgba(51, 51, 51, 1);
+                line-height: .3rem;
+                margin-bottom: .2rem;
+            }
+
+            >div {
+                @include flex-center(0);
+
+                p {
+                    font-size: .22rem;
+                    font-family: MicrosoftYaHei;
+                    font-weight: 400;
+                    color: rgba(102, 102, 102, 1);
+                    line-height: .32rem;
+                    height: .32rem;
+                }
+
+                div {
+                    @include flex-center(0);
+                    height: .32rem;
+                    margin-left: .36rem;
+
+                    span {
+                        font-size: .18rem;
+                        font-family: MicrosoftYaHei;
+                        font-weight: 400;
+                        color: rgba(102, 102, 102, 1);
+                        line-height: .32rem;
+                    }
+
+                    img {
+                        width: .18rem;
+                    }
+                }
+            }
+        }
+
+        .to-shop {
+            width: 1.4rem;
+            height: .5rem;
+            background: linear-gradient(-35deg, rgba(17, 187, 85, 1), rgba(33, 217, 107, 1));
+            border-radius: .24rem;
+            font-size: .24rem;
+            font-family: MicrosoftYaHei;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
+            line-height: .5rem;
+            margin-left: auto;
+            flex: 0 0 1.4rem;
+            text-align: center;
+        }
+    }
+
+    .shop-others {
+        height: .83rem;
+        @include flex-center(0);
+        width: 100%;
+
+        div {
+            @include flex-center(0);
+
+            &+div {
+                margin-left: 1rem;
+            }
+        }
+
+        img {
+            width: .28rem;
+            margin-right: .14rem;
+        }
+
+        p {
+            font-size: .22rem;
+            font-family: MicrosoftYaHei;
+            font-weight: 400;
+            color: rgba(145, 101, 5, 1);
+        }
+    }
+}
+
+#goods-details {
+    padding: 0;
+
+    .goods-main-title {
+        position: relative;
+        height: .86rem;
+        font-size: .25rem;
+        font-family: MicrosoftYaHei;
+        font-weight: 400;
+        color: rgba(102, 102, 102, 1);
+        line-height: .86rem;
+        text-align: center;
+
+        &::after,
+        &::before {
+            @include positions($left: 2.5rem, $right:0, $top:50%);
+            margin-top: .01rem;
+            background-color: #BCBCBC;
+            width: .6rem;
+            height: .02rem;
+            content: '';
+        }
+
+        &::before {
+            left: auto;
+            right: 2.5rem;
+        }
+    }
+
+    .goods-details {
+        background-color: #fff;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+#controller-bar {
+    @include positions($left: 0, $right:0, $bottom:0, $position:fixed, $index:999);
+    background-color: #fff;
+    height: 1rem;
+    @include flex-center(0);
+
+    .btn-shop,
+    .btn-service,
+    .btn-cart {
+        height: 100%;
+        @include flex-center(1);
+        flex: 0 0 1rem;
+        justify-content: center;
+
+        img {
+            width: .36rem;
+            margin-bottom: .12rem;
+        }
+
+        p {
+            font-size: .22rem;
+            font-family: MicrosoftYaHei;
+            font-weight: 400;
+            color: rgba(102, 102, 102, 1);
+            line-height: 1;
+        }
+    }
+
+    .btn-group {
+        width: 4.2rem;
+        @include flex-center(0);
+        p {
+            width: 2.1rem;
+            height: .8rem;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 1);
+            border: .02rem solid rgba(17, 187, 85, 1);
+            @include rounded-corners(.4rem 0 0 .4rem);
+            line-height: .76rem;
+            text-align: center;
+            font-size: .25rem;
+            font-family: MicrosoftYaHei;
+            font-weight: 400;
+            border-right: none;
+            color: rgba(17, 187, 85, 1);
+        }
+
+        span {
+            width: 2.1rem;
+            height: .8rem;
+            background: linear-gradient(30deg, rgba(252, 134, 0, 1), rgba(255, 189, 57, 1));
+            @include rounded-corners(0 .4rem .4rem 0);
+            text-align: center;
+            font-size: .25rem;
+            line-height: .8rem;
+            font-family: MicrosoftYaHei;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
         }
     }
 }
