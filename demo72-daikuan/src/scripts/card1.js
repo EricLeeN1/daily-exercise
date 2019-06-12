@@ -17,6 +17,7 @@ $(function () {
     }, 1000);
   });
   $('.btn-login').on('click',function () {
-    alert('提交成功')
+    alert('提交成功');
+    window.location.href='success.html';
   })
 })

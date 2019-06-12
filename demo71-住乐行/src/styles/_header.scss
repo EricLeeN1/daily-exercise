@@ -1,27 +1,74 @@
 @import './_base.scss';
 
-#index-title {
-    background-color: $main-color;
-    padding: .15rem 0;
-    .index-title-group {
-        font-size: 0.30rem;
-        background-color: transparent;
-        border: .04rem solid #ffffff;
-        @include rounded-corners(.08rem);
-        @include flex-center(0);
-        height: .54rem;
-        width: 1.82*3rem;
-        margin: 0 auto;
+#header {
+  background-color: #fff;
+
+  .container {
+    height: 120px;
+    @include container;
+    @include flex-center();
+    justify-content: space-between;
+
+    img {
+      width: 116px;
+
+      &+img {
+        width: 266px;
+      }
     }
+  }
+}
+
+#nav {
+  background-color: #11582F;
+
+  .container {
+    height: 60px;
+    @include container;
+    @include flex-center();
+    justify-content: space-between;
+
     li {
-        height: 100%;
-        width: 1.82rem;
-        color: #fff;
-        line-height: .54rem;
-        text-align: center;
-        &.active {
-            color: $main-color;
-            background-color: #fff;
-        }
+      font-size: 20px;
+      font-family: NotoSansHans-DemiLight;
+      font-weight: normal;
+      color: #ffffff;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      line-height: 60px;
+
+      &.active {
+        color: #000000;
+        background-color: #fff;
+      }
+
+      &:hover {
+        color: #000000;
+        background-color: #fff;
+      }
     }
+  }
+}
+
+#banner {
+  a {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+#breadcrumbs {
+  height: 40px;
+  background: rgba(240, 240, 241, 1);
+
+  .container {
+    @include container;
+    line-height: 40px;
+    font-size: 14px;
+    font-family: NotoSansHans-Regular;
+    font-weight: 400;
+    color: rgba(39, 39, 39, 1);
+  }
 }

@@ -1,211 +1,215 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>首页</title>
-    <link rel="stylesheet" href="./styles/index.css">
-    <link rel="stylesheet" href="./styles/swiper.min.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>首页</title>
+        <link rel="stylesheet" href="./styles/index.css">
+    </head>
 
-<body>
-    <header id="index-title">
-        <img src="" alt="">
-        <img src="" alt="">
-    </header>
-    <section id="index-banner">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="./images/banner1@2x.png" alt="">
+    <body id="index">
+        <header id="header">
+            <div class="container">
+                <img src="./images/logo.png" alt="">
+                <img src="./images/phone.png" alt="">
+            </div>
+        </header>
+        <nav id="nav">
+            <ul class="container">
+                <li class="active"><a href="">首页</a></li>
+                <li><a href="./about.html">公司简介</a></li>
+                <li><a href="./recruit.html">招商加盟</a></li>
+                <li><a href="./shows.html">项目展示</a></li>
+                <li><a href="./market.html">市场分布</a></li>
+                <li><a href="./attract.html">招兵买马</a></li>
+                <li><a href="./news.html">公司动态</a></li>
+                <li><a href="./publicWelfare.html">公益活动</a></li>
+                <li><a href="./school.html">乐商学院</a></li>
+                <li><a href="./map.html">联系我们</a></li>
+            </ul>
+        </nav>
+        <section id="banner">
+            <a href="">
+                <img src="./images/banner.png" alt="">
+            </a>
+        </section>
+        <!-- 招商加盟 -->
+        <section id="recruit">
+            <div class="container">
+                <div class="title">
+                    <h3>招商加盟</h3>
+                    <p>MERCHANTS JOIN</p>
                 </div>
-                <div class="swiper-slide">
-                    <img src="./images/banner1@2x.png" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="./images/banner1@2x.png" alt="">
+                <div class="recruit-list">
+                    <div class="recruit-item">
+                        <img src="./images/project1.png" alt="">
+                        <p>招募城市合伙人</p>
+                    </div>
+                    <div class="recruit-item">
+                        <img src="./images/project1.png" alt="">
+                        <p>渠道合伙人</p>
+                    </div>
                 </div>
             </div>
-            <!--分页器-->
-            <div class="swiper-pagination"></div>
-            <!--导航按钮-->
-            <div class="swiper-button-prev">
+        </section>
+        <!-- 公司简介 -->
+        <section id="about">
+            <div class="container">
+                <div class="title">
+                    <h3>公司简介</h3>
+                    <p>PROJECT DISPLAY</p>
+                </div>
+                <div class="about-item">
+                    <img src="./images/aboutus.png" alt="">
+                    <div class="about-item-right">
+                        <h3>住乐行科技有限公司</h3>
+                        <p>瓷砖、地板是家庭装修中常用到的一种装饰材料，扮演着极为重要的作用，从某种意义上来说，它们也是装修成败的重要因素。随着人们对品质家装的追求，瓷砖、地板也逐渐成为家中空间必不可缺的一部分，无论是客餐厅、厨房、卫生间、卧室还是阳台都得靠它来装扮。如今，许多家庭装修的风格与意境都需要靠瓷砖、地板的运用和铺陈才能达到应有的效果，一款好的瓷砖、地板还能为家中的装修增色不少.....</p>
+                        <a href="">查看更多</a>
+                    </div>
+                </div>
             </div>
-            <div class="swiper-button-next">
-            </div>
-            <!--滚动条-->
-            <!--<div class="swiper-scrollbar">-->
 
-            <!--</div>-->
-        </div>
-    </section>
-    <section id="index-nav1">
-        <ul>
-            <li>
-                <a href="">
-                    <img src="./images/business@2x.png" alt="" srcset="./images/business@2x.png 2x,./images/business@3x.png 3x">
-                    <p>业务服务</p>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="./images/commerce@2x.png" alt="" srcset="./images/commerce@2x.png 2x,./images/commerce@3x.png 3x">
-                    <p>商业服务</p>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="./images/brand@2x.png" alt="" srcset="./images/brand@2x.png 2x,./images/brand@3x.png 3x">
-                    <p>品牌服务</p>
-                </a>
-            </li>
-        </ul>
-    </section>
-    <section id="index-nav2">
-        <ul class="index-nav2-tabbar">
-            <li class="active">加盟服务</li>
-            <li>旅居服务</li>
-            <li>扩展服务</li>
-        </ul>
-        <ul class="index-nav2-panel">
-            <li>
-                <ul class="index-nav2-list">
-                    <li>
-                        <a href="">
-                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
-                            <span class="item-infos">
-                                <h3>百度-经验</h3>
-                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
-                            </span>
-                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
-                            <span class="item-infos">
-                                <h3>百度-经验</h3>
-                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
-                            </span>
-                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
-                            <span class="item-infos">
-                                <h3>百度-经验</h3>
-                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
-                            </span>
-                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li style="display:none">
-                <ul class="index-nav2-list">
-                    <li>
-                        <a href="">
-                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
-                            <span class="item-infos">
-                                <h3>百度-经验</h3>
-                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
-                            </span>
-                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
-                            <span class="item-infos">
-                                <h3>百度-经验</h3>
-                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
-                            </span>
-                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
-                            <span class="item-infos">
-                                <h3>百度-经验</h3>
-                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
-                            </span>
-                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li style="display:none">
-                <ul class="index-nav2-list">
-                    <li>
-                        <a href="">
-                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
-                            <span class="item-infos">
-                                <h3>百度-经验</h3>
-                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
-                            </span>
-                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
-                            <span class="item-infos">
-                                <h3>百度-经验</h3>
-                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
-                            </span>
-                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./images/item-logo@2x.png" alt="" class="list-logo">
-                            <span class="item-infos">
-                                <h3>百度-经验</h3>
-                                <p>互联网上的使用生活指南。在这里，您可以找到许多经过实践检验的...</p>
-                            </span>
-                            <img src="./images/narrow-right@2x.png" alt="" class="narrow-right" srcset="./images/narrow-right@2x.png 2x,./images/narrow-right@3x.png 3x">
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </section>
-    <footer>
-        <ul>
-            <li class="active">
-                <a href="./">
-                    <img src="./images/icon-index-active@2x.png" alt="">
-                    <p>首页</p>
-                </a>
-            </li>
-            <li>
-                <a href="./message.html">
-                    <img src="./images/icon-phone@2x.png" alt="">
-                    <p>在线留言</p>
-                </a>
-            </li>
-            <li>
-                <a href="tel:18839893536">
-                    <img src="./images/icon-call@2x.png" alt="">
-                    <p>电话咨询</p>
-                </a>
-            </li>
-            <li>
-                <a href="./map.html">
-                    <img src="./images/icon-map@2x.png" alt="">
-                    <p>查看地图</p>
-                </a>
-            </li>
-        </ul>
-    </footer>
-    <script src="./scripts/fontsize.js"></script>
-    <script src="./scripts/vendor.js"></script>
-    <script src="./scripts/swiper.min.js"></script>
-    <script src="./scripts/index.js"></script>
-</body>
+        </section>
+        <!-- 招商加盟 -->
+        <section id="show">
+            <div class="container">
+                <div class="title">
+                    <h3>项目展示</h3>
+                    <p>PROJECT DISPLAY</p>
+                </div>
+                <div class="show-list">
+                    <div class="show-item">
+                        <img src="./images/project1.png" alt="">
+                        <div class="show-item-bottom">
+                            <h3>提供完善全系列产品解决方案</h3>
+                            <p>瓷砖、地板是家庭装修中常用到的一种装饰材料，扮演着极为重要的作用，从某种意义上来说，它们也是装......</p>
+                            <a href="">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="show-item">
+                        <img src="./images/project2.png" alt="">
+                        <div class="show-item-bottom">
+                            <h3>提供完善全系列产品解决方案</h3>
+                            <p>瓷砖、地板是家庭装修中常用到的一种装饰材料，扮演着极为重要的作用，从某种意义上来说，它们也是装......</p>
+                            <a href="">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="show-item">
+                        <img src="./images/project1.png" alt="">
+                        <div class="show-item-bottom">
+                            <h3>提供完善全系列产品解决方案</h3>
+                            <p>瓷砖、地板是家庭装修中常用到的一种装饰材料，扮演着极为重要的作用，从某种意义上来说，它们也是装......</p>
+                            <a href="">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="show-item">
+                        <img src="./images/project2.png" alt="">
+                        <div class="show-item-bottom">
+                            <h3>提供完善全系列产品解决方案</h3>
+                            <p>瓷砖、地板是家庭装修中常用到的一种装饰材料，扮演着极为重要的作用，从某种意义上来说，它们也是装......</p>
+                            <a href="">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section id="news">
+            <div class="container">
+                <div class="news-left">
+                    <div class="news-title">
+                        <h3>公司动态<small>Company dynamics</small></h3>
+                    </div>
+                    <div class="news-lists">
+                        <div class="news-item-first">
+                            <img src="./images/news1.png" alt="">
+                            <p>瓷砖、地板是家庭装修中常用到的一种装饰材料，扮演着极为重要的作用，从某种意义上来瓷砖、地板是家庭装修中常用到的一种装饰材料，扮演着极为重要的作用。</p>
+                        </div>
+                        <ul>
+                            <li>
+                                <p>·许多家庭装修的风格与意境都需要</p>
+                                <span>[2019-8-10]</span>
+                            </li>
+                            <li>
+                                <p>·许多家庭装修的风格与意境都需要</p>
+                                <span>[2019-8-10]</span>
+                            </li>
+                            <li>
+                                <p>·许多家庭装修的风格与意境都需要</p>
+                                <span>[2019-8-10]</span>
+                            </li>
+                            <li>
+                                <p>·许多家庭装修的风格与意境都需要</p>
+                                <span>[2019-8-10]</span>
+                            </li>
+                            <li>
+                                <p>·许多家庭装修的风格与意境都需要</p>
+                                <span>[2019-8-10]</span>
+                            </li>
+                            <li>
+                                <p>·许多家庭装修的风格与意境都需要</p>
+                                <span>[2019-8-10]</span>
+                            </li>
+                            <li>
+                                <p>·许多家庭装修的风格与意境都需要</p>
+                                <span>[2019-8-10]</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="news-right">
+                    <img src="./images/ad1.png" alt="">
+                    <img src="./images/ad2.png" alt="">
+                </div>
+            </div>
+
+        </section>
+        <footer id="footer">
+            <div class="footer-title">
+                <h3>联系我们<small>Contact us</small></h3>
+            </div>
+            <div class="container">
+                <div class="footer-left">
+                    <div class="footer-left-item">
+                        <div>
+                            <img src="./images/name.png" alt="">
+                        </div>
+                        <span></span>
+                        <p>易盛丰和（大连）网络科技有限公司</p>
+                    </div>
+                    <div class="footer-left-item">
+                        <div>
+                            <img src="./images/icon-phone.png" alt="">
+                        </div>
+                        <span></span>
+                        <p>0411-83765089</p>
+                    </div>
+                    <div class="footer-left-item">
+                        <div>
+                            <img src="./images/address.png" alt="">
+                        </div>
+                        <span></span>
+                        <p>辽宁省大连市沙河口区西南路888号冰山慧谷A9梦想长廊211乐住行</p>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <div>
+                        <img src="./images/wechat1.png" alt="">
+                        <p>微信公众平台</p>
+                    </div>
+                    <div>
+                        <img src="./images/wechat2.png" alt="">
+                        <p>微信客服</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="./scripts/vendor.js"></script>
+        <script src="./scripts/swiper.min.js"></script>
+        <script src="./scripts/index.js"></script>
+    </body>
 
 </html>
