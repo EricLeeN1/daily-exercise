@@ -1,4 +1,7 @@
 $(function () {
+  $("header img").on('click',function () {
+    window.history.go(-1)
+  })
   $("#btn-times").on('click',function () {
     $(this).hide();
     $(this).next().show();

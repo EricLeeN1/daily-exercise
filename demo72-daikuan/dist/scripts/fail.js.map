@@ -1,0 +1,1 @@
+{"version":3,"sources":["fail.js"],"names":["$","on","window","history","go"],"mappings":"aAAAA,EAAE,WACAA,EAAE,cAAcC,GAAG,QAAQ,WAD3BC,OAAAC,QAAYC,IAAA","file":"fail.js","sourcesContent":["$(function () {\r\n  $(\"header img\").on('click',function () {\r\n    window.history.go(-1)\r\n  })\r\n})"]}
