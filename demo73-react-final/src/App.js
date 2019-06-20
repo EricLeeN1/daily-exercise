@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css';
 import Index from './modules/index'
 import Form from './modules/form'
+import Calculator from './modules/boilingVerdict'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
@@ -31,7 +32,7 @@ class App extends React.Component {
           <main>
             <Route path="/" exact component={Index} />
             <Route path="/form/" component={Form} />
-            {/* <Route path="/users/" component={Users} /> */}
+            <Route path="/state/" component={Calculator} />
           </main>
         </div>
       </Router>
