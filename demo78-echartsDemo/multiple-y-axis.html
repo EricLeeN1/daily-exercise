@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+        <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+        <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+        <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+        <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+        <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+        <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+        <script type="text/javascript"
+            src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+        <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+        <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+        <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+app.title = '多 Y 轴示例';
+
+var colors = ['#5793f3', '#d14a61', '#675bba'];
+
+option = {
+    backgroundColor:'rgba(255, 255, 255, 0)',
+    color: colors,
+    title:{
+        text:"市级单位绩效"
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+        }
+    },
+    grid: {
+        right: '20%',
+        bottom:'15%' 
+    },
+    toolbox: {
+        feature: {
+            dataView: {show: true, readOnly: false},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    legend: {
+        data:['总得分','满意率'],
+    },
+    xAxis: [
+        {
+            type: 'category',
+            axisTick: {
+                alignWithLabel: true
+            },
+            data: ['灵宝市','卢氏县','市公安局','市城市管理局','渑池县','市自来水公司','市民族宗教事务局','市市场监督管理局（工商领域）','市林业局','市水利局','市市场监督管理局（食品药品监管领域）','市政务服务和大数据管理局','市商务局','市教育局','中国电信三门峡分公司','市投资集团有限公司','市住房和城乡建设局','市公路局','中国移动三门峡分公司','市退役军人事务局','河南有线三门峡分公司','开发区管理委员会','市医疗保障局','市机关事务管理局','市卫生健康委员会','义马市','市三联热力公司','市农业农村局','市金融工作局','市司法局','市中裕燃气有限公司','市供电公司','中国联通三门峡分公司 ','市民政局','市发改委','市生态环境局','市工业和信息化局','市交通运输局','市市场监督管理局（质量技术监督领域）','中石化三门峡石油分公司','市文化广电和旅游局','市体育局','市残联','市税务局','城乡一体化示范区','湖滨区','中国铁塔三门峡分公司','陕州区','市应急管理局','市邮政管理局','法电（大唐）热力公司','市政府国资委','市人力资源和社会保障局','市自然资源和规划局','商务中心区'],
+            axisLabel: {
+                interval: 0,
+                rotate: 30
+            },
+            splitLine: {
+                show: false
+            }, 
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            name: '总得分',
+            min: 600,
+            max: 1300,
+            position: 'right',
+            axisLine: {
+                lineStyle: {
+                    color: colors[0]
+                }
+            },
+            axisLabel: {
+                formatter: '{value} 分'
+            },
+        },
+        {
+            type: 'value',
+            name: '满意率',
+            min: 0,
+            max: 100,
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: colors[1]
+                }
+            },
+            axisLabel: {
+                formatter: '{value} %'
+            },
+        }
+    ],
+    series: [
+        {
+            name:'总得分',
+            type:'bar',
+            data:[1127.51,1101.00,1094.85,1094.17,1041.58,1009.76,992.70,988.18,987.01,984.51,982.74,979.55,976.70,973.90,970.97,970.45,966.80,963.48,962.44,959.68,956.95,956.21,955.36,954.98,954.62,951.44,947.07,945.55,940.25,933.92,933.33,924.95,915.33,911.42,911.39,901.27,896.78,894.06,892.78,890.70,862.45,858.68,857.53,854.94,814.29,805.22,786.00,747.61,747.49,743.83,718.42,692.27,649.44,643.73,630.17],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            },
+            label: {
+                normal: {
+                    verticalAlign: 'middle',
+                    position: 'insideBottom',
+                    distance: 15,
+                    align:'left',
+                    show:true,
+                    rotate:80,
+                    color:'black'
+                }
+            },
+        },
+        {
+            name:'满意率',
+            type:'line',
+            yAxisIndex: 1,
+            data:[86.14,86.54,90.28,85.38,81.98,91.95,100.00,81.30,94.74,100.00,84.56,92.73,100.00,84.29,92.89,94.04,86.34,90.53,95.43,100.00,100.00,84.10,100.00,94.29,80.67,85.42,60.10,92.00,60.00,86.67,90.84,96.49,96.00,92.00,78.29,90.22,80.00,86.72,84.00,100.00,91.58,86.67,92.00,87.62,83.74,84.03,20.00,83.43,100.00,100.00,52.58,93.34,87.62,79.69,89.32],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            },
+            label: {
+                normal: {
+                    position: 'top',
+                    show: true,
+                    verticalAlign: 'middle',
+                    position: 'insideBottom',
+                    distance: 15,
+                }
+            },
+        },
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+    </body>
+</html>
