@@ -115,7 +115,7 @@ gulp.task('html', () => { //先执行styles scripts任务
 gulp.task('serve', ['styles', 'scripts'], () => {
     browserSync({
         notify: true,
-        port: 3546, //端口号
+        port: 3000, //端口号
         server: {
             baseDir: ['dist'], //确定根目录
             routes: {
