@@ -1,9 +1,8 @@
 $(function () {
-    $(".banner-tips").fadeIn(1000);
     let mySwiper = new Swiper('.swiper-container', {
         speed: 2500,
         autoplay: true,
-        loop:true,
+        loop: true,
         on: {
             init: function () {
                 // swiperAnimateCache(this); //隐藏动画元素 
@@ -13,7 +12,16 @@ $(function () {
                 swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
                 //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
             }
-        }
+        },
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
     });
     // setTimeout(() => {
     //     $("#module1 .module-item:eq(0)").animate({
