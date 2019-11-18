@@ -3,16 +3,6 @@ $(function () {
         speed: 2500,
         autoplay: true,
         loop: true,
-        on: {
-            init: function () {
-                // swiperAnimateCache(this); //隐藏动画元素 
-                swiperAnimate(this); //初始化完成开始动画
-            },
-            slideChangeTransitionEnd: function () {
-                swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
-                //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
-            }
-        },
         // 如果需要分页器
         pagination: {
             el: '.swiper-pagination',
@@ -43,19 +33,6 @@ $(function () {
     //         'marginRight': '0'
     //     },'fast','linear');
     // }, 2000);
-    var wow = new WOW({
-        boxClass: 'wow', // animated element css class (default is wow)
-        animateClass: 'animated', // animation css class (default is animated)
-        offset: 0, // distance to the element when triggering the animation (default is 0)
-        mobile: true, // trigger animations on mobile devices (default is true)
-        live: true, // act on asynchronously loaded content (default is true)
-        callback: function (box) {
-            // the callback is fired every time an animation is started
-            // the argument that is passed in is the DOM node being animated
-        },
-        scrollContainer: null // optional scroll container selector, otherwise use window
-    });
-    wow.init();
     let active = 0;
     let timer = setInterval(() => {
         if (active < 3) {
