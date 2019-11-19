@@ -146,7 +146,7 @@ nav {
             height: 1.2rem;
             text-align: center;
             line-height: 1.2rem;
-            font-size: .26rem;
+            font-size: .24rem;
             font-family: FZLTXHJW;
             font-weight: normal;
             color: rgba(51, 51, 51, 1);
@@ -155,6 +155,15 @@ nav {
                 color: #fff;
                 background: url('../images/web/nav-bg.png') no-repeat;
                 background-position: left bottom;
+                font-size: .28rem;
+            }
+
+            &:nth-child(n + 5),
+            &:hover {
+                background-color: #f00;
+                color: #fff;
+                font-size: .28rem;
+                margin-top: -.02rem;
             }
         }
     }
@@ -571,7 +580,8 @@ nav {
 }
 
 #hot-jobs,
-#study {
+#study,
+#visit {
     #module3 {
         background-color: #fff;
 
@@ -616,6 +626,24 @@ nav {
     #banner {
         img {
             margin-left: -2.1rem;
+        }
+    }
+
+}
+
+#about,
+#study,
+#visit {
+    #module {
+        height: 1.2rem;
+        position: relative;
+
+        &::after {
+            content: '';
+            @include positions($left:0, $bottom:-.06rem);
+            height: .08rem;
+            width: 100%;
+            background-color: #f00;
         }
     }
 }
