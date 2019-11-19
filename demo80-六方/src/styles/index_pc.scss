@@ -367,10 +367,21 @@ nav {
         }
     }
 
-    .module1-main {
+    .module-slogan {
         width: 1180px;
-        display: block;
+        margin: 60px auto 0 auto;
+        @include flex-center();
         margin: 38px auto 50px auto;
+        justify-content: space-between;
+
+        img {
+            width: 268px;
+            border-radius: 10px;
+
+            &:hover {
+                box-shadow: 0 0 6px #f00;
+            }
+        }
     }
 }
 
