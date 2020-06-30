@@ -1,0 +1,15 @@
+{
+  "name": "demo74-typescript",
+  "version": "1.0.0",
+  "description": "null null 表示对象值缺失；\r undefined undefined 用于初始化对象为一个未定义的值；\r never never 是其他类型（包括null和undefined）的子类型，代表从不会出现的值；\r Any Any 任意值是TypeScript针对编程时类型不明确的变量使用的一种数据类型，常用于以下三种情况\r   1、变量的值会动态改变时，比如来自用户的输入，任意值理性可以让这些变量跳过编译阶段的类型检查。\r   2、改写现有代码时，任意值允许在编译时可选择地包含或移除类型检查\r   3、定义存储各类型数据的数组时",
+  "main": "class.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^14.0.14"
+  }
+}
